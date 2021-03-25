@@ -1,0 +1,17 @@
+[Unit]
+Description=Tilon Interface Server
+
+[Service]
+Type=simple
+
+User=root
+
+Group=root
+
+
+ExecStart=/usr/share/tilon/interface/interface_1.0.0.0 -start
+PIDFile=/usr/share/tilon/interface/interface.pid
+WorkingDirectory=/usr/share/tilon/interface/
+
+[Install]
+WantedBy=multi-user.target

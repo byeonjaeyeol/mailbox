@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link href="./51001-60004-sample/css/common.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./51001-60004-sample/css/m_kcom_style.css" type="text/css">
+<script type="text/javascript" src="./51001-60004-sample/css/jquery-3.2.1.js.다운로드"></script>	
+<title>고용취득신고통지서(상용)</title>
+</head>
+<body>
+<div id="wrap">
+
+	<div id="header">
+		<div class="header-title">
+			<h1 class="logo"><img src="./51001-60004-sample/css/logo.png" alt="근로복지공단"></h1>
+			<h2 class="title-area">
+				<div class="first">고용보험 피보험자격</div>
+				<span class="tx">
+					<div class="checkbox">
+						<%data.controls.input.name1%>
+						<%data.controls.input.name2%>
+					</div>						
+				</span>
+				신고사실 통지서(피보험자용)			
+			</h2>
+		</div>
+	</div>
+	<!-- header -->
+	<div id="container">
+
+		<div id="a" class="conts-area">
+			<table>
+				<tr>
+					<td class="b-title tx-bd" rowspan='4'>피보험자</td>
+					<td class="title">성명</td>
+					<td class="sub"><%=binding.data.t_susinja%></td>					
+				</tr>	
+				<tr>
+					<td class="title">생년월일</td>
+					<td class="sub"><%=binding.data.t_birth%></td>
+				</tr>
+				<tr>
+					<td class="title">주소</td>
+					<td class="sub"><%=binding.data.t_juso1%>,<%=binding.data.t_juso2%></td>					
+				</tr>
+				<tr>
+					<td class="title">전화번호</td>
+					<td class="sub"><%=binding.data.t_hp%></td>					
+				</tr>
+				<tr>
+					<td class="b-title tx-bd" rowspan='3'>자격취득<br> (고용)</td>
+					<td class="title">자격취득일</td>
+					<td class="sub"><%=binding.data.t_chwideukdt%></td>				
+				</tr>
+				<tr>
+					<td class="title">취득신고일</td>
+					<td class="sub"><%=binding.data.t_chwideuksingodt%></td>
+				</tr>
+				<tr>
+					<td class="title" colspan='2'>65세 이후 취득자 실업급여 적용여부</td>
+					<td class="sub"><%=binding.data.t_65%></td>
+				</tr>
+				<tr>
+					<td class="b-title tx-bd" rowspan='3'>자격상실<br> (퇴직)</td>
+					<td class="title">상실연월일</td>
+					<td class="sub"><%=binding.data.t_sangsildt%></td>				
+				</tr>
+				<tr>
+					<td class="title">상실사유</td>
+					<td class="sub"><%=binding.data.t_snagsilsayu%></td>					
+				</tr>
+				<tr>
+					<td class="title">상실신고일</td>
+					<td class="sub"><%=binding.data.t_snagsilsingodt%></td>					
+				</tr>
+			</table>
+			
+			<table class="company">
+				<tr>
+					<td class="b-title tx-bd">사업장 관리 번호<br>(하수급인관리번호)</td>
+					<td class="sub"><%=binding.data.t_saeopjangno%></td>									
+				</tr>
+				<tr>
+					<td class="b-title tx-bd">사업장명칭</td>
+					<td class="sub"><%=binding.data.t_saeopjangnm%></td>						
+				</tr>
+				<tr>
+					<td class="b-title tx-bd">사업장소재지</td>
+					<td class="sub"><%=binding.data.t_saeopjangaddr1%>,<%=binding.data.t_saeopjangaddr2%></td>					
+				</tr>				
+			</table>	
+			
+
+			<div class="info-txt">
+				<ul class="sub pb10">
+					<li class="bullet">※</li>
+					<li class="txt-p">
+					<strong>정부24</strong><a href="https://www.gov.kr/" alt="정부24">(www.gov.kr)</a> 또는 <strong>고용보험 홈페이지</strong><a href="https://www.ei.go.kr/ei/eih/cm/hm/main.do" alt="고용보험 홈페이지">(www.ei.go.kr)</a>를 이용하시면 귀하의 고용보험 가입내역을 보다 정확하고 간편하게 확인하실 수 있습니다.</li>
+				</ul>
+				<ul class="sub mt10 pb10">
+					<li class="bullet">※</li>
+					<li class="txt-p">실업급여는 이직일 이전 18개월간 피보험단위기간이 통산하여 180일 이상이고, 비자발적인 사유로 퇴직한 경우 등 수급요건을 갖춘 경우 지급받을 수 있으며, 이직일의 다음날부터 기산하여 12개월 내에 「고용보험법」제 50조제1항에 따른 소정급여일수를 한도로 지급합니다(「고용보험법」제40조, 제48조).</li>
+					<li class="bullet">※</li>
+					<li class="txt-p">고용보험법 제10조 개정에 따라 2019.1.15.이후 신규 고용된 65세 이상 근로자는 65세 이전부터 피보험자격을 유지하다가 근로단절 없이 계속 고용된 경우에만 실업급여 사업을 적용합니다.</li>
+				</ul>			
+				
+				<p class="tx-bd mt10">「고용보험법」제15조제4항 및 같은 법 시행규칙 제6조제1항제2호에 따라 위와 같이 통지합니다.</p>
+			</div>
+			
+			<div id="d" class="info-branch">
+				<div class="branch-txt">
+					<span id="1"><%=binding.data.t_balsongdt_yyyy%></span>년
+					<span id="2"><%=binding.data.t_balsongdt_mm%></span>월
+					<span id="3"><%=binding.data.t_balsongdt_dd%></span>일<br>
+					<span id="4"></span>
+					<!--  근로복지공단 <span id="4">부천</span>지사장-->
+				</div>
+				<div class="sign pb10">근로복지공단 서울지역본부장<!--img src="./css/16300.jpg"--></div>
+			</div>
+		</div>
+
+		<div id="b" class="conts-area">
+			<table class="foot-info">
+				<tr>
+					<td class="c-title tx-bd" rowspan='3'>문의전화</td>
+					<td class="title tx-bd">고용노동부 고객상담센터</td>
+					<td class="sub tx-bd pink">☎ 국번없이 1350(상담사연결 ②번 + ④번)</td>					
+				</tr>
+				<tr>					
+					<td class="title tx-bd" rowspan='2' >근로복지공단 콜센터</td>
+					<td class="sub tx-bd pink">☎ 1588-0075(상담사연결 ②번 + ⓞ번 + ①번)</td>					
+     			</tr>
+				<tr>				
+					<td class="sub">※ 보이는 ARS 1번 ☞ 접수/처리현황, 팩스수신여부, 서식전송 등 확인 가능</td>					
+     			</tr>	
+				
+				<tr>					
+					<td class="b-title tx-bd">소속기관</td>
+					<td class="sub" colspan='2'><%=binding.data.t_gy%></td>					
+				</tr>
+				<tr>					
+					<td class="b-title tx-bd">문서번호</td>
+					<td class="sub" colspan='2'><%=binding.data.t_munseono%></td>					
+				</tr>
+				<tr>					
+					<td class="b-title tx-bd">주소</td>
+					<td class="sub" colspan='2'><%=binding.data.t_gyaddr%></td>					
+				</tr>
+			</table>	
+		</div>
+
+		<div class="conts-area">
+			<div class="notice">			
+					
+						<ul class="title pb10">
+							<li><div class="line"></div></li>
+							<li><div class="title-tx tx-bd">신고사실 통지서 안내</div></li>
+							<li><div class="line"></div></li>
+						</ul>
+						<ul class="sub pb10">
+							<li class="bullet">○</li>
+							<li class="text">이 통지서는 귀하가 근로하고 있거나, 근로하였던 사업장에서 귀하의 고용보험 피보험자격 취득·상실신고를 한 경우 그 처리내용을 알려드리는 것으로 실제 근로한 내용과 다른 경우 사업장에 문의하여 사업주에게 변경 신고토록 하거나, 사업장 관할 근로복지공단 가입지원부에 문의하여 주시기 바랍니다.</li>
+						</ul>
+						<ul class="sub br-pink pb10">
+							<li class="bullet">○</li>
+							<li class="text"> 근로자가 아닌 등기임원이나 사업주의 동거친족은 실업급여, 모성보호지원금 등 각종 지원금이 지급되지 않을 수 있으니, 사업장 관할 근로복지공단 가입지원부에 고용보험 자격취소를 요청하여 주시기 바랍니다.</li>
+						</ul>
+
+					
+						<ul class="title-notice mt20 pb10">
+							<li><div class="line"></div></li>
+							<li><div class="title-tx tx-bd">고용보험안내</div></li>
+							<li><div class="line"></div></li>
+						</ul>
+						<ul class="sub pb10">
+							<li class="bullet">○</li>
+							<li class="text">고용보험법 시행령 제3조 단서조항 개정(시행일'18.7.3.)으로 초단시간근로자의 고용보험 당연적용 요건이 변경됨에 따라, <span class="tx-bd">아르바이트 주간 학생, 가족인 요양보험사 등도 3개월 이상 계속하여 근로하는 경우 고용보험 당연가입 대상입니다.</span> </li>
+						</ul>
+						<ul class="sub pb10">
+							<li class="bullet">○</li>
+							<li class="text">실업급여 수급대상 여부 등 고용보험에 관하여 궁금한 사항은 고용노동부 고객상담센터(국번없이 1350) 또는 가까운 고용노동복지플러스센터로 문의하시기 바랍니다.</li>
+						</ul>
+						<ul class="sub br-blue pb10">
+							<li class="bullet">※</li>
+							<li class="text">「고용보험법」제 18조(이중취득 제한)에 따라 취소된 피보험기간 동안의 기 납부한 보험료(최대3년)는 근로자 본인 부담분을 포함하여 사업주에게 전액 반환됨을 알려 드립니다. </li>
+						</ul>							
+				
+			</div>
+		</div>
+
+</div>
+<!-- warp -->
+
+
+</body>
+</html>

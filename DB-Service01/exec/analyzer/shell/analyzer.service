@@ -1,0 +1,16 @@
+[Unit]
+Description=Tilon Analyzer Server
+
+[Service]
+Type=simple
+User=root
+Group=root
+
+EnvironmentFile=-/usr/share/tilon/anaylzer/server.conf
+
+ExecStart=/usr/share/tilon/analyzer/analyzer -start oUe_o20BlsHYULiaJppy
+PIDFile=/usr/share/tilon/analyzer/analyzer.pid
+WorkingDirectory=/usr/share/tilon/analyzer
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,39 @@
+{
+    "from" : "$PAGE_FROM",
+    "size" : "$PAGE_SIZE",
+    "sort" : [
+        {
+            "$SORT_KEY" : "$SORT_ORDER"
+        }
+    ],
+    "query" : {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "binding.reserved.essential.search.request-id": {
+                            "query": "$REQUEST_ID",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "binding.reserved.essential.agency.dept-code": {
+                            "query": "$DEPT_CODE",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "range": {
+                        "status.time.@registed": {
+                            "gte":"$GTE",
+                            "lt": "$LT"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

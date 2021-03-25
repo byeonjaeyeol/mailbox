@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# stop service
+systemctl stop epost.interface.service
+
+# when delete service
+systemctl unmask epost.interface.service
+
+# delete svc file
+rm -f /etc/systemd/system/epost.interface.service
+
+# daemon reload
+systemctl daemon-reload

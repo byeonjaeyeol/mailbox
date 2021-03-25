@@ -1,0 +1,25 @@
+{
+  "logs": [
+    {
+      "name": "console",
+      "level": 150,
+      "format": "stdout"
+    },
+    {
+      "name": "access",
+      "path": "logs",
+      "level": 100,
+      "format": "textfile",
+      "rotationCnt": 5,
+      "rotationFreq": 30
+    },
+    {
+      "name": "trace",
+      "path": "logs",
+      "level": 150,
+      "format": "textfile",
+      "rotationCnt": 5,
+      "rotationFreq": 30
+    }
+  ]
+}

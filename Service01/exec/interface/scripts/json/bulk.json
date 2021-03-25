@@ -1,0 +1,105 @@
+{
+    "ver": "R20190924",
+    "ci": "01027223937",
+    "data-hash": "",
+    "status": {
+        "time": {
+            "@registed": ""
+        },
+        "result": "",
+        "dispatching": "waiting",
+        "read": 0
+    },
+    "post-data": {},
+    "binding": {
+        "payment": "",
+        "reserved": {
+            "essential": {
+                "encoding": "encrypt",
+                "search": {
+                    "request-id": "f387123e-2a81-a3af-fa02-413aebf53ca2",
+                    "group-by": ""
+                },
+                "agency": {
+                    "org-code": "51001",
+                    "dept-code": "dept001"
+                },
+                "template": {
+                    "file": "sample",
+                    "code": "10001",
+                    "title": ""
+                },
+                "dispatching": {
+                    "class": ""
+                },
+                "summary": {
+                    "class": "8",
+                    "title": "[안내문]고용보험 피보험자격 취득 신고사실 통지서",
+                    "content": ""
+                }
+            },
+            "additional": {
+                "sender": {
+                    "name": "",
+                    "zip-code": "",
+                    "addr1": "",
+                    "addr2": "",
+                    "hp": ""
+                },
+                "receiver": {
+                    "name": "",
+                    "zip-code": "",
+                    "addr1": "",
+                    "addr2": "",
+                    "hp": ""
+                }
+            }
+        },
+        "data": {
+            "controls": {
+                "input": {
+                    "name1": {
+                        "type": "checkbox",
+                        "desc": "취득",
+                        "close": "",
+                        "tag": {
+                            "onclick": "return false",
+                            "value": "value"
+                        }
+                    },
+                    "name2": {
+                        "type": "checkbox",
+                        "desc": "상실",
+                        "tag": {
+                            "checked": "",
+                            "onclick": "return false",
+                            "value": "value"
+                        }
+                    }
+                }
+            },
+            "var": {},
+            "t_susinja": "테스트",
+            "t_birth": "950224",
+            "t_juso1": "서울특별시 강북구 삼양로 640-6",
+            "t_juso2": "OO빌라 OOO호",
+            "t_hp": "000-0000-0000",
+            "t_chwideukdt": "2018.04.16.",
+            "t_chwideuksingodt": "",
+            "t_65": "",
+            "t_sangsildt": "2018.08.01.",
+            "t_snagsilsayu": "[11] 개인사정으로 인한 자진퇴사",
+            "t_snagsilsingodt": "2018.08.13.",
+            "t_saeopjangno": "1234567891011",
+            "t_saeopjangnm": "㈜OOOOOOOO",
+            "t_saeopjangaddr1": "04533,서울 중구 소공로 112,(소공동)",
+            "t_saeopjangaddr2": "",
+            "t_balsongdt_yyyy": "2019",
+            "t_balsongdt_mm": "10",
+            "t_balsongdt_dd": "18",
+            "t_gy": "근로복지공단 서울지역본부 가입지원3부",
+            "t_munseono": "근로복지공단 서울지역본부-A2-201808130077498",
+            "t_gyaddr": "서울 중구 퇴계로 173(충무로 3가 남산스퀘어 22층)"
+        }
+    }
+}

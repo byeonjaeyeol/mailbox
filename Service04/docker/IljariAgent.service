@@ -1,0 +1,22 @@
+[Unit]
+Description=Tilon Iljari Agent
+
+[Service]
+Type=simple
+
+User=root
+
+Group=root
+
+Restart=on-failure
+RestartSec=100
+
+RequiresMountsFor=/usr/share/tilon/IljariAgent
+
+ExecStart=/usr/share/tilon/IljariAgent/IljariAgent -start
+PIDFile=/usr/share/tilon/IljariAgent/IljariAgent.pid
+WorkingDirectory=/usr/share/tilon/IljariAgent/
+
+[Install]
+WantedBy=multi-user.target
+

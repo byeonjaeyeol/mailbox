@@ -1,0 +1,91 @@
+{
+  "logs": [
+    {
+      "name": "access",
+      "path": "/data/tilon/sender/logs/access.log",
+      "level": 100,
+      "format": "textfile"
+    },
+    {
+      "name": "sftp",
+      "path": "/data/tilon/sender/logs/sftp.log",
+      "level": 100,
+      "format": "textfile"
+    },
+    {
+      "name": "mms",
+      "path": "/data/tilon/sender/logs/mms.log",
+      "level": 100,
+      "format": "textfile"
+    },
+	{
+      "name": "http",
+      "path": "/data/tilon/sender/logs/http.log",
+      "level": 100,
+      "format": "textfile"
+    },
+    {
+      "name": "remove",
+      "path": "/data/tilon/sender/logs/remove.log",
+      "level": 100,
+      "format": "textfile"
+    }
+  ],
+  "elasticsearch": {
+    "ip": "node01",
+    "port": 9200,
+    "protocol": "http",
+    "user": "admin",
+    "password": "admin"
+  },
+  "dm": {
+    "freq_sec": 60,
+    "buffersize": 1024,
+    "compareterm": 300,
+	"monitoring": "N",
+    "list": [
+      {
+        "server": {
+          "host": "service04",
+          "port": "22",
+          "user": "root",
+          "password": "TwV34npcSSce"
+        },
+        "basedir": "/data/tilon/analyzer/result/dm",
+        "targetdir": "/data/tilon/sender/data/dm",
+        "backupdir": "/data/tilon/sender/backup/dm",
+        "unstructured": {
+          "templatedir": "",
+          "template_list": [""]
+        }
+      }
+    ]
+  },
+  "remove": {
+    "freq_hour": 24,
+    "list": [
+      {
+        "term_day": 60,
+        "path": "/data/tilon/sender/logs"
+      },
+      {
+        "term_day": 30,
+        "path": "/data/tilon/sender/backup/dm"
+      },
+      {
+        "term_day": 30,
+        "path": "/data/tilon/sender/backup/mms"
+      }
+    ]
+  },
+  "database": {
+    "sql": "mysql",
+    "connect": {
+      "user": "embuser",
+      "password": "!tilon9099@",
+      "ip": "emailbox",
+      "port": "3306",
+      "db_name": "EMAILBOX"
+    }
+  }
+}

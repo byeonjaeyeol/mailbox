@@ -1,0 +1,17 @@
+[Unit]
+Description=Tilon Iljari Agent
+
+[Service]
+Type=simple
+
+User=root
+
+Group=root
+
+ExecStart=/usr/share/tilon/IljariAgent/IljariAgent -start
+PIDFile=/usr/share/tilon/IljariAgent/IljariAgent.pid
+WorkingDirectory=/usr/share/tilon/IljariAgent/
+
+[Install]
+WantedBy=multi-user.target
+

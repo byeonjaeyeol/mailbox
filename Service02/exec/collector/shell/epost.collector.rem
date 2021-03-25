@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# stop service
+systemctl stop epost.collector.service
+echo -e "\033[40;36m[INFO]\033[0m" stop service : epost.collector.service
+
+# when delete service
+systemctl unmask epost.collector.service
+echo -e "\033[40;36m[INFO]\033[0m" unmask service : epost.collector.service
+
+# delete svc file
+rm -f /etc/systemd/system/epost.collector.service
+echo -e "\033[40;36m[INFO]\033[0m" remove service file : /etc/systemd/system/epost.collector.service
+
+# daemon reload
+systemctl daemon-reload
+echo -e "\033[40;36m[INFO]\033[0m" daemon reload

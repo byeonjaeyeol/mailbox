@@ -1,0 +1,29 @@
+
+###     ES URL
+http://10.64.203.76:9200
+
+
+###     디폴트 설정
+###     Param : Index
+./setDefault.sh 51001
+
+
+###     Template 생성 및 Alias
+###     Param : Index
+./genOrganization.sh 51001
+
+
+###     데이터 Insert
+###     Param : Index / 폰번호 / 수신자 이름
+./insertData.sh 51001 01048781233 박태검
+
+
+###     BulkFile 생성
+###     Param : Index / 폰번호 / 수신자 이름
+./createBulkFile.sh 51001 01048781233 박태검
+
+
+###     Template 삭제
+###     Param : Index
+./deleteTemplate.sh 51001
+

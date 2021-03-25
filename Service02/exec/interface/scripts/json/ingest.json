@@ -1,0 +1,29 @@
+{
+  "description": "Adds a field to a document with the time of ingestion",
+  "processors": [
+    {
+      "set": {
+        "field": "status.time.@registed",
+        "value": "{{_ingest.timestamp}}"
+      }
+    },
+    {
+      "set": {
+        "field": "status.result",
+        "value": "0000"
+      }
+    },
+    {
+      "set": {
+        "field": "status.read",
+        "value": 0
+      }
+    },
+    {
+      "set": {
+        "field": "status.dispatching",
+        "value": "waiting"
+      }
+    }
+  ]
+}

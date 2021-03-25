@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cp epost.collector.service /etc/systemd/system/
+echo -e "\033[40;36m[INFO]\033[0m" copy service file : epost.collector.service to /etc/systemd/system
+
+systemctl daemon-reload
+echo -e "\033[40;36m[INFO]\033[0m" daemon-reload
+
+systemctl start epost.collector
+echo -e "\033[40;36m[INFO]\033[0m" start service : epost.collector
+
+systemctl status epost.collector
+# when delete service
+# systemctl unmask collector
+

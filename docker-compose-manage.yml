@@ -1,0 +1,43 @@
+version: '2.2'
+services:
+  postalk:
+    image: bsquarelab/upost-node-postalk:0.1
+    container_name: postalk
+    environment:
+      - TZ=Asia/Seoul
+    restart: 'no'
+    privileged: true
+    volumes:
+      - /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    ports:
+      - 8880:8080
+    networks:
+      - nmailbox
+
+  static:
+    image: bsquarelab/upost-node-static:0.1
+    container_name: static
+    environment:
+      - TZ=Asia/Seoul
+    restart: 'no'
+    privileged: true
+    volumes:
+      - /Users/alwayswinner/Develops/upost-network/API-WAS1/data/storage:/home/blab/static/storage
+      - /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    ports:
+      - 8881:8080
+    networks:
+      - nmailbox
+
+
+volumes:
+  data01:
+    driver: local
+  data02:
+    driver: local
+
+networks:
+  nmailbox:
+    driver: bridge

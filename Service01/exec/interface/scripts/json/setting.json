@@ -1,0 +1,17 @@
+{
+  "index_patterns": "",
+  "settings": {
+    "number_of_shards": 5,
+    "default_pipeline": "set_emb_default"
+  },
+  "mappings": {
+     "properties": {
+            "status.time.@registed": {"type": "date" },
+            "status.time.@dispatched": {"type": "date"},
+            "status.time.@read": {"type": "date"},
+            "status.time.@analysised": {"type": "date"},
+            "binding.reserved.essential.dispatching.@res-time": {"type": "date"},
+            "binding.reserved.essential.dispatching.@app-time": {"type": "date"}
+      }
+  }
+}

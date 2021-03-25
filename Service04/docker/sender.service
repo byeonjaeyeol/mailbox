@@ -1,0 +1,22 @@
+[Unit]
+Description=Tilon Sender Agent
+
+[Service]
+Type=simple
+
+User=root
+
+Group=root
+
+Restart=on-failure
+RestartSec=100
+
+RequiresMountsFor=/usr/share/tilon/sender
+
+ExecStart=/usr/share/tilon/sender/sender -start
+PIDFile=/usr/share/tilon/sender/sender.pid
+WorkingDirectory=/usr/share/tilon/sender/
+
+[Install]
+WantedBy=multi-user.target
+

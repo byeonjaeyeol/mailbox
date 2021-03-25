@@ -1,0 +1,13 @@
+{
+  "url" : "http://10.64.203.76:9200",
+  "json" : {
+    "bulk" : "json/bulk.json",
+    "ingest" : "json/ingest.json",
+    "setting" : "json/setting.json"
+  },
+
+  "bulkfile" : {
+    "filename" : "",
+    "outputpath" : ""
+  }
+}

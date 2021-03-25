@@ -1,0 +1,308 @@
+{
+  "config" : {
+    "enable": "true",
+    "frequency_sec": "60",
+    "request_timeout_min": "5",
+    "blackList_timeout_hour": "24",
+    "failedList_timeout_min": "5",
+    "limit_failed_count": "10"
+  },
+
+  "list" : [
+    {
+      "uri": "/test",
+      "agent": "Interface",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/",
+      "agent": "Interface",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/sync/blacklist",
+      "agent": "Interface",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/sync/account",
+      "agent": "Interface",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/reload",
+      "agent": "Interface",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/shutdown",
+      "agent": "Interface",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/members/login",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/members/login/after_auth",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "false"
+    },
+     {
+      "uri": "/members/logout",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/members/signup",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/members/signout",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/members/change/password",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/members/change/password/after_auth",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/members/change/phone",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/members/change/email",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/members/search/user/session",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/members/search/user/ci",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/members/search/pcode_table",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/members/address/save",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/members/address/change",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/members/address/search",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/members/address/set_base_addr",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/members/address/delete",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/members/car/save",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/members/car/change",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/members/car/search",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/members/car/delete",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/myagency/save",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/myagency/change",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/myagency/search",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/myagency/mailtype/change",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/myagency/address/save",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/myagency/address/delete",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/mailbox/main2",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/mailbox/read",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/mailbox/delete2",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/mailbox/search",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/notice/search2",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/notice/setting",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/payment/search",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "true"
+    },
+    {
+      "uri": "/blacklist/search",
+      "agent": "Interface",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/blacklist/delete",
+      "agent": "Interface",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/bc/doc/update",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
+      "uri": "/stats/docid",
+      "agent": "",
+      "ip": "10.64.203.0~10.64.203.254",
+      "hmac": "false"
+    },
+    {
+      "uri": "/stats/reqid",
+      "agent": "",
+      "ip": "10.64.203.0~10.64.203.254",
+      "hmac": "false"
+    },
+    {
+      "uri": "/stats/groupby",
+      "agent": "",
+      "ip": "10.64.203.0~10.64.203.254",
+      "hmac": "false"
+    },
+    {
+      "uri": "/stats/time",
+      "agent": "",
+      "ip": "10.64.203.0~10.64.203.254",
+      "hmac": "false"
+    },
+    {
+      "uri": "/stats/dmregnum",
+      "agent": "",
+      "ip": "10.64.203.0~10.64.203.254",
+      "hmac": "false"
+    },
+    {
+      "uri": "/stats/name",
+      "agent": "",
+      "ip": "10.64.203.0~10.64.203.254",
+      "hmac": "false"
+    }
+  ]
+}
+

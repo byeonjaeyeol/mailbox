@@ -1,0 +1,31 @@
+{
+    "from" : "$PAGE_FROM",
+    "size" : "$PAGE_SIZE",
+    "sort" : [
+        {
+            "$SORT_KEY" : "$SORT_ORDER"
+        }
+    ],
+    "query" : {
+        "bool": {
+            "must": [
+                {
+                    "range": {
+                        "status.time.@registed": {
+                            "gte":"$GTE",
+                            "lt": "$LT"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "binding.reserved.essential.agency.dept-code": {
+                            "query": "$DEPT_CODE",
+                            "operator": "and"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

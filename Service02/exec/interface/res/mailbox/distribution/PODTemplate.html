@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>유통증명서</title>
+  <link rel="stylesheet" href="/usr/share/tilon/interface/res/mailbox/distribution/common/css/certificate.css">
+</head>
+<body>
+  <div class="wrap">
+    <!-- <div class="frame"> -->
+      <img src="/usr/share/tilon/interface/res/mailbox/distribution/common/images/frameLogo_bg.png" alt="" class="frame">
+      <div class="contents">
+        <h2>전자사서함 수 · 발신 확인 증명서</h2>
+        <div class="table-area">
+          <table>
+            <tr>
+              <th>증명서</th>
+              <td class="subT">발급번호</td>
+              <td><%=issue_number%></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <th rowspan="2">송신자</th>
+              <td class="subT">이름</td>
+              <td><%=from_name%></td>
+            </tr>
+            <tr>
+              <td class="subT">식별번호</td>
+              <td><%=from_license_num%></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <th rowspan="2">수신자</th>
+              <td class="subT">이름</td>
+              <td><%=to_name%></td>
+            </tr>
+            <tr>
+              <td class="subT">식별자</td>
+              <td><%=to_pi%></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <th rowspan="3">송수신<br>일시</th>
+              <td class="subT">송신 일시</td>
+              <td><%=send_date%></td>
+            </tr>
+            <tr>
+              <td class="subT">수신 일시</td>
+              <td><%=recv_date%></td>
+            </tr>
+            <tr>
+              <td class="subT">열람 일시</td>
+              <td><%=read_date%></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <th rowspan="2">송수신<br>내용</th>
+              <td class="subT">문서 제목</td>
+              <td><%=doc_title%></td>
+            </tr>
+            <tr>
+              <td class="subT">본문정보값</td>
+              <td><%=doc_hash%></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <th>증명서 발급일시</th>
+              <td><%=issue_date%></td>
+            </tr>
+          </table>
+        </div>
+        <div class="signed">
+          <p class="date">
+            <span class="year"><%=year%>년</span>
+            <span class="month"><%=month%>월</span>
+            <span class="day"><%=day%>일</span>
+          </p>
+          <h4>우정사업 본부장 <span>(인)</span></h4>
+        </div>
+      </div>
+    <!-- </div> -->
+  </div>
+</body>
+</html>

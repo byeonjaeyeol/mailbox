@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cp epost.interface.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl start epost.interface
+
+
+# when delete service
+# systemctl unmask collector
+

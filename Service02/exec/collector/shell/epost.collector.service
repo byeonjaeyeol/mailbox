@@ -1,0 +1,17 @@
+[Unit]
+Description=Tilon EPOST COLLECTOR Server
+
+[Service]
+Type=simple
+
+User=root
+
+Group=root
+
+
+ExecStart=/usr/share/tilon/collector/collector_1.0.0.0 -start
+PIDFile=/usr/share/tilon/collector/collector.pid
+WorkingDirectory=/usr/share/tilon/collector/
+
+[Install]
+WantedBy=multi-user.target

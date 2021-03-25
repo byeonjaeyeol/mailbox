@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button {margin:0; padding:0}
+fieldset,img {border:0 none}
+dl,ul,ol,menu,li {list-style:none}
+blockquote, q {quotes:none} blockquote:before, blockquote:after,q:before, q:after {content:''; content:none}
+input,select,textarea,button {font-size:100%; vertical-align:middle}
+button {border:0 none; background-color:transparent; cursor:pointer}
+table {border-collapse:collapse; border-spacing:0}
+body {-webkit-text-size-adjust:none}
+input[type='text'],input[type='password'],input[type='submit'],input[type='search'] {-webkit-appearance:none; border-radius:0}
+input:checked[type='checkbox'] {background-color:#666; -webkit-appearance:checkbox}
+button,input[type='button'],input[type='submit'],input[type='reset'],input[type='file'] {-webkit-appearance:button; border-radius:0}
+input[type='search']::-webkit-search-cancel-button {-webkit-appearance:none}
+body {background:#fff}
+body,th,td,input,select,textarea,button {
+	font-size:100%;
+	line-height:180%;
+	font-family:'Malgun Gothic', '맑은 고딕', AppleGothic, sans-serif;
+	color:#222
+}
+
+a {color:#222; text-decoration:none} a:active, a:hover {text-decoration:none}
+address,caption,cite,code,dfn,em,var {font-style:normal; font-weight:normal}
+legend {display:none}
+h2{font-weight:bold}
+
+* {box-sizing: border-box}
+
+/* position */
+.fl {float:left !important}
+.fr {float:right !important}
+.clear {clear:both !important}
+
+/* width */
+.wp100 {width:100% !important}
+
+
+/* text color */
+.t-black {color:#333 !important}
+.t-white {color:#fff !important}
+
+/* margin */
+.mt0 {margin-top:0 !important}
+.mt10 {margin-top:10px !important}
+.mt20 {margin-top:20px !important}
+.pb10 {padding-bottom:10px !important}
+.pb20 {padding-bottom:20px !important}
+
+
+
+/* Layout */
+#wrap {width:100%; padding:20px 0; min-width:320px}
+#header,#container,#info {padding:0 4%}
+
+.tx-bd{font-weight:bold;}
+
+
+/* Header */
+.header-title {position:relative; margin:0 auto; text-align:center;}
+.header-title .logo {text-align:left;}
+.header-title .logo img {width:40%}
+.header-title .name {position:absolute; top:0; right:0;  line-height:140%; text-align:left; padding:0 10px; border:2px solid #ea0034}
+.header-title .title-area {margin:30px 0 20px 0; font-size:100%; font-weight:bold; line-height:140%; letter-spacing:-1px; text-align:center;}
+.header-title .title-area .checkbox input{vertical-align:middle;}
+.header-img {}
+.header-img img {width:100%; max-width:100%}
+.pd0 {margin-top:-20px; padding:0 !important}
+.doc-type {font-size:90%}
+
+/* Container */
+.conts-area {margin:0 0 10px}
+/* Table Common */
+table {width:100%; text-align:left; margin-bottom:10px; border-top:2px solid #bbb; border-bottom:2px solid #bbb;}
+table td {font-size:12px; height:40px; padding:0 5px; border-bottom:1px solid #bbb;}
+table .b-title{width:20%; font-size:80%; text-align:center; border-right:1px solid #bbb; }
+table .b-title p{text-align:center;}
+table .title{width:25%; font-size:85%}
+
+table .sub{font-size:95%; padding-left:10px;}
+
+.company{}
+.company .b-title{width:40%; text-align:left; border-right:1px solid #bbb; }
+.company .sub{width:40%; font-size:95%; padding-left:10px;}
+
+.info-txt ul li{float:left;}
+.info-txt .sub{border-bottom:2px solid #bbb;}
+.info-txt .sub .bullet{width:2%;}
+.info-txt .txt-p { width:95%; margin-left:3%; text-align:left; color:#666}
+.info-txt{font-size:85%; text-align:center;}
+
+.info-branch {position:relative; text-align:center; margin:30px 0 0}  /*margin_old 30px 0 40px*/
+.info-branch .branch-txt {font-weight:bold; line-height: 130%;}
+.info-branch .branch-img {position:absolute; top:-8px; right:0; width:60px; height:60px; z-index:-1}
+.info-branch .sign{font-weight:bold; color:#848484; border-bottom:2px solid #bbb;}
+.info-branch .sign img{width:34px; margin-left:3px; vertical-align:bottom;}
+
+.foot-info .c-title{font-size:80%; width:20%; text-align:center; background:#ea0034; color:#fff}
+.foot-info .b-title{background:#ffeaef;}
+.foot-info .title{width:28%; border-right:1px solid #bbb;}
+
+
+ul:after{display: block; content: ''; clear: both;}
+.notice {width:100%; padding-top:20px; font-size:95%;}
+.notice ul li{float:left;}
+.notice .sub .bullet{width:5%;}
+.notice .sub .text {width:94%; margin-left:1%;}
+
+.notice .title li{float:left; width:20%;}
+.notice .title li:nth-child(2){width:60%;}
+.notice .title .line{margin-top:13px; height:2px; background:#ea0034;}
+.notice .title .title-tx{padding:0 10px; text-align:center; background:#ffeaef; border-radius:2px;}
+.br-pink{border-bottom:2px solid #ea0034}
+
+.notice .title-notice li{float:left; width:20%;}
+.notice .title-notice li:nth-child(2){width:60%;}
+.notice .title-notice .line{margin-top:13px; height:2px; background:#0092ea;}
+.notice .title-notice .title-tx{padding:0 10px; text-align:center; background:#d2e0ff; border-radius:2px;}
+.br-deep{border-bottom:2px solid #002fb7;}
+.br-blue{border-bottom:2px solid #0092ea;}
+
+.info-txt a {color:#2b9ab0}
+
+
+.checkbox{display:inline-block}
+
+.pink{color:#ea0034}
+
+
+
+/*Responsive Styles*/
+
+
+
+
+/* Tablets (portrait) -------------------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+	.header-title .logo img {width:25%}
+	table .title{width:15%; font-size:85%}
+	table td{line-height: 150%;}
+	.company .b-title{width:20%; text-align:left; border-right:1px solid #bbb; }
+	.header-title .title-area{font-size:130%; text-align:center}
+	.header-title .title-area .first{display:inline-block}
+}
+
+
+
+

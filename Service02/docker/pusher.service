@@ -1,0 +1,18 @@
+[Unit]
+Description=Tilon Pusher Server
+
+[Service]
+Type=simple
+User=root
+Group=root
+
+EnvironmentFile=-/usr/share/tilon/pusher/server.conf
+
+RequiresMountsFor=/usr/share/tilon/pusher
+
+ExecStart=/usr/share/tilon/pusher/pusher -start oUe_o20BlsHYULiaJppy
+PIDFile=/usr/share/tilon/pusher/pusher.pid
+WorkingDirectory=/usr/share/tilon/pusher/
+
+[Install]
+WantedBy=multi-user.target

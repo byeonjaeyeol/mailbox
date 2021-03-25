@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="error" monitorInterval="600">
+	<Properties>
+		<!-- <Property name="FILENAME">d:/__test</Property> -->
+		<Property name="FILENAME">/var/log/tilon</Property> 
+		<Property name="PATTERN">[%d{yy-MM-dd HH:mm:ss}][%-5p](%F:%L) - %m%n</Property>
+	</Properties>
+
+  <Appenders>
+  	<!-- CONSOLE LOG-->
+    <Console name="CONSOLE" target="SYSTEM_OUT">
+      <PatternLayout pattern="${PATTERN}"/>
+    </Console>
+    
+    <!-- FILE LOG -->
+    <!-- AUTH_LOGFILE -->
+    <RollingFile name="AUTH_LOGFILE" fileName="${FILENAME}/auth/authentication.log" filePattern="${FILENAME}/auth/authentication.log.%d{yyyy-MM-dd}.%i">
+    	<PatternLayout pattern="${PATTERN}"/>
+    	<Policies>
+    		<TimeBasedTriggeringPolicy interval="1"/>
+    	</Policies>
+   		<DefaultRolloverStrategy>
+   			<Delete basePath="${FILENAME}/auth" maxDepth="1">
+   				<IfLastModified age="60d" />
+   			</Delete>
+   		</DefaultRolloverStrategy>
+    </RollingFile>
+    
+    <!-- PAY_LOGFILE -->
+    <RollingFile name="PAY_LOGFILE" fileName="${FILENAME}/pay/payment.log" filePattern="${FILENAME}/pay/payment.log.%d{yyyy-MM-dd}.%i">
+    	<PatternLayout pattern="${PATTERN}"/>
+    	<Policies>
+    		<TimeBasedTriggeringPolicy interval="1"/>
+    	</Policies>
+   		<DefaultRolloverStrategy>
+   			<Delete basePath="${FILENAME}/pay" maxDepth="1">
+   				<IfLastModified age="60d" />
+   			</Delete>
+   		</DefaultRolloverStrategy>
+    </RollingFile>
+    
+    <!-- DEV_LOGFILE -->
+    <RollingFile name="DEV_LOGFILE" fileName="${FILENAME}/dev/dev.log" filePattern="${FILENAME}/dev/dev.log.%d{yyyy-MM-dd}.%i">
+    	<PatternLayout pattern="${PATTERN}"/>
+    	<Policies>
+    		<TimeBasedTriggeringPolicy interval="1"/>
+    	</Policies>
+   		<DefaultRolloverStrategy>
+   			<Delete basePath="${FILENAME}/dev" maxDepth="1">
+   				<IfLastModified age="60d" />
+   			</Delete>
+   		</DefaultRolloverStrategy>
+    </RollingFile>
+  </Appenders>
+  
+  
+  <Loggers>
+  	<!-- 본인인증 로그 설정 -->
+  	<Logger name="action.AuthAllAction" additivity="false">
+  		<AppenderRef ref="AUTH_LOGFILE"/>
+  		<AppenderRef ref="CONSOLE"/>
+  	</Logger>
+  	<!-- 결제 로그 설정 -->
+  	<Logger name="action.PayAllAction" additivity="false">
+  		<AppenderRef ref="PAY_LOGFILE"/>
+  		<AppenderRef ref="CONSOLE"/>
+  	</Logger>
+  	<!-- 일반 로그 설정 -->
+  	<Logger name="orchestrator.orchestrator" additivity="false">
+  		<AppenderRef ref="DEV_LOGFILE"/>
+  		<AppenderRef ref="CONSOLE"/>
+  	</Logger>
+	
+	<!-- 기본 로그 설정 -->  	
+    <Root level="info">
+  		<AppenderRef ref="CONSOLE"/>
+    </Root>
+  </Loggers>
+</Configuration>

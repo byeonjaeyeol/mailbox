@@ -1,0 +1,88 @@
+version: '2.2'
+services:
+  node01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.0
+    container_name: node01
+    environment:
+      - node.name=node-1
+#      - ELASTIC_USERNAME=admin
+#      - ELASTIC_PASSWORD=admin
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - /Users/alwayswinner/Develops/upost-network/service03/config:/usr/share/elasticsearch/config
+      - /Users/alwayswinner/Develops/upost-network/service03/node01:/data/elasticsearch
+      - /Users/alwayswinner/Develops/upost-network/service03/log01:/var/log/elasticsearch
+      - /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    ports:
+      - 9200:9200
+    depends_on:
+      - emailbox
+    networks:
+      - nmailbox
+
+  node02:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.0
+    container_name: node02
+    environment:
+      - node.name=node-2
+#      - ELASTIC_USERNAME=admin
+#      - ELASTIC_PASSWORD=admin
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - /Users/alwayswinner/Develops/upost-network/service04/config:/usr/share/elasticsearch/config
+      - /Users/alwayswinner/Develops/upost-network/service04/node02:/data/elasticsearch
+      - /Users/alwayswinner/Develops/upost-network/service04/log02:/var/log/elasticsearch
+      - /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    depends_on:
+      - emailbox
+    networks:
+      - nmailbox
+
+  kib01:
+    image: docker.elastic.co/kibana/kibana:6.5.0
+    container_name: kib01
+    ports:
+      - 5601:5601
+    environment:
+      ELASTICSEARCH_URL: http://node01:9200
+      ELASTICSEARCH_HOSTS: '["http://node01:9200","http://node02:9200"]'
+    volumes:
+      - /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    depends_on:
+      - node01
+      - node02
+    networks:
+      - nmailbox
+
+  emailbox:
+    image: mariadb:10.2.8
+    container_name: emailbox
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+    ports:
+      - 3307:3306      
+    volumes:
+      - /Users/alwayswinner/Develops/upost-network/DB-Service01/mariadb:/var/lib/mysql
+      - /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    networks:
+      - nmailbox    
+
+volumes:
+  data01:
+    driver: local
+  data02:
+    driver: local
+
+networks:
+  nmailbox:
+    driver: bridge
