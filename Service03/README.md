@@ -241,6 +241,67 @@ $ curl -XPOST 'http://localhost:9200/_aliases?pretty'  -H "Content-Type: applica
     ]
 }'
 
+$ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: application/json" -d'
+{
+    "from" : "0",
+    "size" : "10",
+    "sort" : [
+        {
+            "status.time.@registed" : "desc"
+        }
+    ],
+    "query" : {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "binding.reserved.additional.receiver.name": {
+                            "query": "마천서울약국(윤광희)",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "binding.reserved.essential.agency.dept-code": {
+                            "query": "60002",
+                            "operator": "and"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}'
+
+
+$ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: application/json" -d'
+{
+    "from" : "0",
+    "size" : "10",
+    "sort" : [
+        {
+            "status.time.@registed" : "desc"
+        }
+    ],
+    "query" : {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "_id": {
+                            "query": "6Xlnm3QBdzk5kjugdbfu",
+                            "operator": "and"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}'
+
+6Xlnm3QBdzk5kjugdbfu
+
 
 $ curl "http://localhost:9200/_alias?pretty"
 

@@ -24,6 +24,7 @@ RUN yum -y install pwgen
 
 COPY sshd_config /etc/ssh/sshd_config
 COPY install_sshd.sh /install_sshd.sh
+COPY simple.sh /simple.sh
 
 EXPOSE 22
 RUN systemctl enable sshd

@@ -1,0 +1,30 @@
+version: '2.2'
+services:
+  service04:
+    image: bsquarelab/upost-service04:0.1
+    container_name: service04
+    environment:
+      - TZ=Asia/Seoul
+    restart: 'no'
+    privileged: true
+    volumes:
+      - /Users/alwayswinner/Develops/upost-network/service04/data/tilon:/data/tilon
+      - /Users/alwayswinner/Develops/upost-network/service04/data/POSA:/data/POSA
+      - /Users/alwayswinner/Develops/upost-network/service04/exec/IljariAgent:/usr/share/tilon/IljariAgent
+      - /Users/alwayswinner/Develops/upost-network/service04/exec/sender:/usr/share/tilon/sender
+      - /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    ports:
+      - "1422:22"
+    networks:
+      - nmailbox
+
+volumes:
+  data01:
+    driver: local
+  data02:
+    driver: local
+
+networks:
+  nmailbox:
+    driver: bridge

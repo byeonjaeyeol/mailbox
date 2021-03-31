@@ -8,8 +8,8 @@ to docker build
 ```
 $ docker build -t bsquarelab/upost-service02:latest .
 $ docker build -t bsquarelab/upost-service02:0.1 .
-$ docker push bsquarelab/upost-service02:0.2
-$ docker pull bsquarelab/upost-service02:0.2
+$ docker push bsquarelab/upost-service02:0.1
+$ docker pull bsquarelab/upost-service02:0.1
 ```
 to start a docker image
 ```

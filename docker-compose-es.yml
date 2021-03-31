@@ -71,7 +71,9 @@ services:
     ports:
       - 3307:3306      
     volumes:
-      - /Users/alwayswinner/Develops/upost-network/DB-Service01/mariadb:/var/lib/mysql
+      - /Users/alwayswinner/Develops/upost-network/DB-Service01/mysql/my.cnf:/etc/mysql/my.cnf
+      - /Users/alwayswinner/Develops/upost-network/DB-Service01/mariadb:/data/mysql
+      - /Users/alwayswinner/Develops/upost-network/DB-Service01/data/analyzer/result:/data/tilon/analyzer/result
       - /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     networks:

@@ -11,7 +11,6 @@ RUN systemctl enable epost.collector
 COPY pusher.service /etc/systemd/system/
 RUN systemctl enable pusher
 
-
 WORKDIR /usr/share/tilon
 
 VOLUME [ "/usr/share/tilon/collector",  "/usr/share/tilon/interface", "/usr/share/tilon/pusher"]
