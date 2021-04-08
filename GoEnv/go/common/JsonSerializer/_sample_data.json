@@ -1,0 +1,37 @@
+{
+    "sender" : "sender",
+    "receiver" : "receiver",
+    "sendtime" : 2014,
+    "data":[
+      {
+        "da":"data.0.da",
+        "db":"data.0.db",
+        "type":{
+          "t1":"data.0.type.t1",
+          "t2":"data.0.type.t2"
+        }
+      },
+      {
+        "da":"data.1.da",
+        "db":"data.1.db",
+        "type":{
+          "t1":"data.1.type.t1",
+          "t2":"data.1.type.t2"
+        }
+      },
+      {
+        "da":"data.2.da",
+        "db":"data.2.db",
+        "type":{
+          "t1":"data.2.type.t1",
+          "t2":"data.2.type.t2"
+        }
+      }
+    ],
+    "subkey" : {
+      "subkey1" : "subkey1",
+      "subvalue1" : 1024,
+      "subkey2" : "subkey2",
+      "subvalue2" : 2048
+    }
+}

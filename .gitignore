@@ -110,5 +110,6 @@ log01/
 node01/
 log02/
 node02/
+build/
 
 .DS_Store

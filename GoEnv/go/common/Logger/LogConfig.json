@@ -1,0 +1,23 @@
+{
+  "logs": [
+    {
+      "name": "console",
+      "level": 150,
+      "format" : "stdout"
+    },
+    {
+      "name": "access",
+      "path": "d:/shared/test",
+      "level": 100,
+      "format" : "textfile",
+      "rotationCnt" : 5,
+      "rotationFreq" : 30
+    },
+    {
+      "name": "dev",
+      "path": "logs/dev",
+      "level": 150,
+      "format" : "textfile"
+    }
+  ]
+}

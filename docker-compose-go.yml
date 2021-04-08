@@ -1,0 +1,19 @@
+version: '2.2'
+services:
+  goenv:
+    image: bsquarelab/upost-goenv
+    container_name: goenv
+    volumes:
+      - /Users/alwayswinner/Develops/upost-network/GoEnv/go:/go/upost
+      - /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    networks:
+      - nmailbox
+
+volumes:
+  data01:
+    driver: local
+
+networks:
+  nmailbox:
+    driver: bridge
