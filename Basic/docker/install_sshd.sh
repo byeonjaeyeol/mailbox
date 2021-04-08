@@ -6,7 +6,8 @@ then
    if [ ! "${ROOT_PASS}" ];
    then
       echo "Generating password for root"
-      PASS=$(pwgen -s 12 1)
+      #PASS=$(pwgen -s 12 1)
+      PASS=qwerty123456
       echo "Generated password for root is: ${PASS}"
    else
       PASS=${ROOT_PASS}

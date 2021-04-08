@@ -12,9 +12,9 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - /Users/alwayswinner/Develops/upost-network/service03/config:/usr/share/elasticsearch/config
-      - /Users/alwayswinner/Develops/upost-network/service03/node01:/data/elasticsearch
-      - /Users/alwayswinner/Develops/upost-network/service03/log01:/var/log/elasticsearch
+      - ./service03/config:/usr/share/elasticsearch/config
+      - ./service03/node01:/data/elasticsearch
+      - ./service03/log01:/var/log/elasticsearch
       - /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
@@ -36,9 +36,9 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - /Users/alwayswinner/Develops/upost-network/service04/config:/usr/share/elasticsearch/config
-      - /Users/alwayswinner/Develops/upost-network/service04/node02:/data/elasticsearch
-      - /Users/alwayswinner/Develops/upost-network/service04/log02:/var/log/elasticsearch
+      - ./service04/config:/usr/share/elasticsearch/config
+      - ./service04/node02:/data/elasticsearch
+      - ./service04/log02:/var/log/elasticsearch
       - /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     depends_on:
@@ -71,9 +71,9 @@ services:
     ports:
       - 3307:3306      
     volumes:
-      - /Users/alwayswinner/Develops/upost-network/DB-Service01/mysql/my.cnf:/etc/mysql/my.cnf
-      - /Users/alwayswinner/Develops/upost-network/DB-Service01/mariadb:/data/mysql
-      - /Users/alwayswinner/Develops/upost-network/DB-Service01/data/analyzer/result:/data/tilon/analyzer/result
+      - ./DB-Service01/mysql/my.cnf:/etc/mysql/my.cnf
+      - ./DB-Service01/mariadb:/data/mysql
+      - ./DB-Service01/data/analyzer/result:/data/tilon/analyzer/result
       - /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     networks:

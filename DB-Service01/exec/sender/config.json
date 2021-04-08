@@ -49,7 +49,7 @@
           "host": "service04",
           "port": "22",
           "user": "root",
-          "password": "TwV34npcSSce"
+          "password": "qwerty123456"
         },
         "basedir": "/data/tilon/analyzer/result/dm",
         "targetdir": "/data/tilon/sender/data/dm",

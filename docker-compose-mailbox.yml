@@ -8,7 +8,7 @@ services:
     restart: 'no'
     privileged: true
     volumes:
-      - /Users/alwayswinner/Develops/upost-network/service01/exec/interface:/usr/share/tilon/interface
+      - ./service01/exec/interface:/usr/share/tilon/interface
       - /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
@@ -27,9 +27,9 @@ services:
     restart: 'no'
     privileged: true
     volumes:
-      - /Users/alwayswinner/Develops/upost-network/service02/exec/collector:/usr/share/tilon/collector
-      - /Users/alwayswinner/Develops/upost-network/service02/exec/interface:/usr/share/tilon/interface
-      - /Users/alwayswinner/Develops/upost-network/service02/exec/pusher:/usr/share/tilon/pusher
+      - ./service02/exec/collector:/usr/share/tilon/collector
+      - ./service02/exec/interface:/usr/share/tilon/interface
+      - ./service02/exec/pusher:/usr/share/tilon/pusher
       - /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
@@ -48,10 +48,10 @@ services:
     restart: 'no'
     privileged: true
     volumes:
-      - /Users/alwayswinner/Develops/upost-network/service04/data/tilon:/data/tilon
-      - /Users/alwayswinner/Develops/upost-network/service04/data/POSA:/data/POSA
-      - /Users/alwayswinner/Develops/upost-network/service04/exec/IljariAgent:/usr/share/tilon/IljariAgent
-      - /Users/alwayswinner/Develops/upost-network/service04/exec/sender:/usr/share/tilon/sender
+      - ./service04/data/tilon:/data/tilon
+      - ./service04/data/POSA:/data/POSA
+      - ./service04/exec/IljariAgent:/usr/share/tilon/IljariAgent
+      - ./service04/exec/sender:/usr/share/tilon/sender
       - /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
@@ -69,9 +69,9 @@ services:
     restart: 'no'
     privileged: true
     volumes:
-      - /Users/alwayswinner/Develops/upost-network/DB-Service01/data:/data/tilon
-      - /Users/alwayswinner/Develops/upost-network/DB-Service01/exec/analyzer:/usr/share/tilon/analyzer
-      - /Users/alwayswinner/Develops/upost-network/DB-Service01/exec/sender:/usr/share/tilon/sender
+      - ./DB-Service01/data:/data/tilon
+      - ./DB-Service01/exec/analyzer:/usr/share/tilon/analyzer
+      - ./DB-Service01/exec/sender:/usr/share/tilon/sender
       - /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
@@ -89,7 +89,7 @@ services:
     restart: 'no'
     privileged: true
     volumes:
-      - /Users/alwayswinner/Develops/upost-network/External01/data/11001:/11001
+      - ./External01/data/11001:/11001
       - /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:

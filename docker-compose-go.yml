@@ -4,7 +4,7 @@ services:
     image: bsquarelab/upost-goenv
     container_name: goenv
     volumes:
-      - /Users/alwayswinner/Develops/upost-network/GoEnv/go:/go/upost
+      - ./GoEnv/go:/go/upost
       - /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     networks:

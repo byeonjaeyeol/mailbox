@@ -23,7 +23,7 @@ services:
     restart: 'no'
     privileged: true
     volumes:
-      - /Users/alwayswinner/Develops/upost-network/API-WAS1/data/storage:/home/blab/static/storage
+      - ./API-WAS1/data/storage:/home/blab/static/storage
       - /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
