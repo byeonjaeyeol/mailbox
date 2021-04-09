@@ -20,7 +20,7 @@
 	},
 	"rdbms": {
 		"class": "mysql",
-		"datasource": "root:1234@(emailbox:3306)/EMAILBOX"
+		"datasource": "embuser:!tilon9099@@(emailbox:3306)/EMAILBOX"
 	},
 	"api" : {
 		"bchost": "http://211.253.86.102:58880",
