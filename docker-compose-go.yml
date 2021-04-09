@@ -5,7 +5,8 @@ services:
     container_name: goenv
     volumes:
       - ./GoEnv/go:/go/upost
-      - /private/etc/localtime:/etc/localtime:ro
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     networks:
       - nmailbox

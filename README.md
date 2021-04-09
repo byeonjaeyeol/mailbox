@@ -129,13 +129,13 @@ $ cd upost-network
 
 $ ./rmpid.sh
 
-$ docker-compose -f docker-compose-es.yml up
+$ docker-compose --env-file macos.cfg -f docker-compose-es.yml up
 
-$ docker-compose -f docker-compose-blockahin.yml up
+$ docker-compose --env-file macos.cfg -f docker-compose-blockahin.yml up
 
-$ docker-compose -f docker-compose-mailbox.yml up
+$ docker-compose --env-file macos.cfg -f docker-compose-mailbox.yml up
 
-$ docker-compose -f docker-compose-manager.yml up
+$ docker-compose --env-file macos.cfg -f docker-compose-manager.yml up
 
 ```
 
@@ -145,13 +145,13 @@ docker를 실행하는 역순으로 실행한다.
 ```
 $ cd upost-network
 
-$ docker-compose -f docker-compose-manager.yml up
+$ docker-compose -f docker-compose-manager.yml down
 
-$ docker-compose -f docker-compose-mailbox.yml up
+$ docker-compose -f docker-compose-mailbox.yml down
 
-$ docker-compose -f docker-compose-blockahin.yml up
+$ docker-compose -f docker-compose-blockahin.yml down
 
-$ docker-compose -f docker-compose-es.yml up
+$ docker-compose -f docker-compose-es.yml down
 
 ```
 ## instance

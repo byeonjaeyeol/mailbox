@@ -24,7 +24,8 @@ services:
     privileged: true
     volumes:
       - ./API-WAS1/data/storage:/home/blab/static/storage
-      - /private/etc/localtime:/etc/localtime:ro
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - 8881:8080

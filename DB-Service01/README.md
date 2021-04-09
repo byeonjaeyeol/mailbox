@@ -19,7 +19,7 @@ $ mysqldump --routines –trigger –uroot -ppassword databasename > dump.sql
 # MariaDB
 to start mariadb
 ```
-$ docker run --name emailboxdb -p 3306:3306 --restart unless-stopped --net=bridge -e MYSQL_ROOT_PASSWORD=1234 -v /Users/alwayswinner/Develops/upost-network/DB-Service01/mariadb:/var/lib/mysql -d mariadb:10.2.8
+$ docker run --name emailboxdb -p 3306:3306 --restart unless-stopped --net=bridge -e MYSQL_ROOT_PASSWORD=1234 -v ./DB-Service01/mariadb:/var/lib/mysql -d mariadb:10.2.8
 
 $ docker run --name emailboxdb -p 127.0.0.1:3307:3306 --restart unless-stopped --net=bridge -e MYSQL_ROOT_PASSWORD=1234 -v /Users/alwayswinner/Develops/upost-network/DB-Service01/mariadb:/var/lib/mysql -d mariadb:10.2.8
 
@@ -33,48 +33,7 @@ $ docker exec -it c456623003b1 /bin/bash
 
 ```
 
-MariaDB의 한글 character가 깨지는 경우에는 혹시라도 다음과 같이 확인하여 수정해야 한다.
-```
-MariaDB [EMAILBOX]> show variables like 'character%';
-+--------------------------+----------------------------+
-| Variable_name            | Value                      |
-+--------------------------+----------------------------+
-| character_set_client     | utf8                       |
-| character_set_connection | utf8                       |
-| character_set_database   | latin1                     |
-| character_set_filesystem | binary                     |
-| character_set_results    | utf8                       |
-| character_set_server     | latin1                     |
-| character_set_system     | utf8                       |
-| character_sets_dir       | /usr/share/mysql/charsets/ |
-+--------------------------+----------------------------+
-8 rows in set (0.008 sec)
 
-MariaDB [EMAILBOX]> SET character_set_database=utf8
-    -> ;
-Query OK, 0 rows affected (0.001 sec)
-
-MariaDB [EMAILBOX]> SET character_set_server=utf8
-    -> ;
-Query OK, 0 rows affected (0.001 sec)
-
-MariaDB [EMAILBOX]> show variables like 'character%';
-+--------------------------+----------------------------+
-| Variable_name            | Value                      |
-+--------------------------+----------------------------+
-| character_set_client     | utf8                       |
-| character_set_connection | utf8                       |
-| character_set_database   | utf8                       |
-| character_set_filesystem | binary                     |
-| character_set_results    | utf8                       |
-| character_set_server     | utf8                       |
-| character_set_system     | utf8                       |
-| character_sets_dir       | /usr/share/mysql/charsets/ |
-+--------------------------+----------------------------+
-8 rows in set (0.003 sec)
-
-
-```
 
 # Analyzer
 

@@ -9,7 +9,8 @@ services:
     privileged: true
     volumes:
       - ./service01/exec/interface:/usr/share/tilon/interface
-      - /private/etc/localtime:/etc/localtime:ro
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - 2100:2100
@@ -30,7 +31,8 @@ services:
       - ./service02/exec/collector:/usr/share/tilon/collector
       - ./service02/exec/interface:/usr/share/tilon/interface
       - ./service02/exec/pusher:/usr/share/tilon/pusher
-      - /private/etc/localtime:/etc/localtime:ro
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - 2101:2100
@@ -52,7 +54,8 @@ services:
       - ./service04/data/POSA:/data/POSA
       - ./service04/exec/IljariAgent:/usr/share/tilon/IljariAgent
       - ./service04/exec/sender:/usr/share/tilon/sender
-      - /private/etc/localtime:/etc/localtime:ro
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - "1422:22"
@@ -72,7 +75,8 @@ services:
       - ./DB-Service01/data:/data/tilon
       - ./DB-Service01/exec/analyzer:/usr/share/tilon/analyzer
       - ./DB-Service01/exec/sender:/usr/share/tilon/sender
-      - /private/etc/localtime:/etc/localtime:ro
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - "2122:22"
@@ -90,7 +94,8 @@ services:
     privileged: true
     volumes:
       - ./External01/data/11001:/11001
-      - /private/etc/localtime:/etc/localtime:ro
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - "3122:22"

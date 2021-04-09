@@ -12,7 +12,8 @@ services:
       - ./service04/data/POSA:/data/POSA
       - ./service04/exec/IljariAgent:/usr/share/tilon/IljariAgent
       - ./service04/exec/sender:/usr/share/tilon/sender
-      - /private/etc/localtime:/etc/localtime:ro
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - "1422:22"
