@@ -124,6 +124,8 @@ docker-compose-mailbox.yml : 모바일 우편함 서비스
 docker-compose-manager.yml : 관리자 페이지 관련
 docker-compose-blockchain.yml : 향후 블록체인 관련 네트워크 (현재 없음)
 
+macos에서는 --env-file을 지정하는 방식을 사용하고 centos에서는 자동을 해당 값이 .env를 통해 지정되도록 한다.
+
 ```
 $ cd upost-network
 
