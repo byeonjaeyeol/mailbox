@@ -20,8 +20,6 @@ services:
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - 9200:9200
-    depends_on:
-      - emailbox
     networks:
       - nmailbox
 
@@ -43,8 +41,6 @@ services:
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
-    depends_on:
-      - emailbox
     networks:
       - nmailbox
       
