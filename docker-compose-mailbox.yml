@@ -9,6 +9,7 @@ services:
     privileged: true
     volumes:
       - ./Service01/exec/interface:/usr/share/tilon/interface
+      - ./Service01/exec/usrlocalbin:/usr/local/bin
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
@@ -31,6 +32,7 @@ services:
       - ./Service02/exec/collector:/usr/share/tilon/collector
       - ./Service02/exec/interface:/usr/share/tilon/interface
       - ./Service02/exec/pusher:/usr/share/tilon/pusher
+      - ./Service01/exec/usrlocalbin:/usr/local/bin
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux

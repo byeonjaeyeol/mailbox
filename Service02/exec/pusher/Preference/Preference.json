@@ -4,7 +4,7 @@
         "datasource": "embuser:!tilon9099@@(emailbox:3306)/EMAILBOX"
     },
     "firebase": {
-        "serverKey": "AAAAZdFU7uA:APA91bFQKQKZd2ks1Z39LNdLVTlgF4DreBj66uoOrAXBL6RYl3dtnNG0T960B4aFhTsSC5Pq5HAetEeKWkKlXoZ4gnILzwuToPWeZ2pR9GSDZWGEzrl0s9-4cOC4Cl-ck4N2qyrj_AwN"
+        "serverKey": "AAAAE43_gVM:APA91bHInCxwkv_Tanb8AMB72dHNKJRF6A5h4_yO04UNAJueR5a5xueGw-4H47XGx3vu6_QRHKSl7azKyT2oYI7uIgzR172psqfG5JN8m6JedF7du4CRHq1jV5s3GTNV5PKqUKJoJWpT"
     },
     "push": {
         "freq": "60",
