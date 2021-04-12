@@ -3,21 +3,61 @@
 
 # 사용자 관리
 ## 추가
+```
+MariaDB [(none)]> create user 'embuser'@'localhost' identified by '!tilon9099@';
+Query OK, 0 rows affected (0.00 sec)
 
+MariaDB [(none)]> create user 'embuser'@'%' identified by '!tilon9099@';
+Query OK, 0 rows affected (0.00 sec)
+```
 
 ## 삭제
 
-
+```
+MariaDB [mysql]> drop user 'embuser'@'%';
+Query OK, 0 rows affected (0.00 sec)
+```
 
 
 # 사용자권한 관리
 ## 추가
+```
+MariaDB [(none)]> grant all privileges on *.* to 'embuser'@'localhost';
+Query OK, 0 rows affected (0.01 sec)
 
+MariaDB [(none)]> grant all privileges on *.* to 'embuser'@'%';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> show grants for 'embuser'@'localhost';
++-------------------------------------------------------------------------------------------------------------------------+
+| Grants for embuser@localhost                                                                                            |
++-------------------------------------------------------------------------------------------------------------------------+
+| GRANT ALL PRIVILEGES ON *.* TO 'embuser'@'localhost' IDENTIFIED BY PASSWORD '*F6A8012F18F5925568CA9B6173D61462877696A6' |
++-------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+MariaDB [(none)]> 
+
+```
 
 ## 삭제
 
 
+```
+MariaDB [(none)]> revoke all on *.* from 'embuser'@'localhost';
+Query OK, 0 rows affected (0.01 sec)
+
+MariaDB [(none)]> revoke all on *.* from 'embuser'@'%';
+Query OK, 0 rows affected (0.00 sec)
+```
+
 # 데이터베이스 백업 및 복구
+```
+[root@ip-172-31-38-3 home]# mysql -h 127.0.0.1 -P 3307 -u root -p EMAILBOX < EMAILBOX_20210308.sql 
+Enter password: 
+[root@ip-172-31-38-3 home]# 
+```
+
 
 
 # 한글깨짐수정
@@ -115,5 +155,11 @@ MariaDB [EMAILBOX]> drop index TBL_EPOSTMEMBER_CO_MI_index on TBL_EPOSTMEMBER_CO
 
 ```
 
+# procedure
+## procedure 목록
+프로시져 목록을 확인하기
+```
+MariaDB [EMAILBOX]> show procedure status;
 
-
+```
+## procedure 업데이트
