@@ -8,7 +8,7 @@ services:
     restart: 'no'
     privileged: true
     volumes:
-      - ./service01/exec/interface:/usr/share/tilon/interface
+      - ./Service01/exec/interface:/usr/share/tilon/interface
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
@@ -28,9 +28,9 @@ services:
     restart: 'no'
     privileged: true
     volumes:
-      - ./service02/exec/collector:/usr/share/tilon/collector
-      - ./service02/exec/interface:/usr/share/tilon/interface
-      - ./service02/exec/pusher:/usr/share/tilon/pusher
+      - ./Service02/exec/collector:/usr/share/tilon/collector
+      - ./Service02/exec/interface:/usr/share/tilon/interface
+      - ./Service02/exec/pusher:/usr/share/tilon/pusher
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
@@ -50,10 +50,10 @@ services:
     restart: 'no'
     privileged: true
     volumes:
-      - ./service04/data/tilon:/data/tilon
-      - ./service04/data/POSA:/data/POSA
-      - ./service04/exec/IljariAgent:/usr/share/tilon/IljariAgent
-      - ./service04/exec/sender:/usr/share/tilon/sender
+      - ./Service04/data/tilon:/data/tilon
+      - ./Service04/data/POSA:/data/POSA
+      - ./Service04/exec/IljariAgent:/usr/share/tilon/IljariAgent
+      - ./Service04/exec/sender:/usr/share/tilon/sender
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux

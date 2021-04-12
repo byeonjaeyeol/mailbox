@@ -8,10 +8,10 @@ services:
     restart: 'no'
     privileged: true
     volumes:
-      - ./service04/data/tilon:/data/tilon
-      - ./service04/data/POSA:/data/POSA
-      - ./service04/exec/IljariAgent:/usr/share/tilon/IljariAgent
-      - ./service04/exec/sender:/usr/share/tilon/sender
+      - ./Service04/data/tilon:/data/tilon
+      - ./Service04/data/POSA:/data/POSA
+      - ./Service04/exec/IljariAgent:/usr/share/tilon/IljariAgent
+      - ./Service04/exec/sender:/usr/share/tilon/sender
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux

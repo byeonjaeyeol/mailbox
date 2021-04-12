@@ -12,9 +12,9 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./service03/config:/usr/share/elasticsearch/config
-      - ./service03/node01:/data/elasticsearch
-      - ./service03/log01:/var/log/elasticsearch
+      - ./Service03/config:/usr/share/elasticsearch/config
+      - ./Service03/node01:/data/elasticsearch
+      - ./Service03/log01:/var/log/elasticsearch
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
@@ -37,9 +37,9 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./service04/config:/usr/share/elasticsearch/config
-      - ./service04/node02:/data/elasticsearch
-      - ./service04/log02:/var/log/elasticsearch
+      - ./Service04/config:/usr/share/elasticsearch/config
+      - ./Service04/node02:/data/elasticsearch
+      - ./Service04/log02:/var/log/elasticsearch
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux

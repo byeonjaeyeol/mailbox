@@ -8,7 +8,8 @@ services:
     restart: 'no'
     privileged: true
     volumes:
-      - /private/etc/localtime:/etc/localtime:ro
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - 8880:8080
