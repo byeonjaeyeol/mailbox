@@ -156,7 +156,10 @@ $ docker-compose -f docker-compose-blockahin.yml down
 $ docker-compose -f docker-compose-es.yml down
 
 ```
-## instance
+## instance@amazone
+
+15.165.68.163
+ch
 ```
 root/blab1234!
 blab/blab1234!
