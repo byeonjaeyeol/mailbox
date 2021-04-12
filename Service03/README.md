@@ -53,7 +53,7 @@ $ docker exec -it c456623003b1 /bin/bash
 
 ### 1.기본적인 파이프라인 확인
 ```
-$ curl http: //localhost:9200/_ingest/pipeline/
+$ curl http://localhost:9200/_ingest/pipeline/
     {
         "xpack_monitoring_2": {
             "description": "This pipeline upgrades documents from the older version of the Monitoring API to the newer version (6) by fixing breaking changes in those older documents before they are indexed from the older version (2).",
@@ -91,7 +91,7 @@ $ curl http: //localhost:9200/_ingest/pipeline/
 
 ### 2.실제 운영서버에서 파이프라인 확인을 통해 set_emb_default 
 ```
-# curl http: //localhost:9200/_ingest/pipeline/
+# curl http://localhost:9200/_ingest/pipeline/
     {
         "xpack_monitoring_2": {
             "description": "This pipeline upgrades documents from the older version of the Monitoring API to the newer version (6) by fixing breaking changes in those older documents before they are indexed from the older version (2).",
@@ -209,6 +209,9 @@ PUT /11001-000001
     "11001": {}
   }
 }
+
+
+
 ```
 
 ## 6. and so on
@@ -290,7 +293,7 @@ $ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: ap
                 {
                     "match": {
                         "_id": {
-                            "query": "6Xlnm3QBdzk5kjugdbfu",
+                            "query": "HLGxxHgBx6-IeJaNsmd0",
                             "operator": "and"
                         }
                     }
