@@ -131,7 +131,7 @@ $ cd upost-network
 
 $ ./rmpid.sh
 
-$ docker-compose --env-file macos.cfg -f docker-compose-es.yml up
+$ docker-compose --env-file macos.cfg -f docker-compose-data.yml up
 
 $ docker-compose --env-file macos.cfg -f docker-compose-blockahin.yml up
 

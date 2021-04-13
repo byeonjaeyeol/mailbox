@@ -40,7 +40,9 @@ $ docker exec -it c456623003b1 /bin/bash
 to docker build
 ```
 $ docker build -t bsquarelab/upost-dbservice01:latest .
+
 $ docker build -t bsquarelab/upost-dbservice01:0.1 .
+
 $ docker push bsquarelab/upost-dbservice01:0.1
 $ docker pull bsquarelab/upost-dbservice01:0.1
 ```

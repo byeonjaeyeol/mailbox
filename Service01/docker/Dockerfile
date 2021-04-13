@@ -2,6 +2,9 @@ FROM bsquarelab/upost-basic
 
 MAINTAINER BSQUARELAB <erickahn@bsquarelab.com>
 
+RUN yum install -y libpng libjpeg
+RUN yum install -y libXrender libXext fontconfig
+
 COPY epost.interface.service /etc/systemd/system/
 RUN systemctl enable epost.interface
 
