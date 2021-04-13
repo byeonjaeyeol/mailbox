@@ -7,7 +7,7 @@ dirs=(
         DB-Service01/data/sender/backup
         DB-Service01/data/sender/logs
         DB-Service01/mariadb
-        External01/11001/60002
+        External01/data/11001/60002
         Service03/log01
         Service03/node01
         Service04/log02
