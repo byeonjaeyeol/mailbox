@@ -34,7 +34,7 @@
   "convert": {
     "freq_sec": 60,
     "buffersize": 1024,
-	"compareterm": 300,
+	"compareterm": 10,
 	"monitoring": "Y",
     "agency": {
       "orgcode": "11001",

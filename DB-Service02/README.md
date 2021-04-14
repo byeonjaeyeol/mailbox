@@ -183,3 +183,11 @@ MariaDB [EMAILBOX]> SELECT default_character_set_name, DEFAULT_COLLATION_NAME FR
 
 
 ```
+
+
+# 데이터 정합성
+
+```
+INSERT INTO TBL_AGENCY VALUES(12,"49757","(주)비스퀘어랩","69999","미래연구본부","안계혁","01026686763","jhko@tilon.com","https://if.postok.co.kr/icon/bsquarelab_logo.png", "2025-05-20 00:00:00", "pstchannel1","org1",0,3,"365d",0,"");
+
+```
