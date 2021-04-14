@@ -119,7 +119,7 @@ $ ./mkdirs.sh
 ## docker-compose up
 현재 필요한 docker-compose는 다음 4가지가 필요하며 docker가 시작되면서 서비스가 살아나기 때문에 실행 순서는 아래 순서대로 실행하면 된다. 그전에 pid 충돌을 예방하기 위해서 rmpid.sh을 실행하여 삭제한다.
 
-docker-compose-es.yml : elasticsearch and database
+docker-compose-data.yml : elasticsearch and database
 docker-compose-mailbox.yml : 모바일 우편함 서비스
 docker-compose-manager.yml : 관리자 페이지 관련
 docker-compose-blockchain.yml : 향후 블록체인 관련 네트워크 (현재 없음)
@@ -141,6 +141,22 @@ $ docker-compose --env-file macos.cfg -f docker-compose-manager.yml up
 
 ```
 
+linux에서는 --env-file 옵션이 없는 상태로 실행하면 된다.
+```
+$ cd upost-network
+
+$ ./rmpid.sh
+
+$ docker-compose -f docker-compose-data.yml up
+
+$ docker-compose -f docker-compose-blockahin.yml up
+
+$ docker-compose -f docker-compose-mailbox.yml up
+
+$ docker-compose -f docker-compose-manager.yml up
+
+```
+
 ## docker-compose down
 docker를 실행하는 역순으로 실행한다.
 
@@ -158,8 +174,9 @@ $ docker-compose -f docker-compose-es.yml down
 ```
 ## instance@amazone
 
+아마존의 다음 인스턴스에 배포되어 있다.
 15.165.68.163
-ch
+
 ```
 root/blab1234!
 blab/blab1234!
