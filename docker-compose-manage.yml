@@ -29,7 +29,7 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - 8881:8080
+      - 8881:8081
     networks:
       - nmailbox
 
