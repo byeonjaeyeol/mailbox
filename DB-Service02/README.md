@@ -161,5 +161,25 @@ MariaDB [EMAILBOX]> drop index TBL_EPOSTMEMBER_CO_MI_index on TBL_EPOSTMEMBER_CO
 ```
 MariaDB [EMAILBOX]> show procedure status;
 
+MariaDB [EMAILBOX]> show create procedure SP_IF_LOGIN;
 ```
 ## procedure 업데이트
+
+
+
+# Table
+## 상세정보
+```
+MariaDB [EMAILBOX]> show full columns from TBL_EPOSTMEMBER;
+
+MariaDB [EMAILBOX]> desc TBL_EPOSTMEMBER;
+
+MariaDB [EMAILBOX]> SELECT default_character_set_name, DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA  WHERE schema_name = "EMAILBOX";
++----------------------------+------------------------+
+| default_character_set_name | DEFAULT_COLLATION_NAME |
++----------------------------+------------------------+
+| utf8                       | utf8_general_ci        |
++----------------------------+------------------------+
+
+
+```
