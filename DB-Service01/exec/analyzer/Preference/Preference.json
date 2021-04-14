@@ -16,7 +16,7 @@
 		}
 	},
 	"analysis": {
-		"periodwithoutinsert": "600s"
+		"periodwithoutinsert": "60s"
 	},
 	"rdbms": {
 		"class": "mysql",
