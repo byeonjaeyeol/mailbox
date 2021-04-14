@@ -10,6 +10,12 @@ services:
     volumes:
       - ./Service01/exec/interface:/usr/share/tilon/interface
       - ./Service01/exec/usrlocalbin:/usr/local/bin
+      - ./Service01/exec/interface/res/mailbox/read/11001/60002/11001-60002-sample:/tmp/11001-60002-sample
+      - ./Service01/exec/interface/res/mailbox/read/11001/60002/11001-60002-00003:/tmp/11001-60002-00003
+      - ./Service01/exec/interface/res/mailbox/read/11002/60003/11002-60003-sample:/tmp/11002-60003-sample
+      - ./Service01/exec/interface/res/mailbox/read/49757/69999/49757-69999-40001:/tmp/49757-69999-40001
+      - ./Service01/exec/interface/res/mailbox/read/51001/60004/51001-60004-sample:/tmp/51001-60004-sample
+      - ./Service01/exec/interface/res/mailbox/read/90001/60001/90001-60001-90001:/tmp/90001-60001-90001
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
@@ -32,7 +38,13 @@ services:
       - ./Service02/exec/collector:/usr/share/tilon/collector
       - ./Service02/exec/interface:/usr/share/tilon/interface
       - ./Service02/exec/pusher:/usr/share/tilon/pusher
-      - ./Service01/exec/usrlocalbin:/usr/local/bin
+      - ./Service02/exec/usrlocalbin:/usr/local/bin
+      - ./Service01/exec/interface/res/mailbox/read/11001/60002/11001-60002-sample:/tmp/11001-60002-sample
+      - ./Service01/exec/interface/res/mailbox/read/11001/60002/11001-60002-00003:/tmp/11001-60002-00003
+      - ./Service01/exec/interface/res/mailbox/read/11002/60003/11002-60003-sample:/tmp/11002-60003-sample
+      - ./Service01/exec/interface/res/mailbox/read/49757/69999/49757-69999-40001:/tmp/49757-69999-40001
+      - ./Service01/exec/interface/res/mailbox/read/51001/60004/51001-60004-sample:/tmp/51001-60004-sample
+      - ./Service01/exec/interface/res/mailbox/read/90001/60001/90001-60001-90001:/tmp/90001-60001-90001
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
