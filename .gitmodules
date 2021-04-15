@@ -1,3 +1,6 @@
 [submodule "GoEnv/go/IljariAgent"]
 	path = GoEnv/go/IljariAgent
 	url = https://github.com/bsquarelab/IljariAgent.git
+[submodule "GoEnv/go/interface"]
+	path = GoEnv/go/interface
+	url = https://github.com/kyehyukahn/interface.git
