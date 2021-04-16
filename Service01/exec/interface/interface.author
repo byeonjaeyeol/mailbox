@@ -270,37 +270,37 @@
     {
       "uri": "/stats/docid",
       "agent": "",
-      "ip": "10.64.203.0~10.64.203.254",
+      "ip": "",
       "hmac": "false"
     },
     {
       "uri": "/stats/reqid",
       "agent": "",
-      "ip": "10.64.203.0~10.64.203.254",
+      "ip": "",
       "hmac": "false"
     },
     {
       "uri": "/stats/groupby",
       "agent": "",
-      "ip": "10.64.203.0~10.64.203.254",
+      "ip": "",
       "hmac": "false"
     },
     {
       "uri": "/stats/time",
       "agent": "",
-      "ip": "10.64.203.0~10.64.203.254",
+      "ip": "",
       "hmac": "false"
     },
     {
       "uri": "/stats/dmregnum",
       "agent": "",
-      "ip": "10.64.203.0~10.64.203.254",
+      "ip": "",
       "hmac": "false"
     },
     {
       "uri": "/stats/name",
       "agent": "",
-      "ip": "10.64.203.0~10.64.203.254",
+      "ip": "",
       "hmac": "false"
     }
   ]
