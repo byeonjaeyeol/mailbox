@@ -74,7 +74,7 @@ services:
     ports:
       - 3307:3306      
     volumes:
-      - ./DB-Service01/mysql/my.cnf:/etc/mysql/my.cnf
+      - ./DB-Service01/mysql:/etc/mysql
       - ./DB-Service01/mariadb:/data/mysql
       - ./DB-Service01/data/analyzer/result:/data/tilon/analyzer/result
       - ${LOCALTIME}:/etc/localtime:ro

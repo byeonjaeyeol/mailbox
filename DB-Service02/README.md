@@ -1,6 +1,17 @@
 # UPOST-DBSERVER-02
 모바일우편함 DB Service02 서버로 일반적인 데이터베이스 관련 설정은 여기에서 정리할 예정임.
 
+# docker build
+to docker build
+```
+$ docker build -t bsquarelab/upost-mariadb:latest .
+
+$ docker build -t bsquarelab/upost-mariadb:0.1 .
+
+$ docker push bsquarelab/upost-mariadb:0.1
+$ docker pull bsquarelab/upost-mariadb:0.1
+```
+
 # 사용자 관리
 ## 추가
 ```
@@ -116,6 +127,7 @@ Records: 0  Duplicates: 0  Warnings: 1
 ```
 
 # handling index
+select 속도를 개선하기 위해 indexin을 사용할 수 있다.
 index 확인
 ```
 MariaDB [EMAILBOX]> show index from TBL_EPOSTMEMBER_CO;
@@ -181,6 +193,26 @@ MariaDB [EMAILBOX]> SELECT default_character_set_name, DEFAULT_COLLATION_NAME FR
 | utf8                       | utf8_general_ci        |
 +----------------------------+------------------------+
 
+
+```
+
+# Database
+데이터베이스에 대한 charset과 collation 변경
+```
+MariaDB [EMAILBOX]> ALTER DATABASE EMAILBOX CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+Query OK, 1 row affected (0.012 sec)
+
+MariaDB [EMAILBOX]> SELECT SCHEMA_NAME 'database', default_character_set_name 'charset', DEFAULT_COLLATION_NAME 'collation' FROM information_schema.SCHEMATA;
++--------------------+---------+-----------------+
+| database           | charset | collation       |
++--------------------+---------+-----------------+
+| EMAILBOX           | utf8    | utf8_unicode_ci |
+| data               | utf8    | utf8_general_ci |
+| information_schema | utf8    | utf8_general_ci |
+| mysql              | utf8    | utf8_general_ci |
+| performance_schema | utf8    | utf8_general_ci |
++--------------------+---------+-----------------+
+5 rows in set (0.005 sec)
 
 ```
 
