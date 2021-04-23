@@ -8,7 +8,8 @@
     "list": "pm2 list",
     "stop": "pm2 stop postalk",
     "monit": "pm2 monit",
-    "dev": "cross-env NODE_ENV=dev nodemon index.js"
+    "dev": "cross-env NODE_ENV=dev nodemon index.js",
+    "test": "cross-env NODE_ENV=test nodemon index.js"
   },
   "author": "KDW",
   "license": "ISC",

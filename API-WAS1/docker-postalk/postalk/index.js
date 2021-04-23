@@ -5,7 +5,17 @@ const path = require('path')
 const fs = require('fs');
 const http = require("http");
 const app = express()
-const PORT = process.env.NODE_ENV === 'dev' ? 4000 : 8080
+var PORT
+if(process.env.NODE_ENV === 'production'){
+  PORT = 8080
+} else if(process.env.NODE_ENV === 'dev'){
+  PORT = 4000
+} else if(process.env.NODE_ENV === 'test'){
+  PORT = 8080
+} else {
+  PORT = 4000
+}
+//const PORT = process.env.NODE_ENV === 'dev' ? 4000 : 8080
 
 global.appRoot = path.resolve(__dirname)
 global.uploadDir = path.resolve(__dirname, 'upload')
@@ -24,10 +34,24 @@ app.get('/user*', function (req, res) {
 
 //add banner function
 //get image resource from remote server
+var imgPath;
 app.get('/banner*', function (req, res) {
   var mime = require('mime');
-  //console.log("extensions = ",mime.getType(req.url));
-  var imgPath = "http://static:8081"+req.url;
+  //todo active
+  //var imgPath = "http://10.64.203.122:8081"+req.url;
+  //for dev
+  //var imgPath = "http://localhost:8081"+req.url;
+  //  var imgPath = "http://static:8081"+req.url;
+    if(process.env.NODE_ENV === 'production'){
+        imgPath = "http://10.64.203.122:8081"+req.url;
+    } else if(process.env.NODE_ENV === 'dev'){
+        imgPath = "http://localhost:8081"+req.url;
+    } else if(process.env.NODE_ENV === 'test'){
+        imgPath = "http://static:8081"+req.url;
+    } else {
+        imgPath = "http://localhost:8081"+req.url;
+    }
+
   var imgMime = mime.getType(req.url);
 
   req.pipe(

@@ -1,6 +1,17 @@
 const mysql = require('mysql')
 const fs = require('fs')
-const config = require('../configs/db')
+//todo check
+var config;
+if(process.env.NODE_ENV === 'production'){
+  config = require('../configs/db')
+} else if(process.env.NODE_ENV === 'dev'){
+  config = require('../configs/db-dev')
+} else if(process.env.NODE_ENV === 'test'){
+  config = require('../configs/db-test')
+} else {
+  config = require('../configs/db-dev')
+}
+//const config = require('../configs/db')
 
 const pool = mysql.createPool(config)
 

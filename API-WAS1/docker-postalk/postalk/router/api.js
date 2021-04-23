@@ -95,7 +95,38 @@ router.get('/connection/:type', async (req, res) => {
     org: 'TBL_AGENCY_USER'
   }
 
-  let sql = `
+  // let sql = `
+  //   SELECT
+  //     c.datetime,
+  //     c.ip,
+  //     u.user
+  //   FROM TBL_CONNECTION as c
+  //   LEFT JOIN ?? as u
+  //   ON u.id = c.user_id
+  //   WHERE c.user_type = ?
+  //   ORDER BY datetime DESC
+  // `
+  let values = [tables[type], type]
+
+
+  if (req.user.type === 'org') {
+    //sql += ' && u.org_name = ? && u.dept_name = ?'
+    var sql = `
+    SELECT
+      c.datetime,
+      c.ip,
+      u.user
+    FROM TBL_CONNECTION as c
+    LEFT JOIN ?? as u
+    ON u.id = c.user_id
+    WHERE c.user_type = ? AND u.org_name = ?
+    ORDER BY datetime DESC
+  `
+
+    values.push(req.user.org_name)
+   // values.push(req.user.dept_name)
+  } else{
+    var sql = `
     SELECT
       c.datetime,
       c.ip,
@@ -106,12 +137,7 @@ router.get('/connection/:type', async (req, res) => {
     WHERE c.user_type = ?
     ORDER BY datetime DESC
   `
-  let values = [tables[type], type]
 
-  if (req.user.type === 'org') {
-    sql += ' && u.org_name = ? && u.dept_name = ?'
-    values.push(req.user.org_name)
-    values.push(req.user.dept_name)
   }
 
   const historys = await oneQuery(sql, values)
@@ -176,8 +202,8 @@ router.get('/mail/send', async (req, res) => {
     FROM
       TBL_STAT_DISPRESULT as s
   `
-
-  if (req.user.type === 'org') {
+  //kimcy :except admin
+  if (req.user.type === 'org' && req.user.authority !== 'admin') {
     sql += `
       INNER JOIN TBL_AGENCY as o
       ON
@@ -240,7 +266,8 @@ router.get('/mail/receive', async (req, res) => {
   `
   let values = []
 
-  if (req.user.type === 'org') {
+  //kimcy except admin
+  if (req.user.type === 'org' && req.user.authority !== 'admin') {
     sql += `
       INNER JOIN TBL_AGENCY as o
       ON
@@ -417,7 +444,12 @@ router.get('/post/statistics', async (req, res) => {
   `
   let values = []
 
-  if (req.user.type === 'org') {
+  //kimcy add
+  if(req.user.type === 'org' && req.user.authority === 'admin'){
+    sql += 'WHERE org.org_name = ?'
+    values.push(req.user.org_name)
+  }
+  else if (req.user.type === 'org') {
     sql += 'WHERE org.org_name = ? && org.dept_name = ?'
     values.push(req.user.org_name)
     values.push(req.user.dept_name)
@@ -747,7 +779,13 @@ router.get('/org', async (req, res) => {
   let sql = `SELECT * FROM TBL_AGENCY`
   let values = []
 
-  if (req.user.type === 'org') {
+  //kimcy
+  if (req.user.type === 'org' && req.user.authority === 'admin') {
+    sql += ' WHERE org_name = ?'
+    values.push(req.user.org_name)
+  }
+
+  else if (req.user.type === 'org') {
     sql += ' WHERE org_name = ? && dept_name = ?'
     values.push(req.user.org_name)
     values.push(req.user.dept_name)
@@ -840,7 +878,8 @@ router.get('/format', async (req, res) => {
   let where = ''
   let values = []
 
-  if (user.type === 'org') {
+  //kimcy
+  if (user.type === 'org' && user.authority !== 'admin') {
     const [{ idx: agencyID }] = await oneQuery(`SELECT idx FROM TBL_AGENCY WHERE org_name = ? && dept_name = ?`, [user.org_name, user.dept_name])
 
     where = `WHERE t.agency_id = ?`

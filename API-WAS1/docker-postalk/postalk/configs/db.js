@@ -1,5 +1,5 @@
 const config = {
-  host: 'emailbox',
+  host: '10.65.203.109',
   user: 'embuser',
   port: '3306',
   password: '!tilon9099@',
@@ -7,9 +7,5 @@ const config = {
   connectionLimit: 30
 }
 
-if (process.env.NODE_ENV === 'dev') {
-  config.host = 'emailbox'
-  config.port = '3306'
-}
 
 module.exports = config
