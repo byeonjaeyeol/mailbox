@@ -1,8 +1,8 @@
 const config = {
   host : 'emailbox',
-  user : 'root',
+  user : 'embuser',
   port :  '3306',
-  password : '1010',
+  password : '!tilon9099@',
   database : 'EMAILBOX'
 }
 
