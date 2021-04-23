@@ -11,7 +11,7 @@ if(process.env.NODE_ENV === 'production'){
 } else if(process.env.NODE_ENV === 'dev'){
   PORT = 4000
 } else if(process.env.NODE_ENV === 'test'){
-  PORT = 8880
+  PORT = 8080
 } else {
   PORT = 4000
 }
