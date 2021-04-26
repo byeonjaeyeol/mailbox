@@ -1,0 +1,37 @@
+---
+  OrdererOrgs: 
+    - 
+      Name: "OrdererGroup"
+      Domain: "pst.com"
+      Specs: 
+        - 
+          Hostname: "orderer0"
+        - 
+          Hostname: "orderer1"
+        - 
+          Hostname: "orderer2"
+  PeerOrgs: 
+    - 
+      Name: "org1"
+      Domain: "org1.pst.com"
+      EnableNodeOUs: true
+      Template: 
+        Count: 1
+      Users: 
+        Count: 2
+    - 
+      Name: "org2"
+      Domain: "org2.pst.com"
+      EnableNodeOUs: true
+      Template: 
+        Count: 2
+      Users: 
+        Count: 2
+    - 
+      Name: "org3"
+      Domain: "org3.pst.com"
+      EnableNodeOUs: true
+      Template: 
+        Count: 1
+      Users: 
+        Count: 2

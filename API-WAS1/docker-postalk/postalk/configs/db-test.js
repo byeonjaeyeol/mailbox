@@ -5,7 +5,6 @@ const config = {
   password : '!tilon9099@',
   database : 'EMAILBOX',
   connectionLimit: 30
-
 }
 
 

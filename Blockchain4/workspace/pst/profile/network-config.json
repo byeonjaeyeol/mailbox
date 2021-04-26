@@ -1,0 +1,264 @@
+{
+	"name": "pst.com",
+	"x-type": "hlfv1",
+	"description": "pst.com",
+	"version": "1.0",
+	"channels": {
+		"pstchannel1": {
+			"orderers": [
+				"orderer0.pst.com",
+				"orderer1.pst.com",
+				"orderer2.pst.com"
+			],
+			"peers": {
+				"peer0.org1.pst.com": {
+					"endorsingPeer": true,
+					"chaincodeQuery": true,
+					"ledgerQuery": true,
+					"eventSource": true
+				},
+				"peer0.org2.pst.com": {
+					"endorsingPeer": true,
+					"chaincodeQuery": true,
+					"ledgerQuery": true,
+					"eventSource": true
+				},
+				"peer0.org3.pst.com": {
+					"endorsingPeer": true,
+					"chaincodeQuery": true,
+					"ledgerQuery": true,
+					"eventSource": true
+				},
+				"peer1.org2.pst.com": {
+					"endorsingPeer": true,
+					"chaincodeQuery": true,
+					"ledgerQuery": true,
+					"eventSource": true
+				}
+			}
+		},
+		"pstchannel2": {
+			"orderers": [
+				"orderer0.pst.com",
+				"orderer1.pst.com",
+				"orderer2.pst.com"
+			],
+			"peers": {
+				"peer0.org1.pst.com": {
+					"endorsingPeer": true,
+					"chaincodeQuery": true,
+					"ledgerQuery": true,
+					"eventSource": true
+				},
+				"peer0.org2.pst.com": {
+					"endorsingPeer": true,
+					"chaincodeQuery": true,
+					"ledgerQuery": true,
+					"eventSource": true
+				},
+				"peer1.org2.pst.com": {
+					"endorsingPeer": true,
+					"chaincodeQuery": true,
+					"ledgerQuery": true,
+					"eventSource": true
+				}
+			}
+		},
+		"pstchannel3": {
+			"orderers": [
+				"orderer0.pst.com",
+				"orderer1.pst.com",
+				"orderer2.pst.com"
+			],
+			"peers": {
+				"peer0.org2.pst.com": {
+					"endorsingPeer": true,
+					"chaincodeQuery": true,
+					"ledgerQuery": true,
+					"eventSource": true
+				},
+				"peer0.org3.pst.com": {
+					"endorsingPeer": true,
+					"chaincodeQuery": true,
+					"ledgerQuery": true,
+					"eventSource": true
+				},
+				"peer1.org2.pst.com": {
+					"endorsingPeer": true,
+					"chaincodeQuery": true,
+					"ledgerQuery": true,
+					"eventSource": true
+				}
+			}
+		}
+	},
+	"organizations": {
+		"org1": {
+			"mspid": "org1Msp",
+			"peers": [
+				"peer0.org1.pst.com"
+			],
+			"certificateAuthorities": [
+				"ca.org1.pst.com"
+			],
+			"adminPrivateKey": {
+				"path": "/data/workspace/pst/crypto-config/peerOrganizations/org1.pst.com/users/Admin@org1.pst.com/msp/keystore/a22af662975a0813e04a8784e73e37cef3c98256514eb27235895d5476e69eae_sk"
+			},
+			"signedCert": {
+				"path": "/data/workspace/pst/crypto-config/peerOrganizations/org1.pst.com/users/Admin@org1.pst.com/msp/signcerts/Admin@org1.pst.com-cert.pem"
+			}
+		},
+		"org2": {
+			"mspid": "org2Msp",
+			"peers": [
+				"peer0.org2.pst.com",
+				"peer1.org2.pst.com"
+			],
+			"certificateAuthorities": [
+				"ca.org2.pst.com"
+			],
+			"adminPrivateKey": {
+				"path": "/data/workspace/pst/crypto-config/peerOrganizations/org2.pst.com/users/Admin@org2.pst.com/msp/keystore/89b631240f876c2573c2c92c74199946ed4cfbf521bdd29c58169aa193b251ac_sk"
+			},
+			"signedCert": {
+				"path": "/data/workspace/pst/crypto-config/peerOrganizations/org2.pst.com/users/Admin@org2.pst.com/msp/signcerts/Admin@org2.pst.com-cert.pem"
+			}
+		},
+		"org3": {
+			"mspid": "org3Msp",
+			"peers": [
+				"peer0.org3.pst.com"
+			],
+			"certificateAuthorities": [
+				"ca.org3.pst.com"
+			],
+			"adminPrivateKey": {
+				"path": "/data/workspace/pst/crypto-config/peerOrganizations/org3.pst.com/users/Admin@org3.pst.com/msp/keystore/de59f26674895138b2c8f16be3af88d2fdc55c213f78a335c803c89758d4beb8_sk"
+			},
+			"signedCert": {
+				"path": "/data/workspace/pst/crypto-config/peerOrganizations/org3.pst.com/users/Admin@org3.pst.com/msp/signcerts/Admin@org3.pst.com-cert.pem"
+			}
+		}
+	},
+	"orderers": {
+		"orderer0.pst.com": {
+			"url": "grpcs://10.65.203.47:7050",
+			"grpcOptions": {
+				"ssl-target-name-override": "orderer0.pst.com"
+			},
+			"tlsCACerts": {
+				"path": "/data/workspace/pst/crypto-config/ordererOrganizations/pst.com/orderers/orderer0.pst.com/tls/ca.crt"
+			}
+		},
+		"orderer1.pst.com": {
+			"url": "grpcs://10.65.203.35:7050",
+			"grpcOptions": {
+				"ssl-target-name-override": "orderer1.pst.com"
+			},
+			"tlsCACerts": {
+				"path": "/data/workspace/pst/crypto-config/ordererOrganizations/pst.com/orderers/orderer1.pst.com/tls/ca.crt"
+			}
+		},
+		"orderer2.pst.com": {
+			"url": "grpcs://10.65.203.36:7050",
+			"grpcOptions": {
+				"ssl-target-name-override": "orderer2.pst.com"
+			},
+			"tlsCACerts": {
+				"path": "/data/workspace/pst/crypto-config/ordererOrganizations/pst.com/orderers/orderer2.pst.com/tls/ca.crt"
+			}
+		}
+	},
+	"peers": {
+		"peer0.org1.pst.com": {
+			"url": "grpcs://10.65.203.47:7051",
+			"eventUrl": "grpcs://10.65.203.47:7053",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.org1.pst.com"
+			},
+			"tlsCACerts": {
+				"path": "/data/workspace/pst/crypto-config/peerOrganizations/org1.pst.com/peers/peer0.org1.pst.com/tls/ca.crt"
+			}
+		},
+		"peer0.org2.pst.com": {
+			"url": "grpcs://10.65.203.35:7051",
+			"eventUrl": "grpcs://10.65.203.35:7053",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.org2.pst.com"
+			},
+			"tlsCACerts": {
+				"path": "/data/workspace/pst/crypto-config/peerOrganizations/org2.pst.com/peers/peer0.org2.pst.com/tls/ca.crt"
+			}
+		},
+		"peer0.org3.pst.com": {
+			"url": "grpcs://10.65.203.50:7051",
+			"eventUrl": "grpcs://10.65.203.50:7053",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.org3.pst.com"
+			},
+			"tlsCACerts": {
+				"path": "/data/workspace/pst/crypto-config/peerOrganizations/org3.pst.com/peers/peer0.org3.pst.com/tls/ca.crt"
+			}
+		},
+		"peer1.org2.pst.com": {
+			"url": "grpcs://10.65.203.36:7051",
+			"eventUrl": "grpcs://10.65.203.36:7053",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer1.org2.pst.com"
+			},
+			"tlsCACerts": {
+				"path": "/data/workspace/pst/crypto-config/peerOrganizations/org2.pst.com/peers/peer1.org2.pst.com/tls/ca.crt"
+			}
+		}
+	},
+	"certificateAuthorities": {
+		"ca.org1.pst.com": {
+			"url": "https://10.65.203.47:7054",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/data/workspace/pst/crypto-config/peerOrganizations/org1.pst.com/ca/ca.org1.pst.com-cert.pem"
+			},
+			"registrar": [
+				{
+					"enrollId": "admin",
+					"enrollSecret": "adminpw"
+				}
+			],
+			"caName": "ca.org1.pst.com"
+		},
+		"ca.org2.pst.com": {
+			"url": "https://10.65.203.35:7054",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/data/workspace/pst/crypto-config/peerOrganizations/org2.pst.com/ca/ca.org2.pst.com-cert.pem"
+			},
+			"registrar": [
+				{
+					"enrollId": "admin",
+					"enrollSecret": "adminpw"
+				}
+			],
+			"caName": "ca.org2.pst.com"
+		},
+		"ca.org3.pst.com": {
+			"url": "https://10.65.203.50:7054",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/data/workspace/pst/crypto-config/peerOrganizations/org3.pst.com/ca/ca.org3.pst.com-cert.pem"
+			},
+			"registrar": [
+				{
+					"enrollId": "admin",
+					"enrollSecret": "adminpw"
+				}
+			],
+			"caName": "ca.org3.pst.com"
+		}
+	}
+}

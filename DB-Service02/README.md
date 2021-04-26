@@ -62,15 +62,6 @@ MariaDB [(none)]> revoke all on *.* from 'embuser'@'%';
 Query OK, 0 rows affected (0.00 sec)
 ```
 
-# 데이터베이스 백업 및 복구
-```
-[root@ip-172-31-38-3 home]# mysql -h 127.0.0.1 -P 3307 -u root -p EMAILBOX < EMAILBOX_20210308.sql 
-Enter password: 
-[root@ip-172-31-38-3 home]# 
-```
-
-
-
 # 한글깨짐수정
 MariaDB의 한글 character가 깨지는 경우에는 혹시라도 다음과 같이 확인하여 수정해야 한다.
 ```
@@ -110,6 +101,15 @@ MariaDB [EMAILBOX]> show variables like 'character%';
 +--------------------------+----------------------------+
 8 rows in set (0.003 sec)
 ```
+
+
+# 데이터베이스 백업 및 복구
+```
+[root@ip-172-31-38-3 home]# mysql -h 127.0.0.1 -P 3307 -u root -p EMAILBOX < EMAILBOX_20210308.sql 
+Enter password: 
+[root@ip-172-31-38-3 home]# 
+```
+
 
 # primary key 변경
 primary key를 변경하기 위해서는 우선 삭제를 진행한다.

@@ -1,0 +1,106 @@
+---
+  version: "2"
+  volumes: 
+    peer0.org1.pst.com: null
+  networks: 
+    pstnet1569336953: null
+  services: 
+    peer0.org1.pst.com: 
+      container_name: "peer0.org1.pst.com"
+      image: "hyperledger/fabric-peer:1.4.2"
+      dns_search: "."
+      environment: 
+        - "CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock"
+        - "CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=pst_pstnet1569336953"
+        - "CORE_PEER_ID=peer0.org1.pst.com"
+        - "CORE_PEER_ADDRESS=peer0.org1.pst.com:7051"
+        - "CORE_PEER_LISTENADDRESS=0.0.0.0:7051"
+        - "CORE_PEER_SERVERHOSTOVERRIDE=peer0.org1.pst.com"
+        - "CORE_LEGER_HISTORY_ENABLEHISTORYDATABASE=true"
+        - "FABRIC_LOGGING_SPEC=INFO"
+        - "CORE_LEDGER_STATE_STATEDATABASE=goleveldb"
+        - "CORE_OPERATIONS_LISTENADDRESS=peer0.org1.pst.com:9100"
+        - "CORE_OPERATIONS_TLS_ENABLED=false"
+        - "CORE_OPERATIONS_TLS_CLIENTAUTHREQUIRED=false"
+        - "CORE_OPERATIONS_TLS_CLIENTROOTCAS_FILES=[]"
+        - "CORE_METRICS_PROVIDER=prometheus"
+        - "CORE_CHAINCODE_BUILDER=hyperledger/fabric-ccenv:1.4.2"
+        - "CORE_CHAINCODE_GOLANG_RUNTIME=hyperledger/fabric-baseos:0.4.15"
+        - "CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.pst.com:7051"
+        - "CORE_PEER_GOSSIP_USELEADERELECTION=true"
+        - "CORE_PEER_GOSSIP_ORGLEADER=false"
+        - "CORE_PEER_PROFILE_ENABLED=true"
+        - "CORE_PEER_TLS_ENABLED=true"
+        - "CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt"
+        - "CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key"
+        - "CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/tls/ca.crt"
+        - "CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.pst.com:7051"
+        - "CORE_PEER_LOCALMSPID=org1Msp"
+        - "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/msp"
+      working_dir: "/opt/gopath/src/github.com/hyperledger/fabric/peer"
+      command: "peer node start"
+      ports: 
+        - "7051:7051"
+        - "7053:7053"
+        - "9100:9100"
+      volumes: 
+        - "/var/run/:/host/var/run/"
+        - "./crypto-config/peerOrganizations/org1.pst.com/peers/peer0.org1.pst.com/msp:/etc/hyperledger/fabric/msp"
+        - "./crypto-config/peerOrganizations/org1.pst.com/peers/peer0.org1.pst.com/tls:/etc/hyperledger/fabric/tls"
+        - "./crypto-config/peerOrganizations/org1.pst.com/users:/etc/hyperledger/users"
+        - "./crypto-config:/crypto-config"
+        - "./channel-artifacts:/channel-artifacts"
+        - "/data/storage/peer0.org1.pst.com/data:/var/hyperledger/production"
+        - "/etc/localtime:/etc/localtime:ro"
+      networks: 
+        - "pstnet1569336953"
+      extra_hosts: 
+        - "ca.org2.pst.com:172.27.0.150"
+        - "ca.org3.pst.com:172.27.0.209"
+        - "peer0.org2.pst.com:172.27.0.150"
+        - "peer0.org3.pst.com:172.27.0.209"
+        - "peer1.org2.pst.com:172.27.0.237"
+        - "orderer1.pst.com:172.27.0.150"
+        - "orderer2.pst.com:172.27.0.237"
+      restart: "always"
+    cli0: 
+      container_name: "cli0"
+      image: "hyperledger/fabric-tools:1.4.2"
+      tty: true
+      stdin_open: true
+      environment: 
+        - "GOPATH=/opt/gopath"
+        - "CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock"
+        - "FABRIC_LOGGING_SPEC=INFO"
+        - "CORE_PEER_ID=cli0"
+        - "CORE_PEER_ADDRESS=peer0.org1.pst.com:7051"
+        - "CORE_PEER_LOCALMSPID=org1Msp"
+        - "CORE_PEER_TLS_ENABLED=true"
+        - "CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.pst.com/peers/peer0.org1.pst.com/tls/server.crt"
+        - "CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.pst.com/peers/peer0.org1.pst.com/tls/server.key"
+        - "CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.pst.com/peers/peer0.org1.pst.com/tls/ca.crt"
+        - "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.pst.com/users/Admin@org1.pst.com/msp"
+      working_dir: "/opt/gopath/src/github.com/hyperledger/fabric/peer"
+      command: "/bin/bash"
+      volumes: 
+        - "/var/run/:/host/var/run/"
+        - "/etc/localtime:/etc/localtime:ro"
+        - "./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/"
+        - "./crypto-config/peerOrganizations/org1.pst.com/users:/etc/hyperledger/users"
+        - "./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/"
+        - "./chaincode/:/opt/gopath/src/github.com/chaincode"
+        - "./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts"
+        - "./crypto-config:/crypto-config"
+        - "./channel-artifacts:/channel-artifacts"
+      depends_on: 
+        - "peer0.org1.pst.com"
+      extra_hosts: 
+        - "ca.org2.pst.com:172.27.0.150"
+        - "ca.org3.pst.com:172.27.0.209"
+        - "peer0.org2.pst.com:172.27.0.150"
+        - "peer0.org3.pst.com:172.27.0.209"
+        - "peer1.org2.pst.com:172.27.0.237"
+        - "orderer1.pst.com:172.27.0.150"
+        - "orderer2.pst.com:172.27.0.237"
+      networks: 
+        - "pstnet1569336953"

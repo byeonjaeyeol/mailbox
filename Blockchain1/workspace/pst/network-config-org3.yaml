@@ -1,0 +1,11 @@
+---
+  name: "pst.com-org3"
+  x-type: "hlfv1"
+  description: "pst.com-org3"
+  version: "1.0"
+  client: 
+    organization: "org3"
+    credentialStore: 
+      path: "/data/workspace/pst/fabric-client-k-org3"
+      cryptoStore: 
+        path: "/data/workspace/pst/fabric-client-v-org3"

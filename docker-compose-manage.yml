@@ -8,6 +8,7 @@ services:
     restart: 'no'
     privileged: true
     volumes:
+      - ./API-WAS1/docker-postalk/postalk/configs:/home/tilon/postalk/configs
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
@@ -15,6 +16,7 @@ services:
       - 8880:8080
     networks:
       - nmailbox
+    command: npm test
 
   static:
     image: bsquarelab/upost-node-static:0.1

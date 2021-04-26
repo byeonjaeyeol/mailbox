@@ -1,0 +1,34 @@
+---
+  version: "2"
+  networks: 
+    pstnet1569336953: null
+  services: 
+    ca.org3.pst.com: 
+      container_name: "ca.org3.pst.com"
+      image: "hyperledger/fabric-ca:1.4.2"
+      environment: 
+        - "FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server"
+        - "FABRIC_CA_SERVER_CA_NAME=ca.org3.pst.com"
+        - "FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org3.pst.com-cert.pem"
+        - "FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/95444392a869f04b9f1fc3225a84dd55c6fdf200c2e49f6c2fb0aa4c65c68080_sk"
+        - "FABRIC_CA_SERVER_TLS_ENABLED=true"
+        - "FABRIC_CA_SERVER_CSR_HOSTS=0.0.0.0"
+      ports: 
+        - "7054:7054"
+      command: "sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org3.pst.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/95444392a869f04b9f1fc3225a84dd55c6fdf200c2e49f6c2fb0aa4c65c68080_sk -b admin:adminpw -d'"
+      volumes: 
+        - "./crypto-config/peerOrganizations/org3.pst.com/ca/:/etc/hyperledger/fabric-ca-server-config"
+        - "/etc/localtime:/etc/localtime:ro"
+        - "/data/storage/ca.org3.pst.com:/etc/hyperledger/"
+      networks: 
+        - "pstnet1569336953"
+      extra_hosts: 
+        - "ca.org1.pst.com:10.65.203.47"
+        - "ca.org2.pst.com:10.65.203.35"
+        - "peer0.org1.pst.com:10.65.203.47"
+        - "peer0.org2.pst.com:10.65.203.35"
+        - "peer1.org2.pst.com:10.65.203.36"
+        - "orderer0.pst.com:10.65.203.47"
+        - "orderer1.pst.com:10.65.203.35"
+        - "orderer2.pst.com:10.65.203.36"
+      restart: "always"

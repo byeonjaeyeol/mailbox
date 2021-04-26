@@ -1,0 +1,210 @@
+---
+  Profiles: 
+    KtbcpOrgsOrdererGenesis: 
+      Policies: 
+        Readers: 
+          Type: "ImplicitMeta"
+          Rule: "ANY Readers"
+        Writers: 
+          Type: "ImplicitMeta"
+          Rule: "ANY Writers"
+        Admins: 
+          Type: "ImplicitMeta"
+          Rule: "MAJORITY Admins"
+      Capabilities: 
+        V1_3: true
+      Orderer: 
+        OrdererType: "etcdraft"
+        Addresses: 
+          - "orderer0.pst.com:7050"
+          - "orderer1.pst.com:7050"
+          - "orderer2.pst.com:7050"
+        BatchTimeout: "0.5s"
+        BatchSize: 
+          MaxMessageCount: "1500"
+          AbsoluteMaxBytes: "128MB"
+          PreferredMaxBytes: "128MB"
+        Kafka: 
+          Brokers: []
+        EtcdRaft: 
+          Consenters: 
+            - 
+              host: "orderer0.pst.com"
+              port: "7050"
+              ClientTLSCert: "crypto-config/ordererOrganizations/pst.com/orderers/orderer0.pst.com/tls/server.crt"
+              ServerTLSCert: "crypto-config/ordererOrganizations/pst.com/orderers/orderer0.pst.com/tls/server.crt"
+            - 
+              host: "orderer1.pst.com"
+              port: "7050"
+              ClientTLSCert: "crypto-config/ordererOrganizations/pst.com/orderers/orderer1.pst.com/tls/server.crt"
+              ServerTLSCert: "crypto-config/ordererOrganizations/pst.com/orderers/orderer1.pst.com/tls/server.crt"
+            - 
+              host: "orderer2.pst.com"
+              port: "7050"
+              ClientTLSCert: "crypto-config/ordererOrganizations/pst.com/orderers/orderer2.pst.com/tls/server.crt"
+              ServerTLSCert: "crypto-config/ordererOrganizations/pst.com/orderers/orderer2.pst.com/tls/server.crt"
+          Options: 
+            TickInterval: "500ms"
+            ElectionTick: "10"
+            HeartbeatTick: "5"
+            MaxInflightBlocks: "5"
+            SnapshotIntervalSize: "20"
+        Policies: 
+          Readers: 
+            Type: "ImplicitMeta"
+            Rule: "ANY Readers"
+          Writers: 
+            Type: "ImplicitMeta"
+            Rule: "ANY Writers"
+          Admins: 
+            Type: "ImplicitMeta"
+            Rule: "MAJORITY Admins"
+          BlockValidation: 
+            Type: "ImplicitMeta"
+            Rule: "ANY Writers"
+        Organizations: 
+          - 
+            Name: "OrdererGroup"
+            ID: "OrdererMSP"
+            MSPDir: "crypto-config/ordererOrganizations/pst.com/msp"
+            Policies: 
+              Readers: 
+                Type: "Signature"
+                Rule: "OR('OrdererMSP.member')"
+              Writers: 
+                Type: "Signature"
+                Rule: "OR('OrdererMSP.member')"
+              Admins: 
+                Type: "Signature"
+                Rule: "OR('OrdererMSP.member')"
+        Capabilities: 
+          V1_1: true
+      Consortiums: 
+        KtbcpConsortium: 
+          Organizations: 
+            - 
+              Name: "org1Msp"
+              ID: "org1Msp"
+              MSPDir: "crypto-config/peerOrganizations/org1.pst.com/msp"
+              Policies: 
+                Readers: 
+                  Type: "Signature"
+                  Rule: "OR('org1Msp.admin', 'org1Msp.peer', 'org1Msp.client')"
+                Writers: 
+                  Type: "Signature"
+                  Rule: "OR('org1Msp.admin', 'org1Msp.client')"
+                Admins: 
+                  Type: "Signature"
+                  Rule: "OR('org1Msp.admin', 'org1Msp.peer', 'org1Msp.client')"
+              AnchorPeers: 
+                - 
+                  Host: "peer0.org1.pst.com"
+                  Port: "7053"
+            - 
+              Name: "org2Msp"
+              ID: "org2Msp"
+              MSPDir: "crypto-config/peerOrganizations/org2.pst.com/msp"
+              Policies: 
+                Readers: 
+                  Type: "Signature"
+                  Rule: "OR('org2Msp.admin', 'org2Msp.peer', 'org2Msp.client')"
+                Writers: 
+                  Type: "Signature"
+                  Rule: "OR('org2Msp.admin', 'org2Msp.client')"
+                Admins: 
+                  Type: "Signature"
+                  Rule: "OR('org2Msp.admin', 'org2Msp.peer', 'org2Msp.client')"
+              AnchorPeers: 
+                - 
+                  Host: "peer1.org2.pst.com"
+                  Port: "7053"
+            - 
+              Name: "org3Msp"
+              ID: "org3Msp"
+              MSPDir: "crypto-config/peerOrganizations/org3.pst.com/msp"
+              Policies: 
+                Readers: 
+                  Type: "Signature"
+                  Rule: "OR('org3Msp.admin', 'org3Msp.peer', 'org3Msp.client')"
+                Writers: 
+                  Type: "Signature"
+                  Rule: "OR('org3Msp.admin', 'org3Msp.client')"
+                Admins: 
+                  Type: "Signature"
+                  Rule: "OR('org3Msp.admin', 'org3Msp.peer', 'org3Msp.client')"
+              AnchorPeers: 
+                - 
+                  Host: "peer0.org3.pst.com"
+                  Port: "7053"
+    KtbcpOrgsChannel: 
+      Consortium: "KtbcpConsortium"
+      Application: 
+        Policies: 
+          Readers: 
+            Type: "ImplicitMeta"
+            Rule: "ANY Readers"
+          Writers: 
+            Type: "ImplicitMeta"
+            Rule: "ANY Writers"
+          Admins: 
+            Type: "ImplicitMeta"
+            Rule: "MAJORITY Admins"
+        Organizations: 
+          - 
+            Name: "org1Msp"
+            ID: "org1Msp"
+            MSPDir: "crypto-config/peerOrganizations/org1.pst.com/msp"
+            Policies: 
+              Readers: 
+                Type: "Signature"
+                Rule: "OR('org1Msp.admin', 'org1Msp.peer', 'org1Msp.client')"
+              Writers: 
+                Type: "Signature"
+                Rule: "OR('org1Msp.admin', 'org1Msp.client')"
+              Admins: 
+                Type: "Signature"
+                Rule: "OR('org1Msp.admin', 'org1Msp.peer', 'org1Msp.client')"
+            AnchorPeers: 
+              - 
+                Host: "peer0.org1.pst.com"
+                Port: "7053"
+          - 
+            Name: "org2Msp"
+            ID: "org2Msp"
+            MSPDir: "crypto-config/peerOrganizations/org2.pst.com/msp"
+            Policies: 
+              Readers: 
+                Type: "Signature"
+                Rule: "OR('org2Msp.admin', 'org2Msp.peer', 'org2Msp.client')"
+              Writers: 
+                Type: "Signature"
+                Rule: "OR('org2Msp.admin', 'org2Msp.client')"
+              Admins: 
+                Type: "Signature"
+                Rule: "OR('org2Msp.admin', 'org2Msp.peer', 'org2Msp.client')"
+            AnchorPeers: 
+              - 
+                Host: "peer1.org2.pst.com"
+                Port: "7053"
+          - 
+            Name: "org3Msp"
+            ID: "org3Msp"
+            MSPDir: "crypto-config/peerOrganizations/org3.pst.com/msp"
+            Policies: 
+              Readers: 
+                Type: "Signature"
+                Rule: "OR('org3Msp.admin', 'org3Msp.peer', 'org3Msp.client')"
+              Writers: 
+                Type: "Signature"
+                Rule: "OR('org3Msp.admin', 'org3Msp.client')"
+              Admins: 
+                Type: "Signature"
+                Rule: "OR('org3Msp.admin', 'org3Msp.peer', 'org3Msp.client')"
+            AnchorPeers: 
+              - 
+                Host: "peer0.org3.pst.com"
+                Port: "7053"
+        Capabilities: 
+          V1_3: true
+          V1_2: false
+          V1_1: false

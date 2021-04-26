@@ -1,0 +1,20 @@
+---
+  version: "2"
+  services: 
+    mon-node-exporter: 
+      image: "prom/node-exporter"
+      container_name: "mon-node-exporter"
+      volumes: 
+        - "/data/workspace/pst/monitor_data/node_metrics:/etc/prometheus/node_metrics"
+        - "/proc:/host/proc:ro"
+        - "/sys:/host/sys:ro"
+        - "/:/rootfs:ro,rslave"
+      command: 
+        - "--log.level=fatal"
+        - "--web.listen-address=0.0.0.0:9070"
+      ports: 
+        - "9070:9070"
+      user: "root"
+      restart: "always"
+      extra_hosts: []
+      networks: "pstnet1569336953"
