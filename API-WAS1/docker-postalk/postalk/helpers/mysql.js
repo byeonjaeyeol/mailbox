@@ -14,7 +14,7 @@ if(process.env.NODE_ENV === 'production'){
   config = require('../configs/db-test')
 } else {
   console.log("default");
-  config = require('../configs/db-dev')
+  config = require('../configs/db-test')
 }
 //const config = require('../configs/db')
 
