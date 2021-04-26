@@ -8,6 +8,8 @@ WORKDIR /home/tilon/postalk
 
 RUN npm install
 
+RUN npm install -g nodemon
+
 EXPOSE 8080
 EXPOSE 4000
 
