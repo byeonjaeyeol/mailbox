@@ -13,6 +13,6 @@ RUN npm install
 EXPOSE 8080
 EXPOSE 4000
 
-CMD node index.js
-#CMD npm run-script test
+#CMD node index.js
+CMD npm run-script test
 #CMD ["npm", "test"]
