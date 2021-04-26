@@ -13,7 +13,7 @@ if(process.env.NODE_ENV === 'production'){
 } else if(process.env.NODE_ENV === 'test'){
   PORT = 8080
 } else {
-  PORT = 4000
+  PORT = 8080
 }
 //const PORT = process.env.NODE_ENV === 'dev' ? 4000 : 8080
 
@@ -49,7 +49,7 @@ app.get('/banner*', function (req, res) {
     } else if(process.env.NODE_ENV === 'test'){
         imgPath = "http://static:8081"+req.url;
     } else {
-        imgPath = "http://localhost:8081"+req.url;
+        imgPath = "http://static:8081"+req.url;
     }
 
   var imgMime = mime.getType(req.url);
