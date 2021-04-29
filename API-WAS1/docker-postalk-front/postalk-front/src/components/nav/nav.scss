@@ -1,0 +1,64 @@
+.nav {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 240px;
+  height: 100vh;
+  background: #fff;
+  overflow: auto;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .logo {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    text-align: center;
+  }
+  
+  .logo img {
+    width: 80%;
+  }
+
+  .MuiListItem-root {
+    border-radius: 4px;
+  }
+  
+  .active {
+    color: #ff554a;
+  }
+  
+  .parent {
+    .MuiListItem-root {
+      padding-left: 24px;
+      
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .children {
+    .MuiListItem-root {
+      padding-left: 40px;
+    }
+  }
+
+  .MuiDivider-root {
+    margin: 8px 0;
+  }
+  
+  .group {
+    position: relative;
+
+    .expandIcon {
+      position: absolute;
+      right: 16px;
+      top: 8px;
+      z-index: -1;
+    }
+  }
+}

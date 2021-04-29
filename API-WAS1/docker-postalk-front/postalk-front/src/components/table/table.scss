@@ -1,0 +1,54 @@
+.custom_table {
+  &.scrollable {
+    .MuiTable-root:first-child {
+      width: 2400px;
+    }
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .MuiToolbar-root {
+      .MuiTypography-root {
+        margin-right: 24px;
+      }
+
+      & > div:last-child > div > div {
+        display: flex;
+      }
+    }
+
+
+    .start_end_date_picker {
+      padding: 24px 24px;
+    }
+  }
+
+  .customPageSizeInput {
+    margin-left: 16px;
+
+    .MuiInput-underline {
+      &:before, &:after {
+        display: none;
+      }
+    }
+  }
+
+  .MuiTableRow-root {
+    &:empty {
+      display: none;
+    }
+
+    &[style*="height: 980px;"],
+    &[style*="height: 2450px;"],
+    &[style*="height: 4900px;"] {
+      height: 200px !important;
+    }
+  }
+
+  .MuiTableSortLabel-root {
+    white-space: nowrap;
+  }
+}

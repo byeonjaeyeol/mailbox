@@ -1,0 +1,12 @@
+.ql-container {
+  font-family: "NotoSansKR";
+  font-size: 16px;
+  border: none;
+  max-height: 400px;
+  overflow-y: auto;
+
+  .ql-editor {
+    padding: 20px;
+    min-height: 300px;
+  }
+}

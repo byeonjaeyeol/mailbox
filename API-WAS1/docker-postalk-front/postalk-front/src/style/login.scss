@@ -1,0 +1,17 @@
+.login-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fafafa;
+  
+  .login-panel {
+    max-width: 400px;
+    width: 100%;
+
+    .MuiPaper-root {
+      padding: 24px;
+    }
+  }
+}

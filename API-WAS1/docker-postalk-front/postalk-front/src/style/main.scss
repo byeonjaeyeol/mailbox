@@ -1,0 +1,28 @@
+.main-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24px;
+    font-size: 20px;
+  }
+  &__item + &__item {
+    margin-top: 24px;
+  }
+
+  &__item-name {
+    font-weight: bold;
+  }
+
+  &__item--primary &__item-name {
+    color: #ff554a;
+  }
+
+  &__item--center {
+    justify-content: center;
+    text-align: center;
+  }
+}

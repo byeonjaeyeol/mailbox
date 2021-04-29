@@ -1,0 +1,24 @@
+.template-dashboard {
+  display: flex;
+
+  main {
+    width: calc(100% - 240px);
+    min-height: 100vh;
+    margin-left: 240px;
+    padding: 94px 48px 24px 48px;
+    background: #fafafa;
+  }
+
+  .breadcrumbs {
+    font-size: 1.2rem;
+  }
+
+  .breadcrumbs p {
+    font-weight: bold;
+    color: #000;
+  }
+
+  .breadcrumbs-box {
+    border-radius: 5px;
+  }
+}
