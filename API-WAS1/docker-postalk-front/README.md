@@ -14,7 +14,7 @@ $ docker run -p 3000:3000 --net=bridge -it bsquarelab/upost-node-postalk-front:0
 ```
 
 # production build
-yarn build 이용하며 자세한 사항은 [README.md](./postalk-front/src/README.md) 파일을 참조
+yarn build 이용하며 자세한 사항은 [README.md](./postalk-front/README.md) 파일을 참조
 
 # API Path 변경
 [config.js](./postalk-front/src/config.js)에서 원하는 경로로 설정  
