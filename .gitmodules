@@ -4,3 +4,9 @@
 [submodule "GoEnv/go/interface"]
 	path = GoEnv/go/interface
 	url = https://github.com/kyehyukahn/interface.git
+[submodule "GoEnv/go/analyzer"]
+	path = GoEnv/go/analyzer
+	url = https://github.com/kyehyukahn/analyzer.git
+[submodule "GoEnv/go/Collector"]
+	path = GoEnv/go/Collector
+	url = https://github.com/kyehyukahn/Collector.git
