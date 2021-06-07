@@ -14,8 +14,9 @@ $ docker pull bsquarelab/upost-goenv:0.1
 compile an app inside the docker container
 ```
 $ docker exec -it goenv bash
-$ go build -o build/IljariAgent IljariAgent/main.go
+$ go build -o build/analyzer analyzer/main.go
 $ go build -o build/interface_1.0.0.0 interface/src/main.go
+$ go build -o build/IljariAgent IljariAgent/main.go
 
 ```
 

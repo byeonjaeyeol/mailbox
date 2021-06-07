@@ -184,7 +184,7 @@ blab/blab1234!
 
 
 ## additional 
-추가로 위의 사항은 전체 네트워크를 배포하기 위해 필요한 사항이며 관리자 페이지를 개발하거나 하는 경우에는 docker-compose-es.yml과 docker-compose-mailbox.yml 만 실행하고 개발해도 된다.
+추가로 위의 사항은 전체 네트워크를 배포하기 위해 필요한 사항이며 관리자 페이지를 개발하거나 하는 경우에는 docker-compose-data.yml과 docker-compose-mailbox.yml 만 실행하고 개발해도 된다.
 
 
 

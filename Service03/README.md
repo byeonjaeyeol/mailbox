@@ -244,6 +244,19 @@ $ curl -XPOST 'http://localhost:9200/_aliases?pretty'  -H "Content-Type: applica
     ]
 }'
 
+
+# curl -XGET  'localhost:9200/_cat/aliases?v'
+alias   index        filter routing.index routing.search
+49757   49757-000001 -      -             -
+51001   51001-000001 -      -             -
+11001   11001-000013 -      -             -
+90001   90001-000012 -      -             -
+.kibana .kibana_1    -      -             -
+11002   11002-000002 -      -             -
+
+# curl -XGET  'localhost:9200/_cat/aliases/11001'
+11001 11001-000013 - - -
+
 $ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: application/json" -d'
 {
     "from" : "0",
@@ -293,7 +306,32 @@ $ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: ap
                 {
                     "match": {
                         "_id": {
-                            "query": "HLGxxHgBx6-IeJaNsmd0",
+                            "query": "Zne-FXkBe6eBZUV_Rb1Y",
+                            "operator": "and"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}'
+
+$ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: application/json" -d'
+{
+    "from" : "0",
+    "size" : "10",
+    "sort" : [
+        {
+            "status.time.@registed" : "desc"
+        }
+    ],
+    "query" : {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "binding.reserved.essential.search.request-id": {
+                            "query": "60002-201500998382103",
                             "operator": "and"
                         }
                     }
