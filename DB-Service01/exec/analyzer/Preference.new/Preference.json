@@ -1,0 +1,68 @@
+{
+"preference": {
+	"concurrency": {
+		"cpu": 2,
+		"routinue": 4
+	},	
+	"nosql": {
+		"class": "elasticsearch",
+		"host": "node01:9200",
+		"rollover": "30d",
+		"ver": "6.x",
+		"tls": {
+			"enable": "false",
+			"user": "admin",
+			"pwd": "admin"
+		}
+	},
+	"analysis": {
+		"periodwithoutinsert": "60s"
+	},
+	"rdbms": {
+		"class": "mysql",
+		"datasource": "embuser:!tilon9099@@(emailbox:3306)/EMAILBOX"
+	},
+	"api" : {
+		"bchost": "http://211.253.86.102:58880",
+		"ifhost": "http://service01:2100"
+	},
+	"postok" : {
+		"domain": "service01:2100"
+	},
+	"kt_openapi" : {
+		"service_code": "60001",
+		"service_key": "8zH9A7dXEm",
+		"biz_code": "60001"
+	},	
+	"directory": {
+		"backup": "/data/tilon/analyzer/backup",
+		"temp": "/data/tilon/analyzer/temp",
+		"pushmsg": "/data/tilon/analyzer/pushmessage",
+		"bulk": "/data/tilon/analyzer/bulk",
+		"result": "/data/tilon/analyzer/result"
+	},
+	"function": {
+		"analysis": "enable",
+		"regist": "enable"
+	},
+	"timer": {
+		"analysis": {
+			"runtime": "0~21",
+			"freq": "60"
+		},
+		"cleanup": {
+			"runtime": "22~24",
+			"freq": "60",
+			"rdbms": {
+				"unit": "day",
+				"validity": "180",
+				"count": "5000"
+			},
+			"backfile": {
+				"unit": "day",
+				"validity": "180"
+			}
+		}
+	}
+}
+}
