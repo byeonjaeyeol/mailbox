@@ -31,7 +31,7 @@ router.all('*', function(req, res, next) {
   })
   const token = req.headers.hasOwnProperty('authorization') ? req.headers.authorization.replace(/^Bearer /i, '') : null
   req.user = token && auth.verify(token)
-    
+
   // 토근 검사
   if (!isUnAuthAPI && !req.user)
     return res.status(401).send(token ? 'Invalid token' : 'Token not found')
@@ -70,7 +70,7 @@ router.post('/signIn', async (req, res) => {
 
   delete user.salt
   delete user.password
-  
+
   const token = auth.sign(user)
   await oneQuery(`INSERT INTO TBL_CONNECTION SET ?`, {
     user_id: user.id,

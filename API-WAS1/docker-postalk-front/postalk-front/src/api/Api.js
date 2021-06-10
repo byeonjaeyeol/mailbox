@@ -2,8 +2,7 @@
 import axios from './_util'
 import _axios from 'axios'
 import querystring from 'querystring'
-//todo
-//import {POSTOK_API_HOST} from '../config'
+
 const config  = require('../config.js');
 
 

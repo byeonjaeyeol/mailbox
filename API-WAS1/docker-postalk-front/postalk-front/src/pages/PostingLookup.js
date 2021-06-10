@@ -13,13 +13,14 @@ import DefaultTemplate from '../components/template/DefaultTemplate'
 import StartEndDatePicker from '../components/datePicker/StartEndDatePicker'
 import Dialog from '../components/dialog/Dialog'
 import Table from '../components/table/Table'
-//todo
+
 import {CERT_API_URL} from '../config'
-//const config  = require('../config.js');
+
 
 const delay = 150
 let timeoutHandle
 
+//todo auto ->
 const DISP_CLASS = {
   0: '차단',
   1: '포스톡',
@@ -27,7 +28,7 @@ const DISP_CLASS = {
   4: '종이우편',
   6: '종이우편',
   8: 'EMAIL',
-  'auto': 'AUTO'
+  'auto': '모바일우편'
 }
 
 const DISP_STATUS = {
@@ -39,6 +40,17 @@ const DISP_STATUS = {
 const DM_TYPE = {
   registered: '등기통상',
   general: '일반통상'
+}
+
+//todo 미열람으로 인한 실물전환
+const DISP_CONVERT = {
+    'auto-4' : 'Y',
+    'auto-14' : 'Y'
+}
+
+const DISP_END = {
+  1 : '모바일',
+  4 : '실물우편'
 }
 
 const queryTraceInfoColumns = [
@@ -133,7 +145,7 @@ const PostingLookup = () => {
     query: '',
     data: false
   })
-
+//todo
   const [filter, setFilter] = useState({
     org_code: '',
     dept_code: '',
@@ -166,7 +178,7 @@ const PostingLookup = () => {
     }
 
     const queryString = qs.stringify(queryStringObj)
-    //todo
+
     window.open(`${CERT_API_URL}?${queryString}`, '_blank')
   }
 
@@ -177,7 +189,15 @@ const PostingLookup = () => {
     },
     {
       field: 'groupId',
-      title: '발송일'
+      title: '송신시간'
+    },
+    {
+      field: 'reg_dt',
+      title: '수신시간'
+    },
+    {
+      field: 'read_dt',
+      title: '열람시간'
     },
     {
       field: 'dept_name',
@@ -187,10 +207,10 @@ const PostingLookup = () => {
       field: 'name',
       title: '수신자명'
     },
-    {
+    /*{
       field: 'template_code',
       title: '서식 코드'
-    },
+    },*/
     {
       field: 'doc_title',
       title: '문서 제목'
@@ -215,11 +235,20 @@ const PostingLookup = () => {
     },
     {
       field: 'disp_class',
-      title: '발송종류'
+      title: '발송요청방식'
     },
     {
       field: 'disp_status',
       title: '발송상태'
+    },
+    {
+      field: 'disp_convert',
+      title: '실물전환여부'
+    },
+    {
+      field: 'disp_end',
+      title: '실제발송방식',
+     // lookup: { '모바일': '모바일', '실물우편': '실물우편' },
     },
     {
       field: 'request_id',
@@ -227,7 +256,7 @@ const PostingLookup = () => {
     },
     {
       field: 'is_readed',
-      title: '우편열람여부'
+      title: '모바일열람여부'
     },
     {
       field: 'read_at',
@@ -283,7 +312,7 @@ const PostingLookup = () => {
     }
 
     const { org_name, dept_name } = await API.searchOrg('code', filter.org_code, filter.dept_code)
-
+   // todo: dm_type
     const data = hits.hits.map(item => ({
       org_name,
       dept_name,
@@ -295,17 +324,24 @@ const PostingLookup = () => {
       dm_reg_num: item._source.binding.reserved.essential.dispatching.dm ? item._source.binding.reserved.essential.dispatching.dm['reg-num'] : '',
       reg_dt: item._source.status.time['@analysised'],
       read_at: item._source.status.time['@read'],
-      template_code: item._source.binding.reserved.essential.template.code,
+     // template_code: item._source.binding.reserved.essential.template.code,
       doc_title: item._source.binding.reserved.essential.template.title,
       disp_class: DISP_CLASS[item._source.binding.reserved.essential.dispatching.class],
       disp_status: DISP_STATUS[item._source.status.dispatching],
       request_id: item._source.binding.reserved.essential.search['request-id'],
-      groupId: item._source.status.time['@registed'] ? moment(item._source.status.time['@registed']).format('YYYY-MM-DD') : '',
-      is_readed: String(item._source.status.read) === '0' ? '-' : '열람'
+      groupId: item._source.status.time['@registed'] ? moment(item._source.status.time['@registed']).format('YYYY-MM-DD HH:mm:ss') : '',
+      is_readed: String(item._source.status.read) === '0' ? '-' : '열람',
+      tmp_dm_type : item._source.binding.reserved.essential.dispatching.class,
+      disp_convert : item._source.binding.reserved.essential.dispatching.class + '-'+ item._source.status.class,
+      disp_end : DISP_END[item._source.status.class],
+      read_dt : item._source.status.time['@read'] ? moment(item._source.status.time['@read']).format('YYYY-MM-DD HH:mm:ss') : ''
     })).map(v => ({
       ...v,
       reg_dt: format(new Date(v.reg_dt), 'yyyy-MM-dd HH:mm:dd'),
-      dm_reg_num: v.dm_reg_num+''
+      dm_reg_num: v.dm_reg_num+'',
+      dm_type : v.tmp_dm_type === 'auto' ? '모바일우편' : v.dm_type,
+      //disp_convert : DISP_CONVERT[v.disp_convert] == 0 ? 'Y' : 'N'
+      disp_convert : DISP_CONVERT[v.disp_convert] === 'Y' ? 'Y' :'N'
     }))
 
     setPageData(producer(v => {
@@ -589,7 +625,7 @@ const PostingLookup = () => {
             <thead>
               <th>기관 코드</th>
               <th>부서 코드</th>
-              <th>기괸 이름</th>
+              <th>기관 이름</th>
               <th>부서 이름</th>
               <th>선택</th>
             </thead>

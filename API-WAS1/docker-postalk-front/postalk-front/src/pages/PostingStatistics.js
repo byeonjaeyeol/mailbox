@@ -51,18 +51,18 @@ const PostingStatistics = () => {
       filtering: false
     },
     {
-      field: 'done_mms_cnt',
-      title: '문자우편 발송물량',
+      field: 'result_mobile_fail_cnt',
+      title: '모바일 실패 건수',
       filtering: false
     },
     {
-      field: 'result_mms_fail_cnt',
-      title: 'MMS 발송실패 건수',
+      field: 'result_mobile_unread_cnt',
+      title: '모바일 미열람 건수',
       filtering: false
     },
     {
-      field: 'deny_cnt',
-      title: '차단건수',
+      field: 'result_convert_cnt',
+      title: '실물 전환 건수',
       filtering: false
     }
   ]
