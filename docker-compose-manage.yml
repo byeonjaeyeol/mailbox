@@ -20,25 +20,6 @@ services:
       - nmailbox
     command: npm test
 
-  postalk-front:
-    image: bsquarelab/upost-node-postalk-front:0.1
-    container_name: postalk-front
-    environment:
-      - TZ=Asia/Seoul
-    restart: 'no'
-    privileged: true
-    stdin_open: true
-    volumes:
-      - ./API-WAS1/docker-postalk-front/postalk-front/src/config.js:/home/blab/postalk-front/src/config.js
-      - ${LOCALTIME}:/etc/localtime:ro
-      #- /private/etc/localtime:/etc/localtime:ro
-      #- /etc/localtime:/etc/localtime:ro #on linux
-    ports:
-      - 3000:3000
-    networks:
-      - nmailbox
-    command: npm start
-
   static:
     image: bsquarelab/upost-node-static:0.1
     container_name: static
