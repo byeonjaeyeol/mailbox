@@ -12,6 +12,12 @@ $ docker pull bsquarelab/upost-goenv:0.1
 
 # Build
 compile an app inside the docker container
+
+to start the instance for go build
+```
+$ docker-compose -f docker-compose-go.yml up -d
+```
+
 ```
 $ docker exec -it goenv bash
 $ go build -o build/analyzer analyzer/main.go
