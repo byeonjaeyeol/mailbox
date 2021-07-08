@@ -26,6 +26,12 @@ $ go build -o build/IljariAgent IljariAgent/main.go
 
 ```
 
+to build in mac os
+```
+$ go build -o build_mac/analyzer analyzer/main.go
+
+```
+
 # Git Submodule
 ## init
 초기에 프로젝트 만들 때 submodule을 등록해 놓기 위해서 필요한 작업이며 해당 작업으로 프로젝트에 타 git 프로젝트를 포함하여 제공할 수 있다. 그러나 git 프로젝트 각각의 관리는 각자 관리 된다. 
