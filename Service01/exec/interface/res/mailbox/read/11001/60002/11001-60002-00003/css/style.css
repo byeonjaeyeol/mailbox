@@ -251,7 +251,7 @@ legend {
 }
 
 	.tab_area li {
-		letter-spacing: -1px;
+		letter-spacing: -2px;
 		display: inline;
 		font-size: 20px;
 	}
@@ -261,7 +261,7 @@ legend {
 	background-color: #f3f3f3;
 	color: #a2a2a2;
 	border-radius: 10px 10px 0 0;
-	padding: 4px 20px 4px 20px;
+	padding: 4px 25px 4px 25px;
 }
 
 	.tab_off a:hover {
@@ -275,7 +275,7 @@ legend {
 	color: #fff;
 	background-color: #008ab0;
 	border-radius: 10px 10px 0 0;
-	padding: 4px 20px 4px 20px;
+	padding: 4px 25px 4px 25px;
 }
 /* �Ǻκ� */
 
