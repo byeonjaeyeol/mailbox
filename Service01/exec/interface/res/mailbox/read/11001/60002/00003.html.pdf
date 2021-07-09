@@ -1,91 +1,71 @@
-<!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-<link href="./11001-60002-00003/css/gfont.css" rel="stylesheet">
-<script src="./11001-60002-00003/js/jquery-1.10.2.js"></script>
-<link href="./11001-60002-00003/css/style.css" rel="stylesheet" type="text/css">
-<title>근로복지공단 일자리 월 정기 지급 통지서</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <link href="./11001-60002-00003/css/gfont.css" rel="stylesheet">
+    <script src="./11001-60002-00003/js/jquery-1.10.2.js"></script>
+    <link href="./11001-60002-00003/css/style.css" rel="stylesheet" type="text/css">
+    <title>근로복지공단 일자리 월 정기 지급 통지서</title>
+    <script type="text/javascript">
+        function numberformat(number) {
+            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+    </script>
 </head>
 <body>
-    
-<script type="text/javascript">
-    function numberformat(number) {
-        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
-</script>
-	
-<!-- Wrap -->	
+<!-- Wrap -->
 <div id="wrap">
-	<!-- Header-->
-	<div class="header"><img src="./11001-60002-00003/img/ci.png" /></div>
-	<!-- Header //-->
+    <!-- Header-->
+    <div class="header"><img src="./11001-60002-00003/img/ci.png" /></div>
+    <!-- Header //-->
 
-	<!-- Info area -->
-	<div class="info_box">
-		
-		<!-- 통지서 비주얼 상단 -->
-		<div class="money_info">
-			<h1>일자리 안정자금 
-            <span>
+    <!-- Info area -->
+    <div class="info_box">
+
+        <!-- 통지서 비주얼 상단 -->
+        <div class="money_info">
+            <h1>일자리 안정자금
+                <span>
                 <script type="text/javascript">
-                    var jiwon_mm = <%=jiwon_yymm%>  
+                    var jiwon_mm = <%=jiwon_yymm%>
                     document.write(jiwon_mm.substring(4));
                 </script>
             </span>
-             월 정기 지급 통지서</h1>
-			<h2 class="mb3">일자리 안정자금 정기지급 내역입니다.</h2>
+                월 정기 지급 통지서</h1>
+            <h2 class="mb3">일자리 안정자금 정기지급 내역입니다.</h2>
 
-			<p class="border-line">
-			</p>
+            <p class="border-line">
+            </p>
 
-            <style>
-                table {
-                    width: 90%;
-                    border:1px solid white;
-                    margin: 0 auto;
-                    margin-bottom: 10px;
-                }
-                table td {
-                    text-align: left;
-                    color: white;
-                    font-size: 0.8em;
-                    border:1px solid white;
-                    padding-left:10px;
-                    padding-top:3px;
-                    padding-bottom: 3px;
-                }
-            </style>
-            <table>
-                <tr>
-                    <td width="50%">지원금액
-                        <script type="text/javascript">
-                            document.write(<%=binding.data.jiwon_sum%>);
-                        </script>
-                        원
-                    </td>
-                    <td width="50%">상계액
-                        <%=binding.data.sanggye_prc%>
-                        원
-                    </td>
-                </tr>
-                <tr>
-                    <td>실지급액
-                        <%=binding.data.jigeup_sum%>
-                        원
-                    </td>
-                    <td>충당액
-                        <%=binding.data.chd_prc%>
-                        원
-                    </td>
-                </tr>
-            </table>
-		</div>
-		<!-- 통지서 비주얼 상단 // -->
+            <ul class="money_area pb5">
+                <li class="subt_l">
+                    <p>
+                        <span>지원금액</span>
+                        <span class="under ml10"><%=binding.data.jiwon_sum%></span>원
+                    </p>
+
+                    <p class="pt5">
+                        <span>실지급액</span>
+                        <span class="under ml10"><%=binding.data.jigeup_sum%></span>원
+                    </p>
+                </li>
+                <li class="subt_r">
+                    <p>
+                        <span>상계액</span>
+                        <span class="under ml10"><%=binding.data.sanggye_prc%></span>원
+                    </p>
+
+                    <p class="pt5">
+                        <span>충당액</span>
+                        <span class="under ml10"><%=binding.data.chd_prc%></span>원
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <!-- 통지서 비주얼 상단 // -->
 
         <!-- 통지서 비주얼 하단 -->
         <div class="info_table">
