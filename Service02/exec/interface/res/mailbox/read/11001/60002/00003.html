@@ -186,16 +186,16 @@
             <tbody>
 				<%FOR binding.data.grjlist%>
 				<tr>
-				<th <% i%2 == 0 ? "style='background-color:#d9d9d9'":"style='background-color:#ddebf7'"%> >연번</th>
+				<th>연번</th>
 				<td><%=grj_no%></td>
-				<th <% i%2 == 0 ? "style='background-color:#d9d9d9'":"style='background-color:#ddebf7'"%> >성명</th>
+				<th>성명</th>
 				<td><%=grj_nm%></td>
 				</tr>
 				<tr>
-				<th <% i%2 == 0 ? "style='background-color:#d9d9d9'":"style='background-color:#ddebf7'"%> >지원구분</th>
+				<th>지원구분</th>
 				<td>
 					<script type="text/javascript">
-						var jiwonFG = <%=grj_jiwon_fg%>
+						var jiwonFG = <%=grj_jiwon_fg%>;
 						switch (jiwonFG) {
 							case 1:
 								document.write("지급");
@@ -207,7 +207,7 @@
 						}
 					</script>
 				</td>
-				<th <% i%2 == 0 ? "style='background-color:#d9d9d9'":"style='background-color:#ddebf7'"%> >생년월일</th>
+				<th>생년월일</th>
 				<td>
                     <script type="text/javascript">
                         document.write(dateformat(<%=grj_birth%>));
@@ -215,7 +215,7 @@
                 </td>
 				</tr>
 				<tr>
-				<th <% i%2 == 0 ? "style='background-color:#d9d9d9'":"style='background-color:#ddebf7'"%> >지원액(원)</th>
+				<th>지원액(원)</th>
 				<td colspan="3">
                     <script type="text/javascript">
                         document.write(numberformat(<%=grj_jiwon_prc%>));
@@ -224,10 +224,15 @@
                 </td>
 				</tr>
 				<tr>
-				<th <% i%2 == 0 ? "style='background-color:#d9d9d9'":"style='background-color:#ddebf7'"%> >비고</th>
-				<td colspan="3">(<%=jiwon_yymm%>)<%=grj_bjg_sayu%></td>
+				<th>비고</th>
+				<td colspan="3">
+                    (
+                    <script type="text/javascript">
+                        document.write(dateformat2(<%=jiwon_yymm%>));
+                    </script>
+                    )<%=grj_bjg_sayu%>
+                </td>
 				</tr>
-                <%i=i+1%>
 				<%NEXT%>
 			</tbody>
 			</table>
