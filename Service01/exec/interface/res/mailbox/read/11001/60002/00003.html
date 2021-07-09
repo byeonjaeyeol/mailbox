@@ -18,13 +18,13 @@
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
 
-    function dateformat(date) {
-        return date.toString().slice(0,4) + '-' + date.toString().slice(4, 6) + '-' + date.toString().slice(6,8);
-    }
-
-    function dateformat2(date) {
-        return date.toString().slice(0,4) + '년 ' + date.toString().slice(4, 6) + '월';
-    }
+    // function dateformat(date) {
+    //     return date.toString().slice(0,4) + '-' + date.toString().slice(4, 6) + '-' + date.toString().slice(6,8);
+    // }
+    //
+    // function dateformat2(date) {
+    //     return date.toString().slice(0,4) + '년 ' + date.toString().slice(4, 6) + '월';
+    // }
 </script>
 	
 <!-- Wrap -->	
@@ -61,12 +61,12 @@
                 table td {
                     text-align: left;
                     color: white;
-                    font-size: 1.5em;
+                    font-size: 0.7em;
                     border:1px solid white;
                     padding-left:10px;
                 }
             </style>
-            <table >
+            <table>
                 <tr>
                     <td width="50%">지원금액 
                         <script type="text/javascript">
@@ -110,10 +110,11 @@
 				</tr>
 				<th>지급일자</th>
 				<td colspan="2">
-                    <script type="text/javascript">
-                        // document.write(dateformat(<%=binding.data.jigeup_dt%>));
-                        document.write(<%=binding.data.jigeup_dt%>);
-                    </script>
+<!--                    <script type="text/javascript">-->
+<!--                        // document.write(dateformat(<%=binding.data.jigeup_dt%>));-->
+<!--                        document.write(<%=binding.data.jigeup_dt%>);-->
+<!--                    </script>-->
+                    <%=binding.data.jigeup_dt%>
                 </td>
 				</tr>
 				<tr>
@@ -230,9 +231,10 @@
 				<th>비고</th>
 				<td colspan="3">
                     (
-                    <script type="text/javascript">
-                        document.write(dateformat2(<%=jiwon_yymm%>));
-                    </script>
+<!--                    <script type="text/javascript">-->
+<!--                        document.write(dateformat2(<%=jiwon_yymm%>));-->
+<!--                    </script>-->
+                    <%=jiwon_yymm%>
                     )<%=grj_bjg_sayu%>
                 </td>
 				</tr>
