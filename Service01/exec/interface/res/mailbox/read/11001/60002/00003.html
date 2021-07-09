@@ -111,7 +111,8 @@
 				<th>지급일자</th>
 				<td colspan="2">
                     <script type="text/javascript">
-                        document.write(dateformat(<%=binding.data.jigeup_dt%>));
+                        // document.write(dateformat(<%=binding.data.jigeup_dt%>));
+                        document.write(<%=binding.data.jigeup_dt%>);
                     </script>
                 </td>
 				</tr>
@@ -210,7 +211,8 @@
 				<th>생년월일</th>
 				<td>
                     <script type="text/javascript">
-                        document.write(dateformat(<%=grj_birth%>));
+                        // document.write(dateformat(<%=grj_birth%>));
+                        document.write(<%=grj_birth%>);
                     </script>
                 </td>
 				</tr>
@@ -218,7 +220,8 @@
 				<th>지원액(원)</th>
 				<td colspan="3">
                     <script type="text/javascript">
-                        document.write(numberformat(<%=grj_jiwon_prc%>));
+                        // document.write(numberformat(<%=grj_jiwon_prc%>));
+                        document.write(numberformat(<%=binding.data.grj_jiwon_prc%>));
                     </script>
                     원
                 </td>

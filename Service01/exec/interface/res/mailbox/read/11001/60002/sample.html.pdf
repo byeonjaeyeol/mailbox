@@ -201,7 +201,8 @@
 				<th>지원액(원)</th>
 				<td>
                     <script type="text/javascript">
-                        document.write(numberformat(<%=grj_jiwon_prc%>));
+                        // document.write(numberformat(<%=grj_jiwon_prc%>));
+                        document.write(numberformat(<%=binding.data.grj_jiwon_prc%>));
                     </script>
                     원
                 </td>
@@ -211,7 +212,8 @@
 				<td colspan="3">
                     (
                     <script type="text/javascript">
-                        document.write(dateformat2(<%=jiwon_yymm%>));
+                        // document.write(dateformat2(<%=jiwon_yymm%>));
+                        document.write(<%=jiwon_yymm%>);
                     </script>
                     )<%=grj_bjg_sayu%>
                 </td>
