@@ -28,8 +28,9 @@ $ go build -o build/IljariAgent IljariAgent/main.go
 
 to build in mac os
 ```
-$ go build -o build_mac/analyzer analyzer/main.go
-
+$ cd GoEnv/go
+$ go build -o build_mac/analyzer/analyzer analyzer/main.go
+$ go build -o build_mac/interface/interface interface/src/main.go
 ```
 
 # Git Submodule
