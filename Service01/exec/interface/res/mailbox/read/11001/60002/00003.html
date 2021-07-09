@@ -63,9 +63,11 @@
             <table>
                 <tr>
                     <td width="50%">지원금액 
-                        <script type="text/javascript">
-                            document.write(numberformat(<%=binding.data.jiwon_sum%>));
-                        </script>원
+<!--                        <script type="text/javascript">-->
+<!--                            document.write(numberformat(<%=binding.data.jiwon_sum%>));-->
+<!--                        </script>-->
+                        <%=binding.data.jiwon_sum%>
+                        원
                     </td>
                     <td width="50%">상계액
                         <script type="text/javascript">
@@ -75,14 +77,18 @@
                 </tr>
                 <tr>
                     <td>실지급액
-                        <script type="text/javascript">
-                            document.write(numberformat(<%=binding.data.jigeup_sum%>));
-                        </script>원
+<!--                        <script type="text/javascript">-->
+<!--                            document.write(numberformat(<%=binding.data.jigeup_sum%>));-->
+<!--                        </script>-->
+                        <%=binding.data.jigeup_sum%>
+                        원
                     </td>
                     <td>충당액
-                        <script type="text/javascript">
-                            document.write(numberformat(<%=binding.data.chd_prc%>));
-                        </script>원
+<!--                        <script type="text/javascript">-->
+<!--                            document.write(numberformat(<%=binding.data.chd_prc%>));-->
+<!--                        </script>-->
+                        <%=binding.data.chd_prc%>
+                        원
                     </td>
                 </tr>
             </table>
