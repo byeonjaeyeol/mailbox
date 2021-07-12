@@ -1,454 +1,491 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-<link href="./11001-60002-sample/common/gfont.css" rel="stylesheet">
-<script src="./11001-60002-sample/common/jquery-1.10.2.js"></script>
-<link href="./11001-60002-sample/common/style.css" rel="stylesheet" type="text/css">
-<title>근로복지공단 일자리 안정자금 지급 결정 통지서</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <link href="./11001-60002-sample/common/gfont.css" rel="stylesheet">
+    <script src="./11001-60002-sample/common/jquery-1.10.2.js"></script>
+    <link href="./11001-60002-sample/common/style.css" rel="stylesheet" type="text/css">
+    <title>근로복지공단 일자리 안정자금 지급 결정 통지서</title>
+    <script type="text/javascript">
+        var grjlist_index = 0;
+        function numberformat(number) {
+            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+
+        function dateformat(date) {
+            return date.toString().slice(0,4) + '-' + date.toString().slice(4, 6) + '-' + date.toString().slice(6,8);
+        }
+
+        function dateformat2(date) {
+            return date.toString().slice(0,4) + '년 ' + date.toString().slice(4, 6) + '월';
+        }
+    </script>
 </head>
 <body>
-    
-<script type="text/javascript">
-    function numberformat(number) {
-        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
 
-    function dateformat(date) {
-        return date.toString().slice(0,4) + '-' + date.toString().slice(4, 6) + '-' + date.toString().slice(6,8);
-    }
-
-    function dateformat2(date) {
-        return date.toString().slice(0,4) + '년 ' + date.toString().slice(4, 6) + '월';
-    }
-</script>
-	
-<!-- Wrap -->	
+<!-- Wrap -->
 <div id="wrap">
-	<!-- Header-->
-	<div class="header"><img src="./11001-60002-sample/img/ci.png" /></div>
-	<!-- Header //-->
+    <!-- Header-->
+    <div class="header"><img src="./11001-60002-sample/img/ci.png" /></div>
+    <!-- Header //-->
 
-	<!-- Info area -->
-	<div class="info_box">
-		
-		<!-- 통지서 비주얼 상단 -->
-		<div class="money_info">
-			<h1>일자리 안정자금 지급 결정 통지서</h1>
-			<h2 class="mb3">일자리 안정자금지급(부지급)내역입니다.</h2>
+    <!-- Info area -->
+    <div class="info_box">
 
-			<p class="border-line">
-			</p>
-			
+        <!-- 통지서 비주얼 상단 -->
+        <div class="money_info">
+            <h1>일자리 안정자금 지급 결정 통지서</h1>
+            <h2 class="mb3">일자리 안정자금지급(부지급)내역입니다.</h2>
+
+            <p class="border-line">
+            </p>
+
             <style>
-                table {
+                .money_area_table {
                     width: 90%;
                     border:1px solid white;
                     margin: 0 auto;
-                    margin-bottom: 50px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
                 }
-                table td {
+                .money_area_table td {
                     text-align: left;
                     color: white;
-                    font-size: 1.5em;
+                    font-size: 0.8em;
                     border:1px solid white;
                     padding-left:10px;
                 }
             </style>
-            <table >
+
+            <table class="money_area_table">
+                <tbody>
                 <tr>
-                    <td width="50%">지원금액 
-                        <script type="text/javascript">
-                            document.write(numberformat(<%=binding.data.jiwon_sum%>));
-                        </script>원
+                    <td width="50%">
+                        <span>지원금액</span>
+                        <span>
+                                <script type="text/javascript">
+                                    document.write(numberformat(<%=binding.data.jiwon_sum%>));
+                                </script>
+                            </span>원
                     </td>
-                    <td width="50%">상계액
-                        <script type="text/javascript">
-                            document.write(numberformat(<%=binding.data.sanggye_prc%>));
-                        </script>원
+                    <td width="50%">
+                        <span>상계액</span>
+                        <span>
+                                <script type="text/javascript">
+                                    document.write(numberformat(<%=binding.data.sanggye_prc%>));
+                                </script>
+                            </span>원
                     </td>
                 </tr>
                 <tr>
-                    <td>실지급액
-                        <script type="text/javascript">
-                            document.write(numberformat(<%=binding.data.jigeup_sum%>));
-                        </script>원
+                    <td width="50%">
+                        <span>실지급액</span>
+                        <span>
+                                <script type="text/javascript">
+                                    document.write(numberformat(<%=binding.data.jigeup_sum%>));
+                                </script>
+                            </span>원
                     </td>
-                    <td>충당액
-                        <script type="text/javascript">
-                            document.write(numberformat(<%=binding.data.chd_prc%>));
-                        </script>원
+                    <td width="50%">
+                        <span>충당액</span>
+                        <span>
+                                <script type="text/javascript">
+                                    document.write(numberformat(<%=binding.data.chd_prc%>));
+                                </script>
+                            </span>원
                     </td>
                 </tr>
+                </tbody>
             </table>
-		</div>
-		<!-- 통지서 비주얼 상단 // -->
-		
-		<!-- 통지서 비주얼 하단 -->
-		<div class="info_table">
-			<table>
-				<colgroup>
-				<col style="width:34%;">
-				<col style="width:28%;">
-				<col style="width:38%;">
-				</colgroup>
-				<tbody>
-				<tr>
-				<th>일자리 관리번호</th>
-				<td colspan="2"><%=binding.data.ij_gwanri_no%></td>
-				</tr>
-				
-				<tr>
-				<th>수령방법</th>
-				<td colspan="2">
-					<ul class="check_line">
-					<li class="check_l"><%data.controls.input.srfgtrue%></li>
-					<li class="check_r"><%data.controls.input.srfgfalse%></li>
-					</ul>
-				</td>
-				</tr>
+        </div>
+        <!-- 통지서 비주얼 상단 // -->
 
-				<tr>
-				<th>사업장</th>
-				<td colspan="2"><%=binding.data.sej_nm%></td>
-				</tr>
+        <!-- 통지서 비주얼 하단 -->
+        <div class="info_table">
+            <table>
+                <colgroup>
+                    <col style="width:34%;">
+                    <col style="width:28%;">
+                    <col style="width:38%;">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th>일자리 관리번호</th>
+                    <td colspan="2"><%=binding.data.ij_gwanri_no%></td>
+                </tr>
 
-				<tr>
-				<td class="pt10 des" colspan="3">이 결정에 이의가 있을 경우에는 결정이 있음을 안 날부터 20일 이내에 당해 결정을 행한 소속
-	기관에 이의 신청을 제기할 수 있습니다. 아울러, 이의신청 절차를 거치지 않고 민사소송을
-	제기할 수 있음을 알려 드립니다.</td>
-				</tr>
-				</tbody>
-			</table>
-		</div>
-		<!-- Info table area // -->
-	</div>
-	<!-- Info area // -->
+                <tr>
+                    <th>수령방법</th>
+                    <td colspan="2">
+                        <ul class="check_line">
+                            <li class="check_l"><%data.controls.input.srfgtrue%></li>
+                            <li class="check_r"><%data.controls.input.srfgfalse%></li>
+                        </ul>
+                    </td>
+                </tr>
 
-	
-	<div id="cont_wrap">
-		<!-- Tab area -->
-		<div>
-		<ul class="tab_area">
-		<li class="tab_on" name="tab1" data-tab="tab1"><a href="#self">지급 내역</a></li>
-		<li class="tab_off" name="tab2" data-tab="tab2"><a href="#self">제도 안내</a></li>
-		</ul>
-		</div>
-		<!-- Tab area //-->
+                <tr>
+                    <th>사업장</th>
+                    <td colspan="2"><%=binding.data.sej_nm%></td>
+                </tr>
 
-		
-		<script>
-		$(function() {
-			$('ul.tab_area li').click(function() {
-				const tabArray = ["tab1", "tab2"];
-				var thisDataSet = this.dataset.tab;
-				tabArray.forEach(id => {
-				  var tabBtn = document.getElementsByName(id);
-				  var tabCont = document.getElementById(id);
-				  if(id === thisDataSet){
-					tabBtn[0].className = "tab_on";
-					tabCont.style.display = "block";
-				  }else{
-					tabBtn[0].className = "tab_off";
-					tabCont.style.display = "none";
-				  }
-				});
-			})
-		});
-		</script>
+                <tr>
+                    <td class="pt10 des" colspan="3">이 결정에 이의가 있을 경우에는 결정이 있음을 안 날부터 20일 이내에 당해 결정을 행한 소속
+                        기관에 이의 신청을 제기할 수 있습니다. 아울러, 이의신청 절차를 거치지 않고 민사소송을
+                        제기할 수 있음을 알려 드립니다.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Info table area // -->
+    </div>
+    <!-- Info area // -->
 
 
-		<!-- Page1 area -->
-		<div id="tab1">
-			<div class="tab1_cont mb40">
-			<h3 class="mb3">일자리 안정자금 지급 내역</h3>
-			<!-- Table contents -->
-			<table class="mt10">
-			<colgroup>
-			<col style="width:25%;">
-			<col style="width:25%;">
-			<col style="width:25%;">
-			<col style="width:25%;">
-			</colgroup>
-			<tbody>
-				<%FOR binding.data.grjlist%>
-				<tr>
-                <th>연번</th>
-                <td><%=grj_no%></td>
-                <th>성명</th>
-                <td><%=grj_nm%></td>
-				</tr>
-				<tr>
-				<th>지원구분</th>
-				<td>
-					<script type="text/javascript">
-						var jiwonFG = <%=grj_jiwon_fg%>
-						switch (jiwonFG) {
-							case 1:
-								document.write("지급");
-								break;
-							case 2:
-								document.write("부지급");
-								break;
-							default:
-						}
-					</script>
-				</td>
-				<th>지원액(원)</th>
-				<td>
-                    <script type="text/javascript">
-                        document.write(numberformat(<%=grj_jiwon_prc%>));
+    <div id="cont_wrap">
+        <!-- Tab area -->
+        <div>
+            <ul class="tab_area">
+                <li class="tab_on" name="tab1" data-tab="tab1"><a href="#self">지급 내역</a></li>
+                <li class="tab_off" name="tab2" data-tab="tab2"><a href="#self">제도 안내</a></li>
+            </ul>
+        </div>
+        <!-- Tab area //-->
+
+
+        <script>
+            $(function() {
+                $('ul.tab_area li').click(function() {
+                    const tabArray = ["tab1", "tab2"];
+                    var thisDataSet = this.dataset.tab;
+                    tabArray.forEach(id => {
+                        var tabBtn = document.getElementsByName(id);
+                        var tabCont = document.getElementById(id);
+                        if(id === thisDataSet){
+                            tabBtn[0].className = "tab_on";
+                            tabCont.style.display = "block";
+                        }else{
+                            tabBtn[0].className = "tab_off";
+                            tabCont.style.display = "none";
+                        }
+                    });
+                })
+            });
+        </script>
+
+
+        <!-- Page1 area -->
+        <div id="tab1">
+            <div class="tab1_cont mb40">
+                <h3 class="mb3">일자리 안정자금 지급 내역</h3>
+                <!-- Table contents -->
+                <style>
+                    tr.color_row th{
+                        background-color: #ddebf7;
+                    }
+                </style>
+                <table id="grj_table" class="mt10 color_table">
+                    <colgroup>
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                    </colgroup>
+                    <tbody>
+                    <%FOR binding.data.grjlist%>
+                    <script>
+                        grjlist_index = 1 + grjlist_index;
                     </script>
-                    원
-                </td>
-				</tr>
-				<tr>
-				<th>비고</th>
-				<td colspan="3">
-                    (
-                    <script type="text/javascript">
-                        document.write(dateformat2(<%=jiwon_yymm%>));
+                    <tr>
+                        <th>연번</th>
+                        <td>
+                            <script>
+                                document.write(grjlist_index);
+                            </script>
+                        </td>
+                        <th>성명</th>
+                        <td><%=grj_nm%></td>
+                    </tr>
+                    <tr>
+                        <th>지원구분</th>
+                        <td>
+                            <script type="text/javascript">
+                                var jiwonFG = <%=grj_jiwon_fg%>
+                                switch (jiwonFG) {
+                                case 1:
+                                    document.write("지급");
+                                    break;
+                                case 2:
+                                    document.write("부지급");
+                                    break;
+                                default:
+                                }
+                            </script>
+                        </td>
+                        <th>지원액(원)</th>
+                        <td>
+                            <script type="text/javascript">
+                                document.write(numberformat(<%=grj_jiwon_prc%>));
+                            </script>
+                            원
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>비고</th>
+                        <td colspan="3">
+                            (
+                            <script type="text/javascript">
+                                document.write(dateformat2(<%=jiwon_yymm%>));
+                            </script>
+                            )
+                            <%=grj_bjg_sayu%>
+                        </td>
+                    </tr>
+                    <script>
+                        if(grjlist_index%2 == 1) {
+                            var list = document.getElementById('grj_table').rows;
+                            for (var i = 0; i < 4; i++) {
+                                list[list.length - i - 1].classList.add('color_row');
+                            }
+                        }
                     </script>
-                    )<%=grj_bjg_sayu%>
-                </td>
-				</tr>
-				<%NEXT%>
-			</tbody>
-			</table>
-			<!-- Table contents // -->
+                    <%NEXT%>
+                    </tbody>
+                </table>
+                <!-- Table contents // -->
 
-			<div class="footer_txt"><span class="point">*</span> 고용노동부 고시 제2020-141호 「일자리 안정자금 사업 운영 규정」<br />&nbsp;&nbsp;
-	   에 따라 위와 같이 결정되었음을 알려드립니다.</div>
+                <div class="footer_txt"><span class="point">*</span> 고용노동부 고시 제2020-141호 「일자리 안정자금 사업 운영 규정」<br />&nbsp;&nbsp;
+                    에 따라 위와 같이 결정되었음을 알려드립니다.</div>
 
-			</div>
-			<!-- Page1 area //-->
-		</div>
-
-            <div id="tab2" style="display: none;">
-                <!-- page2 area -->
-                <div class="tab2_cont">
-                    <h1>
-                        2021년 일자리 안정자금 제도 안내
-                    </h1>
-                    <!-- 신청 안내 -->
-                    <p class="main_tt">
-                        신청 안내
-                    </p>
-                    <div class="tab2_cont_txt">
-                        21년 신청 시 모든 사업장은 「2021년 일자리 안정자금 지원신청서」를 새로 제출하여야 합니다. 대상자별(고용보험 신규 취득, 기 취득, 적용제외 등) 해당 신청서로 신청하여야 하며, 일자리 안정자금 신청 세부내역 및 일자리 안정자금 지원요건 확인서를 제출하여야 합니다.
-                    </div>
-                    <div class="tab2_cont_txt">
-                        '21년도 신청은 '21.11.30.까지 가능하며, '21.11.1.까지 입사한 근로자만 신청할 수 있습니다.
-                    </div>
-                    <p class="point_txt">
-                        * 단, 일용근로자, 고용보험 적용제외근로자(2회차 신청 이후) 및 계절근로자는 '21.12.15.까지 신청 가능
-                    </p>
-                    <div class="tab2_cont_txt">
-                        신청 당시 재직 중인 근로자만 지원 받을 수 있으며, 퇴사한 근로자는 지원 받을 수 없습니다.
-                    </div>
-                    <div class="tab2_cont_txt">
-                        지원대상 기업은 30인 미만 사업(주) 이며, 다음의 경우에는 예외적으로 30인 이상인 경우에도 지원합니다.
-                    </div>
-                    <p class="tab2_cont_txt">
-                        ① 공동주택 경비·청소원
-                        <br>
-                        ② 55세(1966.12.31. 이전 출생자) 이상 고령자
-                        <br>
-                        ③ 고용위기지역·산업위기 대응지역 종사자
-                        <br>
-                        ④ 사회적기업, 장애인직업재활시설, 자활기업, 장애인활동지원기관 종사자
-                    </p>
-                    <p class="point_txt">
-                        * ①은 사업장 규모 및 지원대상 한도 없음, ②~④는 300인 미만 사업장에 대해 최대 99인까지 지원
-                    </p>
-                    <div class="tab2_cont_txt">
-                        직전년도 과세소득(개인 사업소득, 법인 당기순이익)이 3억원 이하인 경우 신청할 수 있습니다.
-                    </div>
-                    <div class="tab2_cont_txt">
-                        최저임금(시급 8,720원) 이상 지급하며, 월평균보수가 219만원 이하(시급 10,470원)인 근로자에 대해 신청할 수 있습니다.
-                    </div>
-                    <!-- 신청안내 // -->
-                    <!-- 지원금 안내 -->
-                    <p class="main_tt">
-                        지원금 안내
-                    </p>
-                    <div class="tab2_cont_txt">
-                        1인당 최대 지원금은 5만원이며, 5인미만 사업(주)는 2만원 추가 지원 합니다.
-                    </div>
-                    <div class="tab2_cont_txt">
-                        주 40시간 미만 단시간 근로자 및 일용 근로자는 아래와 같은 기준으로 지원합니다.
-                    </div>
-                    <!-- Table contents -->
-                    <table class="mt10">
-                        <colgroup>
-                            <col style="width:50%;">
-                            <col style="width:50%;">
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <th colspan="2">
-                                    단시간 근로자 지원수준
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    주 소정근로시간
-                                </th>
-                                <th>
-                                    지원금액
-                                </th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    주 40시간 미만 근로자
-                                </td>
-                                <td>
-                                    4만원
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    주 30시간 미만 근로자
-                                </td>
-                                <td>
-                                    3만원
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    주 20시간 미만 근로자
-                                </td>
-                                <td>
-                                    2만원
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    주 10시간 미만 근로자
-                                </td>
-                                <td>
-                                    미지원
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!-- Table contents // -->
-                    <!-- Table contents -->
-                    <table class="mt10">
-                        <colgroup>
-                            <col style="width:50%;">
-                            <col style="width:50%;">
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <th colspan="2">
-                                    일용 근로자 지원수준
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    월 근로 일수
-                                </th>
-                                <th>
-                                    지원금액
-                                </th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    22일 이상
-                                </td>
-                                <td>
-                                    5만원
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    19일 이상 21일 이하
-                                </td>
-                                <td>
-                                    4만원
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    15일 이상 18일 이하
-                                </td>
-                                <td>
-                                    3만원
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    10일 이상 14일 이하
-                                </td>
-                                <td>
-                                    2만원
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    10일 미만
-                                </td>
-                                <td>
-                                    미지원
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!-- Table contents // -->
-                    <!-- 지원금 안내 // -->
-                    <!-- 유의사항 -->
-                    <p class="main_tt">
-                        유의사항
-                    </p>
-                    <div class="tab2_cont_txt">
-                        신청 후 신청 근로자(주 소정근로시간, 월평균 보수 등)및 사업장(대표자, 주소 등)의 변경사항이 있을 경우, 반드시 14일 이내에 변경신고를 하셔야 됩니다.
-                    </div>
-                    <p class="point_txt">
-                        ※ 특히, 지원 근로자에 대해 변경신고를 하지 않을 경우 '22년에 신고하는 '21년 확정 월평균보수를 통하여 검증하며, 확정 월평균보수가 지원 기준인 219만원의 110%(241만원)를 초과하는 근로자는 지원금 전체 환수를, 지원구간별 월평균보수 하한액 80% 미만 감소 근로자는 지원구간별 차액을 환수합니다.
-                    </p>
-                    <div class="tab2_cont_txt">
-                        '20년도 확정 보수총액('21.3월 신고) 미신고시 '21.7.1.(대상기간 '21.6.1.~6.30.).부터 지원을 중단하며, '21.7.31.까지 자진 신고하는 경우에 한해 계속 지원 합니다.
-                    </div>
-                    <div class="tab2_cont_txt">
-                        상실신고 지연 방지 및 사후관리가 강화되어, 일자리 안정자금을 지원받던 근로자가 퇴사 할 경우 퇴사 다음날 15일까지 피보험자격 상실신고를 해야 하며 6개월 이상 지연할 경우 3개월간 지원 중단 및 과오지급금은 환수 됩니다.
-                    </div>
-                    <div class="tab2_cont_txt">
-                        일자리 안정자금을 받는 근로자의 고용을 유지하여야 합니다. 단, 계약기간 만료나 근로자 과실에 따른 징계 해고 등의 사유는 제외되며, '경영상 필요 및 회사 불황으로 인원 감축'의 경우에는 그 사유를 소명할 경우 계속 지원합니다(30인 이상 사업장은 제외).
-                    </div>
-                    <div class="tab2_cont_txt">
-                        특수관계인(사업주본인, 배우자, 직계존·비속)은 일자리 안정자금 지원 대상이 아닙니다. (고용보험 가입여부와 무관)
-                    </div>
-                    <div class="tab2_cont_txt">
-                        일자리 안정자금과 사업목적이나 지원내용이 유사한 국가 또는 지자체의 재정지원을 받고 있는 사업주 및 근로자는 지원 대상이 되지 않습니다.
-                    </div>
-                    <div class="tab2_cont_txt">
-                        보험사무대행기관에서 안정자금을 신청하더라도 환수금, 제재부가금은 지원 사업주에게 부과되니 지원요건을 확인해주시기 바랍니다.
-                    </div>
-                    <div class="tab2_cont_txt">
-                        부정수급으로 적발될 경우, 부정수급액의 5배에 해당하는 금액에 대해 제재부가금이 부과될 수 있습니다.
-                    </div>
-                    <div class="tab2_cont_txt">
-                        환수금이 있는 경우 향후 지급받을 일자리 안정자금으로 상계·충당될 수 있습니다.
-                    </div>
-                    <div class="tab2_cont_txt mb20">
-                        근로자가 휴업 등 근로시간을 단축하는 경우 단축된 근로시간에 따라 일자리 안정자금을 지원하나, 휴직의 경우에는 유·무급과 상관없이 지원하지 않습니다.
-                    </div>
-                    <!-- 지원금 안내 // -->
-                </div>
-                <!-- page2 area //-->
-                <!-- 문의사항 -->
-                <div class="tel_area mb40">
-                    (문의·상담 : 근로복지공단 Tel. 1588-0075)
-                </div>
-                <!-- 문의사항 //-->
             </div>
+            <!-- Page1 area //-->
+        </div>
+
+        <div id="tab2" style="display: none;">
+            <!-- page2 area -->
+            <div class="tab2_cont">
+                <h1>
+                    2021년 일자리 안정자금 제도 안내
+                </h1>
+                <!-- 신청 안내 -->
+                <p class="main_tt">
+                    신청 안내
+                </p>
+                <div class="tab2_cont_txt">
+                    21년 신청 시 모든 사업장은 「2021년 일자리 안정자금 지원신청서」를 새로 제출하여야 합니다. 대상자별(고용보험 신규 취득, 기 취득, 적용제외 등) 해당 신청서로 신청하여야 하며, 일자리 안정자금 신청 세부내역 및 일자리 안정자금 지원요건 확인서를 제출하여야 합니다.
+                </div>
+                <div class="tab2_cont_txt">
+                    '21년도 신청은 '21.11.30.까지 가능하며, '21.11.1.까지 입사한 근로자만 신청할 수 있습니다.
+                </div>
+                <p class="point_txt">
+                    * 단, 일용근로자, 고용보험 적용제외근로자(2회차 신청 이후) 및 계절근로자는 '21.12.15.까지 신청 가능
+                </p>
+                <div class="tab2_cont_txt">
+                    신청 당시 재직 중인 근로자만 지원 받을 수 있으며, 퇴사한 근로자는 지원 받을 수 없습니다.
+                </div>
+                <div class="tab2_cont_txt">
+                    지원대상 기업은 30인 미만 사업(주) 이며, 다음의 경우에는 예외적으로 30인 이상인 경우에도 지원합니다.
+                </div>
+                <p class="tab2_cont_txt">
+                    ① 공동주택 경비·청소원
+                    <br>
+                    ② 55세(1966.12.31. 이전 출생자) 이상 고령자
+                    <br>
+                    ③ 고용위기지역·산업위기 대응지역 종사자
+                    <br>
+                    ④ 사회적기업, 장애인직업재활시설, 자활기업, 장애인활동지원기관 종사자
+                </p>
+                <p class="point_txt">
+                    * ①은 사업장 규모 및 지원대상 한도 없음, ②~④는 300인 미만 사업장에 대해 최대 99인까지 지원
+                </p>
+                <div class="tab2_cont_txt">
+                    직전년도 과세소득(개인 사업소득, 법인 당기순이익)이 3억원 이하인 경우 신청할 수 있습니다.
+                </div>
+                <div class="tab2_cont_txt">
+                    최저임금(시급 8,720원) 이상 지급하며, 월평균보수가 219만원 이하(시급 10,470원)인 근로자에 대해 신청할 수 있습니다.
+                </div>
+                <!-- 신청안내 // -->
+                <!-- 지원금 안내 -->
+                <p class="main_tt">
+                    지원금 안내
+                </p>
+                <div class="tab2_cont_txt">
+                    1인당 최대 지원금은 5만원이며, 5인미만 사업(주)는 2만원 추가 지원 합니다.
+                </div>
+                <div class="tab2_cont_txt">
+                    주 40시간 미만 단시간 근로자 및 일용 근로자는 아래와 같은 기준으로 지원합니다.
+                </div>
+                <!-- Table contents -->
+                <table class="mt10">
+                    <colgroup>
+                        <col style="width:50%;">
+                        <col style="width:50%;">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th colspan="2">
+                            단시간 근로자 지원수준
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            주 소정근로시간
+                        </th>
+                        <th>
+                            지원금액
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            주 40시간 미만 근로자
+                        </td>
+                        <td>
+                            4만원
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            주 30시간 미만 근로자
+                        </td>
+                        <td>
+                            3만원
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            주 20시간 미만 근로자
+                        </td>
+                        <td>
+                            2만원
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            주 10시간 미만 근로자
+                        </td>
+                        <td>
+                            미지원
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- Table contents // -->
+                <!-- Table contents -->
+                <table class="mt10">
+                    <colgroup>
+                        <col style="width:50%;">
+                        <col style="width:50%;">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th colspan="2">
+                            일용 근로자 지원수준
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            월 근로 일수
+                        </th>
+                        <th>
+                            지원금액
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            22일 이상
+                        </td>
+                        <td>
+                            5만원
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            19일 이상 21일 이하
+                        </td>
+                        <td>
+                            4만원
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            15일 이상 18일 이하
+                        </td>
+                        <td>
+                            3만원
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            10일 이상 14일 이하
+                        </td>
+                        <td>
+                            2만원
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            10일 미만
+                        </td>
+                        <td>
+                            미지원
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- Table contents // -->
+                <!-- 지원금 안내 // -->
+                <!-- 유의사항 -->
+                <p class="main_tt">
+                    유의사항
+                </p>
+                <div class="tab2_cont_txt">
+                    신청 후 신청 근로자(주 소정근로시간, 월평균 보수 등)및 사업장(대표자, 주소 등)의 변경사항이 있을 경우, 반드시 14일 이내에 변경신고를 하셔야 됩니다.
+                </div>
+                <p class="point_txt">
+                    ※ 특히, 지원 근로자에 대해 변경신고를 하지 않을 경우 '22년에 신고하는 '21년 확정 월평균보수를 통하여 검증하며, 확정 월평균보수가 지원 기준인 219만원의 110%(241만원)를 초과하는 근로자는 지원금 전체 환수를, 지원구간별 월평균보수 하한액 80% 미만 감소 근로자는 지원구간별 차액을 환수합니다.
+                </p>
+                <div class="tab2_cont_txt">
+                    '20년도 확정 보수총액('21.3월 신고) 미신고시 '21.7.1.(대상기간 '21.6.1.~6.30.).부터 지원을 중단하며, '21.7.31.까지 자진 신고하는 경우에 한해 계속 지원 합니다.
+                </div>
+                <div class="tab2_cont_txt">
+                    상실신고 지연 방지 및 사후관리가 강화되어, 일자리 안정자금을 지원받던 근로자가 퇴사 할 경우 퇴사 다음날 15일까지 피보험자격 상실신고를 해야 하며 6개월 이상 지연할 경우 3개월간 지원 중단 및 과오지급금은 환수 됩니다.
+                </div>
+                <div class="tab2_cont_txt">
+                    일자리 안정자금을 받는 근로자의 고용을 유지하여야 합니다. 단, 계약기간 만료나 근로자 과실에 따른 징계 해고 등의 사유는 제외되며, '경영상 필요 및 회사 불황으로 인원 감축'의 경우에는 그 사유를 소명할 경우 계속 지원합니다(30인 이상 사업장은 제외).
+                </div>
+                <div class="tab2_cont_txt">
+                    특수관계인(사업주본인, 배우자, 직계존·비속)은 일자리 안정자금 지원 대상이 아닙니다. (고용보험 가입여부와 무관)
+                </div>
+                <div class="tab2_cont_txt">
+                    일자리 안정자금과 사업목적이나 지원내용이 유사한 국가 또는 지자체의 재정지원을 받고 있는 사업주 및 근로자는 지원 대상이 되지 않습니다.
+                </div>
+                <div class="tab2_cont_txt">
+                    보험사무대행기관에서 안정자금을 신청하더라도 환수금, 제재부가금은 지원 사업주에게 부과되니 지원요건을 확인해주시기 바랍니다.
+                </div>
+                <div class="tab2_cont_txt">
+                    부정수급으로 적발될 경우, 부정수급액의 5배에 해당하는 금액에 대해 제재부가금이 부과될 수 있습니다.
+                </div>
+                <div class="tab2_cont_txt">
+                    환수금이 있는 경우 향후 지급받을 일자리 안정자금으로 상계·충당될 수 있습니다.
+                </div>
+                <div class="tab2_cont_txt mb20">
+                    근로자가 휴업 등 근로시간을 단축하는 경우 단축된 근로시간에 따라 일자리 안정자금을 지원하나, 휴직의 경우에는 유·무급과 상관없이 지원하지 않습니다.
+                </div>
+                <!-- 지원금 안내 // -->
+            </div>
+            <!-- page2 area //-->
+            <!-- 문의사항 -->
+            <div class="tel_area mb40">
+                (문의·상담 : 근로복지공단 Tel. 1588-0075)
+            </div>
+            <!-- 문의사항 //-->
         </div>
     </div>
-<!-- Wrap //-->	
+</div>
+<!-- Wrap //-->
 </body>
 </html>
