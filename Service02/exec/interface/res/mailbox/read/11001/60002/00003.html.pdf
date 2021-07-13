@@ -43,7 +43,7 @@
                     document.write(jiwon_mm.substring(4));
                 </script>
             </span>
-                월 정기 지급(부지급) 통지서</h1>
+                월 정기<br>지급(부지급) 통지서</h1>
             <h2 class="mb3">일자리 안정자금 정기지급 내역입니다.</h2>
 
             <p class="border-line">
