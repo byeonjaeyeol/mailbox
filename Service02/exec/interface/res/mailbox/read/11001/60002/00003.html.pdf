@@ -8,7 +8,7 @@
     <link href="./11001-60002-00003/css/gfont.css" rel="stylesheet">
     <script src="./11001-60002-00003/js/jquery-1.10.2.js"></script>
     <link href="./11001-60002-00003/css/style.css" rel="stylesheet" type="text/css">
-    <title>근로복지공단 일자리 월 정기 지급 통지서</title>
+    <title>근로복지공단 일자리 월 정기 지급(부지급) 통지서</title>
     <script type="text/javascript">
         var grjlist_index = 0;
         function numberformat(number) {
@@ -43,7 +43,7 @@
                     document.write(jiwon_mm.substring(4));
                 </script>
             </span>
-                월 정기 지급 통지서</h1>
+                월 정기 지급(부지급) 통지서</h1>
             <h2 class="mb3">일자리 안정자금 정기지급 내역입니다.</h2>
 
             <p class="border-line">
@@ -121,24 +121,26 @@
                     <th>일자리 관리번호</th>
                     <td colspan="2"><%=binding.data.ij_gwanri_no%></td>
                 </tr>
-                <th>지급일자</th>
-                <td colspan="2">
-                    <script type="text/javascript">
-                        document.write(dateformat(<%=binding.data.jigeup_dt%>));
-                    </script>
-                </td>
+                <tr>
+                    <th>지급일자</th>
+                    <td colspan="2">
+                        <script type="text/javascript">
+                            document.write(dateformat(<%=binding.data.jigeup_dt%>));
+                        </script>
+                    </td>
                 </tr>
                 <tr>
-                    <th>사업장</th>
+                    <th>사업장명</th>
                     <td colspan="2"><%=binding.data.sej_nm%></td>
                 </tr>
-                <th>고용보험 관리번호</th>
-                <td colspan="2"><%=binding.data.gy_gwanri_no%></td>
+                <tr>
+                    <th>소재지</th>
+                    <td colspan="2"><%=binding.data.sej_addr1%> <%=binding.data.sej_addr2%></td>
                 </tr>
-                <th>소재지</th>
-                <td colspan="2"><%=binding.data.sej_addr1%> <%=binding.data.sej_addr2%></td>
+                <tr>
+                    <th>고용보험 관리번호</th>
+                    <td colspan="2"><%=binding.data.gy_gwanri_no%></td>
                 </tr>
-
                 <tr>
                     <td class="pt10 des" colspan="3">이 결정에 이의가 있을 경우에는 결정이 있음을 안 날부터 20일 이내에 당해 결정을 행한 소속
                         기관에 이의 신청을 제기할 수 있습니다. 아울러, 이의신청 절차를 거치지 않고 민사소송을

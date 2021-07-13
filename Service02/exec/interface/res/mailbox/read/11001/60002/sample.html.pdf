@@ -9,7 +9,7 @@
     <link href="./11001-60002-sample/common/gfont.css" rel="stylesheet">
     <script src="./11001-60002-sample/common/jquery-1.10.2.js"></script>
     <link href="./11001-60002-sample/common/style.css" rel="stylesheet" type="text/css">
-    <title>근로복지공단 일자리 안정자금 지급 결정 통지서</title>
+    <title>근로복지공단 일자리 안정자금 지급(부지급) 결정 통지서</title>
     <script type="text/javascript">
         var grjlist_index = 0;
         function numberformat(number) {
@@ -38,7 +38,7 @@
 
         <!-- 통지서 비주얼 상단 -->
         <div class="money_info">
-            <h1>일자리 안정자금 지급 결정 통지서</h1>
+            <h1>일자리 안정자금 지급(부지급) 결정 통지서</h1>
             <h2 class="mb3">일자리 안정자금지급(부지급)내역입니다.</h2>
 
             <p class="border-line">
@@ -117,20 +117,21 @@
                     <th>일자리 관리번호</th>
                     <td colspan="2"><%=binding.data.ij_gwanri_no%></td>
                 </tr>
-
                 <tr>
-                    <th>수령방법</th>
-                    <td colspan="2">
-                        <ul class="check_line">
-                            <li class="check_l"><%data.controls.input.srfgtrue%></li>
-                            <li class="check_r"><%data.controls.input.srfgfalse%></li>
-                        </ul>
-                    </td>
+                    <th>지급일자</th>
+                    <td colspan="2"><%=binding.data.jigeup_dt%></td>
                 </tr>
-
                 <tr>
-                    <th>사업장</th>
+                    <th>사업장명</th>
                     <td colspan="2"><%=binding.data.sej_nm%></td>
+                </tr>
+                <tr>
+                    <th>소재지</th>
+                    <td colspan="2"><%=binding.data.sej_addr1%> <%=binding.data.sej_addr2%></td>
+                </tr>
+                <tr>
+                    <th>고용보험 관리번호</th>
+                    <td colspan="2"><%=binding.data.gy_gwanri_no%></td>
                 </tr>
 
                 <tr>
@@ -248,7 +249,7 @@
                     <script>
                         if(grjlist_index%2 == 1) {
                             var list = document.getElementById('grj_table').rows;
-                            for (var i = 0; i < 4; i++) {
+                            for (var i = 0; i < 3; i++) {
                                 list[list.length - i - 1].classList.add('color_row');
                             }
                         }
