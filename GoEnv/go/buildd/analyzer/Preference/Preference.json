@@ -1,0 +1,73 @@
+{
+"preference": {
+	"concurrency": {
+		"cpu": 2,
+		"routinue": 4
+	},	
+	"nosql": {
+		"class": "elasticsearch",
+		"host": "localhost:9200",
+		"rollover": "30d",
+		"ver": "6.x",
+		"tls": {
+			"enable": "false",
+			"user": "admin",
+			"pwd": "admin"
+		}
+	},
+	"analysis": {
+		"periodwithoutinsert": "60s"
+	},
+	"rdbms": {
+		"class": "mysql",
+		"datasource": "embuser:!tilon9099@@(127.0.0.1:3307)/EMAILBOX"
+	},
+	"api" : {
+		"bchost": "http://211.253.86.102:58880",
+		"ifhost": "http://localhost:2100"
+	},
+	"postok" : {
+		"domain": "localhost:2100"
+	},
+	"kt_openapi" : {
+		"service_code": "60001",
+		"service_key": "8zH9A7dXEm",
+		"biz_code": "60001"
+	},	
+	"directory": {
+		"backup": "./backup",
+		"temp": "./temp",
+		"result": "./result",
+		"pushmsg": "./pushmessage",
+		"bulk": "./bulk"
+	},
+	"function": {
+		"analysis": "enable",
+		"regist": "enable",
+		"conversion": "enable"
+	},
+	"timer": {
+		"analysis": {
+			"runtime": "0~21",
+			"freq": "60"
+		},
+		"cleanup": {
+			"runtime": "22~24",
+			"freq": "60",
+			"rdbms": {
+				"unit": "day",
+				"validity": "180",
+				"count": "5000"
+			},
+			"backfile": {
+				"unit": "day",
+				"validity": "180"
+			}
+		},
+		"conversion": {
+			"runtime": "5~6",
+			"freq": "3000"
+		}
+	}
+}
+}

@@ -40,9 +40,9 @@
       "orgcode": "11001",
       "deptcode": "60002",
       "maxarraylength": 50,
-	  "maxbulklength": 5000,
+	    "maxbulklength": 5000,
       "proctime": "8,9,10,11,12,13,14,15,16,17,18,19,20",
-	  "db_idx": 6
+	    "db_idx": 6
     },
     "reqid": "binding.reserved.essential.search.request-id",
     "encoding": "encrypt",

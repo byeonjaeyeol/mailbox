@@ -42,7 +42,7 @@
     "freq_sec": 60,
     "buffersize": 1024,
     "compareterm": 30,
-	"monitoring": "N",
+	  "monitoring": "N",
     "list": [
       {
         "server": {

@@ -215,6 +215,8 @@ PUT /11001-000001
 ```
 
 ## 6. and so on
+
+### 6.1 rollover
 elasticsearch rollover
 ```
 curl --user admin:admin -XPOST 'http://localhost:9200/11001/_rollover?pretty' -H "Content-Type: application/json" -d '{"conditions": {"max_age": "350d"}}'
@@ -229,14 +231,20 @@ curl --user admin:admin -XPOST 'http://localhost:9200/11001/_rollover?pretty' -H
     "[max_age: 350d]" : false
   }
 }
+```
+### 6.2 status
 
-
+```
 $ curl http://localhost:9200/_nodes/process?pretty
 $ curl http://localhost:9200/_nodes/stats?pretty
 
 $ curl 'localhost:9200/_cat/indices?pretty'
 $ curl 'localhost:9200/_cat/indices?v'
+```
 
+### 6.3 alias
+
+```
 $ curl -XPOST 'http://localhost:9200/_aliases?pretty'  -H "Content-Type: application/json" -d'
 {
     "actions" : [
@@ -256,7 +264,10 @@ alias   index        filter routing.index routing.search
 
 # curl -XGET  'localhost:9200/_cat/aliases/11001'
 11001 11001-000013 - - -
+```
+### 6.4 Query
 
+```
 $ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: application/json" -d'
 {
     "from" : "0",
@@ -290,6 +301,270 @@ $ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: ap
     }
 }'
 
+
+$ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: application/json" -d'
+{
+    "from" : "0",
+    "size" : "1",
+    "sort" : [
+        {
+            "status.time.@registed" : "desc"
+        }
+    ],
+    "query" : {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "binding.reserved.essential.agency.dept-code": {
+                            "query": "60002",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "binding.reserved.essential.search.group-by": {
+                            "query": "2021.08.17",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "status.dispatching": {
+                            "query": "ing",
+                            "operator": "and"
+                        }
+                    }
+                }
+
+            ]
+        }
+    }
+}'
+
+$ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: application/json" -d'
+{
+    "from" : "0",
+    "size" : "0",
+    "sort" : [
+        {
+            "status.time.@registed" : "desc"
+        }
+    ],
+    "query" : {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "binding.reserved.essential.agency.dept-code": {
+                            "query": "60002",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "binding.reserved.essential.search.group-by": {
+                            "query": "2021.08.20",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "status.dispatching": {
+                            "query": "ing",
+                            "operator": "and"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}'
+
+$ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: application/json" -d'
+{
+    "from" : "0",
+    "size" : "0",
+    "sort" : [
+        {
+            "status.time.@registed" : "desc"
+        }
+    ],
+    "query" : {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "binding.reserved.essential.agency.dept-code": {
+                            "query": "60002",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "binding.reserved.essential.search.group-by": {
+                            "query": "2021.08.20",
+                            "operator": "and"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}'
+
+$ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: application/json" -d'
+{
+    "from" : "0",
+    "size" : "2",
+    "sort" : [
+        {
+            "status.time.@registed" : "desc"
+        }
+    ],
+    "query" : {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "binding.reserved.essential.agency.dept-code": {
+                            "query": "60002",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "binding.reserved.essential.search.group-by": {
+                            "query": "2021.08.13",
+                            "operator": "and"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}'
+
+
+$ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: application/json" -d'
+{
+    "from" : "0",
+    "size" : "2",
+    "sort" : [
+        {
+            "status.time.@registed" : "desc"
+        }
+    ],
+    "query" : {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "binding.reserved.essential.agency.dept-code": {
+                            "query": "60002",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "binding.reserved.essential.search.group-by": {
+                            "query": "2021.08.19",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "binding.reserved.essential.dispatching.dm.type": {
+                            "query": "registered",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "status.dispatching": {
+                            "query": "done",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "binding.reserved.essential.template.code": {
+                            "query": "00001",
+                            "operator": "and"
+                        }
+                    }
+                }           
+            ]
+        }
+    }
+}'
+
+$ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: application/json" -d'
+{
+    "from" : "0",
+    "size" : "2",
+    "sort" : [
+        {
+            "status.time.@registed" : "desc"
+        }
+    ],
+    "query" : {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "binding.reserved.essential.agency.dept-code": {
+                            "query": "60002",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "binding.reserved.essential.search.group-by": {
+                            "query": "2021.08.18",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "status.dispatching": {
+                            "query": "done",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "status.class": {
+                            "query": "4",
+                            "operator": "and"
+                        }
+                    }
+                },                
+                {
+                    "match": {
+                        "binding.reserved.essential.template.code": {
+                            "query": "00001",
+                            "operator": "and"
+                        }
+                    }
+                }           
+            ]
+        }
+    }
+}'
 
 $ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: application/json" -d'
 {
@@ -345,6 +620,95 @@ $ curl "http://localhost:9200/_alias?pretty"
 
 ```
 
+
+GET /11001-*/_search
+{
+    "from" : "0",
+    "size" : "5",
+    "sort" : [
+        {
+            "status.time.@registed" : "desc"
+        }
+    ]
+}
+
+curl -XPOST 'localhost:9200/my_index/_analyze?pretty' -H 'Content-Type: application/json' -d'
+{
+  "analyzer": "my_custom_analyzer",
+  "text": "여러개의 물건들"
+}
+
+
+
+### 6.5 delete
+nosql 데이터 삭제
+
+```
+$ curl -XPOST 'http://localhost:9200/11001*/_delete_by_query?pretty'  -H "Content-Type: application/json" -d'
+{
+    "query" : {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "binding.reserved.essential.agency.dept-code": {
+                            "query": "60002",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "binding.reserved.essential.search.group-by": {
+                            "query": "2021.08.17",
+                            "operator": "and"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}'
+```
+확인을 위해
+```
+$ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: application/json" -d'
+{
+    "from" : "0",
+    "size" : "1",
+    "sort" : [
+        {
+            "status.time.@registed" : "desc"
+        }
+    ],
+    "query" : {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "binding.reserved.essential.agency.dept-code": {
+                            "query": "60002",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "binding.reserved.essential.search.group-by": {
+                            "query": "2021.08.17",
+                            "operator": "and"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}'
+
+```
+
+
+
 ## vm.max_map_count
 
 Elasticsearch uses a mmapfs directory by default to store its indices. The default operating system limits on mmap counts is likely to be too low, which may result in out of memory exceptions.
@@ -360,3 +724,80 @@ The RPM and Debian packages will configure this setting automatically. No furthe
 
 
 
+
+
+GET /11001-*/_search
+{
+		"size": 100,
+		"sort" : [
+        {
+            "status.time.@registed" : "desc"
+        }
+    ],
+		"query": {
+		"bool": {
+			"must": [
+				{
+					"match": {
+					  "status.dispatching": {
+					    "query": "waiting",
+					    "operator": "and"
+					  }
+					}
+				},
+				{
+					"bool" : {
+						"must_not": [
+							{
+								"match": {
+									"status.class": {
+									"query": "4",
+									"operator": "or"
+									}
+								}
+							},
+							{
+								"match": {
+									"status.class": {
+									"query": "4",
+									"operator": "or"
+									}
+								}
+							}
+						]
+					}
+				},
+				{
+					"match": {
+					  "binding.reserved.essential.template.code": {
+					    "query": "00003",
+					    "operator": "and"
+					  }
+					}          
+				},				
+				{
+					"bool": {
+					"should": [
+					{
+						"range": {
+							"binding.reserved.essential.dispatching.@res-time": {
+								"lt": "now"
+							}
+						}
+					},
+					{
+						"bool": {
+							"must_not": {
+								"exists": {
+								"field": "binding.reserved.essential.dispatching.@res-time"
+								}
+							}
+						}
+					}
+					]
+					}
+				}
+			]
+		}
+		}
+	}

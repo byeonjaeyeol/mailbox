@@ -22,8 +22,6 @@ services:
     ports:
       - 2100:2100
       - "1122:22"
-    depends_on:
-      - external
     networks:
       - nmailbox
 
@@ -51,30 +49,6 @@ services:
     ports:
       - 2101:2100
       - "1222:22"
-    depends_on:
-      - service01
-    networks:
-      - nmailbox
-
-  service04:
-    image: bsquarelab/upost-service04:0.1
-    container_name: service04
-    environment:
-      - TZ=Asia/Seoul
-    restart: 'no'
-    privileged: true
-    volumes:
-      - ./Service04/data/tilon:/data/tilon
-      - ./Service04/data/POSA:/data/POSA
-      - ./Service04/exec/IljariAgent:/usr/share/tilon/IljariAgent
-      - ./Service04/exec/sender:/usr/share/tilon/sender
-      - ${LOCALTIME}:/etc/localtime:ro
-      #- /private/etc/localtime:/etc/localtime:ro
-      #- /etc/localtime:/etc/localtime:ro #on linux
-    ports:
-      - "1422:22"
-    depends_on:
-      - service02
     networks:
       - nmailbox
       
