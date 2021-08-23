@@ -18,6 +18,7 @@ to start the instance for go build
 $ docker-compose -f docker-compose-go.yml up -d
 ```
 
+실제 개발서버 혹은 운영서버 배포를 위해 다음과 같이 빌드를 하여 해당 실행파일을 정해진 위치에 이동한다.
 ```
 $ docker exec -it goenv bash
 $ go build -o build/analyzer analyzer/main.go
@@ -26,11 +27,11 @@ $ go build -o build/IljariAgent IljariAgent/main.go
 
 ```
 
-to build in mac os
+개발을 위해 다음과 같이 각각의 플랫폼에서 빌드를 한 후에 해당 폴더에서 동작하여 각 기능에 대해 디버깅을 진행할 수 있다.
 ```
 $ cd GoEnv/go
-$ go build -o build_mac/analyzer/analyzer analyzer/main.go
-$ go build -o build_mac/interface/interface interface/src/main.go
+$ go build -o buildd/analyzer/analyzer analyzer/main.go
+$ go build -o buildd/interface/interface interface/src/main.go
 ```
 
 # Git Submodule
