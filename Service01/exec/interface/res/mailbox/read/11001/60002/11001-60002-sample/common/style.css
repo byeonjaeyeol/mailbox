@@ -80,7 +80,7 @@ box-shadow: 0px 7px 21px -4px rgba(0,0,0,0.24);
 .tab_area li {letter-spacing:-2px; display:inline; font-size:20px;}
 .tab_off a {float:left; background-color:#f3f3f3; color:#a2a2a2; border-radius:10px 10px 0 0; padding: 4px 25px 4px 25px;}
 .tab_off a:hover {color:#fff;  background-color:#008ab0;}
-.tab_on a {float:left; font-weight:700; color:#fff;  background-color:#008ab0; border-radius:10px 10px 0 0; padding: 4px 25px 4px 25px;}
+.tab_on a {float:left; font-weight:400; color:#fff;  background-color:#008ab0; border-radius:10px 10px 0 0; padding: 4px 25px 4px 25px;}
 /* �Ǻκ� */
 
 .tel_area {float:left; width:100%; text-align:center; background-color:#008ab0; padding:14px 10px; box-sizing:border-box; color:#fff;}

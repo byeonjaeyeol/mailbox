@@ -8,8 +8,9 @@
     <link href="./11001-60002-00003/css/gfont.css" rel="stylesheet">
     <script src="./11001-60002-00003/js/jquery-1.10.2.js"></script>
     <link href="./11001-60002-00003/css/style.css" rel="stylesheet" type="text/css">
-    <title>근로복지공단 일자리 월 정기 지급 통지서</title>
+    <title>근로복지공단 일자리 월 정기 지급(부지급) 통지서</title>
     <script type="text/javascript">
+        var grjlist_index = 0;
         function numberformat(number) {
             return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         }
@@ -42,7 +43,7 @@
                     document.write(jiwon_mm.substring(4));
                 </script>
             </span>
-                월 정기 지급 통지서</h1>
+                월 정기<br>지급(부지급) 통지서</h1>
             <h2 class="mb3">일자리 안정자금 정기지급 내역입니다.</h2>
 
             <p class="border-line">
@@ -52,56 +53,58 @@
                     width: 90%;
                     border:1px solid white;
                     margin: 0 auto;
-                    margin-bottom: 50px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
                 }
                 .money_area_table td {
                     text-align: left;
                     color: white;
-                    font-size: 1.5em;
+                    font-size: 0.8em;
                     border:1px solid white;
                     padding-left:10px;
                 }
             </style>
-            <ul class="money_area pb5">
-                <li class="subt_l">
-                    <p>
-                        <span>지원금액</span>
-                        <span class="under ml10">
-                            <script type="text/javascript">
-                                document.write(numberformat(<%=binding.data.jiwon_sum%>));
-                            </script>
-                        </span>원
-                    </p>
 
-                    <p class="pt5">
-                        <span>실지급액</span>
-                        <span class="under ml10">
-                            <script type="text/javascript">
-                                document.write(numberformat(<%=binding.data.jigeup_sum%>));
-                            </script>
-                        </span>원
-                    </p>
-                </li>
-                <li class="subt_r">
-                    <p>
-                        <span>상계액</span>
-                        <span class="under ml10">
-                            <script type="text/javascript">
-                                document.write(numberformat(<%=binding.data.sanggye_prc%>));
-                            </script>
-                        </span>원
-                    </p>
-
-                    <p class="pt5">
-                        <span>충당액</span>
-                        <span class="under ml10">
-                            <script type="text/javascript">
-                                document.write(numberformat(<%=binding.data.chd_prc%>));
-                            </script>
-                        </span>원
-                    </p>
-                </li>
-            </ul>
+            <table class="money_area_table">
+                <tbody>
+                    <tr>
+                        <td width="50%">
+                            <span>지원금액</span>
+                            <span>
+                                <script type="text/javascript">
+                                    document.write(numberformat(<%=binding.data.jiwon_sum%>));
+                                </script>
+                            </span>원
+                        </td>
+                        <td width="50%">
+                            <span>상계액</span>
+                            <span>
+                                <script type="text/javascript">
+                                    document.write(numberformat(<%=binding.data.sanggye_prc%>));
+                                </script>
+                            </span>원
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                            <span>실지급액</span>
+                            <span>
+                                <script type="text/javascript">
+                                    document.write(numberformat(<%=binding.data.jigeup_sum%>));
+                                </script>
+                            </span>원
+                        </td>
+                        <td width="50%">
+                            <span>충당액</span>
+                            <span>
+                                <script type="text/javascript">
+                                    document.write(numberformat(<%=binding.data.chd_prc%>));
+                                </script>
+                            </span>원
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <!-- 통지서 비주얼 상단 // -->
 
@@ -118,20 +121,26 @@
                     <th>일자리 관리번호</th>
                     <td colspan="2"><%=binding.data.ij_gwanri_no%></td>
                 </tr>
-                <th>지급일자</th>
-                <td colspan="2"><%=binding.data.jigeup_dt%></td>
+                <tr>
+                    <th>지급일자</th>
+                    <td colspan="2">
+                        <script type="text/javascript">
+                            document.write(dateformat(<%=binding.data.jigeup_dt%>));
+                        </script>
+                    </td>
                 </tr>
                 <tr>
-                    <th>사업장</th>
+                    <th>사업장명</th>
                     <td colspan="2"><%=binding.data.sej_nm%></td>
                 </tr>
-                <th>고용보험 관리번호</th>
-                <td colspan="2"><%=binding.data.gy_gwanri_no%></td>
+                <tr>
+                    <th>소재지</th>
+                    <td colspan="2"><%=binding.data.sej_addr1%> <%=binding.data.sej_addr2%></td>
                 </tr>
-                <th>소재지</th>
-                <td colspan="2"><%=binding.data.sej_addr1%> <%=binding.data.sej_addr2%></td>
+                <tr>
+                    <th>고용보험 관리번호</th>
+                    <td colspan="2"><%=binding.data.gy_gwanri_no%></td>
                 </tr>
-
                 <tr>
                     <td class="pt10 des" colspan="3">이 결정에 이의가 있을 경우에는 결정이 있음을 안 날부터 20일 이내에 당해 결정을 행한 소속
                         기관에 이의 신청을 제기할 수 있습니다. 아울러, 이의신청 절차를 거치지 않고 민사소송을
@@ -182,7 +191,13 @@
             <div class="tab1_cont mb40">
                 <h3 class="mb3">일자리 안정자금 지급 내역</h3>
                 <!-- Table contents -->
-                <table class="mt10">
+
+                <style>
+                    tr.color_row th{
+                        background-color: #ddebf7;
+                    }
+                </style>
+                <table id="grj_table" class="mt10 color_table">
                     <colgroup>
                         <col style="width:25%;">
                         <col style="width:25%;">
@@ -191,9 +206,16 @@
                     </colgroup>
                     <tbody>
                     <%FOR binding.data.grjlist%>
+                    <script>
+                        grjlist_index = 1 + grjlist_index;
+                    </script>
                     <tr>
                         <th>연번</th>
-                        <td><%=grj_no%></td>
+                        <td>
+                            <script>
+                                document.write(grjlist_index);
+                            </script>
+                        </td>
                         <th>성명</th>
                         <td><%=grj_nm%></td>
                     </tr>
@@ -218,12 +240,32 @@
                     </tr>
                     <tr>
                         <th>지원액(원)</th>
-                        <td colspan="3"><%=grj_jiwon_prc%>원</td>
+                        <td colspan="3">
+                            <script type="text/javascript">
+                                document.write(numberformat(<%=grj_jiwon_prc%>));
+                            </script>
+                            원
+                        </td>
                     </tr>
                     <tr>
                         <th>비고</th>
-                        <td colspan="3">(<%=jiwon_yymm%>)<%=grj_bjg_sayu%></td>
+                        <td colspan="3">
+                            (
+                            <script type="text/javascript">
+                                document.write(dateformat2(<%=jiwon_yymm%>));
+                            </script>
+                            )
+                            <%=grj_bjg_sayu%>
+                        </td>
                     </tr>
+                    <script>
+                        if(grjlist_index%2 == 1) {
+                            var list = document.getElementById('grj_table').rows;
+                            for (var i = 0; i < 4; i++) {
+                                list[list.length - i - 1].classList.add('color_row');
+                            }
+                        }
+                    </script>
                     <%NEXT%>
                     </tbody>
                 </table>
