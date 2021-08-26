@@ -724,6 +724,27 @@ The RPM and Debian packages will configure this setting automatically. No furthe
 
 
 
+## ubuntu vm.max_map_count setting
+```
+1. vi /etc/systemd/system.conf
+DefaultLimitNOFILE=65536
+
+2. vi /etc/security/limits.conf
+
+*       soft    nofile  65536
+*       hard    nofile  65536
+*       soft    nproc   65536
+*       hard    nproc   65536
+*       soft    memlock unlimited
+*       hard    memlock unlimited
+
+
+3. sudo vi /etc/sysctl.conf
+vm.max_map_count=262144
+```
+
+
+
 
 
 GET /11001-*/_search
