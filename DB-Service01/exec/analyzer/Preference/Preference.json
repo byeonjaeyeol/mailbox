@@ -16,8 +16,10 @@
 		}
 	},
 	"analysis": {
-		"periodwithoutinsert": "60s"
-	},
+		"readycounting": "600",
+		"periodwithoutinsert": "60",
+		"version": "R20190924"
+	},	
 	"rdbms": {
 		"class": "mysql",
 		"datasource": "embuser:!tilon9099@@(emailbox:3306)/EMAILBOX"

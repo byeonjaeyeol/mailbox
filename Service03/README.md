@@ -801,3 +801,91 @@ GET /11001-*/_search
 		}
 		}
 	}
+
+
+GET /11001-*/_search
+{
+		"size": 1000,
+		"query": {
+		"bool": {
+			"must": [
+				{
+					"match": {
+					  "status.dispatching": {
+					    "query": "ing",
+					    "operator": "and"
+					  }
+					}
+				},
+				{
+					"bool" : {
+						"should": [
+							{
+								"match": {
+									"status.class": {
+									"query": "4",
+									"operator": "or"
+									}
+								}
+							},
+							{
+								"match": {
+									"status.class": {
+									"query": "1X4",
+									"operator": "or"
+									}
+								}
+							},
+							{
+								"match": {
+									"status.class": {
+									"query": "1U4",
+									"operator": "or"
+									}
+								}
+							}
+						]
+					}
+				},
+				{
+					"match": {
+					  "binding.reserved.essential.agency.dept-code": {
+					    "query": "60002",
+					    "operator": "and"
+					  }
+					}          
+				},
+				{
+					"match": {
+					  "binding.reserved.essential.template.code": {
+					    "query": "00001",
+					    "operator": "and"
+					  }
+					}          
+				},								
+				{
+					"bool": {
+					"should": [
+					{
+						"range": {
+						"binding.reserved.essential.dispatching.@res-time": {
+							"lt": "now"
+						}
+						}
+					},
+					{
+						"bool": {
+						"must_not": {
+							"exists": {
+							"field": "binding.reserved.essential.dispatching.@res-time"
+							}
+						}
+						}
+					}
+					]
+					}
+				}
+			]
+		}
+		}
+	}

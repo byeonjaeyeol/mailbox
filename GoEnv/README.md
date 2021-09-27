@@ -31,6 +31,7 @@ $ go build -o build/IljariAgent IljariAgent/main.go
 ```
 $ cd GoEnv/go
 $ go build -o buildd/analyzer/analyzer analyzer/main.go
+$ go build -o buildd/IljariAgent/IljariAgent IljariAgent/main.go
 $ go build -o buildd/interface/interface interface/src/main.go
 ```
 

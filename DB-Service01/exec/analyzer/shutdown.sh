@@ -1,2 +1,2 @@
-kill -SIGTERM %!d(string=19.000000)
-echo 'gracefully shutdown''n'
+kill -SIGTERM 22
+echo 'gracefully shutdown'gracefully shutdown''n'
