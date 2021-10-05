@@ -10,3 +10,6 @@
 [submodule "GoEnv/go/Collector"]
 	path = GoEnv/go/Collector
 	url = https://github.com/kyehyukahn/Collector.git
+[submodule "GoEnv/go/analyzer02"]
+	path = GoEnv/go/analyzer02
+	url = https://github.com/bsquarelab/analyzer02
