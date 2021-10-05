@@ -14,5 +14,7 @@ WORKDIR /usr/share/tilon
 
 EXPOSE 22
 
+RUN chmod +x /install_sshd.sh
+
 RUN /install_sshd.sh
 CMD ["/usr/sbin/init"]

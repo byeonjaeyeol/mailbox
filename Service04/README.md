@@ -46,5 +46,12 @@ $ docker exec -it c456623003b1 /bin/bash
 홍길동8     P742c917b76c35eceKR 
 홍길동9     P362299e9f21680dbKR 
 홍길동10    P3ea448e21d2b1a39KR 
+#ubuntu 설치 내용 정리
+실 서버에서 11001_60002_common.done 파일 copy
+```
+경로 /home/blab/upost-network/Service04/data/tilon/IljariAgent/options
+```
+
+
 
 
