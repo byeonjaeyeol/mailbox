@@ -513,35 +513,33 @@ CREATE DEFINER=`embuser`@`%` PROCEDURE `SP_IF_SET_PCODE`(
    IN `$PARAM_CI`         VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_general_ci)
     DETERMINISTIC
 BEGIN	
-	DECLARE cnt INT(10);
-	
-	SET cnt = (SELECT COUNT(*) FROM TBL_PCODE
-				WHERE ci = $PARAM_CI);
-		
-#PCODE 테이블에 해당 ci 값을 가진 데이터가 없는 경우		
-	IF cnt = 0 
-	THEN
-	   INSERT INTO TBL_PCODE(reg_dt,
-							 p_code,
-							 ci,
-							 member_yn,
-							 disp_class,
-							 push_token,
-							 push_permit_class)
-			VALUES (now(),
-					$PARAM_PCODE,
-					$PARAM_CI,
-					'N',
-					NULL,
-					NULL,
-					NULL);
-	#PCODE 테이블에 해당 ci 값을 가진 데이터가 있는 경우	
-	ELSE
-		UPDATE TBL_PCODE
-			SET p_code = $PARAM_PCODE
-			WHERE ci = $PARAM_CI;
-			
-	END IF;
+   DECLARE cnt INT(10);
+
+    SET cnt = (SELECT COUNT(*) FROM TBL_PCODE WHERE ci = $PARAM_CI);
+
+   #PCODE 테이블에 해당 ci 값을 가진 데이터가 없는 경우		
+   IF cnt = 0 
+   THEN
+      INSERT INTO TBL_PCODE(reg_dt,
+                            p_code,
+                            ci,
+                            member_yn,
+                            disp_class,
+                            push_token,
+                            push_permit_class)
+      VALUES (now(),
+              $PARAM_PCODE,
+              $PARAM_CI,
+              'N',
+               NULL,
+               NULL,
+               NULL);
+      #PCODE 테이블에 해당 ci 값을 가진 데이터가 있는 경우	
+   ELSE
+      UPDATE TBL_PCODE
+      SET p_code = $PARAM_PCODE
+      WHERE ci = $PARAM_CI;
+   END IF;
 END ;;
 DELIMITER ;
 
