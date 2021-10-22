@@ -5,12 +5,18 @@ MAINTAINER BSQUARELAB <erickahn@bsquarelab.com>
 COPY analyzer.service /etc/systemd/system/
 RUN systemctl enable analyzer.service
 
+COPY analyzer.authorized.service /etc/systemd/system/
+RUN systemctl enable analyzer.authorized.service
+
 COPY sender.service /etc/systemd/system/
 RUN systemctl enable sender.service
 
+
+
+
 WORKDIR /usr/share/tilon
 
-VOLUME [ "/data/tilon",  "/usr/share/tilon/analyzer", "/usr/share/tilon/sender"]
+VOLUME [ "/data/tilon",  "/usr/share/tilon/analyzer", "/usr/share/tilon/sender", "/usr/share/tilon/analyzer.authorized"]
 
 EXPOSE 22
 

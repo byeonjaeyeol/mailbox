@@ -1,7 +1,7 @@
 version: '2.2'
 services:
   dbservice01:
-    image: bsquarelab/upost-dbservice01:0.1
+    image: bsquarelab/upost-dbservice01:0.2
     container_name: dbservice01
     environment:
       - TZ=Asia/Seoul
@@ -10,6 +10,7 @@ services:
     volumes:
       - ./DB-Service01/data:/data/tilon
       - ./DB-Service01/exec/analyzer:/usr/share/tilon/analyzer
+      - ./DB-Service01/exec/analyzer.authorized:/usr/share/tilon/analyzer.authorized      
       - ./DB-Service01/exec/sender:/usr/share/tilon/sender
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro

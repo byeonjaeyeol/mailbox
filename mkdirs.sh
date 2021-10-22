@@ -4,6 +4,9 @@ dirs=(
         DB-Service01/data/analyzer/logs
         DB-Service01/data/analyzer/result
         DB-Service01/data/analyzer/temp
+        DB-Service01/data/analyzer.authorized/logs
+        DB-Service01/data/analyzer.authorized/backup
+        DB-Service01/data/analyzer.authorized/temp
         DB-Service01/data/sender/backup
         DB-Service01/data/sender/logs
         DB-Service01/mariadb

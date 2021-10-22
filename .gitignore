@@ -111,7 +111,6 @@ node01/
 log02/
 node02/
 build/
-buildd/
 *.pem
 
 .DS_Store

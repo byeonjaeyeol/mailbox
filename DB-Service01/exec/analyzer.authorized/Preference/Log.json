@@ -1,0 +1,28 @@
+{
+  "logs": [
+    {
+      "name": "trace",
+      "path": "/data/tilon/analyzer.authorized/logs",
+      "level": 100,
+      "format" : "textfile",
+      "rotationCnt" : 5,
+      "rotationFreq" : 86400 
+    },
+    {
+      "name": "update",
+      "path": "/data/tilon/analyzer.authorized/logs",
+      "level": 3,
+      "format" : "textfile",
+      "rotationCnt" : 5,
+      "rotationFreq" : 86400
+    },
+    {
+      "name": "blockchain",
+      "path": "/data/tilon/analyzer.authorized/logs",
+      "level": 3,
+      "format" : "textfile",
+      "rotationCnt" : 5,
+      "rotationFreq" : 86400
+    }
+  ]
+}

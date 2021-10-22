@@ -875,7 +875,7 @@ CREATE TABLE `TBL_PUSHMSG`
    msg_class          INT(11)
                         NULL
                         DEFAULT 2
-                        COMMENT '푸쉬 종류 (비트 연산 - 1: 시스템, 2: 편지, 4: 공지, 8: 이벤트) ',
+                        COMMENT '푸쉬 종류 (비트 연산 - 1: 시스템, 2: 편지, 4: 공지, 8: 이벤트, 16: 동의요청알림) ',
    multiplexing_fg    INT(11)
                         NULL
                         DEFAULT NULL

@@ -5,7 +5,7 @@
 **		Author: 
 **		Date: 2021-10-12
 *******************************************************************************/
-CREATE TABLE `TBL_MYAGENCY`
+CREATE TABLE `TBL_MYDOCUMENT`
 (
    idx           BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
    p_code_idx    BIGINT(20) NULL DEFAULT NULL,
