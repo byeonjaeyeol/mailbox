@@ -6,7 +6,7 @@
 	},	
 	"nosql": {
 		"class": "elasticsearch",
-		"host": "localhost:9200",
+		"host": "211.115.219.40:9200",
 		"rollover": "30d",
 		"ver": "6.x",
 		"tls": {
@@ -16,20 +16,20 @@
 		}
 	},
 	"analysis": {
-		"readycounting": "600",
+		"readycounting": "0",
 		"periodwithoutinsert": "60",
-		"version": "R20190924"
+		"version": "R20211111"
 	},
 	"rdbms": {
 		"class": "mysql",
-		"datasource": "embuser:!tilon9099@@(127.0.0.1:3307)/EMAILBOX"
+		"datasource": "embuser:!tilon9099@@(211.115.219.40:3307)/EMAILBOX"
 	},
 	"api" : {
 		"bchost": "http://211.253.86.102:58880",
-		"ifhost": "http://localhost:2100"
+		"ifhost": "http://211.115.219.40:2100"
 	},
 	"postok" : {
-		"domain": "localhost:2100"
+		"domain": "211.115.219.40:2100"
 	},
 	"kt_openapi" : {
 		"service_code": "60001",

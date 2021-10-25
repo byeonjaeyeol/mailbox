@@ -16,7 +16,7 @@
 		}
 	},
 	"analysis": {
-		"readycounting": "60",
+		"readycounting": "50",
 		"periodwithoutinsert": "60",
 		"version": "R20211111"
 	},	
