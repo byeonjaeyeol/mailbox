@@ -25,6 +25,7 @@ $ go build -o build/analyzer analyzer/main.go
 $ go build -o build/analyzer.authorized analyzer-authorized/main.go
 $ go build -o build/interface_1.0.0.0 interface/src/main.go
 $ go build -o build/IljariAgent IljariAgent/main.go
+$ go build -o build/Collector/collector_1.0.0.0 Collector/src/main.go
 
 ```
 
@@ -35,6 +36,7 @@ $ go build -o buildd/analyzer/analyzer analyzer/main.go
 $ go build -o buildd/analyzer.authorized/analyzer.authorized analyzer-authorized/main.go
 $ go build -o buildd/IljariAgent/IljariAgent IljariAgent/main.go
 $ go build -o buildd/interface/interface interface/src/main.go
+$ go build -o buildd/Collector/collector_1.0.0.0 Collector/src/main.go
 ```
 
 # Git Submodule
