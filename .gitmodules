@@ -13,3 +13,6 @@
 [submodule "GoEnv/go/analyzer-authorized"]
 	path = GoEnv/go/analyzer-authorized
 	url = https://github.com/bsquarelab/analyzer-authorized.git
+[submodule "GoEnv/go/BlabAgent"]
+	path = GoEnv/go/BlabAgent
+	url = https://github.com/hieuncom/BlabAgent.git

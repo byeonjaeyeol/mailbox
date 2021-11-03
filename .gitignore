@@ -118,3 +118,5 @@ build/
 dm/
 missing/
 shutdown.sh
+
+GoEnv/go/pkg/
