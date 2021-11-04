@@ -8,6 +8,9 @@ RUN systemctl enable IljariAgent.service
 COPY sender.service /etc/systemd/system/
 RUN systemctl enable sender.service
 
+COPY CollectAgent.service /etc/systemd/system/
+RUN systemctl enable CollectAgent.service
+
 WORKDIR /usr/share/tilon
 
 #VOLUME [ "/data/tilon",  "/usr/share/tilon/IljariAgent", "/usr/share/tilon/sender"]

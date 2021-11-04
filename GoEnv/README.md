@@ -46,6 +46,7 @@ $ go build -o buildd/Collector/collector_1.0.0.0 Collector/src/main.go
 $ git submodule add https://github.com/kyehyukahn/interface.git interface
 
 $ git submodule add https://github.com/kyehyukahn/interface.git
+$ git submodule add https://github.com/bsquarelab/eDocHubApi.git
 ```
 ## commit
 ```

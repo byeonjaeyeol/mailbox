@@ -27,6 +27,11 @@ dirs=(
         Service04/data/tilon/sender/backup
         Service04/data/tilon/sender/data
         Service04/data/tilon/sender/logs
+        Service04/data/blab/CollectAgent/receive
+        Service04/data/blab/CollectAgent/backup
+        Service04/data/blab/CollectAgent/logs
+        Service04/data/blab/CollectAgent/option
+        Service04/data/blab/CollectAgent/result
      )
 
 for dir in "${dirs[@]}"; do

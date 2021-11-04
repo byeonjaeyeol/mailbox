@@ -1,0 +1,22 @@
+[Unit]
+Description=BSquareLab Collect Agent
+
+[Service]
+Type=simple
+
+User=root
+
+Group=root
+
+Restart=on-failure
+RestartSec=100
+
+RequiresMountsFor=/usr/share/blab/CollectAgent
+
+ExecStart=/usr/share/blab/CollectAgent/CollectAgent -start
+PIDFile=/usr/share/blab/CollectAgent/CollectAgent.pid
+WorkingDirectory=/usr/share/blab/CollectAgent/
+
+[Install]
+WantedBy=multi-user.target
+
