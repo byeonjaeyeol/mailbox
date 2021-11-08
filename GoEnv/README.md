@@ -27,7 +27,6 @@ $ go build -o build/interface_1.0.0.0 interface/src/main.go
 $ go build -o build/IljariAgent IljariAgent/main.go
 $ go build -o build/collector_1.0.0.0 Collector/src/main.go
 $ go build -o build/CollectAgent BlabAgent/main.go
-
 ```
 
 개발을 위해 다음과 같이 각각의 플랫폼에서 빌드를 한 후에 해당 폴더에서 동작하여 각 기능에 대해 디버깅을 진행할 수 있다.

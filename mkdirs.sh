@@ -33,8 +33,6 @@ dirs=(
         Service04/data/blab/CollectAgent/option
         Service04/data/blab/CollectAgent/result
      )
-
-
 for dir in "${dirs[@]}"; do
     if [ ! -d $dir ]; then
         mkdir -p $dir
