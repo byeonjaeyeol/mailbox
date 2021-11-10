@@ -15,7 +15,7 @@ compile an app inside the docker container
 
 to start the instance for go build
 ```
-$ docker-compose -f docker-compose-go.yml up -d
+$ docker-compose -f docker-compose-solo-go.yml up -d
 ```
 
 실제 개발서버 혹은 운영서버 배포를 위해 다음과 같이 빌드를 하여 해당 실행파일을 정해진 위치에 이동한다.

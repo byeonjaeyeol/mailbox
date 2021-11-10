@@ -104,19 +104,27 @@ dist
 .tern-port
 
 mariadb/
-backup/
-data/
 log01/
 node01/
 log02/
 node02/
 build/
 *.pem
+backup/
+logs/
+POSA/
+result/
+receive/
+temp/
+repo/
+*_basic.png
+11001_60002_*.json
+shutdown.sh
 
 .DS_Store
 .idea/
 dm/
 missing/
-shutdown.sh
+
 
 GoEnv/go/pkg/
