@@ -133,7 +133,7 @@
   "server" : {
     "status" : 0,
     "protocol" : "http",
-    "port" : 2100,
+    "port" : 3001,
     "version" : "v1.0.0.0",
     "mobile_ver" : "v1.0.0",
     "revision" : "1",
@@ -142,7 +142,7 @@
   "sync" : {
     "protocol": "http",
     "host": "211.115.219.40",
-    "port": 2100,
+    "port": 3001,
     "sshport": 22,
     "user": "root",
     "password": "qwerty123456"
@@ -191,13 +191,13 @@
     "user_org" : "org3"
   },
   "database": {
-    "connector" : "embuser:!tilon9099@@tcp(emailbox:3307)/EMAILBOX",
+    "connector" : "embuser:!tilon9099@@tcp(emailbox:3306)/EMAILBOX",
     "sql": "mysql",
     "connect": {
       "user": "embuser",
       "password": "!tilon9099@",
       "ip": "emailbox",
-      "port": "3307",
+      "port": "3306",
       "db_name": "EMAILBOX"
     }
   }

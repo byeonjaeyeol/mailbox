@@ -125,6 +125,7 @@ shutdown.sh
 .idea/
 dm/
 missing/
+*.done
 
 
 GoEnv/go/pkg/

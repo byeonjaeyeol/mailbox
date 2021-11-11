@@ -29,9 +29,10 @@ dirs=(
         Service04/data/tilon/sender/logs
         Service04/data/blab/CollectAgent/receive
         Service04/data/blab/CollectAgent/backup
+        Service04/data/blab/CollectAgent/backup/sftp/11001/60002
         Service04/data/blab/CollectAgent/logs
         Service04/data/blab/CollectAgent/option
-        Service04/data/blab/CollectAgent/result
+        Service04/data/blab/CollectAgent/result/11001/60002        
      )
 for dir in "${dirs[@]}"; do
     if [ ! -d $dir ]; then
