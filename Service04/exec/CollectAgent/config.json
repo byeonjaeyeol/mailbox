@@ -89,7 +89,7 @@
         "db_idx": 6
     },
     "reqid": "binding.reserved.essential.search.request-id",
-    "encoding": "encrypt-",
+    "encoding": "encrypt",
     "basedir": "/data/blab/CollectAgent/receive/WID04039401385",
     "outputpath": "/data/blab/CollectAgent/result",
     "backupdir": "/data/blab/CollectAgent/backup/convert",
@@ -98,10 +98,10 @@
   },
   "sftp": {
     "server": {
-      "host": "211.115.219.40",
+      "host": "service02",
       "port": "22",
-      "user": "ubuntu",
-      "password": "qltmznpdjfoq13@$"
+      "user": "root",
+      "password": "qwerty123456"
     },
     "freq_sec": 60,
     "buffersize": 1024,

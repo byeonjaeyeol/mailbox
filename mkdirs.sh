@@ -37,6 +37,7 @@ dirs=(
 for dir in "${dirs[@]}"; do
     if [ ! -d $dir ]; then
         mkdir -p $dir
+        chmod a+rw $dir
     fi
 done
 
