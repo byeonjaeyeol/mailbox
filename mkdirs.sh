@@ -4,6 +4,9 @@ dirs=(
         DB-Service01/data/analyzer/logs
         DB-Service01/data/analyzer/result
         DB-Service01/data/analyzer/temp
+        DB-Service01/data/analyzer.authorized/logs
+        DB-Service01/data/analyzer.authorized/backup
+        DB-Service01/data/analyzer.authorized/temp
         DB-Service01/data/sender/backup
         DB-Service01/data/sender/logs
         DB-Service01/mariadb
@@ -24,11 +27,17 @@ dirs=(
         Service04/data/tilon/sender/backup
         Service04/data/tilon/sender/data
         Service04/data/tilon/sender/logs
+        Service04/data/blab/CollectAgent/receive
+        Service04/data/blab/CollectAgent/backup
+        Service04/data/blab/CollectAgent/backup/sftp/11001/60002
+        Service04/data/blab/CollectAgent/logs
+        Service04/data/blab/CollectAgent/option
+        Service04/data/blab/CollectAgent/result/11001/60002        
      )
-
 for dir in "${dirs[@]}"; do
     if [ ! -d $dir ]; then
         mkdir -p $dir
+        chmod a+rw $dir
     fi
 done
 

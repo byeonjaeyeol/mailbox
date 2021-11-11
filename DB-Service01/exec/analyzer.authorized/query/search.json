@@ -1,0 +1,60 @@
+{
+	"size": 0,
+	"query" : {
+		"bool": {
+			"must": [
+			{
+				"range": {
+					"status.time.@registed": {
+						"gte":"2020-04-23T15:00:00",
+							"lt" : "2020-04-24T15:00:00"
+					}
+				}
+			}
+			]
+		}
+	},
+	"aggs": {
+		"group_by": {
+			"terms":{
+				"field": "binding.reserved.essential.agency.dept-code.keyword"
+			},
+			"aggs" : {
+				"status_template":{
+					"terms":{
+						"field": "binding.reserved.essential.template.file.keyword"
+					},
+					"aggs" : {
+						"status_read":{
+							"range":{
+								"field": "status.read",
+									"ranges" : [
+										{ "from": 1 }
+									]
+							}
+						},
+						"status_dispatching":{
+							"terms":{
+								"field": "status.dispatching.keyword"
+							},
+							"aggs" : {
+								"class": {
+									"terms":{
+										"field": "status.class.keyword"
+									},
+										"aggs" : {
+											"result":{
+												"terms":{
+													"field": "status.result.keyword"
+												}
+											}
+										}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

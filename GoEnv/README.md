@@ -12,12 +12,34 @@ $ docker pull bsquarelab/upost-goenv:0.1
 
 # Build
 compile an app inside the docker container
+
+to start the instance for go build
+```
+$ docker-compose -f docker-compose-solo-go.yml up -d
+```
+
+실제 개발서버 혹은 운영서버 배포를 위해 다음과 같이 빌드를 하여 해당 실행파일을 정해진 위치에 이동한다.
 ```
 $ docker exec -it goenv bash
 $ go build -o build/analyzer analyzer/main.go
+$ go build -o build/analyzer.authorized analyzer-authorized/main.go
 $ go build -o build/interface_1.0.0.0 interface/src/main.go
 $ go build -o build/IljariAgent IljariAgent/main.go
+$ go build -o build/collector_1.0.0.0 Collector/src/main.go
+$ go build -o build/CollectAgent BlabAgent/main.go
+$ go build -o build/edochubapi edochubapi/src/main.go
+```
 
+개발을 위해 다음과 같이 각각의 플랫폼에서 빌드를 한 후에 해당 폴더에서 동작하여 각 기능에 대해 디버깅을 진행할 수 있다.
+```
+$ cd GoEnv/go
+$ go build -o buildd/analyzer/analyzer analyzer/main.go
+$ go build -o buildd/analyzer.authorized/analyzer.authorized analyzer-authorized/main.go
+$ go build -o buildd/IljariAgent/IljariAgent IljariAgent/main.go
+$ go build -o buildd/interface/interface interface/src/main.go
+$ go build -o buildd/Collector/collector_1.0.0.0 Collector/src/main.go
+$ go build -o buildd/CollectAgent BlabAgent/main.go
+$ go build -o buildd/edochubapi/edochubapi edochubapi/src/main.go
 ```
 
 # Git Submodule
@@ -27,6 +49,7 @@ $ go build -o build/IljariAgent IljariAgent/main.go
 $ git submodule add https://github.com/kyehyukahn/interface.git interface
 
 $ git submodule add https://github.com/kyehyukahn/interface.git
+$ git submodule add https://github.com/bsquarelab/eDocHubApi.git
 ```
 ## commit
 ```

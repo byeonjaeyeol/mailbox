@@ -1,0 +1,99 @@
+{
+  "logs": [
+    {
+      "name": "access",
+      "path": "./logs/access.log",
+      "level": 100,
+      "format": "textfile"
+    },
+	{
+      "name": "sftp",
+      "path": "./logs/sftp.log",
+      "level": 100,
+      "format": "textfile"
+    },
+    {
+      "name": "convert",
+      "path": "./logs/convert.log",
+      "level": 100,
+      "format": "textfile"
+    },
+    {
+      "name": "error",
+      "path": "./logs/error.log",
+      "level": 100,
+      "format": "textfile"
+    },
+    {
+      "name": "remove",
+      "path": "./logs/remove.log",
+      "level": 100,
+      "format": "textfile"
+    }
+  ],
+  "convert": {
+    "freq_sec": 60,
+    "buffersize": 1024,
+	"compareterm": 30,
+	"monitoring": "Y",
+    "agency": {
+      "orgcode": "11001",
+      "deptcode": "60002",
+      "maxarraylength": 50,
+	    "maxbulklength": 5000,
+      "proctime": "8,9,10,11,12,13,14,15,16,17,18,19,20",
+	    "db_idx": 6
+    },
+    "reqid": "binding.reserved.essential.search.request-id",
+    "encoding": "encrypt",
+    "basedir": "/data/POSA/ESB/receive/WID04039401385",
+    "outputpath": "/data/tilon/IljariAgent/result",
+    "backupdir": "/data/tilon/IljariAgent/backup/convert",
+    "optiondir": "/data/tilon/IljariAgent/option",
+    "templatedir": "/data/tilon/sender/data/template/11001/60002"
+  },
+  "sftp": {
+    "server": {
+      "host": "service02",
+      "port": "22",
+      "user": "root",
+      "password": "qwerty123456"
+    },
+    "freq_sec": 60,
+    "buffersize": 1024,
+    "basedir": "/data/tilon/IljariAgent/result",
+    "targetdir": "/usr/share/tilon/collector/repo/dat/data",
+    "backupdir": "/data/tilon/IljariAgent/backup/sftp"
+  },
+  "remove": {
+    "freq_hour": 24,
+    "list": [
+      {
+        "term_day": 60,
+        "path": "/data/tilon/IljariAgent/logs"
+      },
+      {
+        "term_day": 30,
+        "path": "/data/tilon/IljariAgent/backup/convert"
+      },
+      {
+        "term_day": 30,
+        "path": "/data/tilon/IljariAgent/backup/sftp"
+      },
+      {
+	"term_day": 30,
+	"path": "/data/tilon/sender/data/template/11001/60002"
+      }
+    ]
+  },
+  "database": {
+    "sql": "mysql",
+    "connect": {
+      "user": "embuser",
+      "password": "!tilon9099@",
+      "ip": "emailbox",
+      "port": "3306",
+      "db_name": "EMAILBOX"
+    }
+  }
+}

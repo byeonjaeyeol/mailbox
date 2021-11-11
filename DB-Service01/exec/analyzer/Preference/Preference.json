@@ -6,7 +6,7 @@
 	},	
 	"nosql": {
 		"class": "elasticsearch",
-		"host": "http://node01:9200",
+		"host": "node01:9200",
 		"rollover": "30d",
 		"ver": "6.x",
 		"tls": {
@@ -16,8 +16,10 @@
 		}
 	},
 	"analysis": {
-		"periodwithoutinsert": "60s"
-	},
+		"readycounting": "60",
+		"periodwithoutinsert": "60",
+		"version": "R20190924"
+	},	
 	"rdbms": {
 		"class": "mysql",
 		"datasource": "embuser:!tilon9099@@(emailbox:3306)/EMAILBOX"

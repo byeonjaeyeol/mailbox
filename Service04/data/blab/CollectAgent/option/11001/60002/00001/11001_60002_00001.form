@@ -1,0 +1,97 @@
+{
+  "ver" : "R20190924",
+  "pi":"",
+  "mi": "",
+  "ci": "",
+  "data-hash" : "",
+  "binding" : {
+   "data" : {
+     "controls" : "",
+     "__arrayprint__" : "",
+     "minwon_doc_cd" : "",
+     "yongdo_fg" : "",
+     "list_cnt" : "",
+	 "upm_ser" : "",
+	 "cheorija_tel_no" : "",
+	 "susinja_tel_no" : "",
+	 "receiver_id" : "",
+	 "sender_nm" : "",
+	 "secu_key" : "",
+	 "security_path" : "",
+     "ij_gwanri_no" : "",
+     "sej_nm" : "",
+	 "sej_addr1" : "",
+	 "sej_addr2" : "",
+	 "dpj_nm" : "",
+     "sej_jigeup_fg" : "",
+	 "jiwon_sum" : "",
+	 "jigeup_sum" : "",
+     "jigeup_dt" : "",
+	 "grj_jiwon_fg" : "",
+	 "grj_jiwon_prc" : "",
+	 "grj_bjg_sayu" : "",
+     "sanggye_prc" : "",
+     "chd_prc" : "",
+     "jisa_cd" : "",
+     "sihaeng_dt" : "",
+     "url" : "",
+     "comm_dd_jisa_fax" : "",
+     "comm_ddj_email" : "",
+     "bar_code" : "",
+     "gy_gwanri_no" : ""
+   },
+   "reserved" : {
+     "additional" : {
+      "receiver" : {
+        "addr2" : "",
+        "addr1" : "",
+        "name" : "",
+        "hp" : "",
+        "zip-code" : "",
+		"email" : ""
+      },
+      "sender" : {
+        "addr2" : "",
+        "addr1" : "",
+        "name" : "",
+        "tel" : "",
+        "zip-code" : "",
+		"email" : ""
+      }
+     },
+     "essential" : {
+      "template" : {
+        "file" : "sample",
+        "code" : "00001",
+        "title" : ""
+      },
+      "summary" : {
+		"class": "2",
+        "title" : "일자리 안정자금 지급(부지급) 결정 통지서",
+        "content" : ""
+      },
+      "dispatching" : {
+        "class" : "",
+	"association" : "dm",
+		"dm" : {
+			"type" : "",
+			"reg-num" : ""
+		},
+	"auto" : {
+		"non-member" : "dm"
+	},
+        "@app-time" : ""
+      },
+      "search" : {
+        "group-by" : "",
+        "request-id" : ""
+      },
+      "agency" : {
+		"org-code" : "11001",
+        "dept-code" : "60002"
+      },
+      "encoding" : "encrypt"
+     }
+   }
+  }
+}

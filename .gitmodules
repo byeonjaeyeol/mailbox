@@ -10,3 +10,12 @@
 [submodule "GoEnv/go/Collector"]
 	path = GoEnv/go/Collector
 	url = https://github.com/kyehyukahn/Collector.git
+[submodule "GoEnv/go/analyzer-authorized"]
+	path = GoEnv/go/analyzer-authorized
+	url = https://github.com/bsquarelab/analyzer-authorized.git
+[submodule "GoEnv/go/BlabAgent"]
+	path = GoEnv/go/BlabAgent
+	url = https://github.com/hieuncom/BlabAgent.git
+[submodule "GoEnv/go/eDocHubApi"]
+	path = GoEnv/go/eDocHubApi
+	url = https://github.com/bsquarelab/eDocHubApi.git

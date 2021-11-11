@@ -41,15 +41,15 @@ to docker build
 ```
 $ docker build -t bsquarelab/upost-dbservice01:latest .
 
-$ docker build -t bsquarelab/upost-dbservice01:0.1 .
+$ docker build -t bsquarelab/upost-dbservice01:0.2 .
 
-$ docker push bsquarelab/upost-dbservice01:0.1
-$ docker pull bsquarelab/upost-dbservice01:0.1
+$ docker push bsquarelab/upost-dbservice01:0.2
+$ docker pull bsquarelab/upost-dbservice01:0.2
 ```
 
 to start dbserver01 in order to start analyzer
 ```
-$ docker run -p 1122:22 --restart unless-stopped --net=bridge -v /Users/alwayswinner/Develops/upost-network/DB-Service01/data:/data/tilon -v /Users/alwayswinner/Develops/upost-network/DB-Service01/exec/analyzer:/usr/share/tilon/analyzer -v /Users/alwayswinner/Develops/upost-network/DB-Service01/exec/sender:/usr/share/tilon/sender -d bsquarelab/upost-dbservice01:0.1
+$ docker run -p 1122:22 --restart unless-stopped --net=bridge -v /Users/alwayswinner/Develops/upost-network/DB-Service01/data:/data/tilon -v /Users/alwayswinner/Develops/upost-network/DB-Service01/exec/analyzer:/usr/share/tilon/analyzer -v /Users/alwayswinner/Develops/upost-network/DB-Service01/exec/sender:/usr/share/tilon/sender -d bsquarelab/upost-dbservice01:0.2
 ```
 ## debugs of analyzer
 to tcp dump (reference : https://sites.google.com/site/jimmyxu101/testing/use-tcpdump-to-monitor-http-traffic)

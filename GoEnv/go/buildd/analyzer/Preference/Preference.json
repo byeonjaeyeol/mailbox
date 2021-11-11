@@ -16,7 +16,9 @@
 		}
 	},
 	"analysis": {
-		"periodwithoutinsert": "60s"
+		"readycounting": "600",
+		"periodwithoutinsert": "60",
+		"version": "R20190924"
 	},
 	"rdbms": {
 		"class": "mysql",

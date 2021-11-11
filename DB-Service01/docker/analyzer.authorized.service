@@ -1,0 +1,21 @@
+[Unit]
+Description=Tilon Analyzer Server
+
+[Service]
+Type=simple
+User=root
+Group=root
+
+Restart=on-failure
+RestartSec=100
+
+RequiresMountsFor=/usr/share/tilon/analyzer.authorized
+
+EnvironmentFile=-/usr/share/tilon/analyzer.authorized/server.conf
+
+ExecStart=/usr/share/tilon/analyzer.authorized/analyzer.authorized -start oUe_o20BlsHYULiaJppy
+PIDFile=/usr/share/tilon/analyzer.authorized/analyzer.pid
+WorkingDirectory=/usr/share/tilon/analyzer.authorized
+
+[Install]
+WantedBy=multi-user.target

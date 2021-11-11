@@ -343,31 +343,28 @@ BEGIN
 		    SET @error := '-1';
 		    SET @disp_class := '-1';
 		    SET @error_code := '3101';
-		    SET @error_string := 'p_code가 등록 되어 있지 않습니다';
-			
+		    SET @error_string := 'p_code가 등록 되어 있지 않습니다';		
 	    ELSE
-		    IF @member_yn = 'Y' THEN
+		   IF @member_yn = 'Y' THEN
 				SELECT disp_class
 				INTO @disp_class
 				FROM TBL_MYAGENCY
 				WHERE agency_id = $PARAM_AGENCY_ID AND p_code_idx = @p_code_idx;
 
-			IF @disp_class IS NULL OR LENGTH(@disp_class) = 0 THEN
-				SET @disp_class = @default_disp_class;
-			END IF;
+            IF @disp_class IS NULL OR LENGTH(@disp_class) = 0 THEN
+               SET @disp_class = @default_disp_class;
+            END IF;
 
-		      IF @disp_class IS NULL OR LENGTH(@disp_class) = 0 THEN
-				#MEMBER 검색 실패 오류
-				SET @error := '-2';
-				SET @disp_class := '-1';
-				SET @error_code := '3102';
-				SET @error_string := 'p_code에 member로 표시 되어 있으나 member talbe에서 검색 되지 않았습니다';
-			  END IF;
-			  
+            IF @disp_class IS NULL OR LENGTH(@disp_class) = 0 THEN
+               #MEMBER 검색 실패 오류
+               SET @error := '-2';
+               SET @disp_class := '-1';
+               SET @error_code := '3102';
+               SET @error_string := 'p_code에 member로 표시 되어 있으나 member table에서 검색 되지 않았습니다';
+            END IF;			  
 			ELSE
 				SET @disp_class = '2';	
-		    END IF;
-			
+		   END IF;	
 	    END IF;
    END IF;
    
