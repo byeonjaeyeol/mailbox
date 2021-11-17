@@ -1,0 +1,68 @@
+version: '2.2'
+services:
+  service04:
+    image: bsquarelab/upost-service04:0.2
+    container_name: service04
+    environment:
+      - TZ=Asia/Seoul
+    restart: 'yes'
+    privileged: true
+    volumes:
+      - ./Service04/data/tilon:/data/tilon
+      - ./Service04/data/blab:/data/blab
+      - ./Service04/data/POSA:/data/POSA
+      - ./Service04/exec/IljariAgent:/usr/share/tilon/IljariAgent
+      - ./Service04/exec/sender:/usr/share/tilon/sender
+      - ./Service04/exec/CollectAgent:/usr/share/blab/CollectAgent
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    ports:
+      - "1422:22"
+      - 3001:3001
+      - 3002:3002
+    depends_on:
+      - external
+    extra_hosts:
+      - "emailbox:172.27.0.23"
+      - "node01:172.27.0.23"
+      - "service01:172.27.0.22"
+      - "service02:172.27.0.22"
+      - "service03:172.27.0.21"
+      - "service04:172.27.0.21"
+    networks:
+      - nmailbox
+
+  external:
+    image: bsquarelab/upost-external:0.1
+    container_name: external
+    environment:
+      - TZ=Asia/Seoul
+    restart: 'yes'
+    privileged: true
+    volumes:
+      - ./External01/data/11001:/11001
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    ports:
+      - "3122:22"
+    extra_hosts:
+      - "emailbox:172.27.0.23"
+      - "node01:172.27.0.23"
+      - "service01:172.27.0.22"
+      - "service02:172.27.0.22"
+      - "service03:172.27.0.21"
+      - "service04:172.27.0.21"
+    networks:
+      - nmailbox
+
+volumes:
+  data01:
+    driver: local
+  data02:
+    driver: local
+
+networks:
+  nmailbox:
+    driver: bridge

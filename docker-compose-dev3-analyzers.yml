@@ -5,7 +5,7 @@ services:
     container_name: dbservice01
     environment:
       - TZ=Asia/Seoul
-    restart: 'no'
+    restart: 'yes'
     privileged: true
     volumes:
       - ./DB-Service01/data:/data/tilon
@@ -17,23 +17,13 @@ services:
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - "2122:22"
-    networks:
-      - nmailbox
-
-  external:
-    image: bsquarelab/upost-external:0.1
-    container_name: external
-    environment:
-      - TZ=Asia/Seoul
-    restart: 'no'
-    privileged: true
-    volumes:
-      - ./External01/data/11001:/11001
-      - ${LOCALTIME}:/etc/localtime:ro
-      #- /private/etc/localtime:/etc/localtime:ro
-      #- /etc/localtime:/etc/localtime:ro #on linux
-    ports:
-      - "3122:22"
+    extra_hosts:
+      - "emailbox:172.27.0.23"
+      - "node01:172.27.0.23"
+      - "service01:172.27.0.22"
+      - "service02:172.27.0.22"
+      - "service03:172.27.0.21"
+      - "service04:172.27.0.21"
     networks:
       - nmailbox
 
