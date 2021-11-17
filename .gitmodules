@@ -16,6 +16,6 @@
 [submodule "GoEnv/go/BlabAgent"]
 	path = GoEnv/go/BlabAgent
 	url = https://github.com/hieuncom/BlabAgent.git
-[submodule "GoEnv/go/eDocHubApi"]
-	path = GoEnv/go/eDocHubApi
-	url = https://github.com/bsquarelab/eDocHubApi.git
+[submodule "GoEnv/go/EdocDistCert"]
+	path = GoEnv/go/EdocDistCert
+	url = https://github.com/bsquarelab/EdocDistCert.git

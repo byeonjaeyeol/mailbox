@@ -29,6 +29,9 @@ services:
       - "service02:172.27.0.22"
       - "service03:172.27.0.21"
       - "service04:172.27.0.21"
+      - "mockup-edocdistcerfgw.epost.go.kr:172.27.0.24"
+      - "dev-edocdistcertgw.epost.go.kr:172.27.0.24"
+      - "edocdistcdertgw.epost.go.kr:172.27.0.24"
     networks:
       - nmailbox
 
@@ -65,6 +68,9 @@ services:
       - "service02:172.27.0.22"
       - "service03:172.27.0.21"
       - "service04:172.27.0.21"
+      - "mockup-edocdistcerfgw.epost.go.kr:172.27.0.24"
+      - "dev-edocdistcertgw.epost.go.kr:172.27.0.24"
+      - "edocdistcdertgw.epost.go.kr:172.27.0.24"
     networks:
       - nmailbox
       

@@ -163,18 +163,6 @@
     "user" : "admin",
     "password" : "admin"
   },
-  "binder" : {
-    "basepath" : "res/mailbox/read",
-    "podpath" : "res/mailbox/distribution/PODTemplate.html",
-    "pdf" : {
-      "dpi" : 100,
-      "landscape" : "true",
-      "zoom" : 0.95,
-      "pagesize" : "A4",
-      "fontsize" : 10,
-      "fontgulim" : "true"
-    }
-  },
   "stats" : {
     "stat_url" : "http://node01:9200/$ORG_CODE-*/_search?pretty&_source=_id,ci,data-hash,ver,status,binding.reserved.essential.search,binding.reserved.essential.dispatching,binding.reserved.additional.receiver.name,binding.reserved.essential.template",
     "user" : "admin",

@@ -1,0 +1,187 @@
+{
+  "logs": [
+    {
+      "name": "access",
+      "path": "/data/blab/CollectAgent/logs/access.log",
+      "level": 100,
+      "format" : "textfile"
+    },
+    {
+    "name": "webaccess",
+    "path": "logs",
+    "level": 100,
+    "format" : "textfile",
+    "rotationCnt": 10,
+    "rotationFreq": 3600
+    },
+    {
+      "name": "sftp",
+      "path": "/data/blab/CollectAgent/logs/sftp.log",
+      "level": 100,
+      "format" : "textfile"
+    },
+    {
+      "name": "convert",
+      "path": "/data/blab/CollectAgent/logs/convert.log",
+      "level": 100,
+      "format" : "textfile"
+    },
+    {
+      "name": "web",
+      "path" : "/data/blab/CollectAgent/logs/web.log",
+      "level" : 100,
+      "format" : "textfile"
+    },    
+    {
+      "name": "error",
+      "path": "/data/blab/CollectAgent/logs/error.log",
+      "level": 250,
+      "format" : "textfile"
+    },
+    {
+      "name": "remove",
+      "path": "/data/blab/CollectAgent/logs/remove.log",
+      "level": 100,
+      "format" : "textfile"
+    },
+    {
+      "name": "all",
+      "path": "/data/blab/CollectAgent/logs/all.log",
+      "level": 100,
+      "format" : "textfile"
+    },
+    {
+      "name": "query",
+      "path" : "/data/blab/CollectAgent/logs/query.log",
+      "level" : 100,
+      "format" : "textfile"
+    },
+    {
+      "name": "dev",
+      "path": "/data/blab/CollectAgent/logs/dev.log",
+      "level": 100,
+      "format" : "textfile"
+    },
+    {
+      "name": "bind",
+      "path": "/data/blab/CollectAgent/logs/bind.log",
+      "level": 100,
+      "format" : "textfile"
+    },
+    {
+      "name": "author",
+      "path": "/data/blab/CollectAgent/logs/author.log",
+      "level": 250,
+      "format" : "textfile"
+    }
+  ],
+  "convert": {
+    "freq_sec": 60, 
+    "buffersize": 1024,
+    "compareterm": 30, 
+    "monitoring": "Y",
+    "agency": {
+        "orgcode": "11001",
+        "deptcode": "60002",
+        "maxarraylength": 50,
+        "maxbulklength" : 5000,
+        "proctime": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23",
+        "db_idx": 6
+    },
+    "reqid": "binding.reserved.essential.search.request-id",
+    "encoding": "encrypt",
+    "basedir": "/data/blab/CollectAgent/receive/WID04039401385",
+    "outputpath": "/data/blab/CollectAgent/result",
+    "backupdir": "/data/blab/CollectAgent/backup/convert",
+    "optiondir": "/data/blab/CollectAgent/option",
+    "templatedir": "/data/tilon/sender/data/template/11001/60002"
+  },
+  "sftp": {
+    "server": {
+      "host": "service02",
+      "port": "22",
+      "user": "root",
+      "password": "qwerty123456"
+    },
+    "freq_sec": 60,
+    "buffersize": 1024,
+    "basedir": "/data/blab/CollectAgent/result",
+    "targetdir": "/usr/share/tilon/collector/repo/dat/data",
+    "backupdir": "/data/blab/CollectAgent/backup/sftp"
+  },
+  "remove": {
+    "freq_hour": 24,
+    "list": [
+      {
+        "term_day": 60,
+        "path": "/data/blab/CollectAgent/logs"
+      },
+      {
+        "term_day": 30,
+        "path": "/data/blab/CollectAgent/backup/convert"
+      },
+      {
+        "term_day": 30,
+        "path": "/data/blab/CollectAgent/backup/sftp"
+      },
+	  {
+        "term_day": 30,
+        "path": "/data/tilon/sender/data/template/11001/60002"
+      }
+    ]
+  },
+  "server" : {
+    "status" : 0,
+    "protocol" : "http",
+    "port" : 3001,
+    "version" : "v1.0.0.0",
+    "mobile_ver" : "v1.0.0",
+    "revision" : "1",
+    "resource_path" : "res"
+  },
+  "sync" : {
+    "protocol": "http",
+    "host": "211.115.219.40",
+    "port": 3001,
+    "sshport": 22,
+    "user": "root",
+    "password": "qwerty123456"
+  },
+  "web_session" : {
+    "timeout_sec" : 600,
+    "frequency_sec" : 60
+  },
+  "web_account" : {
+    "timeout_sec" : 3600,
+    "frequency_sec" : 60,
+    "max_account" : 100000
+  },
+  "elasticsearch" : {
+    "ip" : "211.115.219.40",
+    "port" : 9200,
+    "protocol" : "http",
+    "user" : "admin",
+    "password" : "admin"
+  },
+  "blockchain_server" : {
+    "base_url" : "http://211.253.86.102:58880/pst/epost",
+    "user" : "",
+    "password" : "",
+    "svc_id" : "pst",
+    "doc_channel" : "pstchannel1",
+    "doc_org" : "org1",
+    "user_channel" : "pstchannel3",
+    "user_org" : "org3"
+  },
+  "database": {
+    "connector" : "embuser:!tilon9099@@tcp(emailbox:3306)/EMAILBOX",
+    "sql": "mysql",
+    "connect": {
+      "user": "embuser",
+      "password": "!tilon9099@",
+      "ip": "emailbox",
+      "port": "3306",
+      "db_name": "EMAILBOX"
+    }
+  }
+}
