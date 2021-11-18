@@ -1,0 +1,85 @@
+version: '2.2'
+services:
+  service01:
+    image: bsquarelab/upost-service01:0.1
+    container_name: service01
+    environment:
+      - TZ=Asia/Seoul
+    restart: 'yes'
+    privileged: true
+    volumes:
+      - ./Service01/exec/interface:/usr/share/tilon/interface
+      - ./Service01/exec/usrlocalbin:/usr/local/bin
+      - ./Service01/exec/interface/res/mailbox/read/11001/60002/11001-60002-sample:/tmp/11001-60002-sample
+      - ./Service01/exec/interface/res/mailbox/read/11001/60002/11001-60002-00003:/tmp/11001-60002-00003
+      - ./Service01/exec/interface/res/mailbox/read/11002/60003/11002-60003-sample:/tmp/11002-60003-sample
+      - ./Service01/exec/interface/res/mailbox/read/49757/69999/49757-69999-40001:/tmp/49757-69999-40001
+      - ./Service01/exec/interface/res/mailbox/read/51001/60004/51001-60004-sample:/tmp/51001-60004-sample
+      - ./Service01/exec/interface/res/mailbox/read/90001/60001/90001-60001-90001:/tmp/90001-60001-90001
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    ports:
+      - 2100:2100
+      - "1122:22"
+    extra_hosts:
+      - "emailbox:172.27.0.23"
+      - "node01:172.27.0.23"
+      - "service01:172.27.0.22"
+      - "service02:172.27.0.22"
+      - "service03:172.27.0.21"
+      - "service04:172.27.0.21"
+      - "mockup-edocdistcerfgw.epost.go.kr:172.27.0.24"
+      - "dev-edocdistcertgw.epost.go.kr:172.27.0.24"
+      - "edocdistcdertgw.epost.go.kr:172.27.0.24"
+    networks:
+      - nmailbox
+
+  service02:
+    image: bsquarelab/upost-service02:0.1
+    container_name: service02
+    environment:
+      - TZ=Asia/Seoul
+    restart: 'yes'
+    privileged: true
+    volumes:
+      - ./Service02/exec/collector:/usr/share/tilon/collector
+      - ./Service02/exec/interface:/usr/share/tilon/interface
+      - ./Service02/exec/pusher:/usr/share/tilon/pusher
+      - ./Service02/exec/usrlocalbin:/usr/local/bin
+      - ./Service01/exec/interface/res/mailbox/read/11001/60002/11001-60002-sample:/tmp/11001-60002-sample
+      - ./Service01/exec/interface/res/mailbox/read/11001/60002/11001-60002-00003:/tmp/11001-60002-00003
+      - ./Service01/exec/interface/res/mailbox/read/11002/60003/11002-60003-sample:/tmp/11002-60003-sample
+      - ./Service01/exec/interface/res/mailbox/read/49757/69999/49757-69999-40001:/tmp/49757-69999-40001
+      - ./Service01/exec/interface/res/mailbox/read/51001/60004/51001-60004-sample:/tmp/51001-60004-sample
+      - ./Service01/exec/interface/res/mailbox/read/90001/60001/90001-60001-90001:/tmp/90001-60001-90001
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    ports:
+      - 2101:2100
+      - "1222:22"
+    depends_on:
+      - service01
+    extra_hosts:
+      - "emailbox:172.27.0.23"
+      - "node01:172.27.0.23"
+      - "service01:172.27.0.22"
+      - "service02:172.27.0.22"
+      - "service03:172.27.0.21"
+      - "service04:172.27.0.21"
+      - "mockup-edocdistcerfgw.epost.go.kr:172.27.0.24"
+      - "dev-edocdistcertgw.epost.go.kr:172.27.0.24"
+      - "edocdistcdertgw.epost.go.kr:172.27.0.24"
+    networks:
+      - nmailbox
+      
+volumes:
+  data01:
+    driver: local
+  data02:
+    driver: local
+
+networks:
+  nmailbox:
+    driver: bridge

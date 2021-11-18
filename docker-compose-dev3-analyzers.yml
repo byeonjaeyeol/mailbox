@@ -1,0 +1,41 @@
+version: '2.2'
+services:
+  dbservice01:
+    image: bsquarelab/upost-dbservice01:0.2
+    container_name: dbservice01
+    environment:
+      - TZ=Asia/Seoul
+    restart: 'yes'
+    privileged: true
+    volumes:
+      - ./DB-Service01/data:/data/tilon
+      - ./DB-Service01/exec/analyzer:/usr/share/tilon/analyzer
+      - ./DB-Service01/exec/analyzer.authorized:/usr/share/tilon/analyzer.authorized      
+      - ./DB-Service01/exec/sender:/usr/share/tilon/sender
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    ports:
+      - "2122:22"
+    extra_hosts:
+      - "emailbox:172.27.0.23"
+      - "node01:172.27.0.23"
+      - "service01:172.27.0.22"
+      - "service02:172.27.0.22"
+      - "service03:172.27.0.21"
+      - "service04:172.27.0.21"
+      - "mockup-edocdistcerfgw.epost.go.kr:172.27.0.24"
+      - "dev-edocdistcertgw.epost.go.kr:172.27.0.24"
+      - "edocdistcdertgw.epost.go.kr:172.27.0.24"
+    networks:
+      - nmailbox
+
+volumes:
+  data01:
+    driver: local
+  data02:
+    driver: local
+
+networks:
+  nmailbox:
+    driver: bridge

@@ -1,0 +1,59 @@
+version: '2.2'
+services:
+  postalk:
+    image: bsquarelab/upost-node-postalk:0.1
+    container_name: postalk
+    environment:
+      - TZ=Asia/Seoul
+    restart: 'no'
+    privileged: true
+    volumes:
+      - ./API-WAS1/docker-postalk/postalk/configs:/home/tilon/postalk/configs
+      - ./API-WAS1/docker-postalk/postalk/public:/home/tilon/postalk/public
+      - ./API-WAS1/docker-postalk/postalk/public_user:/home/tilon/postalk/public_user
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    ports:
+      - 8880:8080
+    extra_hosts:
+      - "emailbox:172.27.0.23"
+      - "node01:172.27.0.23"
+      - "service01:172.27.0.22"
+      - "service02:172.27.0.22"
+      - "service03:172.27.0.21"
+      - "service04:172.27.0.21"
+      - "mockup-edocdistcerfgw.epost.go.kr:172.27.0.24"
+      - "dev-edocdistcertgw.epost.go.kr:172.27.0.24"
+      - "edocdistcdertgw.epost.go.kr:172.27.0.24"
+    networks:
+      - nmailbox
+    command: npm test
+
+  static:
+    image: bsquarelab/upost-node-static:0.1
+    container_name: static
+    environment:
+      - TZ=Asia/Seoul
+    restart: 'no'
+    privileged: true
+    volumes:
+      - ./API-WAS1/data/storage:/home/blab/static/storage
+      - ${LOCALTIME}:/etc/localtime:ro
+      #- /private/etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro #on linux
+    ports:
+      - 8881:8081
+    networks:
+      - nmailbox
+
+
+volumes:
+  data01:
+    driver: local
+  data02:
+    driver: local
+
+networks:
+  nmailbox:
+    driver: bridge
