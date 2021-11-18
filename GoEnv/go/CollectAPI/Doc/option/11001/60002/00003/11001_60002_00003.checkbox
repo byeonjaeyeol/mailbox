@@ -1,0 +1,10 @@
+{
+  "sr_fg": {
+    "key" : "binding.data.sr_fg",
+    "trueval" : "1",
+    "truekey" : "srfgtrue",
+    "truedesc" : "직접수령",
+    "falsekey" : "srfgfalse",
+    "falssdesc" : "4대 보험료 대납"
+  }
+}
