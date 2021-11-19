@@ -16,7 +16,7 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - "2122:22"
+      - "1333:22"
     networks:
       - nmailbox
 
@@ -33,7 +33,7 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - "3122:22"
+      - "1555:22"
     networks:
       - nmailbox
 

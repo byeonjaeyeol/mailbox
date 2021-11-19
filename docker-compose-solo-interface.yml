@@ -21,7 +21,7 @@ services:
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - 2100:2100
-      - "1122:22"
+      - "1222:22"
     networks:
       - nmailbox
 
@@ -48,7 +48,7 @@ services:
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - 2101:2100
-      - "1222:22"
+      - "2222:22"
     networks:
       - nmailbox
       

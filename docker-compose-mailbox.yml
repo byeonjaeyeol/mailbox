@@ -21,7 +21,7 @@ services:
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - 2100:2100
-      - "1122:22"
+      - "1222:22"
     depends_on:
       - external
     networks:
@@ -50,7 +50,7 @@ services:
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - 2101:2100
-      - "1222:22"
+      - "2222:22"
     depends_on:
       - service01
     networks:
@@ -74,7 +74,7 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - "1422:22"
+      - "4222:22"
       - 3001:3001
       - 3002:3002
     depends_on:
@@ -98,7 +98,7 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - "2122:22"
+      - "1333:22"
     depends_on:
       - service04
     networks:
@@ -117,7 +117,7 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - "3122:22"
+      - "1555:22"
     networks:
       - nmailbox
 
