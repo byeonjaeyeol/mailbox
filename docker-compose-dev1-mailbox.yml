@@ -18,7 +18,7 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - "1422:22"
+      - "4222:22"
       - 3001:3001
       - 3002:3002
     depends_on:
@@ -49,7 +49,7 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - "3122:22"
+      - "1555:22"
     extra_hosts:
       - "emailbox:172.27.0.23"
       - "node01:172.27.0.23"

@@ -16,7 +16,7 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - "2122:22"
+      - "1333:22"
     extra_hosts:
       - "emailbox:172.27.0.23"
       - "node01:172.27.0.23"
