@@ -4,6 +4,7 @@
 1. 모바일 우편함 관리자 페이지(prduction with front and backend)
 2. 모바일 우편함 관리자 페이지 스토리지 서버 (static)
 3. 모바일 우편함 관리자 페이지(test with front)
+4. 모바일 우편함 관리자 페이지(test with front-user)
 
 향후 추가가 필요하며 docker image를 만들고 추가한다.
 
