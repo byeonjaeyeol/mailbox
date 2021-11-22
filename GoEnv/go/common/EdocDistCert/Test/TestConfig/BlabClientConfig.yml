@@ -5,9 +5,16 @@ auth:
   clientSecret: CA3244ACEB547D64
   refreshToken:
 server:
-  baseHost: http://localhost
-  basePort: 2800
-  baseUrl: http://localhost:2800
+# /etc/hosts에 dev-edocdistcertgw.epost.go.kr은
+# 외부망에서는 211.253.86.102, 내부망에서는 172.27.0.24 또는 10.64.203.14로 등록
+# 포트는 외부망에서는 23080, 내부망에서는 3080 사용할 것
+
+#  baseHost: http://localhost
+#  basePort: 4080
+#  baseUrl: http://localhost:4080
+  baseHost: http://dev-edocdistcertgw.epost.go.kr
+  basePort: 23080
+  baseUrl: http://dev-edocdistcertgw.epost.go.kr:23080
 individual:
   idn: epostidvdevidn
   name: 우체국개인테스터
