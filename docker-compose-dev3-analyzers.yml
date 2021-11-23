@@ -5,7 +5,7 @@ services:
     container_name: dbservice01
     environment:
       - TZ=Asia/Seoul
-    restart: 'yes'
+    restart: 'no'
     privileged: true
     volumes:
       - ./DB-Service01/data:/data/tilon

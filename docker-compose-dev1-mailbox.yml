@@ -5,7 +5,7 @@ services:
     container_name: service04
     environment:
       - TZ=Asia/Seoul
-    restart: 'yes'
+    restart: 'no'
     privileged: true
     volumes:
       - ./Service04/data/tilon:/data/tilon
@@ -41,7 +41,7 @@ services:
     container_name: external
     environment:
       - TZ=Asia/Seoul
-    restart: 'yes'
+    restart: 'no'
     privileged: true
     volumes:
       - ./External01/data/11001:/11001
