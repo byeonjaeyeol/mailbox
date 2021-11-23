@@ -18,7 +18,7 @@ services:
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
-    cpus: ".30"
+    cpus: 0.3
     mem_limit: "5g"
     ports:
       - 9200:9200
@@ -45,7 +45,7 @@ services:
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
-    cpus: ".30"
+    cpus: 0.3
     mem_limit: "5g"
     depends_on:
       - emailbox
