@@ -1,16 +1,16 @@
 version: '2.2'
 services:
-  postalk:
-    image: bsquarelab/upost-node-postalk:0.1
-    container_name: postalk
+  mailbox:
+    image: bsquarelab/upost-node-mailbox:0.1
+    container_name: mailbox
     environment:
       - TZ=Asia/Seoul
     restart: 'no'
     privileged: true
     volumes:
-      - ./API-WAS1/docker-postalk/postalk/configs:/home/tilon/postalk/configs
-      - ./API-WAS1/docker-postalk/postalk/public:/home/tilon/postalk/public
-      - ./API-WAS1/docker-postalk/postalk/public_user:/home/tilon/postalk/public_user
+      - ./API-WAS1/docker-mailbox/mailbox/configs:/home/tilon/mailbox/configs
+      - ./API-WAS1/docker-mailbox/mailbox/public:/home/tilon/mailbox/public
+      - ./API-WAS1/docker-mailbox/mailbox/public_user:/home/tilon/mailbox/public_user
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
@@ -28,7 +28,7 @@ services:
       - "edocdistcdertgw.epost.go.kr:172.27.0.24"
     networks:
       - nmailbox
-    command: npm test
+    command: npm run start-docker
 
   static:
     image: bsquarelab/upost-node-static:0.1

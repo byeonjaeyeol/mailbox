@@ -19,3 +19,12 @@
 [submodule "GoEnv/go/EdocDistCert"]
 	path = GoEnv/go/EdocDistCert
 	url = https://github.com/bsquarelab/EdocDistCert.git
+[submodule "API-WAS1/docker-mailbox/mailbox"]
+	path = API-WAS1/docker-mailbox/mailbox
+	url = https://github.com/bsquarelab/upost-portal.git
+[submodule "API-WAS1/docker-mailbox-front/mailbox-front"]
+	path = API-WAS1/docker-mailbox-front/mailbox-front
+	url = https://github.com/bsquarelab/upost-front.git
+[submodule "API-WAS1/docker-mailbox-front-user/mailbox-front-user"]
+	path = API-WAS1/docker-mailbox-front-user/mailbox-front-user
+	url = https://github.com/bsquarelab/upost-front-user.git

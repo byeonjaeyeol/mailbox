@@ -90,7 +90,7 @@ npm -v
 ```
 $ docker images
 REPOSITORY                                                                                                     TAG       IMAGE ID       CREATED         SIZE
-bsquarelab/upost-node-postalk                                                                                  0.1       dcfa1da86f5c   24 hours ago    974MB
+bsquarelab/upost-node-mailbox                                                                                  0.1       dcfa1da86f5c   24 hours ago    974MB
 bsquarelab/upost-node-static                                                                                   0.1       b9f7f36f1441   24 hours ago    751MB
 bsquarelab/upost-node                                                                                          latest    4995c454c266   25 hours ago    749MB
 bsquarelab/upost-basic                                                                                         latest    4995c454c266   25 hours ago    749MB
