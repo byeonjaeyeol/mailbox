@@ -20,6 +20,7 @@ import (
 	"time"
 )
 
+// ClientCallWithReader(케이트웨이를 호출하는 공통 함수, Writer를 사용함)
 func ClientCallWithReader(method string, url string, contentType string, reader *bytes.Reader, toObj interface{}) (*blabModel.BlabResponse, error) {
 	var req *http.Request
 	var err error
@@ -158,6 +159,7 @@ func ClientCallWithReader(method string, url string, contentType string, reader 
 	return blabRes, err
 }
 
+// ClientCall 케이트웨이를 호출하는 공통 함수(queryParam, bodyParam을 사용함)
 func ClientCall(method string, url string, queryParam interface{}, bodyParam interface{}, toObj interface{}) (*blabModel.BlabResponse, error) {
 	var dataBuffer []byte
 	var reader *bytes.Reader

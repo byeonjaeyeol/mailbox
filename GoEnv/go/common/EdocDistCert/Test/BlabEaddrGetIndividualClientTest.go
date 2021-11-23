@@ -6,6 +6,7 @@ import (
 	"log"
 )
 
+// 공인전자주소 조회 테스트(개인)
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	err := testClient.BlabTestClientInit()

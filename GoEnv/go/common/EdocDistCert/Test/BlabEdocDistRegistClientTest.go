@@ -11,6 +11,7 @@ import (
 	"time"
 )
 
+// 전자문서 유통정보 등록 테스트
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 

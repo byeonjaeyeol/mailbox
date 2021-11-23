@@ -6,6 +6,7 @@ import (
 	"log"
 )
 
+// 전자문서 유통증명서 발급 테스트
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	err := testClient.BlabTestClientInit()
