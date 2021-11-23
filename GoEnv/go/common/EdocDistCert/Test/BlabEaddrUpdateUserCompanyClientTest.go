@@ -6,6 +6,7 @@ import (
 	"log"
 )
 
+// 법인 공인전자주소 소유자정보 수정 테스트(법인)
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	err := testClient.BlabTestClientInit()

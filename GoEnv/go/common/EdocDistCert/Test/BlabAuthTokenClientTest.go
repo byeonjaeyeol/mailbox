@@ -8,6 +8,7 @@ import (
 	"log"
 )
 
+// 중계자 Access Token 발급 및 갱신 테스트
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	err := testConfig.BlabTestClientInit()

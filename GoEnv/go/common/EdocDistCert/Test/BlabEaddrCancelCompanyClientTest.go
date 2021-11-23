@@ -6,6 +6,7 @@ import (
 	"log"
 )
 
+// 공인전자주소 탈퇴 테스트(법인)
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	err := testClient.BlabTestClientInit()

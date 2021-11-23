@@ -9,6 +9,7 @@ import (
 	"time"
 )
 
+// 전자문서 유통정보 수정 테스트
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	err := testClient.BlabTestClientInit()
