@@ -45,7 +45,7 @@ CREATE TABLE `TBL_AGENCY` (
   `foundation_day` varchar(16) NOT NULL DEFAULT '' COMMENT '창립일',
   PRIMARY KEY (`idx`),
   KEY `VALIDITY` (`validity_dt`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `TBL_AGENCY_USER` (
   `email` text NOT NULL,
   `authority` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -81,7 +81,7 @@ CREATE TABLE `TBL_BCCHANNEL` (
   `idx` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `channel_name` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +95,7 @@ CREATE TABLE `TBL_BCORG` (
   `idx` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `org_name` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,7 +113,7 @@ CREATE TABLE `TBL_CALL` (
   `reg_dt` timestamp NOT NULL DEFAULT current_timestamp(),
   `reg_name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,7 +154,7 @@ CREATE TABLE `TBL_CONNECTION` (
   `datetime` timestamp NOT NULL DEFAULT current_timestamp(),
   `ip` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=669 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,7 +194,7 @@ CREATE TABLE `TBL_DOCUMENTS` (
   KEY `DOCID` (`doc_id`),
   KEY `INDICES` (`nosql_index`),
   KEY `PCODE_IDX` (`p_code_idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
  PARTITION BY RANGE (year(`reg_dt`))
 (PARTITION `p2019` VALUES LESS THAN (2020) ENGINE = InnoDB,
  PARTITION `p2020` VALUES LESS THAN (2021) ENGINE = InnoDB,
@@ -239,7 +239,7 @@ CREATE TABLE `TBL_DOCUMENTS_back` (
   KEY `DOCID` (`doc_id`),
   KEY `INDICES` (`nosql_index`),
   KEY `PCODE_IDX` (`p_code_idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=252 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -334,7 +334,7 @@ CREATE TABLE `TBL_FAILED_DISPATCH` (
   `error_code` varchar(6) NOT NULL,
   `error_reason` varchar(260) DEFAULT NULL,
   PRIMARY KEY (`p_seqid`,`request_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=350453 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -349,7 +349,7 @@ CREATE TABLE `TBL_FILES` (
   `filename` text NOT NULL,
   `origin_filename` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -369,7 +369,7 @@ CREATE TABLE `TBL_LOGIN_HISTORY` (
   `login_hp_desc` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '핸드폰 기기',
   `user_agent` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'http header agent: 접속시 사용한 user agent ',
   PRIMARY KEY (`idx`,`login_dt`)
-) ENGINE=InnoDB AUTO_INCREMENT=439505 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
  PARTITION BY RANGE (year(`login_dt`))
 (PARTITION `p2019` VALUES LESS THAN (2020) ENGINE = InnoDB,
  PARTITION `p2020` VALUES LESS THAN (2021) ENGINE = InnoDB,
@@ -398,7 +398,7 @@ CREATE TABLE `TBL_MEMBERADDRESS` (
   `description` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`idx`),
   KEY `PCODE_IDX` (`p_code_idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=6882 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -419,7 +419,7 @@ CREATE TABLE `TBL_MEMBERADDRESS_CO` (
   `addr2` varchar(384) DEFAULT NULL,
   `description` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=2444672 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -445,7 +445,7 @@ CREATE TABLE `TBL_MEMBERADDRESS_RENEWAL` (
   `status` char(4) DEFAULT 'IDLE' COMMENT 'IDLE/PUSH/OKAY/DENY',
   `push_idx` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=5000000000000026 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -465,7 +465,7 @@ CREATE TABLE `TBL_MEMBERCAR` (
   `column_7` int(11) DEFAULT NULL,
   PRIMARY KEY (`idx`),
   KEY `PCODE_IDX` (`p_code_idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=6822 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -486,7 +486,7 @@ CREATE TABLE `TBL_MYAGENCY` (
   PRIMARY KEY (`idx`),
   KEY `PCODE_IDX` (`p_code_idx`),
   KEY `AGENCYID` (`agency_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -508,7 +508,7 @@ CREATE TABLE `TBL_MYDOCUMENT` (
   PRIMARY KEY (`idx`),
   KEY `AGENCYID` (`agency_id`),
   KEY `PCODE_IDX` (`p_code_idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -526,7 +526,7 @@ CREATE TABLE `TBL_NOTICE` (
   `reg_name` text NOT NULL,
   `file` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -554,7 +554,7 @@ CREATE TABLE `TBL_PAYMENT` (
   PRIMARY KEY (`idx`,`reg_dt`),
   KEY `PCODE_IDX` (`p_code_idx`),
   KEY `DOC_IDX` (`doc_idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
  PARTITION BY RANGE (year(`reg_dt`))
 (PARTITION `p2019` VALUES LESS THAN (2020) ENGINE = InnoDB,
  PARTITION `p2020` VALUES LESS THAN (2021) ENGINE = InnoDB,
@@ -612,7 +612,7 @@ CREATE TABLE `TBL_PAYMENT_back` (
   PRIMARY KEY (`idx`),
   KEY `PCODE_IDX` (`p_code_idx`),
   KEY `DOC_IDX` (`doc_idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -635,7 +635,7 @@ CREATE TABLE `TBL_PCODE` (
   PRIMARY KEY (`idx`,`p_code`),
   UNIQUE KEY `TBL_PCODE_ci_uindex` (`ci`),
   UNIQUE KEY `TBL_PCODE_p_code_uindex` (`p_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=6808 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -659,7 +659,7 @@ CREATE TABLE `TBL_PCODE_CO` (
   PRIMARY KEY (`idx`,`p_code`),
   UNIQUE KEY `TBL_PCODE_p_code_uindex` (`p_code`),
   UNIQUE KEY `TBL_PCODE_ci_uindex` (`ci`)
-) ENGINE=InnoDB AUTO_INCREMENT=2437309 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -685,7 +685,7 @@ CREATE TABLE `TBL_PROOF_OF_DISTRIBUTION` (
   `issue_date` varchar(20) DEFAULT '' COMMENT '증명서 발급일시(최초발급일자)',
   PRIMARY KEY (`idx`),
   UNIQUE KEY `request_id` (`request_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=182 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -711,7 +711,7 @@ CREATE TABLE `TBL_PROOF_OF_DISTRIBUTION_LOG` (
   `doc_hash` varchar(64) DEFAULT '' COMMENT '본문정보값',
   `issue_date` varchar(20) DEFAULT '' COMMENT '증명서 발급일시(최초발급일자)',
   PRIMARY KEY (`idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -745,7 +745,7 @@ CREATE TABLE `TBL_PUSHMSG` (
   KEY `PUSH_YN` (`push_YN`),
   KEY `DOC_IDX` (`doc_idx`),
   KEY `PUSH_DT` (`push_dt`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
  PARTITION BY RANGE  COLUMNS(`reg_dt`)
 (PARTITION `p202003` VALUES LESS THAN ('2020-04-01 00:00:00') ENGINE = InnoDB,
  PARTITION `p202004` VALUES LESS THAN ('2020-05-01 00:00:00') ENGINE = InnoDB,
@@ -783,7 +783,7 @@ CREATE TABLE `TBL_PUSHMSG_back` (
   KEY `PUSH_YN` (`push_YN`),
   KEY `DOC_IDX` (`doc_idx`),
   KEY `PUSH_DT` (`push_dt`)
-) ENGINE=InnoDB AUTO_INCREMENT=281 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -802,7 +802,7 @@ CREATE TABLE `TBL_REGISTRATION_NUM` (
   `use_status` int(2) DEFAULT 0,
   `reg_dt` datetime NOT NULL COMMENT '등록 시간',
   PRIMARY KEY (`idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -860,7 +860,7 @@ CREATE TABLE `TBL_STAT_RECVFILE_RESULT` (
   `error_string` varchar(100) DEFAULT NULL,
   `agency_id` bigint(20) DEFAULT NULL COMMENT '기관일련번호',
   PRIMARY KEY (`idx`,`reg_dt`)
-) ENGINE=InnoDB AUTO_INCREMENT=1216 DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
  PARTITION BY RANGE (year(`reg_dt`))
 (PARTITION `p2019` VALUES LESS THAN (2020) ENGINE = InnoDB,
  PARTITION `p2020` VALUES LESS THAN (2021) ENGINE = InnoDB,
@@ -890,7 +890,7 @@ CREATE TABLE `TBL_STAT_SENDFILE_RESULT` (
   `reproc_num` int(20) NOT NULL,
   `agency_id` bigint(20) DEFAULT NULL COMMENT '기관일련번호',
   PRIMARY KEY (`idx`,`reg_dt`)
-) ENGINE=InnoDB AUTO_INCREMENT=368 DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
  PARTITION BY RANGE (year(`reg_dt`))
 (PARTITION `p2019` VALUES LESS THAN (2020) ENGINE = InnoDB,
  PARTITION `p2020` VALUES LESS THAN (2021) ENGINE = InnoDB,
@@ -918,7 +918,7 @@ CREATE TABLE `TBL_SYSTEM_USER` (
   `email` text NOT NULL,
   `authority` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -940,7 +940,7 @@ CREATE TABLE `TBL_TEMPLATE` (
   `app_yn` varchar(2) DEFAULT NULL COMMENT '앱 저장 여부',
   PRIMARY KEY (`idx`),
   UNIQUE KEY `template_code` (`template_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -983,7 +983,7 @@ CREATE TABLE `TBL_ZIPCODE_bak` (
   KEY `zipcode_idx3` (`시도`),
   KEY `zipcode_idx1` (`구역번호`),
   KEY `zipcode_idx2` (`도로명코드`)
-) ENGINE=MyISAM AUTO_INCREMENT=6305991 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
