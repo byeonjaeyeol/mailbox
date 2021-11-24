@@ -15,6 +15,9 @@ type BlabEdocDistGetCertResponse struct {
 	// filename
 	// 원래 KISA 전문에는 없는데 문서에는 일련번호.pdf 파일을 준다고 했으나 실제로는 uuid.pdf가 전송되어 파일면을 전달
 	Filename string `json:"filename,omitempty"`
+	// fileSavePath
+	// 파일이 저장된 경로
+	FileSavePath string `json:"filename,omitempty"`
 }
 
 func (br *BlabEdocDistGetCertResponse) SetResult(resultCode int8, errCode string, errMsg string) {
@@ -33,4 +36,10 @@ func (br *BlabEdocDistGetCertResponse) GetErrCode() string {
 
 func (br *BlabEdocDistGetCertResponse) GetErrMsg() string {
 	return br.ErrMsg
+}
+func (br *BlabEdocDistGetCertResponse) SetFilename(filename string) {
+	br.Filename = filename
+}
+func (br *BlabEdocDistGetCertResponse) SetFileSavePath(fileSavePath string) {
+	br.FileSavePath = fileSavePath
 }

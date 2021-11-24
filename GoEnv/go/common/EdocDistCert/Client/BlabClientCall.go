@@ -2,10 +2,12 @@ package Client
 
 import (
 	blabModel "../../../common/EdocDistCert/Model/Blab"
+	edcConst "../Const"
 	edcModel "../Model"
 	"bytes"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"github.com/google/go-querystring/query"
 	"io"
 	"io/ioutil"
@@ -19,6 +21,55 @@ import (
 	"strings"
 	"time"
 )
+
+type BlabResponseFilename interface {
+	SetFilename(filename string)
+	SetFileSavePath(fileSavePath string)
+}
+
+const (
+	fromKisa = iota
+	toKisa
+)
+
+var kisaFileSavePath = "files/EdocDistCert/apps"
+
+// GetFileSavePath 파일 저장 경로 조회
+// BLAB -> KISA : fileSavePath+"/toKisa/YYYY/YYYYMM/YYYYMMDD/실제파일명"
+// KISA -> BLAB : fileSavePath+/fromKisa/YYYYMM/YYYYMMDD/실제파일명"
+func GetFileSavePath() string {
+	return kisaFileSavePath
+}
+
+// SetFileSavePath 파일 저장 경로 조회 지정
+// BLAB -> KISA : fileSavePath+"/toKisa/YYYY/YYYYMM/YYYYMMDD/실제파일명"
+// KISA -> BLAB : fileSavePath+/fromKisa/YYYYMM/YYYYMMDD/실제파일명"
+func SetFileSavePath(fileSavePath string) {
+	if fileSavePath == "" {
+		return
+	}
+	kisaFileSavePath = fileSavePath
+}
+
+func makeFileSavePath(fromOrTo int8) (string, error) {
+	yyyymmdd := time.Now().Format(edcConst.DATE_FORMAT_YYYYMMDD)
+	yyyymm := yyyymmdd[:6]
+	yyyy := yyyymmdd[:4]
+	subFolder := ""
+	if fromOrTo == fromKisa {
+		subFolder = "fromKisa"
+	} else {
+		subFolder = "toKisa"
+	}
+
+	fileSavePath := fmt.Sprintf("%s/%s/%s/%s/%s", kisaFileSavePath, subFolder, yyyy, yyyymm, yyyymmdd)
+	err := os.MkdirAll(fileSavePath, 0755)
+	if err != nil {
+		log.Printf("err=%+v\n", err)
+		return "", err
+	}
+	return fileSavePath, nil
+}
 
 // ClientCallWithReader(케이트웨이를 호출하는 공통 함수, Writer를 사용함)
 func ClientCallWithReader(method string, url string, contentType string, reader *bytes.Reader, toObj interface{}) (*blabModel.BlabResponse, error) {
@@ -106,7 +157,6 @@ func ClientCallWithReader(method string, url string, contentType string, reader 
 			if strings.Contains(partHeader.Get("Content-Type"), "application/json") {
 				log.Printf("toObjType=%+v\n", reflect.TypeOf(toObj))
 				if toObj != nil {
-					blabRes = &blabModel.BlabResponse{}
 					blabRes.Data = toObj
 					_, err = edcModel.ReadToObj(part, blabRes)
 					if err != nil {
@@ -124,14 +174,34 @@ func ClientCallWithReader(method string, url string, contentType string, reader 
 					json.Unmarshal(resBodyBytes, blabRes)
 				}
 			} else {
-				fileName := part.FileName()
-				f, _ := os.Create(fileName)
-				defer f.Close()
-
-				_, err := io.Copy(f, part)
+				var err error
+				var fileSavePath string
+				fileSavePath, err = makeFileSavePath(fromKisa)
 				if err != nil {
 					log.Println("err=", err)
 					return nil, err
+				}
+
+				fileName := part.FileName()
+				var f *os.File
+				f, err = os.Create(fileSavePath + "/" + fileName)
+				if err != nil {
+					log.Println("err=", err)
+					return nil, err
+				}
+				defer f.Close()
+
+				_, err = io.Copy(f, part)
+				if err != nil {
+					log.Println("err=", err)
+					return nil, err
+				}
+
+				if blabRes != nil && blabRes.Data != nil {
+					if filenameFunc, ok := blabRes.Data.(BlabResponseFilename); ok {
+						filenameFunc.SetFilename(fileName)
+						filenameFunc.SetFileSavePath(fileSavePath)
+					}
 				}
 			}
 		}

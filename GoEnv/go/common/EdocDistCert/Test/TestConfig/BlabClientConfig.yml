@@ -1,3 +1,7 @@
+# 서버에서는 /data/blab/files/EdocDistCert/apps를 사용
+# fileSavePath: /data/blab/files/EdocDistCert/apps
+# 개말 노트북에서는 사용자/blabData/files/EdocDistCert/apps 사용
+fileSavePath: /Users/haebo/blabData/files/EdocDistCert/apps
 auth:
   grantType: 0
   platformId: posa-01-epostmailbox
@@ -8,7 +12,6 @@ server:
 # /etc/hosts에 dev-edocdistcertgw.epost.go.kr은
 # 외부망에서는 211.253.86.102, 내부망에서는 172.27.0.24 또는 10.64.203.14로 등록
 # 포트는 외부망에서는 23080, 내부망에서는 3080 사용할 것
-
 #  baseHost: http://localhost
 #  basePort: 4080
 #  baseUrl: http://localhost:4080
