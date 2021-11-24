@@ -5,7 +5,7 @@ services:
     container_name: service01
     environment:
       - TZ=Asia/Seoul
-    restart: 'yes'
+    restart: 'no'
     privileged: true
     volumes:
       - ./Service01/exec/interface:/usr/share/tilon/interface
@@ -40,7 +40,7 @@ services:
     container_name: service02
     environment:
       - TZ=Asia/Seoul
-    restart: 'yes'
+    restart: 'no'
     privileged: true
     volumes:
       - ./Service02/exec/collector:/usr/share/tilon/collector

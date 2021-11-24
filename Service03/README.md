@@ -46,6 +46,40 @@ $ docker ps
 $ docker exec -it c456623003b1 /bin/bash
 
 ```
+# Deployment Issues
+
+## vm.max_map_count
+
+Elasticsearch uses a mmapfs directory by default to store its indices. The default operating system limits on mmap counts is likely to be too low, which may result in out of memory exceptions.
+
+On Linux (CentOS), you can increase the limits by running the following command as root:
+```
+sysctl -w vm.max_map_count=262144
+```
+To set this value permanently, update the vm.max_map_count setting in /etc/sysctl.conf. To verify after rebooting, run sysctl vm.max_map_count.
+
+The RPM and Debian packages will configure this setting automatically. No further configuration is required.
+
+
+## ubuntu vm.max_map_count setting
+```
+1. vi /etc/systemd/system.conf
+DefaultLimitNOFILE=65536
+
+2. vi /etc/security/limits.conf
+
+*       soft    nofile  65536
+*       hard    nofile  65536
+*       soft    nproc   65536
+*       hard    nproc   65536
+*       soft    memlock unlimited
+*       hard    memlock unlimited
+
+
+3. sudo vi /etc/sysctl.conf
+vm.max_map_count=262144
+```
+ 
 
 # Operations
 ## add the pipline
@@ -198,6 +232,24 @@ curl -X PUT "localhost:9200/_ingest/pipeline/set_emb_default?pretty" -H 'Content
   },
   "transient" : { }
 }
+```
+
+```
+curl -X PUT "localhost:9200/_cluster/settings?pretty" -H 'Content-Type: application/json' -d'
+{
+  "persistent" : {
+    "xpack" : {
+      "monitoring" : {
+        "collection" : {
+          "enabled" : "true"
+        }
+      }
+    }
+  },
+  "transient" : { }
+}
+'
+
 ```
 
 ## 5. add index
@@ -709,43 +761,10 @@ $ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: ap
 
 
 
-## vm.max_map_count
-
-Elasticsearch uses a mmapfs directory by default to store its indices. The default operating system limits on mmap counts is likely to be too low, which may result in out of memory exceptions.
-
-On Linux, you can increase the limits by running the following command as root:
-```
-sysctl -w vm.max_map_count=262144
-```
-To set this value permanently, update the vm.max_map_count setting in /etc/sysctl.conf. To verify after rebooting, run sysctl vm.max_map_count.
-
-The RPM and Debian packages will configure this setting automatically. No further configuration is required.
 
 
 
-
-## ubuntu vm.max_map_count setting
-```
-1. vi /etc/systemd/system.conf
-DefaultLimitNOFILE=65536
-
-2. vi /etc/security/limits.conf
-
-*       soft    nofile  65536
-*       hard    nofile  65536
-*       soft    nproc   65536
-*       hard    nproc   65536
-*       soft    memlock unlimited
-*       hard    memlock unlimited
-
-
-3. sudo vi /etc/sysctl.conf
-vm.max_map_count=262144
-```
-
-
-
-
+## various queries
 
 GET /11001-*/_search
 {
