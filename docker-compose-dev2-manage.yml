@@ -28,7 +28,7 @@ services:
       - "edocdistcdertgw.epost.go.kr:172.27.0.24"
     networks:
       - nmailbox
-    command: npm run start-docker
+    command: npm run start.d
 
   static:
     image: bsquarelab/upost-node-static:0.1
@@ -43,7 +43,7 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - 8881:8081
+      - 8081:8081
     networks:
       - nmailbox
 

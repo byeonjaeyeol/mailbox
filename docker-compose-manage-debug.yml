@@ -18,7 +18,7 @@ services:
       - 8880:8080
     networks:
       - nmailbox
-    command: npm run start-docker
+    command: npm run start.d
 
   mailbox-front:
     image: bsquarelab/upost-node-mailbox-front:0.1
@@ -37,7 +37,7 @@ services:
       - 3000:3000
     networks:
       - nmailbox
-    command: npm run start-docker
+    command: npm run start.d
 
   mailbox-front-user:
     image: bsquarelab/upost-node-mailbox-front-user:0.1
@@ -55,7 +55,7 @@ services:
       - 3001:3000
     networks:
       - nmailbox
-    command: npm run start-docker
+    command: npm run start.d
 
   static:
     image: bsquarelab/upost-node-static:0.1
@@ -70,7 +70,7 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - 8881:8081
+      - 8081:8081
     networks:
       - nmailbox
       
