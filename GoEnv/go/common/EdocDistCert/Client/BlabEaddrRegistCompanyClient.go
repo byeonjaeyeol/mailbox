@@ -46,7 +46,8 @@ func PostEaddrRegistCompany(baseUrl string, idn string, eaddr string, name strin
 	metadataHeader.Set("Content-Disposition", fmt.Sprintf("form-data; name=\"msg\""))
 	part, err := writer.CreatePart(metadataHeader)
 	if err != nil {
-		log.Fatal(err)
+		log.Printf("err=%+v\n", err)
+		return nil, err
 	}
 
 	part.Write(metadataBytes)
@@ -57,12 +58,20 @@ func PostEaddrRegistCompany(baseUrl string, idn string, eaddr string, name strin
 
 	if registType != 0 {
 		for docFileName, filePath := range mediaFiles {
-			mediaData, _ := ioutil.ReadFile(filePath)
+			mediaData, err := ioutil.ReadFile(filePath)
+			if err != nil {
+				log.Printf("err=%+v\n", err)
+				return nil, err
+			}
 			mediaHeader := textproto.MIMEHeader{}
 			mediaHeader.Set("Content-Type", "image/jpeg")
 			mediaHeader.Set("Content-Disposition", fmt.Sprintf("form-data; name=\"file\"; filename=\"%s\"", docFileName))
 			mediaPart, _ := writer.CreatePart(mediaHeader)
-			io.Copy(mediaPart, bytes.NewReader(mediaData))
+			_, err = io.Copy(mediaPart, bytes.NewReader(mediaData))
+			if err != nil {
+				log.Printf("err=%+v\n", err)
+				return nil, err
+			}
 		}
 	}
 
@@ -70,5 +79,10 @@ func PostEaddrRegistCompany(baseUrl string, idn string, eaddr string, name strin
 	url := baseUrl + "/api/eaddr/company"
 	contentType := "multipart/mixed; boundary=" + writer.Boundary()
 	appRes, err := ClientCallWithReader(http.MethodPost, url, contentType, bytes.NewReader(multipartBody.Bytes()), &blabModel.BlabCommonResponse{})
+	if err != nil {
+		log.Printf("err=%+v\n", err)
+		return nil, err
+	}
+
 	return appRes, err
 }

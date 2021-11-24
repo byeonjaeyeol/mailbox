@@ -17,7 +17,7 @@ func main() {
 
 	clientConfig := testClient.ClientConfig
 	appRes, err := blabClient.PostEaddrRegistCompany(clientConfig.Server.BaseUrl, clientConfig.Company.Idn, clientConfig.Company.Eaddr, clientConfig.Company.Name,
-		1, clientConfig.Company.RegDate, "../exampleFile/biz-doc.jpg", "../exampleFile/reg-doc.jpg")
+		1, clientConfig.Company.RegDate, "exampleFile/biz-doc.jpg", "exampleFile/reg-doc.jpg")
 	if err != nil {
 		log.Printf("err=%+v\n", err)
 		return

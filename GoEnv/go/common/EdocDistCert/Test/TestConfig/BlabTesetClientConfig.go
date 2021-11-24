@@ -1,6 +1,7 @@
 package TestConfig
 
 import (
+	blabClient "../../Client"
 	ifError "../../IF_Error"
 	edcValidator "../../Validator"
 	"gopkg.in/yaml.v2"
@@ -9,9 +10,9 @@ import (
 )
 
 type ClientConfigServerType struct {
-	BaseHost string `yaml:"baseHost"`
-	BasePort string `yaml:"basePort"`
-	BaseUrl  string `yaml:"baseUrl"`
+	BaseHost string `yaml:"baseHost" validate:"required"`
+	BasePort string `yaml:"basePort" validate:"required"`
+	BaseUrl  string `yaml:"baseUrl" validate:"required"`
 }
 
 type ClientConfigUserType struct {
@@ -34,10 +35,11 @@ type ClientAuthInfoType struct {
 }
 
 type ClientConfigType struct {
-	Auth       ClientAuthInfoType     `yaml:"auth"`
-	Individual ClientConfigUserType   `yaml:"individual"`
-	Company    ClientConfigUserType   `yaml:"company"`
-	Server     ClientConfigServerType `yaml:"server"`
+	FileSavePath string                 `yaml:"fileSavePath"`
+	Auth         ClientAuthInfoType     `yaml:"auth"`
+	Individual   ClientConfigUserType   `yaml:"individual"`
+	Company      ClientConfigUserType   `yaml:"company"`
+	Server       ClientConfigServerType `yaml:"server" validate:"required"`
 }
 
 var ClientConfig ClientConfigType
@@ -60,5 +62,7 @@ func LoadTestClientConfig() error {
 		validator.LogError(err)
 		return &ifError.BlabError{ErrCode: "Config-Error", ErrMsg: validator.GetErrorMsg(err)}
 	}
+
+	blabClient.SetFileSavePath(ClientConfig.FileSavePath)
 	return nil
 }

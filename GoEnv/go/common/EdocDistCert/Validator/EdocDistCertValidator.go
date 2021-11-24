@@ -1,6 +1,7 @@
 package Validator
 
 import (
+	"errors"
 	// ko_KR "github.com/go-playground/locales/ko_KR" // 한글 번역본 없음
 	en "github.com/go-playground/locales/en"
 	ut "github.com/go-playground/universal-translator"
@@ -19,7 +20,8 @@ var EdocDistCertValidator *EdocDistCertValidatorType
 
 // var EdocDistCertValidator *validator.Validate
 
-func InitEdocDistCertValidator() {
+func InitEdocDistCertValidator() error {
+	var err error
 	cv := EdocDistCertValidatorType{}
 
 	translator := en.New()
@@ -29,13 +31,16 @@ func InitEdocDistCertValidator() {
 	// also see uni.FindTranslator(...)
 	trans, found := uni.GetTranslator("en")
 	if !found {
-		log.Fatal("translator not found")
+		err = errors.New("translator not found")
+		log.Printf("err=%+v\n", err)
+		return err
 	}
 
 	v := validator.New()
 
-	if err := en_translations.RegisterDefaultTranslations(v, trans); err != nil {
-		log.Fatal(err)
+	if err = en_translations.RegisterDefaultTranslations(v, trans); err != nil {
+		log.Printf("err=%+v\n", err)
+		return err
 	}
 
 	_ = v.RegisterTranslation("required", trans, func(ut ut.Translator) error {
@@ -59,16 +64,19 @@ func InitEdocDistCertValidator() {
 		return t
 	})
 
-	err := v.RegisterValidation("myDatetime", func(fl validator.FieldLevel) bool {
+	err = v.RegisterValidation("myDatetime", func(fl validator.FieldLevel) bool {
 		return len(fl.Field().String()) == 19
 	})
 	if err != nil {
 		log.Printf("err=%v\n", err)
+		return err
 	}
 
 	cv.v = v
 	cv.trans = trans
 	EdocDistCertValidator = &cv
+
+	return nil
 }
 
 func (cv *EdocDistCertValidatorType) ValidateStruct(s interface{}) error {

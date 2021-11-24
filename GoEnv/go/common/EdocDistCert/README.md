@@ -27,10 +27,20 @@
 | 10 | 전자문서 유통정보 수정 | PATCH | /api/circulation | /api/circulation | BlabEdocDistReadClient.go | PatchEdocDistRead | BlabEdocDistReadClientTest.go |
 | 11 | 전자문서 유통증명서 발급 | POST | /api/cert | /api/cert | BlabEdocDistGetCertClient.go | PostEdocDistGetCert | BlabEdocDistGetCertClientTes.go |
 
+## 파일 저장 경로 설정
+* 기본: 실행 경로의 + files/EdocDistCert/apps"
+* 변경 방법
+  * BlabClient.SetFileSavePath("저장하고자하는파일경로")
+  * 권장 경로
+    * 서버: /data/blab/files/EdocDistCert/apps
+    * 개발 노트북: 사용자홈디렉터리/blabData/files/EdocDistCert/apps
+* 실제 파일 저장 위치
+  * BLAB -> KISA : fileSavePath+"/toKisa/YYYY/YYYYMM/YYYYMMDD/실제파일명"
+  * KISA -> BLAB : fileSavePath+/fromKisa/YYYYMM/YYYYMMDD/실제파일명"
+* 테스트 환경
+  * Test/TestConfig/BlabClientConfig.yml에서 fileSavePath 지정
+  * Test/TestClientConfig.go의 LoadTestClientConfig 함수 참조
+
 ## 추가 또는 협의해야 할 것들
 * Result에는 Blab 내부 구조에 맞춘 Result/Data이며 Data에는 KISA의 응답을 그대로 담았는데 변경 필요 여부
-* 공인전자문서 유통증명서 파앨 다운로드 경로 결정
-  - 파라미터 전달 방식
-  - Config로 설정
-  - 현재는 단순 호출 방식인데 인스턴스화해서 인스턴스 변수로 설정
 
