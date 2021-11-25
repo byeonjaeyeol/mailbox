@@ -15,10 +15,10 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - 8880:8080
+      - 8080:8080
     networks:
       - nmailbox
-    command: npm start.d
+    command: npm run start.d
 
   static:
     image: bsquarelab/upost-node-static:0.1
