@@ -28,3 +28,6 @@
 [submodule "API-WAS1/docker-mailbox-front-user/mailbox-front-user"]
 	path = API-WAS1/docker-mailbox-front-user/mailbox-front-user
 	url = https://github.com/bsquarelab/upost-front-user.git
+[submodule "GoEnv/go/DispatchAgent"]
+	path = GoEnv/go/DispatchAgent
+	url = https://github.com/hieuncom/DispatchAgent.git
