@@ -16,6 +16,16 @@ services:
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - 8080:8080
+    extra_hosts:
+      - "emailbox:172.27.0.23"
+      - "node01:172.27.0.23"
+      - "service01:172.27.0.22"
+      - "service02:172.27.0.22"
+      - "service03:172.27.0.21"
+      - "service04:172.27.0.21"
+      - "mockup-edocdistcerfgw.epost.go.kr:172.27.0.24"
+      - "dev-edocdistcertgw.epost.go.kr:172.27.0.24"
+      - "edocdistcdertgw.epost.go.kr:172.27.0.24"
     networks:
       - nmailbox
     command: npm run start.d
@@ -35,6 +45,16 @@ services:
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - 3000:3000
+    extra_hosts:
+      - "emailbox:172.27.0.23"
+      - "node01:172.27.0.23"
+      - "service01:172.27.0.22"
+      - "service02:172.27.0.22"
+      - "service03:172.27.0.21"
+      - "service04:172.27.0.21"
+      - "mockup-edocdistcerfgw.epost.go.kr:172.27.0.24"
+      - "dev-edocdistcertgw.epost.go.kr:172.27.0.24"
+      - "edocdistcdertgw.epost.go.kr:172.27.0.24"
     networks:
       - nmailbox
     command: npm run start.d
@@ -53,9 +73,19 @@ services:
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - 3001:3000
+    extra_hosts:
+      - "emailbox:172.27.0.23"
+      - "node01:172.27.0.23"
+      - "service01:172.27.0.22"
+      - "service02:172.27.0.22"
+      - "service03:172.27.0.21"
+      - "service04:172.27.0.21"
+      - "mockup-edocdistcerfgw.epost.go.kr:172.27.0.24"
+      - "dev-edocdistcertgw.epost.go.kr:172.27.0.24"
+      - "edocdistcdertgw.epost.go.kr:172.27.0.24"
     networks:
       - nmailbox
-    command: npm run start.d
+    command: npm start
 
   static:
     image: bsquarelab/upost-node-static:0.1

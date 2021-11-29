@@ -15,10 +15,10 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - 8880:8080
+      - 8080:8080
     networks:
       - nmailbox
-    command: npm start-docker
+    command: npm run start.d
 
   static:
     image: bsquarelab/upost-node-static:0.1
@@ -33,7 +33,7 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - 8881:8081
+      - 8081:8081
     networks:
       - nmailbox
 

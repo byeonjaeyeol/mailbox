@@ -15,20 +15,20 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - 8880:8080
+      - 8080:8080
     extra_hosts:
-      - "emailbox:172.27.0.23"
-      - "node01:172.27.0.23"
-      - "service01:172.27.0.22"
-      - "service02:172.27.0.22"
-      - "service03:172.27.0.21"
-      - "service04:172.27.0.21"
-      - "mockup-edocdistcerfgw.epost.go.kr:172.27.0.24"
-      - "dev-edocdistcertgw.epost.go.kr:172.27.0.24"
-      - "edocdistcdertgw.epost.go.kr:172.27.0.24"
+      - "emailbox:211.115.219.40"
+      - "node01:211.115.219.40"
+      - "service01:211.115.219.40"
+      - "service02:211.115.219.40"
+      - "service03:211.115.219.40"
+      - "service04:211.115.219.40"
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102:23080"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102:23080"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102:23080"
     networks:
       - nmailbox
-    command: npm start-docker
+    command: npm run start.d
 
   mailbox-front:
     image: bsquarelab/upost-node-mailbox-front:0.1
@@ -46,18 +46,18 @@ services:
     ports:
       - 3000:3000
     extra_hosts:
-      - "emailbox:172.27.0.23"
-      - "node01:172.27.0.23"
-      - "service01:172.27.0.22"
-      - "service02:172.27.0.22"
-      - "service03:172.27.0.21"
-      - "service04:172.27.0.21"
-      - "mockup-edocdistcerfgw.epost.go.kr:172.27.0.24"
-      - "dev-edocdistcertgw.epost.go.kr:172.27.0.24"
-      - "edocdistcdertgw.epost.go.kr:172.27.0.24"
+      - "emailbox:211.115.219.40"
+      - "node01:211.115.219.40"
+      - "service01:211.115.219.40"
+      - "service02:211.115.219.40"
+      - "service03:211.115.219.40"
+      - "service04:211.115.219.40"
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102:23080"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102:23080"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102:23080"
     networks:
       - nmailbox
-    command: npm start-docker
+    command: npm run start.d
 
   mailbox-front-user:
     image: bsquarelab/upost-node-mailbox-front-user:0.1
@@ -74,15 +74,15 @@ services:
     ports:
       - 3001:3000
     extra_hosts:
-      - "emailbox:172.27.0.23"
-      - "node01:172.27.0.23"
-      - "service01:172.27.0.22"
-      - "service02:172.27.0.22"
-      - "service03:172.27.0.21"
-      - "service04:172.27.0.21"
-      - "mockup-edocdistcerfgw.epost.go.kr:172.27.0.24"
-      - "dev-edocdistcertgw.epost.go.kr:172.27.0.24"
-      - "edocdistcdertgw.epost.go.kr:172.27.0.24"
+      - "emailbox:211.115.219.40"
+      - "node01:211.115.219.40"
+      - "service01:211.115.219.40"
+      - "service02:211.115.219.40"
+      - "service03:211.115.219.40"
+      - "service04:211.115.219.40"
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102:23080"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102:23080"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102:23080"
     networks:
       - nmailbox
     command: npm start
@@ -100,7 +100,7 @@ services:
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
-      - 8881:8081
+      - 8081:8081
     networks:
       - nmailbox
       

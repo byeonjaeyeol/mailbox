@@ -27,6 +27,9 @@ services:
     extra_hosts:
       - "emailbox:211.115.219.40"
       - "node01:211.115.219.40"
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102:23080"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102:23080"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102:23080"
     networks:
       - nmailbox
 
@@ -59,6 +62,9 @@ services:
     extra_hosts:
       - "emailbox:211.115.219.40"
       - "node01:211.115.219.40"
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102:23080"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102:23080"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102:23080"
     networks:
       - nmailbox
 
@@ -88,6 +94,9 @@ services:
     extra_hosts:
       - "emailbox:211.115.219.40"
       - "node01:211.115.219.40"
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102:23080"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102:23080"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102:23080"
     networks:
       - nmailbox
 
@@ -113,6 +122,9 @@ services:
     extra_hosts:
       - "emailbox:211.115.219.40"
       - "node01:211.115.219.40"
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102:23080"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102:23080"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102:23080"
     networks:
       - nmailbox
 
