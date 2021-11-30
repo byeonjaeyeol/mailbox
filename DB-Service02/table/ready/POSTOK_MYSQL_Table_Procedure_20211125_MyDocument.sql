@@ -199,7 +199,6 @@ BEGIN
    SET @now_dt := now();
    SET @LastIDX := -1;
    SET @eDocNo := '';
-   SET @error := '0';
    SET @idx := 0;
    SET @end_num := 0;
    SET @current_num := 0;
@@ -209,7 +208,7 @@ BEGIN
                                                 FROM TBL_EDOCUMENTS_SERIAL_NO WHERE group_by = $PARAM_GROUP_BY;
 
    IF @use_status = 2 THEN 
-      SET @error := '-1';
+      SET @current_num := -1;
    ELSE
       IF @current_num = 0 THEN
          INSERT INTO TBL_EDOCUMENTS_SERIAL_NO (group_by, reg_dt) VALUES ($PARAM_GROUP_BY, @now_dt);
@@ -295,7 +294,7 @@ BEGIN
 
    END IF;
 
-   SELECT @error, @LastIDX, @eDocNo;
+   SELECT @LastIDX, @eDocNo, @now_dt;
 END;;
 DELIMITER ;
 
