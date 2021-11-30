@@ -2,7 +2,7 @@
   "logs": [
     {
       "name": "access",
-      "path": "/data/blab/CollectAgent/logs/access.log",
+      "path": "./logs/access.log",
       "level": 100,
       "format" : "textfile"
     },
@@ -16,61 +16,61 @@
     },
     {
       "name": "sftp",
-      "path": "/data/blab/CollectAgent/logs/sftp.log",
+      "path": "./logs/sftp.log",
       "level": 100,
       "format" : "textfile"
     },
     {
       "name": "convert",
-      "path": "/data/blab/CollectAgent/logs/convert.log",
+      "path": "./logs/convert.log",
       "level": 100,
       "format" : "textfile"
     },
     {
       "name": "web",
-      "path" : "/data/blab/CollectAgent/logs/web.log",
+      "path" : "./logs/web.log",
       "level" : 100,
       "format" : "textfile"
     },    
     {
       "name": "error",
-      "path": "/data/blab/CollectAgent/logs/error.log",
+      "path": "./logs/error.log",
       "level": 250,
       "format" : "textfile"
     },
     {
       "name": "remove",
-      "path": "/data/blab/CollectAgent/logs/remove.log",
+      "path": "./logs/remove.log",
       "level": 100,
       "format" : "textfile"
     },
     {
       "name": "all",
-      "path": "/data/blab/CollectAgent/logs/all.log",
+      "path": "./logs/all.log",
       "level": 100,
       "format" : "textfile"
     },
     {
       "name": "query",
-      "path" : "/data/blab/CollectAgent/logs/query.log",
+      "path" : "./logs/query.log",
       "level" : 100,
       "format" : "textfile"
     },
     {
       "name": "dev",
-      "path": "/data/blab/CollectAgent/logs/dev.log",
+      "path": "./logs/dev.log",
       "level": 100,
       "format" : "textfile"
     },
     {
       "name": "bind",
-      "path": "/data/blab/CollectAgent/logs/bind.log",
+      "path": "./logs/bind.log",
       "level": 100,
       "format" : "textfile"
     },
     {
       "name": "author",
-      "path": "/data/blab/CollectAgent/logs/author.log",
+      "path": "./logs/author.log",
       "level": 250,
       "format" : "textfile"
     }
@@ -90,11 +90,11 @@
     },
     "reqid": "binding.reserved.essential.search.request-id",
     "encoding": "encrypt",
-    "basedir": "/data/blab/CollectAgent/receive/WID04039401385",
-    "outputpath": "/data/blab/CollectAgent/result",
-    "backupdir": "/data/blab/CollectAgent/backup/convert",
-    "optiondir": "/data/blab/CollectAgent/option",
-    "templatedir": "/data/tilon/sender/data/template/11001/60002"
+    "basedir": "./receive/WID04039401385",
+    "outputpath": "./result",
+    "backupdir": "./backup/convert",
+    "optiondir": "./option",
+    "templatedir": "./sender/data/template/11001/60002"
   },
   "sftp": {
     "server": {
@@ -105,28 +105,28 @@
     },
     "freq_sec": 60,
     "buffersize": 1024,
-    "basedir": "/data/blab/CollectAgent/result",
-    "targetdir": "/usr/share/tilon/collector/repo/dat/data",
-    "backupdir": "/data/blab/CollectAgent/backup/sftp"
+    "basedir": "./result",
+    "targetdir": "./collector/repo/dat/data",
+    "backupdir": "./backup/sftp"
   },
   "remove": {
     "freq_hour": 24,
     "list": [
       {
         "term_day": 60,
-        "path": "/data/blab/CollectAgent/logs"
+        "path": "./logs"
       },
       {
         "term_day": 30,
-        "path": "/data/blab/CollectAgent/backup/convert"
+        "path": "./backup/convert"
       },
       {
         "term_day": 30,
-        "path": "/data/blab/CollectAgent/backup/sftp"
+        "path": "./backup/sftp"
       },
 	  {
         "term_day": 30,
-        "path": "/data/tilon/sender/data/template/11001/60002"
+        "path": "./sender/data/template/11001/60002"
       }
     ]
   },

@@ -14,7 +14,7 @@ RestartSec=100
 RequiresMountsFor=/usr/share/blab/CollectAgent
 
 ExecStart=/usr/share/blab/CollectAgent/CollectAgent -start
-PIDFile=/usr/share/blab/CollectAgent/CollectAgent.pid
+PIDFile=/usr/share/blab/CollectAgent/BlabAgent.pid
 WorkingDirectory=/usr/share/blab/CollectAgent/
 
 [Install]

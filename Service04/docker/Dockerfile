@@ -11,6 +11,9 @@ RUN systemctl enable sender.service
 COPY CollectAgent.service /etc/systemd/system/
 RUN systemctl enable CollectAgent.service
 
+COPY SyncAgent.service /etc/systemd/system/
+RUN systemctl enable SyncAgent.service
+
 WORKDIR /usr/share/tilon
 
 #VOLUME [ "/data/tilon",  "/usr/share/tilon/IljariAgent", "/usr/share/tilon/sender"]

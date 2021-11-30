@@ -1,0 +1,22 @@
+[Unit]
+Description=BSquareLab Sync Agent
+
+[Service]
+Type=simple
+
+User=root
+
+Group=root
+
+Restart=on-failure
+RestartSec=100
+
+RequiresMountsFor=/usr/share/blab/SyncAgent
+
+ExecStart=/usr/share/blab/SyncAgent/SyncAgent -start
+PIDFile=/usr/share/blab/SyncAgent/DispatchAgent.pid
+WorkingDirectory=/usr/share/blab/SyncAgent/
+
+[Install]
+WantedBy=multi-user.target
+

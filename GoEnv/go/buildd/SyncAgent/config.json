@@ -1,0 +1,231 @@
+{
+  "logs": [
+    {
+      "name": "access",
+      "path": "./logs/access.log",
+      "level": 100,
+      "format" : "textfile"
+    },
+    {
+    "name": "webaccess",
+    "path": "logs",
+    "level": 100,
+    "format" : "textfile",
+    "rotationCnt": 10,
+    "rotationFreq": 3600
+    },
+    {
+      "name": "sftp",
+      "path": "./logs/sftp.log",
+      "level": 100,
+      "format" : "textfile"
+    },
+    {
+      "name": "convert",
+      "path": "./logs/convert.log",
+      "level": 100,
+      "format" : "textfile"
+    },
+    {
+      "name": "collect",
+      "path": "./logs/collect.log",
+      "level": 100,
+      "format" : "textfile"
+    },    
+    {
+      "name": "web",
+      "path" : "./logs/web.log",
+      "level" : 100,
+      "format" : "textfile"
+    },    
+    {
+      "name": "error",
+      "path": "./logs/error.log",
+      "level": 250,
+      "format" : "textfile"
+    },
+    {
+      "name": "remove",
+      "path": "./logs/remove.log",
+      "level": 100,
+      "format" : "textfile"
+    },
+    {
+      "name": "all",
+      "path": "./logs/all.log",
+      "level": 100,
+      "format" : "textfile"
+    },
+    {
+      "name": "query",
+      "path" : "./logs/query.log",
+      "level" : 100,
+      "format" : "textfile"
+    },
+    {
+      "name": "dev",
+      "path": "./logs/dev.log",
+      "level": 100,
+      "format" : "textfile"
+    },
+    {
+      "name": "bind",
+      "path": "./logs/bind.log",
+      "level": 100,
+      "format" : "textfile"
+    },
+    {
+      "name": "author",
+      "path": "./logs/author.log",
+      "level": 250,
+      "format" : "textfile"
+    }
+  ],
+  "convert": {
+    "freq_sec": 60, 
+    "buffersize": 1024,
+    "compareterm": 300, 
+    "monitoring": "Y",
+    "agency": {
+        "orgcode": "11001",
+        "deptcode": "60002",
+        "maxarraylength": 50,
+        "maxbulklength" : 5000,
+        "proctime": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23",
+        "db_idx": 6
+    },
+    "reqid": "binding.reserved.essential.search.request-id",
+    "encoding": "encrypt",
+    "basedir": "./receive/WID04039401385",
+    "outputpath": "./result",
+    "backupdir": "./backup/convert",
+    "optiondir": "./option",
+    "templatedir": "./sender/data/template/11001/60002"
+  },
+  "collect": {
+    "freq_sec": 60, 
+    "buffersize": 1024,
+    "compareterm": 300, 
+    "monitoring": "Y",
+    "agency": {
+        "orgcode": "11001",
+        "deptcode": "60002",
+        "maxarraylength": 50,
+        "maxbulklength" : 5000,
+        "proctime": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23",
+        "db_idx": 6
+    },
+    "reqid": "binding.reserved.essential.search.request-id",
+    "encoding": "encrypt",
+    "basedir": "./receive/WID04039401385",
+    "outputpath": "./result",
+    "backupdir": "./backup/convert",
+    "optiondir": "./option",
+    "templatedir": "./sender/data/template/11001/60002"
+  },  
+  "sftp": {
+    "server": {
+      "host": "211.115.219.40",
+      "port": "22",
+      "user": "ubuntu",
+      "password": "qltmznpdjfoq13@$"
+    },
+    "freq_sec": 60,
+    "buffersize": 1024,
+    "basedir": "./result",
+    "targetdir": "./collector/repo/dat/data",
+    "backupdir": "./backup/sftp"
+  },
+  "remove": {
+    "freq_hour": 24,
+    "list": [
+      {
+        "term_day": 60,
+        "path": "logs"
+      },
+      {
+        "term_day": 30,
+        "path": "/Users/hieuncom/Documents/PostProject/upost-network/GoEnv/go/build/data/blab/BlabAgent/backup/convert"
+      },
+      {
+        "term_day": 30,
+        "path": "/Users/hieuncom/Documents/PostProject/upost-network/GoEnv/go/build/data/blab/BlabAgent/backup/sftp"
+      },
+	  {
+        "term_day": 30,
+        "path": "/Users/hieuncom/Documents/PostProject/upost-network/GoEnv/go/build/data/blab/sender/data/template/11001/60002"
+      }
+    ]
+  },
+  "server" : {
+    "status" : 0,
+    "protocol" : "http",
+    "port" : 3002,
+    "version" : "v1.0.0.0",
+    "mobile_ver" : "v1.0.0",
+    "revision" : "1",
+    "resource_path" : "res"
+  },
+  "sync" : {
+    "protocol": "http",
+    "host": "211.115.219.40",
+    "port": 3002,
+    "sshport": 22,
+    "user": "root",
+    "password": "qwerty123456"
+  },
+  "web_session" : {
+    "timeout_sec" : 600,
+    "frequency_sec" : 60
+  },
+  "web_account" : {
+    "timeout_sec" : 3600,
+    "frequency_sec" : 60,
+    "max_account" : 100000
+  },
+  "elasticsearch" : {
+    "ip" : "211.115.219.40",
+    "port" : 9200,
+    "protocol" : "http",
+    "user" : "admin",
+    "password" : "admin"
+  },
+  "binder" : {
+    "basepath" : "res/mailbox/read",
+    "podpath" : "res/mailbox/distribution/PODTemplate.html",
+    "pdf" : {
+      "dpi" : 100,
+      "landscape" : "true",
+      "zoom" : 0.95,
+      "pagesize" : "A4",
+      "fontsize" : 10,
+      "fontgulim" : "true"
+    }
+  },
+  "stats" : {
+    "stat_url" : "http://211.115.219.40:9200/$ORG_CODE-*/_search?pretty&_source=_id,ci,data-hash,ver,status,binding.reserved.essential.search,binding.reserved.essential.dispatching,binding.reserved.additional.receiver.name,binding.reserved.essential.template",
+    "user" : "admin",
+    "password" : "admin"
+  },
+  "blockchain_server" : {
+    "base_url" : "http://211.253.86.102:58880/pst/epost",
+    "user" : "",
+    "password" : "",
+    "svc_id" : "pst",
+    "doc_channel" : "pstchannel1",
+    "doc_org" : "org1",
+    "user_channel" : "pstchannel3",
+    "user_org" : "org3"
+  },
+  "database": {
+    "connector" : "embuser:!tilon9099@@tcp(211.115.219.40:3307)/EMAILBOX",
+    "sql": "mysql",
+    "connect": {
+      "user": "embuser",
+      "password": "!tilon9099@",
+      "ip": "211.115.219.40",
+      "port": "3307",
+      "db_name": "EMAILBOX"
+    }
+  }
+}
