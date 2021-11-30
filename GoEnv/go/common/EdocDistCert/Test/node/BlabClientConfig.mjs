@@ -7,9 +7,9 @@ let BlabClientConfig = {
         refreshToken: ""
     },
     server: {
-        baseUrl: "http://localhost:4080",
-        host: "localhost",
-        port: 4080
+        baseUrl: "http://dev-edocdistcertgw.epost.go.kr:23080",
+        host: "dev-edocdistcertgw.epost.go.kr",
+        port: 23080
     },
     individual: {
         idn: "epostidvdevidn",
