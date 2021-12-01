@@ -7,11 +7,10 @@ import clientConfig from './BlabClientConfig.mjs';
 // 개인 공인전자주소 탈퇴 테스트
 function BlabEaddrCancelIndividualTest() {
     blabClient.PatchEaddrCancel(
-        clientConfig.server.host,
-        clientConfig.server.port,
+        clientConfig.server.baseUrl,
         clientConfig.individual.eaddr,
-        clientConfig.individual.eaddrDelDate,
-        function(res) {
+        clientConfig.individual.eaddrDelDate)
+        .then(res => {
             console.log(res)
         });
 }

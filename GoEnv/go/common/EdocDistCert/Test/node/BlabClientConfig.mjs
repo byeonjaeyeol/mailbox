@@ -10,6 +10,11 @@ let BlabClientConfig = {
         baseUrl: "http://dev-edocdistcertgw.epost.go.kr:23080",
         host: "dev-edocdistcertgw.epost.go.kr",
         port: 23080
+        /*
+        baseUrl: "http://localhost:4080",
+        host: "localhost",
+        port: 4080
+         */
     },
     individual: {
         idn: "epostidvdevidn",
@@ -22,7 +27,7 @@ let BlabClientConfig = {
         reason: "개인테스트사유1111"
     },
     company: {
-        idn: "epostidvdevidn",
+        idn: "1234567890",
         name: "우체국법인테스터",
         eaddr: "epostcompdev#epost",
         regDate: "2021-11-02 13:23:21",

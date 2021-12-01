@@ -11,8 +11,7 @@ function BlabEdocDistRegistTest() {
 
     let circulations = [];
     for (let idx = 0; idx < 1; idx++) {
-        const tempEdocNum = util.format('%8s_%10s_%6s%07d',
-            today, "devmns1234", nowTime, (idx + 1));
+        const tempEdocNum = today + "_" + "devmns1234" + "_" + nowTime + "_" + (idx + 1);
         const orderStr = ''+ (idx + 1)
         const circData = {
             // edocNum 형식
@@ -36,10 +35,9 @@ function BlabEdocDistRegistTest() {
     }
 
     blabClient.PostEdocDistRegist(
-        clientConfig.server.host,
-        clientConfig.server.port,
-        circulations,
-        function(res) {
+        clientConfig.server.baseUrl,
+        circulations)
+        .then(res => {
             console.log(res);
             console.log(res.data.circulations);
         });
