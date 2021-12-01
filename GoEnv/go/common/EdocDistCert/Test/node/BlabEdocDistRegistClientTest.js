@@ -1,13 +1,12 @@
-import dateFormat, {masks} from 'dateformat';
-import util from 'util';
-import blabClient from './BlabClient.mjs';
-import clientConfig from './BlabClientConfig.mjs';
+const strftime = require('strftime');
+const { BlabClient } = require('./BlabClient');
+const { BlabClientConfig } = require('./BlabClientConfig');
 
 // 전자문서 유통정보 등록 테스트
 function BlabEdocDistRegistTest() {
     const todayDate = new Date();
-    const today = dateFormat(todayDate, "yyyymmdd");
-    const nowTime = dateFormat(todayDate, "HMMss");
+    const today = strftime('%Y%m%d', todayDate);
+    const nowTime = strftime('%H%M%S', todayDate);
 
     let circulations = [];
     for (let idx = 0; idx < 1; idx++) {
@@ -23,13 +22,13 @@ function BlabEdocDistRegistTest() {
             // 플랫폼내에서 고정하거나 업무에따라 생성하여 사용 할  수 있다.
             edocNum: tempEdocNum,
             subject: 'subject_' + orderStr,
-            sendEaddr: clientConfig.company.eaddr,
-            recvEaddr: clientConfig.individual.eaddr,
-            sendPlatformId: clientConfig.auth.platformId,
-            recvPlatformId: clientConfig.auth.platformId,
-            sendDate: dateFormat(todayDate, 'yyyy-mm-dd H:MM:ss'),
-            recvDate: dateFormat(todayDate, 'yyyy-mm-dd H:MM:ss'),
-            // readDate: dateFormat(todayDate, 'yyyy-mm-dd H:MM:ss'),
+            sendEaddr: BlabClientConfig.company.eaddr,
+            recvEaddr: BlabClientConfig.individual.eaddr,
+            sendPlatformId: BlabClientConfig.auth.platformId,
+            recvPlatformId: BlabClientConfig.auth.platformId,
+            sendDate: strftime('%Y-%m-%d %H:%M:%S', todayDate),
+            recvDate: strftime('%Y-%m-%d %H:%M:%S', todayDate),
+            // readDate: strftime('%Y-%m-%d %H:%M:%S', todayDate),
             contentHash: "ContentHash_" + orderStr,
             fileHashes: ['fileHash1', 'fileHash2'],
         }
@@ -37,8 +36,8 @@ function BlabEdocDistRegistTest() {
         circulations.push(circData);
     }
 
-    blabClient.PostEdocDistRegist(
-        clientConfig.server.baseUrl,
+    BlabClient.PostEdocDistRegist(
+        BlabClientConfig.server.baseUrl,
         circulations)
         .then(res => {
             console.log(res);

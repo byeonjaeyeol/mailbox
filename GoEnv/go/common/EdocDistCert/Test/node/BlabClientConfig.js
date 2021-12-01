@@ -1,4 +1,4 @@
-let BlabClientConfig = {
+exports.BlabClientConfig = {
     auth: {
         grantType: 0,
         platformId: "posa-01-epostmailbox",
@@ -7,14 +7,14 @@ let BlabClientConfig = {
         refreshToken: ""
     },
     server: {
+        /*
         baseUrl: "http://dev-edocdistcertgw.epost.go.kr:23080",
         host: "dev-edocdistcertgw.epost.go.kr",
         port: 23080
-        /*
+         */
         baseUrl: "http://localhost:4080",
         host: "localhost",
         port: 4080
-         */
     },
     individual: {
         idn: "epostidvdevidn",
@@ -38,4 +38,4 @@ let BlabClientConfig = {
     }
 };
 
-export default BlabClientConfig;
+// export default BlabClientConfig;
