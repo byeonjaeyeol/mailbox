@@ -1,19 +1,19 @@
-import { v4 } from 'uuid';
-import dateFormat, {masks} from 'dateformat';
-import axios from 'axios';
-import querystring from 'querystring';
-import FormData from 'form-data'
-import Busboy from 'busboy'
-import fs from 'fs';
-import multipartParser from 'parse-multipart-data'
-import clientConfig from './BlabClientConfig.mjs';
+const { v4 } = require('uuid');
+const strftime = require('strftime');
+const axios = require('axios');
+const querystring = require('querystring');
+const FormData = require('form-data');
+const Busboy = require('busboy');
+const fs = require('fs');
+const multipartParser = require('parse-multipart-data');
+const { BlabClientConfig } = require('./BlabClientConfig.js');
 
-const BlabClient = {
+exports.BlabClient = {
     getHeaders(contentType) {
         let  headers = {
-            'platform-id': clientConfig.auth.platformId,
+            'platform-id': BlabClientConfig.auth.platformId,
             'req-UUID': v4(),
-            'req-date': dateFormat(new Date(), "yyyy-mm-dd H:MM:ss")
+            'req-date': strftime('%Y-%m-%d %H:%M:%S', new Date())
         }
 
         if (contentType) {
@@ -310,5 +310,3 @@ const BlabClient = {
          */
     }
 };
-
-export default BlabClient;
