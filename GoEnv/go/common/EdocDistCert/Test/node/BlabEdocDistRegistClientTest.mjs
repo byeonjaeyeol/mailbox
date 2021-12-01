@@ -7,11 +7,14 @@ import clientConfig from './BlabClientConfig.mjs';
 function BlabEdocDistRegistTest() {
     const todayDate = new Date();
     const today = dateFormat(todayDate, "yyyymmdd");
-    const nowTime = dateFormat(todayDate, "H:MM:ss");
+    const nowTime = dateFormat(todayDate, "HMMss");
 
     let circulations = [];
     for (let idx = 0; idx < 1; idx++) {
-        const tempEdocNum = today + "_" + "devmns1234" + "_" + nowTime + "_" + (idx + 1);
+        const tempEdocNum =
+                today
+                + "_" + "devmns1234".padStart(10, '0')
+                + "_" + nowTime + String(idx + 1).padStart(7, '0');
         const orderStr = ''+ (idx + 1)
         const circData = {
             // edocNum 형식
