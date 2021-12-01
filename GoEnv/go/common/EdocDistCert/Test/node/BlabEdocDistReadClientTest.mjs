@@ -20,10 +20,9 @@ function BlabEdocDistReadTest() {
     // }
 
     blabClient.PatchEdocDistRead(
-        clientConfig.server.host,
-        clientConfig.server.port,
-        circulations,
-        function(res) {
+        clientConfig.server.baseUrl,
+        circulations)
+        .then(res => {
             console.log(res);
             console.log(res.data.circulations);
         });
