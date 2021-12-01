@@ -269,6 +269,12 @@
       "hmac": "false"
     },
     {
+      "uri": "/bc/doc/update2",
+      "agent": "POSTOK",
+      "ip": "",
+      "hmac": "false"
+    },
+    {
       "uri": "/stats/docid",
       "agent": "",
       "ip": "10.64.203.0~10.64.203.254",

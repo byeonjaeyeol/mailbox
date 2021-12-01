@@ -27,9 +27,9 @@ services:
     extra_hosts:
       - "emailbox:211.115.219.40"
       - "node01:211.115.219.40"
-      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102:23080"
-      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102:23080"
-      - "edocdistcdertgw.epost.go.kr:211.253.86.102:23080"
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102"
     networks:
       - nmailbox
 
@@ -62,14 +62,14 @@ services:
     extra_hosts:
       - "emailbox:211.115.219.40"
       - "node01:211.115.219.40"
-      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102:23080"
-      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102:23080"
-      - "edocdistcdertgw.epost.go.kr:211.253.86.102:23080"
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102"
     networks:
       - nmailbox
 
   service04:
-    image: bsquarelab/upost-service04:0.2
+    image: bsquarelab/upost-service04:0.3
     container_name: service04
     environment:
       - TZ=Asia/Seoul
@@ -82,6 +82,7 @@ services:
       - ./Service04/exec/IljariAgent:/usr/share/tilon/IljariAgent
       - ./Service04/exec/sender:/usr/share/tilon/sender
       - ./Service04/exec/CollectAgent:/usr/share/blab/CollectAgent
+      - ./Service04/exec/SyncAgent:/usr/share/blab/SyncAgent
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
@@ -94,9 +95,9 @@ services:
     extra_hosts:
       - "emailbox:211.115.219.40"
       - "node01:211.115.219.40"
-      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102:23080"
-      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102:23080"
-      - "edocdistcdertgw.epost.go.kr:211.253.86.102:23080"
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102"
     networks:
       - nmailbox
 
@@ -122,9 +123,9 @@ services:
     extra_hosts:
       - "emailbox:211.115.219.40"
       - "node01:211.115.219.40"
-      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102:23080"
-      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102:23080"
-      - "edocdistcdertgw.epost.go.kr:211.253.86.102:23080"
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102"
     networks:
       - nmailbox
 

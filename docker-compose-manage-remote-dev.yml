@@ -23,9 +23,9 @@ services:
       - "service02:211.115.219.40"
       - "service03:211.115.219.40"
       - "service04:211.115.219.40"
-      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102:23080"
-      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102:23080"
-      - "edocdistcdertgw.epost.go.kr:211.253.86.102:23080"
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102"
     networks:
       - nmailbox
     command: npm run start.d
@@ -52,9 +52,9 @@ services:
       - "service02:211.115.219.40"
       - "service03:211.115.219.40"
       - "service04:211.115.219.40"
-      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102:23080"
-      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102:23080"
-      - "edocdistcdertgw.epost.go.kr:211.253.86.102:23080"
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102"
     networks:
       - nmailbox
     command: npm run start.d
@@ -80,9 +80,9 @@ services:
       - "service02:211.115.219.40"
       - "service03:211.115.219.40"
       - "service04:211.115.219.40"
-      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102:23080"
-      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102:23080"
-      - "edocdistcdertgw.epost.go.kr:211.253.86.102:23080"
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102"
     networks:
       - nmailbox
     command: npm start

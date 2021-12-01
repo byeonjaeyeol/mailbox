@@ -33,6 +33,12 @@ dirs=(
         Service04/data/blab/CollectAgent/logs
         Service04/data/blab/CollectAgent/option
         Service04/data/blab/CollectAgent/result/11001/60002        
+        Service04/data/blab/SyncAgent/receive
+        Service04/data/blab/SyncAgent/backup
+        Service04/data/blab/SyncAgent/backup/sftp/11001/60002
+        Service04/data/blab/SyncAgent/logs
+        Service04/data/blab/SyncAgent/option
+        Service04/data/blab/SyncAgent/result/11001/60002        
      )
 for dir in "${dirs[@]}"; do
     if [ ! -d $dir ]; then
