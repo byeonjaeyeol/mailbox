@@ -27,7 +27,7 @@ let BlabClientConfig = {
         reason: "개인테스트사유1111"
     },
     company: {
-        idn: "epostidvdevidn",
+        idn: "1234567890",
         name: "우체국법인테스터",
         eaddr: "epostcompdev#epost",
         regDate: "2021-11-02 13:23:21",

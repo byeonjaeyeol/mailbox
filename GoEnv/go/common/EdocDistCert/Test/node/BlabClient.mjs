@@ -160,7 +160,7 @@ const BlabClient = {
             circulations: circulations
         }
         const url = baseUrl + '/api/circulation';
-        const response = await axios.post(url, bodyData, this.getHeaders());
+        const response = await axios.patch(url, bodyData, this.getHeaders());
         return response.data;
     },
 
