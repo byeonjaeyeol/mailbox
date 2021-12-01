@@ -3,7 +3,7 @@ const { BlabClient } = require('./BlabClient');
 const { BlabClientConfig } = require('./BlabClientConfig');
 
 // 전자문서 유통정보 등록 테스트
-function BlabEdocDistRegistTest() {
+async function BlabEdocDistRegistTest() {
     const todayDate = new Date();
     const today = strftime('%Y%m%d', todayDate);
     const nowTime = strftime('%H%M%S', todayDate);
@@ -36,13 +36,10 @@ function BlabEdocDistRegistTest() {
         circulations.push(circData);
     }
 
-    BlabClient.PostEdocDistRegist(
-        BlabClientConfig.server.baseUrl,
-        circulations)
-        .then(res => {
-            console.log(res);
-            console.log(res.data.circulations);
-        });
+    const res = await BlabClient.PostEdocDistRegist(
+        BlabClientConfig.server.baseUrl, circulations);
+    console.log(res);
+    console.log(res.data.circulations);
 }
 
 BlabEdocDistRegistTest();

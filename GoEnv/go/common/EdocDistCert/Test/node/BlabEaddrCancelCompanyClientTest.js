@@ -2,14 +2,12 @@ const { BlabClient } = require('./BlabClient');
 const { BlabClientConfig } = require('./BlabClientConfig');
 
 // 법인 공인전자주소 탈퇴 테스트
-function BlabEaddrCancelCompanyTest() {
-    BlabClient.PatchEaddrCancel(
+async function BlabEaddrCancelCompanyTest() {
+    const res = await BlabClient.PatchEaddrCancel(
         BlabClientConfig.server.baseUrl,
         BlabClientConfig.company.eaddr,
-        BlabClientConfig.company.eaddrDelDate)
-        .then(res => {
-            console.log(res)
-        });
+        BlabClientConfig.company.eaddrDelDate);
+    console.log(res);
 }
 
 BlabEaddrCancelCompanyTest();
