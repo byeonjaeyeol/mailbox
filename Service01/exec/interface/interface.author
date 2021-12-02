@@ -316,6 +316,12 @@
         "hmac": "false"
       },
       {
+        "uri": "/kisa/edoc/get",
+        "agent": "POSTOK",
+        "ip": "",
+        "hmac": "false"
+      },
+      {
         "uri": "/stats/docid",
         "agent": "",
         "ip": "",
