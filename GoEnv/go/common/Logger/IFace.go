@@ -79,6 +79,25 @@ func LoadConfig_json(jsonString string) error {
 	return nil
 }
 
+// LoadConfigFromLogger haebo 2021-12-02
+// Config를 Json 대신 직접 []LogObject로 사용하는 경우
+func LoadConfigFromLogObjects(inLogObjects []LogObject) error {
+	o := GetInstance()
+
+	o.Logs = inLogObjects
+
+	for _, log := range o.Logs {
+		if FORMAT_STD_OUT == log.Format {
+			continue
+		}
+		cerr := PreCreatePath(&log)
+		if nil != cerr {
+			return cerr
+		}
+	}
+	return nil
+}
+
 // WriteLog : write log text/json
 func WriteLog(strName string, i32Level int32, args ...interface{}) {
 	o := GetInstance()

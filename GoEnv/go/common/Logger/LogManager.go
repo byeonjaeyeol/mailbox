@@ -10,19 +10,21 @@ import (
 var FORMAT_TEXT_FILE string = "textfile"
 var FORMAT_STD_OUT string = "stdout"
 
+// haebo 2021-12-02 yaml tag 추가
+
 type LogObject struct {
-	Name         string `json:"name"`
-	Path         string `json:"path"`
-	Level        int32  `json:"level"`
-	Format       string `json:"format"`
+	Name         string `json:"name" yaml:"name"`
+	Path         string `json:"path" yaml:"path"`
+	Level        int32  `json:"level" yaml:"level"`
+	Format       string `json:"format" yaml:"format"`
 	TmCreated    int64
-	RotationCnt  int32 `json:"rotationCnt"`
-	RotationFreq int64 `json:"rotationFreq"`
+	RotationCnt  int32 `json:"rotationCnt" yaml:"rotationCnt"`
+	RotationFreq int64 `json:"rotationFreq" yaml:"rotationFreq"`
 }
 
 // LoggerObject object : slice of Log
 type LoggerObject struct {
-	Logs []LogObject `json:"logs"`
+	Logs []LogObject `json:"logs" yaml:"logs"`
 }
 
 var instance *LoggerObject
