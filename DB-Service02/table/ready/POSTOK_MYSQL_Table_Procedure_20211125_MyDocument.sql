@@ -294,7 +294,7 @@ BEGIN
 
    END IF;
 
-   SELECT @LastIDX, @eDocNo, @now_dt;
+   SELECT @LastIDX, @eDocNo;
 END;;
 DELIMITER ;
 
