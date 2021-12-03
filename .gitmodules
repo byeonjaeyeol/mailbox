@@ -16,9 +16,6 @@
 [submodule "GoEnv/go/BlabAgent"]
 	path = GoEnv/go/BlabAgent
 	url = https://github.com/hieuncom/BlabAgent.git
-[submodule "GoEnv/go/EdocDistCert"]
-	path = GoEnv/go/EdocDistCert
-	url = https://github.com/bsquarelab/EdocDistCert.git
 [submodule "API-WAS1/docker-mailbox/mailbox"]
 	path = API-WAS1/docker-mailbox/mailbox
 	url = https://github.com/bsquarelab/upost-portal.git
@@ -31,3 +28,6 @@
 [submodule "GoEnv/go/DispatchAgent"]
 	path = GoEnv/go/DispatchAgent
 	url = https://github.com/hieuncom/DispatchAgent.git
+[submodule "GoEnv/go/EdocDistCert"]
+	path = GoEnv/go/EdocDistCert
+	url = https://github.com/bsquarelab/EdocDistCert.git
