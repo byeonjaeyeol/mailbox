@@ -14,7 +14,7 @@ type BlabEaddrRegistRequest struct {
 	// 개인 이외의 이용자명은 사업자등록증에 표기된 법인명(단체명)으로 등록해야 한다.
 	Name string `json:"name,omitempty" example:"한국인터넷진흥원" maxLength:"40" validate:"required,max=40"`
 
-	// type 이용자 구분 값: 필수임 golang number 0 validation 이슈로 swagger에서는 표시하지 못함`
+	// type 이용자 구분 값: 필수임 golang number 0 validation 이슈로 swagger에서는 표시하지 못함
 	// * 0: 개인
 	// * 1: 법인
 	// * 2: 국가기관
