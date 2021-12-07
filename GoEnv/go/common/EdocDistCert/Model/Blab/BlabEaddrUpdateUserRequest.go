@@ -1,7 +1,7 @@
 package Blab
 
-// BlabEaddrUpdateUserIndividualRequest 개인 공인전자주소 소유자정보 수정 요청 정보
-type BlabEaddrUpdateUserIndividualRequest struct {
+// BlabEaddrUpdateUserRequest 공인전자주소 소유자정보 수정 요청 정보
+type BlabEaddrUpdateUserRequest struct {
 	// eaddr 이용자 공인전자주소
 	Eaddr string `json:"eaddr,omitempty" example:"abc01071660123" maxLength:"100" validate:"required"`
 
