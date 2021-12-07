@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tbl_bcorg`
+-- Table structure for table `TBL_BCORG`
 --
 
-DROP TABLE IF EXISTS `tbl_bcorg`;
+DROP TABLE IF EXISTS `TBL_BCORG`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbl_bcorg` (
+CREATE TABLE `TBL_BCORG` (
   `idx` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `org_name` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`idx`)
@@ -30,13 +30,13 @@ CREATE TABLE `tbl_bcorg` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbl_bcorg`
+-- Dumping data for table `TBL_BCORG`
 --
 
-LOCK TABLES `tbl_bcorg` WRITE;
-/*!40000 ALTER TABLE `tbl_bcorg` DISABLE KEYS */;
-INSERT INTO `tbl_bcorg` VALUES (1,'org1'),(2,'org2');
-/*!40000 ALTER TABLE `tbl_bcorg` ENABLE KEYS */;
+LOCK TABLES `TBL_BCORG` WRITE;
+/*!40000 ALTER TABLE `TBL_BCORG` DISABLE KEYS */;
+INSERT INTO `TBL_BCORG` VALUES (1,'org1'),(2,'org2');
+/*!40000 ALTER TABLE `TBL_BCORG` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

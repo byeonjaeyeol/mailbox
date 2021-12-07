@@ -929,3 +929,37 @@ GET /11001-*/_search
 		}
 		}
 	}
+
+
+GET /11001-*/_search
+{
+    "from" : "0",
+    "size" : "100",
+    "sort" : [
+        {
+            "status.time.@registed" : "desc"
+        }
+    ],
+    "query" : {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "ver": {
+                            "query": "R20211111",
+                            "operator": "and"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "binding.reserved.essential.agency.dept-code": {
+                            "query": "60002",
+                            "operator": "and"
+                        }
+                    }
+                }
+            ]
+        }
+    }    
+}

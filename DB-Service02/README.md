@@ -223,3 +223,21 @@ MariaDB [EMAILBOX]> SELECT SCHEMA_NAME 'database', default_character_set_name 'c
 INSERT INTO TBL_AGENCY VALUES(12,"49757","(주)비스퀘어랩","69999","미래연구본부","안계혁","01026686763","jhko@tilon.com","https://if.postok.co.kr/icon/bsquarelab_logo.png", "2025-05-20 00:00:00", "pstchannel1","org1",0,3,"365d",0,"");
 
 ```
+
+
+# 데이터 백업 및  복구
+
+```
+$ mysqldump -h 211.253.86.102 -P 33306 -u root -p --no-data --routines EMAILBOX > POSTOK_MYSQL_Table_Procedure_20211207.sql
+
+$ mysql -h 211.253.86.102 -P 33306 -u root -p EMAILBOX < POSTOK_MYSQL_Table_Procedure_20211207.sql
+Enter password: 
+$ mysql -h 211.253.86.102 -P 33306 -u root -p EMAILBOX < POSTOK_MYSQL_Table_TBL_BCCHANNEL.sql 
+Enter password: 
+$ mysql -h 211.253.86.102 -P 33306 -u root -p EMAILBOX < POSTOK_MYSQL_Table_TBL_BCCHANNEL.sql 
+Enter password: 
+$ mysql -h 211.253.86.102 -P 33306 -u root -p EMAILBOX < POSTOK_MYSQL_Table_TBL_BCORG.sql 
+Enter password: 
+$ mysql -h 211.253.86.102 -P 33306 -u root -p EMAILBOX < POSTOK_MYSQL_Table_TBL_SYSTEM_USER.sql 
+
+```

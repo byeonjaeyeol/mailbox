@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tbl_bcchannel`
+-- Table structure for table `TBL_BCCHANNEL`
 --
 
-DROP TABLE IF EXISTS `tbl_bcchannel`;
+DROP TABLE IF EXISTS `TBL_BCCHANNEL`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbl_bcchannel` (
+CREATE TABLE `TBL_BCCHANNEL` (
   `idx` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `channel_name` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`idx`)
@@ -30,13 +30,13 @@ CREATE TABLE `tbl_bcchannel` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbl_bcchannel`
+-- Dumping data for table `TBL_BCCHANNEL`
 --
 
-LOCK TABLES `tbl_bcchannel` WRITE;
-/*!40000 ALTER TABLE `tbl_bcchannel` DISABLE KEYS */;
-INSERT INTO `tbl_bcchannel` VALUES (1,'pstchannel1'),(2,'pstchannel2');
-/*!40000 ALTER TABLE `tbl_bcchannel` ENABLE KEYS */;
+LOCK TABLES `TBL_BCCHANNEL` WRITE;
+/*!40000 ALTER TABLE `TBL_BCCHANNEL` DISABLE KEYS */;
+INSERT INTO `TBL_BCCHANNEL` VALUES (1,'pstchannel1'),(2,'pstchannel2');
+/*!40000 ALTER TABLE `TBL_BCCHANNEL` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
