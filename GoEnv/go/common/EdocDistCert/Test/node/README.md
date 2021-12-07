@@ -21,7 +21,7 @@
 | 7 | 개인 공인전자주소 소유자정보 수정 | PATCTH | /api/eaddr/user/individual | /api/eaddr/user/individual | PatchEddrUpdateUserIndividual | BlabEaddrUpdateUserIndividualClientTest.js |
 | 8 | 법인 공인전자주소 소유자정보 수정 | POST | /api/eaddr/user/company | /api/eaddr/user/company | PostEaddrUpdateUserCompany | BlabEaddrUpdateUerCompanyClientTest.js |
 | 9 | 전자문서 유통정보 등록 | POST | /api/circulation | /api/circulation | PostEdocDistRegist | BlabEdocDistRegistClientTest.js |
-| 10 | 전자문서 유통정보 수정 | PATCH | /api/circulation | /api/circulation | PatchEdocDistRead | BlabEdocDistReadClientTest.js |
+| 10 | 전자문서 유통정보 열람시각 등록 | PATCH | /api/circulation | /api/circulation | PatchEdocDistRead | BlabEdocDistReadClientTest.js |
 | 11 | 전자문서 유통증명서 발급 | POST | /api/cert | /api/cert | 미작업 | |
 
 급하게 만드느라 내부 모듈들 정리가 되지는 않았습니다.

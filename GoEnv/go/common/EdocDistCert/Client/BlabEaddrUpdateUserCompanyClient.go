@@ -25,7 +25,7 @@ import (
 //  - *blabModel.BlabResponse: Data는 *BlabCommonResponse
 //  - error
 func PostEaddrUpdateUserCompany(baseUrl string, compEaddr string, compName string, updDate string, bizDocFilePath string, regDocFilePath string) (*blabModel.BlabResponse, error) {
-	data := blabModel.BlabEaddrUpdateUserCompanyRequest{Eaddr: compEaddr, Name: compName, UpdDate: updDate}
+	data := blabModel.BlabEaddrUpdateUserRequest{Eaddr: compEaddr, Name: compName, UpdDate: updDate}
 
 	metadataBytes, _ := json.Marshal(data)
 	// buff := bytes.NewBuffer(pbytes)
