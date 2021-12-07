@@ -5,11 +5,11 @@ type BlabEdocDistReadResponse struct {
 	// resultCode 처리결과 (1:성공, 0:실패)
 	ResultCode int8 `json:"resultCode" enums:"0,1" example:"1" validate:"required"`
 
-	// errCode 오류코드
+	// errCode 오류코드, resultCode가 1이 아니면 errCode, errMsg 항목은 없음
 	ErrCode string `json:"errCode,omitempty" example:"ERR-01-501" maxLength:"10" validatee:"required"`
 
-	// errMsg 오류메시지
-	ErrMsg string `json:"errMsg,omitempty" example:"유통증명서 오류 – 유통정보가 존재하지 않음" maxLength:"256""`
+	// errMsg 오류메시지, resultCode가 1이 아니면 errCode, errMsg 항목은 없음
+	ErrMsg string `json:"errMsg,omitempty" example:"유통증명서 오류 – 유통정보가 존재하지 않음" maxLength:"256"`
 
 	// circulations 유통정보 배열
 	Circulations []BlabEdocDistReadCircResponse `json:"circulations,omitempty" maxLength:"500" validate:"required"`
