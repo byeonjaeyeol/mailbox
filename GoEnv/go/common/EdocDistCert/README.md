@@ -24,7 +24,7 @@
 | 7 | 개인 공인전자주소 소유자정보 수정 | PATCTH | /api/eaddr/user/individual | /api/eaddr/user/individual | BlabEaddrUpdateUserIndividualClient.go | PatchEddrUpdateUserIndividual | BlabEaddrUpdateUserIndividualClientTest.go |
 | 8 | 법인 공인전자주소 소유자정보 수정 | POST | /api/eaddr/user/company | /api/eaddr/user/company | BlabEaddrUpdateUserCompanyClient.go | PostEaddrUpdateUserCompany | BlabEaddrUpdateUserCompanyClientTest.go |
 | 9 | 전자문서 유통정보 등록 | POST | /api/circulation | /api/circulation | BlabEdocDistRegistClient.go | PostEdocDistRegist | BlabEdocDistRegistClientTest.go |
-| 10 | 전자문서 유통정보 수정 | PATCH | /api/circulation | /api/circulation | BlabEdocDistReadClient.go | PatchEdocDistRead | BlabEdocDistReadClientTest.go |
+| 10 | 전자문서 유통정보 열람시각 등록 | PATCH | /api/circulation | /api/circulation | BlabEdocDistReadClient.go | PatchEdocDistRead | BlabEdocDistReadClientTest.go |
 | 11 | 전자문서 유통증명서 발급 | POST | /api/cert | /api/cert | BlabEdocDistGetCertClient.go | PostEdocDistGetCert | BlabEdocDistGetCertClientTes.go |
 
 ## 파일 저장 경로 설정
