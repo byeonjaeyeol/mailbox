@@ -13,9 +13,6 @@
 [submodule "GoEnv/go/analyzer-authorized"]
 	path = GoEnv/go/analyzer-authorized
 	url = https://github.com/bsquarelab/analyzer-authorized.git
-[submodule "GoEnv/go/BlabAgent"]
-	path = GoEnv/go/BlabAgent
-	url = https://github.com/hieuncom/BlabAgent.git
 [submodule "API-WAS1/docker-mailbox/mailbox"]
 	path = API-WAS1/docker-mailbox/mailbox
 	url = https://github.com/bsquarelab/upost-portal.git
@@ -31,3 +28,6 @@
 [submodule "GoEnv/go/EdocDistCert"]
 	path = GoEnv/go/EdocDistCert
 	url = https://github.com/bsquarelab/EdocDistCert.git
+[submodule "GoEnv/go/CollectAgent"]
+	path = GoEnv/go/CollectAgent
+	url = https://github.com/hieuncom/CollectAgent.git
