@@ -285,9 +285,74 @@ curl --user admin:admin -XPOST 'http://localhost:9200/11001/_rollover?pretty' -H
 }
 ```
 ### 6.2 status
+```
+# curl http://localhost:9200/_nodes/process?pretty
+{
+  "_nodes" : {
+    "total" : 2,
+    "successful" : 2,
+    "failed" : 0
+  },
+  "cluster_name" : "emailbox",
+  "nodes" : {
+    "zLDzBpNtQ1-MKVz-C_o8og" : {
+      "name" : "node-2",
+      "transport_address" : "10.64.203.47:9300",
+      "host" : "10.64.203.47",
+      "ip" : "10.64.203.47",
+      "version" : "6.5.0",
+      "build_flavor" : "default",
+      "build_type" : "rpm",
+      "build_hash" : "816e6f6",
+      "roles" : [
+        "master",
+        "data",
+        "ingest"
+      ],
+      "attributes" : {
+        "ml.machine_memory" : "7933714432",
+        "ml.max_open_jobs" : "20",
+        "xpack.installed" : "true",
+        "ml.enabled" : "true"
+      },
+      "process" : {
+        "refresh_interval_in_millis" : 1000,
+        "id" : 25214,
+        "mlockall" : false
+      }
+    },
+    "nQ6056euRoOSWOjlABlbwA" : {
+      "name" : "node-1",
+      "transport_address" : "10.64.203.76:9300",
+      "host" : "10.64.203.76",
+      "ip" : "10.64.203.76",
+      "version" : "6.5.0",
+      "build_flavor" : "default",
+      "build_type" : "rpm",
+      "build_hash" : "816e6f6",
+      "roles" : [
+        "master",
+        "data",
+        "ingest"
+      ],
+      "attributes" : {
+        "ml.machine_memory" : "7933730816",
+        "xpack.installed" : "true",
+        "ml.max_open_jobs" : "20",
+        "ml.enabled" : "true"
+      },
+      "process" : {
+        "refresh_interval_in_millis" : 1000,
+        "id" : 7618,
+        "mlockall" : false
+      }
+    }
+  }
+}
+```
+
 
 ```
-$ curl http://localhost:9200/_nodes/process?pretty
 $ curl http://localhost:9200/_nodes/stats?pretty
 
 $ curl 'localhost:9200/_cat/indices?pretty'
