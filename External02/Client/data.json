@@ -1,0 +1,137 @@
+{
+    "data-hash": "hash1",
+    "data" : {
+        "request-id" : "202112070000005",
+        "pi": "Pc7d03ea4529714feaf6a7a32c3cc4980b4c4a18cdee1df8d49640c715a9ea05fKR",
+        "ci": "teste",
+        "mi": "M2fb537b36619c70f04030aca702fa5682b90237575c305da4cf41c3a85bac80dKR",
+        "disp_class": "01",
+        "send_date": "211202",
+        "sender_pi" : "sender_pi",
+        "match_key": "1",
+        "official_doc": "Y",
+        "se_type" : "1",
+        "se_name" : "근로복지공단 영  주  지  사",
+        "se_zip_code" : "36102",
+        "se_addr1" : "경북 영주시 원당로 68-1",
+        "se_addr2" : "(휴천동, 근로복지공단영주지사)",
+        "se_tel" : "1588-0075",
+        "re_name" : "봉화제일교회(강종구)(강종구)",
+        "re_zip_code" : "36238",
+        "re_addr1" : "경북 봉화군 봉화읍 내성로6길 14",
+        "re_addr2" : "(봉화제일교회)",
+        "re_addr3" : "",
+        "dr_no" : "4",
+        "dr_name" : "테스트문서1",
+        "dr_form" : "00004",
+        "dr_num" : "3",
+        "dr_list" : {
+            "var1" : "dr_list_var1",
+            "var2" : "dr_list_var2",
+            "var3" : "dr_list_var3"
+        },
+        "ddj_nm" : "두두두두",
+        "ddj_tel" : "01011112222",
+        "grj_num" : "10",
+        "grjlist" : [
+            {
+                "grj_no": "1",
+                "grj_nm": "케케케",
+                "grj_birth" : "901010",
+                "grj_jiwon_fg" : "01",
+                "grj_jiwon_prc": "30000",
+                "grj_bjg_sayu": "202110",
+                "jiwon_yymm": "202110"
+            },
+            {
+                "grj_no": "2",
+                "grj_nm": "문태훈",
+                "grj_birth" : "901010",
+                "grj_jiwon_fg" : "02",
+                "grj_jiwon_prc": "30000",
+                "grj_bjg_sayu": "202110",
+                "jiwon_yymm": "202110"
+            },
+            {
+                "grj_no": "3",
+                "grj_nm": "김은총",
+                "grj_birth" : "901010",
+                "grj_jiwon_fg" : "02",
+                "grj_jiwon_prc": "30000",
+                "grj_bjg_sayu": "202110",
+                "jiwon_yymm": "202110"
+            },
+            {
+                "grj_no": "4",
+                "grj_nm": "김은총4",
+                "grj_birth" : "901010",
+                "grj_jiwon_fg" : "02",
+                "grj_jiwon_prc": "30000",
+                "grj_bjg_sayu": "202110",
+                "jiwon_yymm": "202110"
+            },
+            {
+                "grj_no": "5",
+                "grj_nm": "김은총5",
+                "grj_birth" : "901010",
+                "grj_jiwon_fg" : "02",
+                "grj_jiwon_prc": "30000",
+                "grj_bjg_sayu": "202110",
+                "jiwon_yymm": "202110"
+            },
+            {
+                "grj_no": "6",
+                "grj_nm": "김은총6",
+                "grj_birth" : "901010",
+                "grj_jiwon_fg" : "02",
+                "grj_jiwon_prc": "30000",
+                "grj_bjg_sayu": "202110",
+                "jiwon_yymm": "202110"
+            },
+            {
+                "grj_no": "7",
+                "grj_nm": "김은총7",
+                "grj_birth" : "901010",
+                "grj_jiwon_fg" : "02",
+                "grj_jiwon_prc": "30000",
+                "grj_bjg_sayu": "202110",
+                "jiwon_yymm": "202110"
+            },
+            {
+                "grj_no": "8",
+                "grj_nm": "김은총8",
+                "grj_birth" : "901010",
+                "grj_jiwon_fg" : "02",
+                "grj_jiwon_prc": "30000",
+                "grj_bjg_sayu": "202110",
+                "jiwon_yymm": "202110"
+            },
+            {
+                "grj_no": "9",
+                "grj_nm": "김은총9",
+                "grj_birth" : "901010",
+                "grj_jiwon_fg" : "02",
+                "grj_jiwon_prc": "30000",
+                "grj_bjg_sayu": "202110",
+                "jiwon_yymm": "202110"
+            },
+            {
+                "grj_no": "10",
+                "grj_nm": "김은총10",
+                "grj_birth" : "901010",
+                "grj_jiwon_fg" : "02",
+                "grj_jiwon_prc": "30000",
+                "grj_bjg_sayu": "202110",
+                "jiwon_yymm": "202110"
+            }
+        ],
+        "jiwon_sum" : "30000",
+        "jigeup_sum" : "230000",
+        "jigeup_dt" : "20210927",
+        "jiwon_yymm" : "202109",
+        "sej_nm" : "상일교회",
+        "sej_addr1" : "서울 강동구 상일로 3길 27",
+        "sej_addr2" : "sej_addr2",
+        "gy_gwanri_no" : "409-82-8047-80"
+    }
+}
