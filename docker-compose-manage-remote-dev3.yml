@@ -8,9 +8,9 @@ services:
     restart: 'no'
     privileged: true
     volumes:
-      - ./API-WAS1/docker-mailbox/mailbox/configs:/home/tilon/mailbox/configs
-      - ./API-WAS1/docker-mailbox/mailbox/public:/home/tilon/mailbox/public
-      - ./API-WAS1/docker-mailbox/mailbox/public_user:/home/tilon/mailbox/public_user
+      - ./API-WAS1/docker-mailbox/mailbox/configs:/home/blab/mailbox/configs
+      - ./API-WAS1/docker-mailbox/mailbox/public:/home/blab/mailbox/public
+      - ./API-WAS1/docker-mailbox/mailbox/public_user:/home/blab/mailbox/public_user
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux
