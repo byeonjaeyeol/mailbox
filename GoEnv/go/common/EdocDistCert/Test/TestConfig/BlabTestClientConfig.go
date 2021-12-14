@@ -24,6 +24,8 @@ type ClientConfigUserType struct {
 	EaddrDelDate string `yaml:"eaddrDelDate"`
 	EdocNum      string `yaml:"edocNum"`
 	Reason       string `yaml:"reason"`
+	CertNum      string `yaml:"certNum"`
+	CertFilename string `yaml:"certFilename"`
 }
 
 type ClientAuthInfoType struct {
