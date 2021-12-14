@@ -825,8 +825,64 @@ $ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: ap
 ```
 
 
+### 6.6 reboot or restart
+#### 6.6.1 Shard Allication Disable
+ES입장에서는 샤드 노드중 한대가 중지하면 그 노드가 속한 primary shard나 replica shard를 다른 노드로 옮기려는 Shard Allocation작업을 수행한다. 이는 클러스터의 특정노드가 장애상황일 떄 이부분에 대한 FailOver가 동작하는 과정이다. 그러나 순차적으로 재시작할 때는 이 과정이 오버헤드로 동작하기 떄문에 샤드할당 기능을 꺼두어 샤드할당이 다시 일어나는 것을 방지한다.
 
+```
+# curl -XPUT 'http://localhost:9200/_cluster/settings?pretty' -H'Content-Type:application/json' -d'
+{
+  "transient" : { 
+      "cluster.routing.allocation.enable" : "none"
+  }
+}'
+```
+공식 : https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-cluster.html#shards-allocation
 
+#### 6.6.2 synced flush
+synced flush를 수행하면 flush 수행 후 존재하는 모든 샤드마다 유니크한 sync-id를 발급하여 샤드간의 비교(서로 동일한 샤드인지)시 sync-id만으로 비교가 가능하게 만든다. 샤드 비교는 recovery나 재시작시 cost 소모가 심한 작업으로 적혀 있다. (따라서 이부분을 sync-id로 대체가 되면 recovery나 재시작이 훨씬 효율적일 것이다.)
+
+```
+$ curl -XPOST 'localhost:9200/_flush/synced?pretty'
+
+```
+#### 6.6.3 재시작
+노드별로 순차적으로 재기동하며 
+환경에 따라 docker restart 혹은 systemctrl restart elasticsearch.service를 이용하여 재시작한다.
+
+#### 6.6.4 노드상태 확인
+재시작 후 로그 파일이나 노드의 상태를 관찰하여 이상이 없는지 모니터링 한다.
+```
+$ curl -XGET 'localhost:9200/_cat/nodes?pretty'
+10.64.203.76 88 97 8 0.08 0.16 0.19 mdi * node-1
+10.64.203.47 61 98 8 0.11 0.22 0.22 mdi - node-2
+```
+
+#### 6.6.5 샤드 할당 활성화
+샤드 할당을 다시 활성화 한다. cluster.routing.allocation.enable의 default 값인 "all"로 변경한다. 
+
+```
+# curl -XPUT 'http://localhost:9200/_cluster/settings?pretty' -H'Content-Type:application/json' -d'
+{
+  "transient" : { 
+      "cluster.routing.allocation.enable" : "all"
+  }
+}'
+```
+
+#### 6.6.6 클러스터 헬스 체크
+노드가 정상화 되었는지 헬스체크를 통해 확인한다.
+```
+$ curl -XGET 'localhost:9200/_cat/health?pretty'
+1639467404 07:36:44 emailbox green 2 2 496 248 0 0 0 0 - 100.0%
+```
+
+#### 6.6.7 버전 업그레이드 시 유의사항
+롤링 업그레이드 동안 신규 버전에 속한 primary shard는 replica shard를 하위 버전 노드로 복사하지 않는다. 이유는 신규버전의 데이터 포멧은 하위버전과 다를 수 있기 때문이다.
+만약 타이밍적으로 신규버전으로 업그레이드된 노드가 1대 뿐이라면 replica shard는 존재하지 않기 때문에 클러스터 상태는 yellow상태이다.
+업그레이드가 점점 진행됨에 따라(신규버전 노드가 복수개로 바뀜에 따라) replica shard가 생겨나므로 클러스터는 다시 green으로 바뀔 것이다.
+
+reference : https://www.elastic.co/guide/en/elasticsearch/reference/current/rolling-upgrades.html
 
 
 ## various queries

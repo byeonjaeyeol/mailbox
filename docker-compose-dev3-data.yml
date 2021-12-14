@@ -47,6 +47,8 @@ services:
       #- /etc/localtime:/etc/localtime:ro #on linux
     cpus: 0.3
     mem_limit: "5g"
+    ports:
+      - 9201:9200
     depends_on:
       - emailbox
     networks:
