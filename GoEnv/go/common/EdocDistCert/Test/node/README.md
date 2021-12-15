@@ -23,9 +23,10 @@
 | 9 | 전자문서 유통정보 등록 | POST | /api/circulation | /api/circulation | PostEdocDistRegist | BlabEdocDistRegistClientTest.js |
 | 10 | 전자문서 유통정보 열람시각 등록 | PATCH | /api/circulation | /api/circulation | PatchEdocDistRead | BlabEdocDistReadClientTest.js |
 | 11 | 전자문서 유통증명서 발급 | POST | /api/cert | /api/cert | 미작업 | |
+| 12 | 전자문서 유통증명서 발급 후 게이트웨이에 저장 | POST | 없음 | /api/cert/save | PostEdocDistSaveCert | BlabEdocDistSaveCertClientTest.js |
+| 13 | 전자문서 유통증명서 다운로드 | GET | 없음 | /api/cert/download | GetEdocDistDownloadCert | BlabEdocDistDownloadCertClientTest.js |
+| 14 | 앱 서버용 전자문서 유통증명서 발급/저장 후 다운로드 | 없음 | 없음 | 12, 13 결합 | 12, 13 결합 | BlabEdocDistSaveAndDownloadCertWebTest.js |
 
-급하게 만드느라 내부 모듈들 정리가 되지는 않았습니다.
-
-원하는 개발 방향이나 nodejs의 http client lib을 변경하고자 하면 이야기해 주세요.
-
-<strong>특히 모듈 구성 방법에 대해서 알려 주시면 수정하도록 하겠습니다.</strong>
+## 웹 서버용 전자문서 유통증명서 발급/저장 후 다운로드 에제 확인
+* node BlabEdocDistSaveAndDownloadWebTest.js
+* 브라우저에서 http://localhost:2345/saveAndDownload 호출

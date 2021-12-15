@@ -5,9 +5,8 @@ import (
 	"net/http"
 )
 
-// PostEdocDistSaveCert 전자문서 유통증명서 발급
-// Content-Type은 multipart/mixed임
-// BlabEdocDistGetCertResponse의 Filename에 첨부파일명이 입력됨
+// PostEdocDistSaveCert 전자문서 유통증명서 게이트웨이에 저장
+// 이 함수를 실행 후 실제 유통증명서를 다운로드하려면 이 함수 응답의 certNum, fileName(-> certFilename)을 파라리터로 GetEdocDistDownoadCer 함수를 실행해야 함
 // Params
 // 	- baseUrl string : 게이트웨이 URL:port
 //	- edocNum string : 전자문서번호

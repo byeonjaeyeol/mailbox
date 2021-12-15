@@ -202,6 +202,7 @@ exports.BlabClient = {
         }
         const url = baseUrl + '/api/cert/download?' + querystring.stringify(queryParam);
         console.log(url)
+        // config의 responseType: "arraybuffer"가 아니면 원본 바이너리 데이터가 유지되지 않음
         const config = {
            method: "GET",
            url: url,
