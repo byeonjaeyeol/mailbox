@@ -30,13 +30,18 @@ func main() {
 			fileDownloadResponse.ErrCode,
 			fileDownloadResponse.ErrMsg,
 			len(fileDownloadResponse.FileBytes))
-	} else {
-		log.Printf("파일 다운로드 응답이 아님")
+		/*
+			go 웹 서버에서 브라우저나 앱에서 다운로드하게 하려면 아래와 같이 출력하면 됨
+			w.Header().Set("Content-Type", "application/pdf")
+			w.Header().Set("Content-Disposition", fmt.Sprintf("attachment; filename=\"%s\"", certRes.Filename))
+			w.Header().Set("Content-Length", fmt.Sprintf("%d", len(fileDownloadResponse.FileBytes)))
+			// WriteHeader하기 전에 Header 데이터를 지정해야 함
+			w.WriteHeader(http.StatusOK)
+			w.Write(fileDownloadResponse.FileBytes)
+		*/
+		return
 	}
-	/*
-		w.WriteHeader(http.StatusOK)
-		// w.Header().Set("Content-Type", "application/octet-stream") // 무조건 다운로드하게 하려면 application/octet-stream을 사용
-		w.Header().Set("Content-Type", "application/pdf")	// pdf를 브라우저에서 확인 후 pdf viewer에서 다운로드하게 하려면 application/pdf 사용
-		w.Write(appRes.Data.FileBytes)
-	*/
+
+	log.Printf("파일 다운로드 응답이 아님")
+
 }
