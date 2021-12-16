@@ -19,10 +19,10 @@ server:
   basePort: 23080
   baseUrl: http://dev-edocdistcertgw.epost.go.kr:23080
 individual:
-  idn: epostidvdevidn
+  idn: tJ6wTSGTGSGxk2ANGsxdxlpBD/+t+TOgh1F6KdNA/frlI+zXUk92kMsfra0ti4wV9aHYzJCIWkiF0YkLNjnpRQ==
   name: 우체국개인테스터
   # eaddr: epostidvdeveaddr01#epost
-  eaddr: epostidvdeveaddr#epost
+  eaddr: P8dee23f54e1fd239613f4234c84445d1fff4fe076119822b5fe3d548c1506817KR
   regDate: 2021-11-01 13:23:21
   updDate: 2021-11-09 15:22:32
   eaddrDelDate : 2021-11-21 14:32:16

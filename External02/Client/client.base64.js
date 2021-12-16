@@ -19,6 +19,7 @@ fs.readFile('./data.json', 'utf8', (error, strJson) => {
     dataJson.data["request-id"] = id;
     dataJson.data.pi = pi;
     dataJson.data.ci = "thisisscreret!";
+    dataJson.data.re_name = dataJson.data.re_name + " " + name;
     dataJson.data.ddj_nm = name + " 담당자";
     dataJson.data.grjlist[0].grj_nm = "근로자01 " + name;
     dataJson.data.grjlist[1].grj_nm = "근로자02 " + name;
@@ -43,7 +44,7 @@ fs.readFile('./data.json', 'utf8', (error, strJson) => {
     }
 
     dataJson["data"] = strBase64DataJson;
-    dataJson["data-hash"] = crypto.createHash('sha256').update(strDataJson).digest('hex');
+    dataJson["data-hash"] = crypto.createHash('sha256').update(strBase64DataJson).digest('hex');
 
     console.log("new \r\n" + JSON.stringify(dataJson));
 
