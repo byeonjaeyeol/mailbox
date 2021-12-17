@@ -8,8 +8,8 @@ async function BlabEdocDistGetCertTest() {
         BlabClientConfig.individual.edocNum,
         BlabClientConfig.individual.eaddr,
         BlabClientConfig.individual.reason);
-    console.log('데이터가 바이너리라 출력하지 않음')
-    // console.log(res);
+    // console.log('데이터가 바이너리라 출력하지 않음')
+    console.log(res);
 }
 
 BlabEdocDistGetCertTest();

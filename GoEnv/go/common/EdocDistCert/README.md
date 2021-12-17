@@ -24,10 +24,19 @@
 | 7 | 개인 공인전자주소 소유자정보 수정 | PATCTH | /api/eaddr/user/individual | /api/eaddr/user/individual | BlabEaddrUpdateUserIndividualClient.go | PatchEddrUpdateUserIndividual | BlabEaddrUpdateUserIndividualClientTest.go |
 | 8 | 법인 공인전자주소 소유자정보 수정 | POST | /api/eaddr/user/company | /api/eaddr/user/company | BlabEaddrUpdateUserCompanyClient.go | PostEaddrUpdateUserCompany | BlabEaddrUpdateUserCompanyClientTest.go |
 | 9 | 전자문서 유통정보 등록 | POST | /api/circulation | /api/circulation | BlabEdocDistRegistClient.go | PostEdocDistRegist | BlabEdocDistRegistClientTest.go |
-| 10 | 전자문서 유통정보 수정 | PATCH | /api/circulation | /api/circulation | BlabEdocDistReadClient.go | PatchEdocDistRead | BlabEdocDistReadClientTest.go |
+| 10 | 전자문서 유통정보 열람시각 등록 | PATCH | /api/circulation | /api/circulation | BlabEdocDistReadClient.go | PatchEdocDistRead | BlabEdocDistReadClientTest.go |
 | 11 | 전자문서 유통증명서 발급 | POST | /api/cert | /api/cert | BlabEdocDistGetCertClient.go | PostEdocDistGetCert | BlabEdocDistGetCertClientTes.go |
+| 12 | 전자문서 유통증명서 발급 후 게이트웨이에 저장 | POST | 없음 | /api/cert/save | BlabEdocDistSaveCertClient | BlabEdocDistSaveCertClientTest.go |
+| 13 | 전자문서 유통증명서 다운로드 | GET | 없음 | /api/cert/download | BlabEdocDistDownloadCertClient | BlabEdocDistDownloadCertClientTest.go |
+| 14 | 앱 서버용 전자문서 유통증명서 발급/저장 후 다운로드 | 없음 | 없음 | 12, 13 결합 | 12, 13 결합 | BlabEdocDistSaveAndDownloadCertWebTest.go |
+
+## 웹 서버용 전자문서 유통증명서 발급/저장 후 다운로드 에제 확인
+* 11번 기능 대신 12, 13, 14 기능을 사용할 때
+* node BlabEdocDistSaveAndDownloadWebTest.js
+* 브라우저에서 http://localhost:2345/saveAndDownload 호출
 
 ## 파일 저장 경로 설정
+* 12, 13, 14번 기능 대신 11번 기능을 사용하여 go 클라이언트에서 직접 유통증명서를 다운로드하고자 할 떼 사용할 수 있음
 * 기본: 실행 경로의 + files/EdocDistCert/apps"
 * 변경 방법
   * BlabClient.SetFileSavePath("저장하고자하는파일경로")
@@ -40,7 +49,3 @@
 * 테스트 환경
   * Test/TestConfig/BlabClientConfig.yml에서 fileSavePath 지정
   * Test/TestClientConfig.go의 LoadTestClientConfig 함수 참조
-
-## 추가 또는 협의해야 할 것들
-* Result에는 Blab 내부 구조에 맞춘 Result/Data이며 Data에는 KISA의 응답을 그대로 담았는데 변경 필요 여부
-

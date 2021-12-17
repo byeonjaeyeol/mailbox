@@ -5,7 +5,7 @@ type IBlabResponseData interface {
 
 // BlabResponse 공통 기본 응답 정보
 type BlabResponse struct {
-	// result 응답 정보
+	// result 응답 정보. result가 200(success)이어도 KISA 응답인 data의 resultCode가 1이 아니면 오류임
 	Result BlabResult `json:"result" validate:"required"`
 	// data 응답 세부 정보
 	Data IBlabResponseData `json:"data,omitempty"`

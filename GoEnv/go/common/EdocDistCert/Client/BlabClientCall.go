@@ -205,6 +205,27 @@ func ClientCallWithReader(method string, url string, contentType string, reader 
 				}
 			}
 		}
+	} else if mediaType == "application/pdf" {
+		// 바이패스용이므로 직접 출력한다.
+		if toObj != nil {
+			resBodyBytes, err := ioutil.ReadAll(res.Body)
+			if err != nil {
+				log.Println("err=", err)
+				return nil, err
+			}
+
+			blabRes.SetResult("200", "success", toObj)
+			log.Printf("blabRes.Data type=%+v\n", reflect.TypeOf(blabRes.Data))
+			if fileDownloadResponse, ok := blabRes.Data.(*blabModel.BlabFileDownloadResponse); ok {
+				fileDownloadResponse.SetFileBytes(resBodyBytes)
+				// 게이트웨이에서는 파일 데이터만 응답하므로 resultCode는 임의로 지정함
+				fileDownloadResponse.SetResult(1, "", "")
+			} else {
+				return nil, errors.New("파일을 처리할 수 없습니다.(파일 변수형 변환 오류)")
+			}
+		} else {
+			return nil, errors.New("파일을 처리할 수 없습니다.(파일 변수 미지정 오류)")
+		}
 	} else {
 		if toObj != nil {
 			blabRes.Data = toObj

@@ -24,7 +24,9 @@ exports.BlabClientConfig = {
         updDate: "2021-11-09 15:22:32",
         eaddrDelDate : "2021-11-21 14:32:16",
         edocNum: "20211121_devmns1234_1547510000001",
-        reason: "개인테스트사유1111"
+        reason: "개인테스트사유1111",
+        certNum: "2021-1214-1543-0519",
+        certFilename: "2021-1214-1543-0519-403e097d-3da1-40bb-96df-1a6f09413df3.pdf"
     },
     company: {
         idn: "1234567890",
@@ -34,7 +36,9 @@ exports.BlabClientConfig = {
         updDate: "2021-11-10 18:22:32",
         eaddrDelDate : "2021-11-16 14:32:16",
         edocNum: "20211121_devmns1234_1547510000001",
-        reason: "법인테스트사유1111"
+        reason: "법인테스트사유1111",
+        certNum: "2021-1214-1543-0519",
+        certFilename: "2021-1214-1543-0519-403e097d-3da1-40bb-96df-1a6f09413df3.pdf"
     }
 };
 
