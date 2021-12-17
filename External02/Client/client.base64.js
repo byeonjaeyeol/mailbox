@@ -13,7 +13,7 @@ console.log(pi + ", " + name + ", " + id);
 
 fs.readFile('./data.json', 'utf8', (error, strJson) => {
     if (error) return console.log(error);
-    console.log(strJson);
+    // console.log(strJson);
     var dataJson = JSON.parse(strJson);
 
     dataJson.data["request-id"] = id;
@@ -34,8 +34,17 @@ fs.readFile('./data.json', 'utf8', (error, strJson) => {
 
     strDataJson = JSON.stringify(dataJson.data);
     console.log("data : " + strDataJson);
+    strBase64DataJson = Buffer.from(strDataJson,"utf8").toString('base64');
+    // console.log("base64 : " + strBase64DataJson);
+    strDataJson2 = Buffer.from(strBase64DataJson,"base64").toString('utf8');
+    if (strDataJson == strDataJson2) {
+      console.log("the same");
+    } else {
+      console.log("different");
+    }
 
-    dataJson["data-hash"] = crypto.createHash('sha256').update(strDataJson).digest('hex');
+    dataJson["data"] = strBase64DataJson;
+    dataJson["data-hash"] = crypto.createHash('sha256').update(strBase64DataJson).digest('hex');
 
     console.log("new \r\n" + JSON.stringify(dataJson));
 
@@ -93,24 +102,12 @@ function collectInitialize(count, messages) {
     });
 }
 /*
+node client.base64.js P8dee23f54e1fd239613f4234c84445d1fff4fe076119822b5fe3d548c1506817KR 안계혁 202112150000009
 
-node client.js P418e793e714df4027b7c792201f5564ff39a31abe5c344415103cfe37fa964ddKR 오예린 202112160000013
-node client.js P510650baff87d5bba02225d030c37bf1b88ce53a50ff74285964ed402957c16aKR 박제민 202112160000014
-node client.js P80f5044410c886cb04c68baaa112ea51b4b871ac40fbe5f6a80c9cc22dbd274aKR 모성훈 202112160000015
-node client.js Pbfcce6b8936e5fbc7d472749baaf13b470d78565bb02171e2dc99cdcbf4679a2KR 김태연 202112160000016
-node client.js P8dee23f54e1fd239613f4234c84445d1fff4fe076119822b5fe3d548c1506817KR 안계혁 202112160000017
+node client.base64.js P418e793e714df4027b7c792201f5564ff39a31abe5c344415103cfe37fa964ddKR 오예린 202112150000005
+node client.base64.js P510650baff87d5bba02225d030c37bf1b88ce53a50ff74285964ed402957c16aKR 박제민 202112150000006
+node client.base64.js P80f5044410c886cb04c68baaa112ea51b4b871ac40fbe5f6a80c9cc22dbd274aKR 모성훈 202112150000007
+node client.base64.js Pbfcce6b8936e5fbc7d472749baaf13b470d78565bb02171e2dc99cdcbf4679a2KR 김태연 202112150000008
 
-node client.js Pc4d0aa731528a38e4fd894de64392639a14db49df752cc474f39d83ceb95c0cfKR 유창욱 202112160000018
-
-
-*/
-/*
-select * from TB_KISA_REQ order by idx desc limit 1;
-select * from TB_KISA_REQ_BLOB where req_uuid = "";
-select * from TB_KISA_RES order by idx desc limit 1;
-select * from TB_KISA_RES_BLOB where req_uuid = "";
-
-
-select * from TB_KISA_REQ left join TB_KISA_REQ_BLOB on TB_KISA_REQ.req_uuid = TB_KISA_REQ_BLOB.req_uuid order by TB_KISA_REQ.idx desc limit 1;
-select * from TB_KISA_RES left join TB_KISA_RES_BLOB on TB_KISA_RES.req_uuid = TB_KISA_RES_BLOB.req_uuid order by TB_KISA_RES.idx desc limit 1;
+node client.base64.js Pbfcce6b8936e5fbc7d472749baaf13b470d78565bb02171e2dc99cdcbf4679a2KR 김태연 202112150000008
 */
