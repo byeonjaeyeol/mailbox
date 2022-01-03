@@ -812,7 +812,7 @@ $ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: ap
                 {
                     "match": {
                         "binding.reserved.essential.search.group-by": {
-                            "query": "2021.08.17",
+                            "query": "2021.08.22",
                             "operator": "and"
                         }
                     }
@@ -830,6 +830,20 @@ $ curl -XGET 'http://localhost:9200/11001*/_search?pretty'  -H "Content-Type: ap
 ES입장에서는 샤드 노드중 한대가 중지하면 그 노드가 속한 primary shard나 replica shard를 다른 노드로 옮기려는 Shard Allocation작업을 수행한다. 이는 클러스터의 특정노드가 장애상황일 떄 이부분에 대한 FailOver가 동작하는 과정이다. 그러나 순차적으로 재시작할 때는 이 과정이 오버헤드로 동작하기 떄문에 샤드할당 기능을 꺼두어 샤드할당이 다시 일어나는 것을 방지한다.
 
 ```
+# curl 'http://localhost:9200/_cluster/settings?pretty'
+{
+  "persistent" : {
+    "xpack" : {
+      "monitoring" : {
+        "collection" : {
+          "enabled" : "true"
+        }
+      }
+    }
+  },
+  "transient" : { }
+}
+
 # curl -XPUT 'http://localhost:9200/_cluster/settings?pretty' -H'Content-Type:application/json' -d'
 {
   "transient" : { 
@@ -848,7 +862,7 @@ $ curl -XPOST 'localhost:9200/_flush/synced?pretty'
 ```
 #### 6.6.3 재시작
 노드별로 순차적으로 재기동하며 
-환경에 따라 docker restart 혹은 systemctrl restart elasticsearch.service를 이용하여 재시작한다.
+환경에 따라 docker restart 혹은 systemctl restart elasticsearch.service를 이용하여 재시작한다.
 
 #### 6.6.4 노드상태 확인
 재시작 후 로그 파일이나 노드의 상태를 관찰하여 이상이 없는지 모니터링 한다.
