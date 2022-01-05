@@ -174,12 +174,12 @@
     "user_org" : "org3"
   },
   "database": {
-    "connector" : "embuser:!tilon9099@@tcp(emailbox:3306)/EMAILBOX",
+    "connector" : "embuser:!tilon9099@@tcp(211.115.219.40:3306)/EMAILBOX",
     "sql": "mysql",
     "connect": {
       "user": "embuser",
       "password": "!tilon9099@",
-      "ip": "emailbox",
+      "ip": "211.115.219.40",
       "port": "3306",
       "db_name": "EMAILBOX"
     }

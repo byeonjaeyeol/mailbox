@@ -1,25 +1,26 @@
-# UPOST-NETWORK
+UPOST-NETWORK
+=============
 모바일우편함 개발 네트워크 구성을 위한 전반적인 사항을 다룬다.
 
 # Pre-requisite
-## 필요한 버전 체크
+## Software
 사용할 소프트웨어 및 리눅스의 버전 체크를 진행한다.
 
 리눅스 OS 버전 체크
-```
-# cat /etc/redhat-release
+```bash
+$ cat /etc/redhat-release
 CentOS Linux release 7.2.1511 (Core) 
 ```
 
 리눅스 ARCH 체크
-```
-# arch
+```bash
+$ arch
 x86_64
 ```
 
 Elastic Search NoSQL 버전 체크
-```
-# curl "localhost:9200"
+```bash
+$ curl "localhost:9200"
 {
   "name" : "node-1",
   "cluster_name" : "emailbox",
@@ -40,7 +41,7 @@ Elastic Search NoSQL 버전 체크
 ```
 
 MariaDB 버전 체크
-```
+```console
 # mysql -h 10.65.203.109 -u embuser -p
 Enter password: 
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -84,8 +85,46 @@ node -v
 npm -v
 ```
 
-## docker images required
-현재 필요한 docker images들은 아래 목록과 같으며 이중 centos:7, mariadb:10.2.8, docker.elastic.co/kibana/:6.5.0 그리고  docker.elastic.co/elasticsearch:6.5.0은 오픈소스가 제공하는 것을 그대로 사용해야 하고 나머지는 각각 도커를 빌드해서 사용해야 한다. 추후에는 docker hub로 제공할 수 있다.
+## Docker Images
+현재 필요한 docker images들은 아래 목록과 같으며 이중 centos:7 혹은 centos:8, mariadb:10.2.8, docker.elastic.co/kibana/:6.5.0 그리고  docker.elastic.co/elasticsearch:6.5.0은 오픈소스가 제공하는 것을 그대로 사용해야 하고 나머지는 각각 도커를 빌드해서 사용해야 한다. 추후에는 docker hub로 제공할 수 있다.
+
+현재는 docker hub를 사용하지 않고 docker image를 빌드 하기 위해서 다음과 같은 shell script를 통해 docker image를 빌드 할 수 있다.
+
+현재 기준 OS를 centos:7을 기본으로 하지만 mac os에서 systemd 버전 이슈로 deamon이 동작하지 않아서 mac os에서는 centos:8 버전을 베이스OS로 적용하여 실행시켜야 한다.
+
+### Cleaning docker images 
+기존 도커 이미지를 삭제하여 신규로 적용하기 위해서는 다음과 같이 기존 docker images를 삭제해야 한다.
+```
+$ rmi-dockerimages.sh
+```
+베이스 OS 버전만 변경하기 위해서는 다음과 같이 관련 이미지만 삭쩨하면 된다.
+```
+$ rmi-dockerimages-centos.sh
+```
+
+### Making docker images
+도커 이미지를 만들때 베이스 OS 이미지에 따라 두개로 나뉜다.
+
+일반적으로 리눅스 계열에서 사용하는 경우 
+```
+$ mk-dockerimages.sh
+
+$ mk-dockerimages-devX.sh
+
+```
+mac os에서 실행하는 경우
+```
+$ mk-dockerimages-mac.sh
+```
+그러나 현재 docker-compose에서 cgroups을 지원하지 않기 때문에 mac os에서는 docker-compose로 deploy할 수 없다.
+
+[docker 4.3.0 issues](https://docs.docker.com/desktop/mac/release-notes/)에 새로운 Desktop Docker이슈가 설명되어 있다.
+
+
+[cgroups not supported](https://github.com/docker/compose/issues/8167)에는 현재 docker-compose가 cgroups을 지원하지 못하는 이슈가 오픈되어 있다.
+
+
+### Checking docker images
 
 ```
 $ docker images
@@ -108,7 +147,7 @@ mariadb                                                                         
 
 # Operations
 
-## pre-requisite
+## Pre-requisite
 필요한 데이터 폴더를 생성해야 한다.
 ```
 $ cd upost-network
@@ -116,7 +155,12 @@ $ cd upost-network
 $ ./mkdirs.sh
 ```
 
-## docker-compose up
+pid 충돌을 막기 위해서는 다음과 같이 pid를 제거할 수 있다.
+```
+$ ./rmpid.sh
+```
+
+## Deployment all to local and 1 tier 
 현재 필요한 docker-compose는 다음 4가지가 필요하며 docker가 시작되면서 서비스가 살아나기 때문에 실행 순서는 아래 순서대로 실행하면 된다. 그전에 pid 충돌을 예방하기 위해서 rmpid.sh을 실행하여 삭제한다.
 
 docker-compose-data.yml : elasticsearch and database
@@ -132,13 +176,13 @@ $ cd upost-network
 
 $ ./rmpid.sh
 
-$ docker-compose --env-file macos.cfg -f docker-compose-data.yml up
+$ docker-compose --env-file macos.cfg -f docker-compose-data.yml up -d
 
-$ docker-compose --env-file macos.cfg -f docker-compose-blockahin.yml up
+$ docker-compose --env-file macos.cfg -f docker-compose-blockahin.yml up -d
 
-$ docker-compose --env-file macos.cfg -f docker-compose-mailbox.yml up
+$ docker-compose --env-file macos.cfg -f docker-compose-mailbox.yml up -d
 
-$ docker-compose --env-file macos.cfg -f docker-compose-manager.yml up
+$ docker-compose --env-file macos.cfg -f docker-compose-manager.yml up -d
 
 ```
 
@@ -148,15 +192,56 @@ $ cd upost-network
 
 $ ./rmpid.sh
 
-$ docker-compose -f docker-compose-data.yml up
+$ docker-compose -f docker-compose-data.yml up -d
 
-$ docker-compose -f docker-compose-blockahin.yml up
+$ docker-compose -f docker-compose-blockahin.yml up -d
 
-$ docker-compose -f docker-compose-mailbox.yml up
+$ docker-compose -f docker-compose-mailbox.yml up -d
 
-$ docker-compose -f docker-compose-manager.yml up
+$ docker-compose -f docker-compose-manager.yml up -d
 
 ```
+
+## Deployment all to 3 tiers
+3개의 티어로 분리한 경우 다음과 같은 docker-compose 설정 파일을 이용하여 배포할 수 있다.
+
+at the 3rd tier
+```
+$ cd upost-network
+$ ./rmpid.sh
+$ docker-compose -f docker-compose-dev3-data.yml up -d
+$ docker-compose -f docker-compose-dev3-analyzers.yml up -d
+```
+
+at the 1st tier
+```
+$ cd upost-network
+$ ./rmpid.sh
+$ docker-compose -f docker-compose-dev1-mailbox.yml up -d
+```
+
+at the 2nd tier
+```
+$ cd upost-network
+$ ./rmpid.sh
+$ docker-compose -f docker-compose-dev2-mailbox.yml up -d
+$ docker-compose -f docker-compose-dev2-manage.yml up -d
+```
+
+## Deployment by CLI
+
+MAC OS에서 Docker for MAC 4.3.0 이후 버전을 사용하는 경우에는 현재 기준으로는 docker-compose를 사용할 수 없다. 결과적으로 다음과 같이 docker run을 사용하여 진행해야 한다.
+
+```
+
+
+```
+
+
+
+
+
+
 
 ## docker-compose down
 docker를 실행하는 역순으로 실행한다.

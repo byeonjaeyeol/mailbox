@@ -13,7 +13,7 @@ $ docker pull bsquarelab/upost-basic:0.1
 
 to start basic image
 ```
-$ docker run -p 127.0.0.1:1322:22 -dt --privileged=true --name=sshd bsquarelab/upost-basic
+$ docker run -p 127.0.0.1:1322:22 -dt --privileged=true --cgroupns=host -v /sys/fs/cgroup:/sys/fs/cgroup:rw --name=sshd bsquarelab/upost-basic
 $ docker run -p 127.0.0.1:1322:22 -dt --privileged=true --name=sshd bsquarelab/upost-basic:0.1
 
 $ docker run -p 127.0.0.1:1322:22 --restart unless-stopped --net=bridge -v /Users/alwayswinner/Develops/upost-network/External01/data:/data/blab -d bsquarelab/upost-basic:0.1

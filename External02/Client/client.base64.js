@@ -1,7 +1,8 @@
 const fs = require('fs');
 const crypto = require('crypto');
 const request = require('request-promise-native');
-const server = "http://211.253.86.102:33001";
+// const server = "http://211.253.86.102:33001";
+const server = "http://localhost:3001";
 
 var args = process.argv.slice(2);
 console.log('Client args: ', args);
@@ -102,7 +103,7 @@ function collectInitialize(count, messages) {
     });
 }
 /*
-node client.base64.js P8dee23f54e1fd239613f4234c84445d1fff4fe076119822b5fe3d548c1506817KR 안계혁 202112150000009
+node client.base64.js P8dee23f54e1fd239613f4234c84445d1fff4fe076119822b5fe3d548c1506817KR 안계혁 202201040000001
 
 node client.base64.js P418e793e714df4027b7c792201f5564ff39a31abe5c344415103cfe37fa964ddKR 오예린 202112150000005
 node client.base64.js P510650baff87d5bba02225d030c37bf1b88ce53a50ff74285964ed402957c16aKR 박제민 202112150000006

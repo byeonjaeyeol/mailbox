@@ -26,7 +26,7 @@ $ go build -o build/analyzer.authorized analyzer-authorized/main.go
 $ go build -o build/interface_1.0.0.0 interface/src/main.go
 $ go build -o build/IljariAgent IljariAgent/main.go
 $ go build -o build/collector_1.0.0.0 Collector/src/main.go
-$ go build -o build/CollectAgent BlabAgent/main.go
+$ go build -o build/CollectAgent CollectAgent/main.go
 $ go build -o build/EdocDistCert EdocDistCert/src/main.go
 $ go build -o build/SyncAgent DispatchAgent/main.go
 ```
@@ -38,7 +38,7 @@ $ env GOOS=linux GOARCH=amd64 go build -o build/analyzer.authorized analyzer-aut
 $ env GOOS=linux GOARCH=amd64 go build -o build/interface_1.0.0.0 interface/src/main.go
 $ env GOOS=linux GOARCH=amd64 go build -o build/IljariAgent IljariAgent/main.go
 $ env GOOS=linux GOARCH=amd64 go build -o build/collector_1.0.0.0 Collector/src/main.go
-$ env GOOS=linux GOARCH=amd64 go build -o build/CollectAgent BlabAgent/main.go
+$ env GOOS=linux GOARCH=amd64 go build -o build/CollectAgent CollectAgent/main.go
 $ env GOOS=linux GOARCH=amd64 go build -o build/EdocDistCert EdocDistCert/src/main.go
 $ env GOOS=linux GOARCH=amd64 go build -o build/SyncAgent DispatchAgent/main.go
 ```
@@ -51,7 +51,7 @@ $ go build -o buildd/analyzer.authorized/analyzer.authorized analyzer-authorized
 $ go build -o buildd/IljariAgent/IljariAgent IljariAgent/main.go
 $ go build -o buildd/interface/interface interface/src/main.go
 $ go build -o buildd/Collector/collector_1.0.0.0 Collector/src/main.go
-$ go build -o buildd/CollectAgent/CollectAgent BlabAgent/main.go
+$ go build -o buildd/CollectAgent/CollectAgent CollectAgent/main.go
 $ go build -o buildd/EdocDistCert/EdocDistCert EdocDistCert/src/main.go
 $ go build -o buildd/SyncAgent/SyncAgent DispatchAgent/main.go
 ```
