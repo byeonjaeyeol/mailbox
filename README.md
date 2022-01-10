@@ -163,10 +163,10 @@ $ ./rmpid.sh
 ## Deployment all to local and 1 tier 
 현재 필요한 docker-compose는 다음 4가지가 필요하며 docker가 시작되면서 서비스가 살아나기 때문에 실행 순서는 아래 순서대로 실행하면 된다. 그전에 pid 충돌을 예방하기 위해서 rmpid.sh을 실행하여 삭제한다.
 
-docker-compose-data.yml : elasticsearch and database
-docker-compose-mailbox.yml : 모바일 우편함 서비스
-docker-compose-manager.yml : 관리자 페이지 관련
-docker-compose-blockchain.yml : 향후 블록체인 관련 네트워크 (현재 없음)
+docker-compose-dev-data.yml : elasticsearch and database
+docker-compose-dev-mailbox.yml : 모바일 우편함 서비스
+docker-compose-dev-manager.yml : 관리자 페이지 관련
+docker-compose-dev-blockchain.yml : 향후 블록체인 관련 네트워크 (현재 없음)
 
 macos에서는 --env-file을 지정하는 방식을 사용하고 centos에서는 자동을 해당 값이 .env를 통해 지정되도록 한다. 
 리눅스에서는 --env-file이 정상적으로 동작하지 않는다.
@@ -176,13 +176,13 @@ $ cd upost-network
 
 $ ./rmpid.sh
 
-$ docker-compose --env-file macos.cfg -f docker-compose-data.yml up -d
+$ docker-compose --env-file macos.cfg -f docker-compose-dev-data.yml up -d
 
-$ docker-compose --env-file macos.cfg -f docker-compose-blockahin.yml up -d
+$ docker-compose --env-file macos.cfg -f docker-compose-dev-blockahin.yml up -d
 
-$ docker-compose --env-file macos.cfg -f docker-compose-mailbox.yml up -d
+$ docker-compose --env-file macos.cfg -f docker-compose-dev-mailbox.yml up -d
 
-$ docker-compose --env-file macos.cfg -f docker-compose-manager.yml up -d
+$ docker-compose --env-file macos.cfg -f docker-compose-dev-manager.yml up -d
 
 ```
 
@@ -192,13 +192,13 @@ $ cd upost-network
 
 $ ./rmpid.sh
 
-$ docker-compose -f docker-compose-data.yml up -d
+$ docker-compose -f docker-compose-dev-data.yml up -d
 
-$ docker-compose -f docker-compose-blockahin.yml up -d
+$ docker-compose -f docker-compose-dev-blockahin.yml up -d
 
-$ docker-compose -f docker-compose-mailbox.yml up -d
+$ docker-compose -f docker-compose-dev-mailbox.yml up -d
 
-$ docker-compose -f docker-compose-manager.yml up -d
+$ docker-compose -f docker-compose-dev-manager.yml up -d
 
 ```
 

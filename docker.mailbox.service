@@ -7,7 +7,7 @@ After=docker.service
 Type=oneshot
 RemainAfterExit=yes
 WorkingDirectory=/home/blab/upost-network
-ExecStart=/usr/local/bin/docker-compose -f docker-compose-mailbox.yml up -d
+ExecStart=/usr/local/bin/docker-compose -f docker-compose-dev-mailbox.yml up -d
 ExecStop=/usr/local/bin/docker-compose down
 TimeoutStartSec=0
 
