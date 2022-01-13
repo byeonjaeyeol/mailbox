@@ -31,3 +31,6 @@
 [submodule "GoEnv/go/CollectAgent"]
 	path = GoEnv/go/CollectAgent
 	url = https://github.com/hieuncom/CollectAgent.git
+[submodule "GoEnv/go/TrackingAgent"]
+	path = GoEnv/go/TrackingAgent
+	url = https://github.com/bsquarelab/TrackingAgent.git
