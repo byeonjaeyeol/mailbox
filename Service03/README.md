@@ -29,17 +29,17 @@ Elastic Search NoSQL 버전 체크
 # elastic search - Operation with docker
 to operation with the elasticsearch docker
 ```
-$ docker run -p 9200:9200 -p 9300:9300 --restart unless-stopped --net=bridge -v /Users/alwayswinner/Develops/upost-network/service03/config:/usr/share/elasticsearch/config -v /Users/alwayswinner/Develops/upost-network/service03/node01:/data/elasticsearch -v /Users/alwayswinner/Develops/upost-network/service03/log01:/var/log/elasticsearch -e KEYSTORE_PASSWORD=admin -d docker.elastic.co/elasticsearch/elasticsearch:6.5.0
+$ docker run -p 9200:9200 -p 9300:9300 --restart unless-stopped --net=bridge -v /Users/alwayswinner/Develops/upost-network/service03/config:/usr/share/elasticsearch/config -v /Users/alwayswinner/Develops/upost-network/service03/node01:/data/elasticsearch -v /Users/alwayswinner/Develops/upost-network/service03/log01:/var/log/elasticsearch -e KEYSTORE_PASSWORD=admin -d docker.elastic.co/elasticsearch/elasticsearch:6.8.23
 
-$ docker run -p 9200:9200 -p 9300:9300 --restart unless-stopped --net=bridge -v /Users/alwayswinner/Develops/upost-network/service03/config:/usr/share/elasticsearch/config -v /Users/alwayswinner/Develops/upost-network/service03/node01:/data/elasticsearch -v /Users/alwayswinner/Develops/upost-network/service03/log01:/var/log/elasticsearch -d docker.elastic.co/elasticsearch/elasticsearch:6.5.0
+$ docker run -p 9200:9200 -p 9300:9300 --restart unless-stopped --net=bridge -v /Users/alwayswinner/Develops/upost-network/service03/config:/usr/share/elasticsearch/config -v /Users/alwayswinner/Develops/upost-network/service03/node01:/data/elasticsearch -v /Users/alwayswinner/Develops/upost-network/service03/log01:/var/log/elasticsearch -d docker.elastic.co/elasticsearch/elasticsearch:6.8.23
 
-$ docker run -p 9200:9200 -p 9300:9300 --restart unless-stopped --net=bridge -v /home/blab/config:/usr/share/elasticsearch/config -v /home/blab/node01:/data/elasticsearch -v /home/blab/log01:/var/log/elasticsearch -d docker.elastic.co/elasticsearch/elasticsearch:6.5.0
+$ docker run -p 9200:9200 -p 9300:9300 --restart unless-stopped --net=bridge -v /home/blab/config:/usr/share/elasticsearch/config -v /home/blab/node01:/data/elasticsearch -v /home/blab/log01:/var/log/elasticsearch -d docker.elastic.co/elasticsearch/elasticsearch:6.8.23
 
-$ docker run -p 9200:9200 -p 9300:9300 --restart unless-stopped --net=bridge -v /home/blab/config:/usr/share/elasticsearch/config -v /home/blab/node01:/data/elasticsearch -v /home/blab/log01:/var/log/elasticsearch --privileged docker.elastic.co/elasticsearch/elasticsearch:6.5.0
+$ docker run -p 9200:9200 -p 9300:9300 --restart unless-stopped --net=bridge -v /home/blab/config:/usr/share/elasticsearch/config -v /home/blab/node01:/data/elasticsearch -v /home/blab/log01:/var/log/elasticsearch --privileged docker.elastic.co/elasticsearch/elasticsearch:6.8.23
 
-$ docker run -p 9200:9200 -p 9300:9300 --net=bridge -it docker.elastic.co/elasticsearch/elasticsearch:6.5.0 bash
+$ docker run -p 9200:9200 -p 9300:9300 --net=bridge -it docker.elastic.co/elasticsearch/elasticsearch:6.8.23 bash
 
-$ docker run -p 9200:9200 -p 9300:9300 --net=bridge --privileged docker.elastic.co/elasticsearch/elasticsearch:6.5.0
+$ docker run -p 9200:9200 -p 9300:9300 --net=bridge --privileged docker.elastic.co/elasticsearch/elasticsearch:6.8.23
 
 $ docker ps
 

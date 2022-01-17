@@ -46,7 +46,8 @@
 	},
 	"function": {
 		"analysis": "enable",
-		"regist": "enable"
+		"regist": "enable",
+		"conversion": "disable"
 	},
 	"timer": {
 		"analysis": {
@@ -65,6 +66,10 @@
 				"unit": "day",
 				"validity": "180"
 			}
+		},
+		"conversion": {
+			"runtime": "5~6",
+			"freq": "3000"
 		}
 	}
 }

@@ -1,7 +1,7 @@
 version: '2.2'
 services:
   node01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.8.23
     container_name: node01
     environment:
       - node.name=node-1
@@ -28,7 +28,7 @@ services:
       - nmailbox
 
   node02:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.8.23
     container_name: node02
     environment:
       - node.name=node-2
@@ -55,7 +55,7 @@ services:
       - nmailbox
 
   kib01:
-    image: docker.elastic.co/kibana/kibana:6.5.0
+    image: docker.elastic.co/kibana/kibana:6.8.23
     container_name: kib01
     ports:
       - 5601:5601

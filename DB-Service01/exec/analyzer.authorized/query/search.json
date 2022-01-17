@@ -1,54 +1,61 @@
 {
 	"size": 0,
-	"query" : {
+	"query": {
 		"bool": {
-			"must": [
-			{
-				"range": {
-					"status.time.@registed": {
-						"gte":"2020-04-23T15:00:00",
-							"lt" : "2020-04-24T15:00:00"
+			"must": [{
+					"range": {
+						"status.time.@registed": {
+							"gte": "2020-04-23T15:00:00",
+							"lt": "2020-04-24T15:00:00"
+						}
+					}
+				},
+				{
+					"match": {
+						"ver": {
+							"query": "R20211111",
+							"operator": "and"
+						}
 					}
 				}
-			}
 			]
 		}
 	},
 	"aggs": {
 		"group_by": {
-			"terms":{
+			"terms": {
 				"field": "binding.reserved.essential.agency.dept-code.keyword"
 			},
-			"aggs" : {
-				"status_template":{
-					"terms":{
+			"aggs": {
+				"status_template": {
+					"terms": {
 						"field": "binding.reserved.essential.template.file.keyword"
 					},
-					"aggs" : {
-						"status_read":{
-							"range":{
+					"aggs": {
+						"status_read": {
+							"range": {
 								"field": "status.read",
-									"ranges" : [
-										{ "from": 1 }
-									]
+								"ranges": [{
+									"from": 1
+								}]
 							}
 						},
-						"status_dispatching":{
-							"terms":{
+						"status_dispatching": {
+							"terms": {
 								"field": "status.dispatching.keyword"
 							},
-							"aggs" : {
+							"aggs": {
 								"class": {
-									"terms":{
+									"terms": {
 										"field": "status.class.keyword"
 									},
-										"aggs" : {
-											"result":{
-												"terms":{
-													"field": "status.result.keyword"
-												}
+									"aggs": {
+										"result": {
+											"terms": {
+												"field": "status.result.keyword"
 											}
 										}
+									}
 								}
 							}
 						}

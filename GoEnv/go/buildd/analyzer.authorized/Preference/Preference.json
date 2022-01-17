@@ -47,7 +47,7 @@
 	"function": {
 		"analysis": "enable",
 		"regist": "enable",
-		"conversion": "enable"
+		"conversion": "disable"
 	},
 	"timer": {
 		"analysis": {

@@ -95,9 +95,6 @@
 # specify an alternative path for JVM fatal error logs
 -XX:ErrorFile=/var/log/elasticsearch/hs_err_pid%p.log
 
-# solve the problem, Unrecognized VM option 'UseConcMarkSweepGC' Error: Could not create the Java Virtual Machine
--XX:+IgnoreUnrecognizedVMOptions
-
 ## JDK 8 GC logging
 
 8:-XX:+PrintGCDetails
