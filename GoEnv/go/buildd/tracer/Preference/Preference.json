@@ -1,0 +1,69 @@
+{
+	"preference": {
+		"concurrency": {
+			"cpu": 2,
+			"routinue": 4
+		},	
+		"nosql": {
+			"class": "elasticsearch",
+			"host": "localhost:9200",
+			"rollover": "30d",
+			"ver": "6.x",
+			"tls": {
+				"enable": "false",
+				"user": "admin",
+				"pwd": "admin"
+			}
+		},
+		"trace": {
+			"readycounting": "600",
+			"periodwithoutinsert": "60",
+			"version": "R20190924"
+		},
+		"rdbms": {
+			"class": "mysql",
+			"datasource": "embuser:!tilon9099@@(127.0.0.1:3307)/EMAILBOX"
+		},
+		"api" : {
+			"bkhost": "http://dev-edocdistcertgw.epost.go.kr:23080"
+		},
+		"postok" : {
+			"domain": "localhost:2100"
+		},
+		"kt_openapi" : {
+			"service_code": "60001",
+			"service_key": "8zH9A7dXEm",
+			"biz_code": "60001"
+		},	
+		"directory": {
+			"backup": "./backup",
+			"temp": "./temp",
+			"result": "./result",
+			"pushmsg": "./pushmessage",
+			"bulk": "./bulk"
+		},
+		"function": {
+			"trace": "enable",
+			"regist": "enable"
+		},
+		"timer": {
+			"trace": {
+				"runtime": "0~21",
+				"freq": "60"
+			},
+			"cleanup": {
+				"runtime": "22~24",
+				"freq": "60",
+				"rdbms": {
+					"unit": "day",
+					"validity": "180",
+					"count": "5000"
+				},
+				"backfile": {
+					"unit": "day",
+					"validity": "180"
+				}
+			}
+		}
+	}
+}

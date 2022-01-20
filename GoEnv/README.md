@@ -29,6 +29,7 @@ $ go build -o build/collector_1.0.0.0 Collector/src/main.go
 $ go build -o build/CollectAgent CollectAgent/main.go
 $ go build -o build/EdocDistCert EdocDistCert/src/main.go
 $ go build -o build/SyncAgent DispatchAgent/main.go
+$ go build -o build/tracer tracer/main.go
 ```
 
 윈도우나 맥에서 리눅스 빌드를 하는 경우 멀티플랫폼 빌드의 경우 다음과 같이 빌드한다.
@@ -41,6 +42,7 @@ $ env GOOS=linux GOARCH=amd64 go build -o build/collector_1.0.0.0 Collector/src/
 $ env GOOS=linux GOARCH=amd64 go build -o build/CollectAgent CollectAgent/main.go
 $ env GOOS=linux GOARCH=amd64 go build -o build/EdocDistCert EdocDistCert/src/main.go
 $ env GOOS=linux GOARCH=amd64 go build -o build/SyncAgent DispatchAgent/main.go
+$ env GOOS=linux GOARCH=amd64 go build -o build/tracer tracer/main.go
 ```
 
 개발을 위해 다음과 같이 각각의 플랫폼에서 빌드를 한 후에 해당 폴더에서 동작하여 각 기능에 대해 디버깅을 진행할 수 있다.
@@ -54,6 +56,7 @@ $ go build -o buildd/Collector/collector_1.0.0.0 Collector/src/main.go
 $ go build -o buildd/CollectAgent/CollectAgent CollectAgent/main.go
 $ go build -o buildd/EdocDistCert/EdocDistCert EdocDistCert/src/main.go
 $ go build -o buildd/SyncAgent/SyncAgent DispatchAgent/main.go
+$ go build -o buildd/tracer/tracer tracer/main.go
 ```
 
 # Git Submodule
