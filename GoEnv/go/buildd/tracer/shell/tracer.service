@@ -1,0 +1,16 @@
+[Unit]
+Description=Tilon Tracer Server
+
+[Service]
+Type=simple
+User=root
+Group=root
+
+EnvironmentFile=-/usr/share/blab/tracer/server.conf
+
+ExecStart=/usr/share/blab/tracer/tracer -start=oUe_o20BlsHYULiaJppy
+PIDFile=/usr/share/blab/tracer/tracer.pid
+WorkingDirectory=//usr/share/blab/tracer
+
+[Install]
+WantedBy=multi-user.target
