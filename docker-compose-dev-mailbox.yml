@@ -24,6 +24,10 @@ services:
       - "1222:22"
     depends_on:
       - external
+    extra_hosts:
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102"
     networks:
       - nmailbox
 
@@ -53,6 +57,10 @@ services:
       - "2222:22"
     depends_on:
       - service01
+    extra_hosts:
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102"
     networks:
       - nmailbox
 
@@ -80,6 +88,10 @@ services:
       - 3002:3002
     depends_on:
       - service02
+    extra_hosts:
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102"
     networks:
       - nmailbox
 
@@ -102,6 +114,10 @@ services:
       - "1333:22"
     depends_on:
       - service04
+    extra_hosts:
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102"
     networks:
       - nmailbox
 
@@ -119,6 +135,10 @@ services:
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - "1555:22"
+    extra_hosts:
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102"
     networks:
       - nmailbox
 

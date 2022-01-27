@@ -49,6 +49,10 @@ services:
     ports:
       - 2101:2100
       - "2222:22"
+    extra_hosts:
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102"
     networks:
       - nmailbox
 
@@ -71,6 +75,10 @@ services:
       #- /etc/localtime:/etc/localtime:ro #on linux
     ports:
       - "4222:22"
+    extra_hosts:
+      - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
+      - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
+      - "edocdistcdertgw.epost.go.kr:211.253.86.102"
     networks:
       - nmailbox
 
