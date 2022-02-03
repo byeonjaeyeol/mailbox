@@ -6,7 +6,7 @@
 	},	
 	"nosql": {
 		"class": "elasticsearch",
-		"host": "localhost:9200",
+		"host": "211.115.219.40:9200",
 		"rollover": "30d",
 		"ver": "6.x",
 		"tls": {
@@ -22,7 +22,7 @@
 	},
 	"rdbms": {
 		"class": "mysql",
-		"datasource": "embuser:!tilon9099@@(127.0.0.1:3307)/EMAILBOX"
+		"datasource": "embuser:!tilon9099@@(211.115.219.40:3306)/EMAILBOX"
 	},
 	"api" : {
 		"bchost": "http://211.253.86.102:58880",

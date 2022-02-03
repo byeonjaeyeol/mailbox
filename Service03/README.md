@@ -283,6 +283,21 @@ curl --user admin:admin -XPOST 'http://localhost:9200/11001/_rollover?pretty' -H
     "[max_age: 350d]" : false
   }
 }
+
+curl --user admin:admin -XPOST 'http://211.115.219.40:9200/11001/_rollover?pretty' -H "Content-Type: application/json" -d '{"conditions": {"max_age": "30d"}}'
+{
+  "acknowledged" : false,
+  "shards_acknowledged" : false,
+  "old_index" : "11001-000011",
+  "new_index" : "11001-000012",
+  "rolled_over" : false,
+  "dry_run" : false,
+  "conditions" : {
+    "[max_age: 350d]" : false
+  }
+}
+
+
 ```
 ### 6.2 status
 ```
