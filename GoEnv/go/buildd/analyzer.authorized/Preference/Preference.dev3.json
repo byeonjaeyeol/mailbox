@@ -26,7 +26,7 @@
 	},
 	"api" : {
 		"bchost": "http://211.253.86.102:58880",
-		"ifhost": "http://211.115.219.40:2100",
+		"ifhost": "http://211.115.219.53:2100",
 		"bkhost": "http://dev-edocdistcertgw.epost.go.kr:23080"
 	},
 	"postok" : {

@@ -284,7 +284,7 @@ curl --user admin:admin -XPOST 'http://localhost:9200/11001/_rollover?pretty' -H
   }
 }
 
-curl --user admin:admin -XPOST 'http://211.115.219.40:9200/11001/_rollover?pretty' -H "Content-Type: application/json" -d '{"conditions": {"max_age": "30d"}}'
+curl --user admin:admin -XPOST 'http://211.115.219.53:9200/11001/_rollover?pretty' -H "Content-Type: application/json" -d '{"conditions": {"max_age": "30d"}}'
 {
   "acknowledged" : false,
   "shards_acknowledged" : false,

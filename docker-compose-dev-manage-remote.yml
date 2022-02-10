@@ -17,12 +17,12 @@ services:
     ports:
       - 8080:8080
     extra_hosts:
-      - "emailbox:211.115.219.40"
-      - "node01:211.115.219.40"
-      - "service01:211.115.219.40"
-      - "service02:211.115.219.40"
-      - "service03:211.115.219.40"
-      - "service04:211.115.219.40"
+      - "emailbox:211.115.219.53"
+      - "node01:211.115.219.53"
+      - "service01:211.115.219.53"
+      - "service02:211.115.219.53"
+      - "service03:211.115.219.53"
+      - "service04:211.115.219.53"
       - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
       - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
       - "edocdistcdertgw.epost.go.kr:211.253.86.102"
@@ -46,12 +46,12 @@ services:
     ports:
       - 3000:3000
     extra_hosts:
-      - "emailbox:211.115.219.40"
-      - "node01:211.115.219.40"
-      - "service01:211.115.219.40"
-      - "service02:211.115.219.40"
-      - "service03:211.115.219.40"
-      - "service04:211.115.219.40"
+      - "emailbox:211.115.219.53"
+      - "node01:211.115.219.53"
+      - "service01:211.115.219.53"
+      - "service02:211.115.219.53"
+      - "service03:211.115.219.53"
+      - "service04:211.115.219.53"
       - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
       - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
       - "edocdistcdertgw.epost.go.kr:211.253.86.102"
@@ -74,12 +74,12 @@ services:
     ports:
       - 3001:3000
     extra_hosts:
-      - "emailbox:211.115.219.40"
-      - "node01:211.115.219.40"
-      - "service01:211.115.219.40"
-      - "service02:211.115.219.40"
-      - "service03:211.115.219.40"
-      - "service04:211.115.219.40"
+      - "emailbox:211.115.219.53"
+      - "node01:211.115.219.53"
+      - "service01:211.115.219.53"
+      - "service02:211.115.219.53"
+      - "service03:211.115.219.53"
+      - "service04:211.115.219.53"
       - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
       - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
       - "edocdistcdertgw.epost.go.kr:211.253.86.102"

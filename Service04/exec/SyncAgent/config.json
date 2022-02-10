@@ -168,7 +168,7 @@
   },
   "sync" : {
     "protocol": "http",
-    "host": "211.115.219.40",
+    "host": "211.115.219.53",
     "port": 3002,
     "sshport": 22,
     "user": "root",
@@ -184,7 +184,7 @@
     "max_account" : 100000
   },
   "elasticsearch" : {
-    "ip" : "211.115.219.40",
+    "ip" : "211.115.219.53",
     "port" : 9200,
     "protocol" : "http",
     "user" : "admin",
@@ -211,7 +211,7 @@
     "connect": {
       "user": "embuser",
       "password": "!tilon9099@",
-      "ip": "211.115.219.40",
+      "ip": "211.115.219.53",
       "port": "3307",
       "db_name": "EMAILBOX"
     }

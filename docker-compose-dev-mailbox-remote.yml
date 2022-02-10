@@ -25,8 +25,8 @@ services:
     depends_on:
       - external
     extra_hosts:
-      - "emailbox:211.115.219.40"
-      - "node01:211.115.219.40"
+      - "emailbox:211.115.219.53"
+      - "node01:211.115.219.53"
       - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
       - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
       - "edocdistcdertgw.epost.go.kr:211.253.86.102"
@@ -60,8 +60,8 @@ services:
     depends_on:
       - service01
     extra_hosts:
-      - "emailbox:211.115.219.40"
-      - "node01:211.115.219.40"
+      - "emailbox:211.115.219.53"
+      - "node01:211.115.219.53"
       - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
       - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
       - "edocdistcdertgw.epost.go.kr:211.253.86.102"
@@ -93,8 +93,8 @@ services:
     depends_on:
       - service02
     extra_hosts:
-      - "emailbox:211.115.219.40"
-      - "node01:211.115.219.40"
+      - "emailbox:211.115.219.53"
+      - "node01:211.115.219.53"
       - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
       - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
       - "edocdistcdertgw.epost.go.kr:211.253.86.102"
@@ -121,8 +121,8 @@ services:
     depends_on:
       - service04
     extra_hosts:
-      - "emailbox:211.115.219.40"
-      - "node01:211.115.219.40"
+      - "emailbox:211.115.219.53"
+      - "node01:211.115.219.53"
       - "mockup-edocdistcerfgw.epost.go.kr:211.253.86.102"
       - "dev-edocdistcertgw.epost.go.kr:211.253.86.102"
       - "edocdistcdertgw.epost.go.kr:211.253.86.102"
@@ -144,8 +144,8 @@ services:
     ports:
       - "1555:22"
     extra_hosts:
-      - "emailbox:211.115.219.40"
-      - "node01:211.115.219.40"
+      - "emailbox:211.115.219.53"
+      - "node01:211.115.219.53"
     networks:
       - nmailbox
 

@@ -125,7 +125,7 @@
   },  
   "sftp": {
     "server": {
-      "host": "211.115.219.40",
+      "host": "211.115.219.53",
       "port": "22",
       "user": "ubuntu",
       "password": "qltmznpdjfoq13@$"
@@ -168,7 +168,7 @@
   },
   "sync" : {
     "protocol": "http",
-    "host": "211.115.219.40",
+    "host": "211.115.219.53",
     "port": 3002,
     "sshport": 22,
     "user": "root",
@@ -184,7 +184,7 @@
     "max_account" : 100000
   },
   "elasticsearch" : {
-    "ip" : "211.115.219.40",
+    "ip" : "211.115.219.53",
     "port" : 9200,
     "protocol" : "http",
     "user" : "admin",
@@ -203,7 +203,7 @@
     }
   },
   "stats" : {
-    "stat_url" : "http://211.115.219.40:9200/$ORG_CODE-*/_search?pretty&_source=_id,ci,data-hash,ver,status,binding.reserved.essential.search,binding.reserved.essential.dispatching,binding.reserved.additional.receiver.name,binding.reserved.essential.template",
+    "stat_url" : "http://211.115.219.53:9200/$ORG_CODE-*/_search?pretty&_source=_id,ci,data-hash,ver,status,binding.reserved.essential.search,binding.reserved.essential.dispatching,binding.reserved.additional.receiver.name,binding.reserved.essential.template",
     "user" : "admin",
     "password" : "admin"
   },
@@ -218,12 +218,12 @@
     "user_org" : "org3"
   },
   "database": {
-    "connector" : "embuser:!tilon9099@@tcp(211.115.219.40:3307)/EMAILBOX",
+    "connector" : "embuser:!tilon9099@@tcp(211.115.219.53:3307)/EMAILBOX",
     "sql": "mysql",
     "connect": {
       "user": "embuser",
       "password": "!tilon9099@",
-      "ip": "211.115.219.40",
+      "ip": "211.115.219.53",
       "port": "3307",
       "db_name": "EMAILBOX"
     }
