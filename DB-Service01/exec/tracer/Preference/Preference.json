@@ -1,0 +1,74 @@
+{
+	"preference": {
+		"concurrency": {
+			"cpu": 2,
+			"routinue": 4
+		},	
+		"nosql": {
+			"class": "elasticsearch",
+			"host": "node01:9200",
+			"rollover": "30d",
+			"ver": "6.x",
+			"tls": {
+				"enable": "false",
+				"user": "admin",
+				"pwd": "admin"
+			}
+		},
+		"trace": {
+			"readycounting": "0",
+			"periodwithoutinsert": "60",
+			"version": "R20190924",
+			"portal_host": "http://biz.epost.go.kr/KpostPortal/openapi",
+			"portal_regKey": "2b1712e401e3f7ffd1585626683991",
+			"host": "http://openapi.epost.go.kr/trace/retrieveLongitudinalService/retrieveLongitudinalService/getLongitudinalDomesticList",
+			"regKey": "0HsZ6TbUNOS9BTvjFgqmAGJY2y9LfVuF2adezEYqalR0wHJs6nBtJl7axiiiBI6ic7eSW23gwp8M8ZMs9NX14w%3D%3D",
+			"target": "trace"
+		},
+		"rdbms": {
+			"class": "mysql",
+			"datasource": "embuser:!tilon9099@@(emailbox:3306)/EMAILBOX"
+		},
+		"api" : {
+			"bkhost": "http://dev-edocdistcertgw.epost.go.kr:23080"
+		},
+		"postok" : {
+			"domain": "service01:2100"
+		},
+		"kt_openapi" : {
+			"service_code": "60001",
+			"service_key": "8zH9A7dXEm",
+			"biz_code": "60001"
+		},	
+		"directory": {
+			"backup": "/data/tilon/tracer/backup",
+			"temp": "/data/tilon/tracer/temp",
+			"result": "/data/tilon/tracer/result",
+			"pushmsg": "/data/tilon/tracer/pushmessage",
+			"bulk": "/data/tilon/tracer/bulk"
+		},
+		"function": {
+			"trace": "enable",
+			"regist": "enable"
+		},
+		"timer": {
+			"trace": {
+				"runtime": "0~21",
+				"freq": "60"
+			},
+			"cleanup": {
+				"runtime": "22~24",
+				"freq": "60",
+				"rdbms": {
+					"unit": "day",
+					"validity": "180",
+					"count": "5000"
+				},
+				"backfile": {
+					"unit": "day",
+					"validity": "180"
+				}
+			}
+		}
+	}
+}

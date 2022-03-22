@@ -12,11 +12,15 @@ COPY sender.service /etc/systemd/system/
 RUN systemctl enable sender.service
 
 
+COPY tracer.service /etc/systemd/system/
+RUN systemctl enable tracer.service
+
+
 
 
 WORKDIR /usr/share/tilon
 
-VOLUME [ "/data/tilon",  "/usr/share/tilon/analyzer", "/usr/share/tilon/sender", "/usr/share/tilon/analyzer.authorized"]
+VOLUME [ "/data/tilon",  "/usr/share/tilon/analyzer", "/usr/share/tilon/sender", "/usr/share/tilon/analyzer.authorized", "/usr/share/tilon/tracer"]
 
 EXPOSE 22
 

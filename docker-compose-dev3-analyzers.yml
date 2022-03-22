@@ -12,6 +12,7 @@ services:
       - ./DB-Service01/exec/analyzer:/usr/share/tilon/analyzer
       - ./DB-Service01/exec/analyzer.authorized:/usr/share/tilon/analyzer.authorized      
       - ./DB-Service01/exec/sender:/usr/share/tilon/sender
+      - ./DB-Service01/exec/tracer:/usr/share/tilon/tracer
       - ${LOCALTIME}:/etc/localtime:ro
       #- /private/etc/localtime:/etc/localtime:ro
       #- /etc/localtime:/etc/localtime:ro #on linux

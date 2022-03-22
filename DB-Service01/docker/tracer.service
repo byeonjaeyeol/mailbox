@@ -1,0 +1,21 @@
+[Unit]
+Description=Tilon Tracer Server
+
+[Service]
+Type=simple
+User=root
+Group=root
+
+Restart=on-failure
+RestartSec=100
+
+RequiresMountsFor=/usr/share/tilon/tracer
+
+EnvironmentFile=-/usr/share/tilon/tracer/server.conf
+
+ExecStart=/usr/share/tilon/tracer/tracer -start oUe_o20BlsHYULiaJppy
+PIDFile=/usr/share/tilon/tracer/tracer.pid
+WorkingDirectory=/usr/share/tilon/tracer
+
+[Install]
+WantedBy=multi-user.target
