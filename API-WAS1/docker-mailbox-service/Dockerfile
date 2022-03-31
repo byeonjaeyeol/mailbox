@@ -5,7 +5,6 @@ COPY . /home/blab
 
 WORKDIR /home/blab/mailbox-service
 
-
 RUN npm install
 
 #RUN npm install -g nodemon

@@ -28,3 +28,6 @@
 [submodule "GoEnv/go/SyncAgent"]
 	path = GoEnv/go/SyncAgent
 	url = https://github.com/posaitsupport/SyncAgent.git
+[submodule "API-WAS1/docker-mailbox-service/mailbox-service"]
+	path = API-WAS1/docker-mailbox-service/mailbox-service
+	url = https://github.com/posaitsupport/mailbox-service.git
