@@ -3,7 +3,7 @@ MAINTAINER ERICKAHN <alwayswinners@gmail.com>
 
 COPY . /home/blab
 
-WORKDIR /home/blab/static
+WORKDIR /home/blab/mailbox-static
 
 RUN npm install
 

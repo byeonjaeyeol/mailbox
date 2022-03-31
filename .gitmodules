@@ -31,3 +31,6 @@
 [submodule "API-WAS1/docker-mailbox-service/mailbox-service"]
 	path = API-WAS1/docker-mailbox-service/mailbox-service
 	url = https://github.com/posaitsupport/mailbox-service.git
+[submodule "API-WAS1/docker-mailbox-static/mailbox-static"]
+	path = API-WAS1/docker-mailbox-static/mailbox-static
+	url = https://github.com/posaitsupport/mailbox-static.git
