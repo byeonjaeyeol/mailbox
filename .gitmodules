@@ -1,15 +1,3 @@
-[submodule "GoEnv/go/IljariAgent"]
-	path = GoEnv/go/IljariAgent
-	url = https://github.com/bsquarelab/IljariAgent.git
-[submodule "GoEnv/go/interface"]
-	path = GoEnv/go/interface
-	url = https://github.com/kyehyukahn/interface.git
-[submodule "GoEnv/go/Collector"]
-	path = GoEnv/go/Collector
-	url = https://github.com/kyehyukahn/Collector.git
-[submodule "GoEnv/go/analyzer-authorized"]
-	path = GoEnv/go/analyzer-authorized
-	url = https://github.com/bsquarelab/analyzer-authorized.git
 [submodule "API-WAS1/docker-mailbox/mailbox"]
 	path = API-WAS1/docker-mailbox/mailbox
 	url = https://github.com/bsquarelab/upost-portal.git
@@ -19,15 +7,3 @@
 [submodule "API-WAS1/docker-mailbox-front-user/mailbox-front-user"]
 	path = API-WAS1/docker-mailbox-front-user/mailbox-front-user
 	url = https://github.com/bsquarelab/upost-front-user.git
-[submodule "GoEnv/go/DispatchAgent"]
-	path = GoEnv/go/DispatchAgent
-	url = https://github.com/hieuncom/DispatchAgent.git
-[submodule "GoEnv/go/EdocDistCert"]
-	path = GoEnv/go/EdocDistCert
-	url = https://github.com/bsquarelab/EdocDistCert.git
-[submodule "GoEnv/go/CollectAgent"]
-	path = GoEnv/go/CollectAgent
-	url = https://github.com/hieuncom/CollectAgent.git
-[submodule "GoEnv/go/tracer"]
-	path = GoEnv/go/tracer
-	url = https://github.com/bsquarelab/tracer.git
