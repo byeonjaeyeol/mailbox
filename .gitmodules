@@ -10,3 +10,30 @@
 [submodule "GoEnv/go/common"]
 	path = GoEnv/go/common
 	url = https://github.com/posaitsupport/common.git
+[submodule "GoEnv/go/analyzer"]
+	path = GoEnv/go/analyzer
+	url = https://github.com/posaitsupport/analyzer.git
+[submodule "GoEnv/go/analyzer-authorized"]
+	path = GoEnv/go/analyzer-authorized
+	url = https://github.com/posaitsupport/analyzer-authorized.git
+[submodule "GoEnv/go/collector"]
+	path = GoEnv/go/collector
+	url = https://github.com/posaitsupport/collector.git
+[submodule "GoEnv/go/interface"]
+	path = GoEnv/go/interface
+	url = https://github.com/posaitsupport/interface.git
+[submodule "GoEnv/go/tracer"]
+	path = GoEnv/go/tracer
+	url = https://github.com/posaitsupport/tracer.git
+[submodule "GoEnv/go/IljariAgent"]
+	path = GoEnv/go/IljariAgent
+	url = https://github.com/posaitsupport/IljariAgent.git
+[submodule "GoEnv/go/EdocDistCert"]
+	path = GoEnv/go/EdocDistCert
+	url = https://github.com/posaitsupport/EdocDistCert.git
+[submodule "GoEnv/go/CollectAgent"]
+	path = GoEnv/go/CollectAgent
+	url = https://github.com/posaitsupport/CollectAgent.git
+[submodule "GoEnv/go/SyncAgent"]
+	path = GoEnv/go/SyncAgent
+	url = https://github.com/posaitsupport/SyncAgent.git
