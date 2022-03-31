@@ -7,3 +7,6 @@
 [submodule "API-WAS1/docker-mailbox-front-user/mailbox-front-user"]
 	path = API-WAS1/docker-mailbox-front-user/mailbox-front-user
 	url = https://github.com/bsquarelab/upost-front-user.git
+[submodule "GoEnv/go/common"]
+	path = GoEnv/go/common
+	url = https://github.com/posaitsupport/common.git
