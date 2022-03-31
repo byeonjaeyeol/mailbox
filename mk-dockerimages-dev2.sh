@@ -5,5 +5,5 @@ docker build -f ./Service02/docker/Dockerfile -t bsquarelab/upost-service02:0.1 
 docker build -f ./API-WAS1/docker-mailbox-service/Dockerfile -t bsquarelab/upost-node-mailbox:0.1 ./API-WAS1/docker-mailbox-service/
 docker build -f ./API-WAS1/docker-mailbox-front/Dockerfile -t bsquarelab/upost-node-mailbox-front:0.1 ./API-WAS1/docker-mailbox-front/
 docker build -f ./API-WAS1/docker-mailbox-front-user/Dockerfile -t bsquarelab/upost-node-mailbox-front-user:0.1 ./API-WAS1/docker-mailbox-front-user/
-docker build -f ./API-WAS1/docker-mailbox-static/Dockerfile -t bsquarelab/upost-node-static:0.1 ./API-WAS1/docker-mailbox-front/
+docker build -f ./API-WAS1/docker-mailbox-static/Dockerfile -t bsquarelab/upost-node-static:0.1 ./API-WAS1/docker-mailbox-static/
 
