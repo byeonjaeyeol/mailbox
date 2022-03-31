@@ -28,7 +28,7 @@ $ go build -o build/IljariAgent IljariAgent/main.go
 $ go build -o build/collector_1.0.0.0 Collector/src/main.go
 $ go build -o build/CollectAgent CollectAgent/main.go
 $ go build -o build/EdocDistCert EdocDistCert/src/main.go
-$ go build -o build/SyncAgent DispatchAgent/main.go
+$ go build -o build/SyncAgent SyncAgent/main.go
 $ go build -o build/tracer tracer/main.go
 ```
 
@@ -41,7 +41,7 @@ $ env GOOS=linux GOARCH=amd64 go build -o build/IljariAgent IljariAgent/main.go
 $ env GOOS=linux GOARCH=amd64 go build -o build/collector_1.0.0.0 Collector/src/main.go
 $ env GOOS=linux GOARCH=amd64 go build -o build/CollectAgent CollectAgent/main.go
 $ env GOOS=linux GOARCH=amd64 go build -o build/EdocDistCert EdocDistCert/src/main.go
-$ env GOOS=linux GOARCH=amd64 go build -o build/SyncAgent DispatchAgent/main.go
+$ env GOOS=linux GOARCH=amd64 go build -o build/SyncAgent SyncAgent/main.go
 $ env GOOS=linux GOARCH=amd64 go build -o build/tracer tracer/main.go
 ```
 
@@ -55,7 +55,7 @@ $ go build -o buildd/interface/interface interface/src/main.go
 $ go build -o buildd/Collector/collector_1.0.0.0 Collector/src/main.go
 $ go build -o buildd/CollectAgent/CollectAgent CollectAgent/main.go
 $ go build -o buildd/EdocDistCert/EdocDistCert EdocDistCert/src/main.go
-$ go build -o buildd/SyncAgent/SyncAgent DispatchAgent/main.go
+$ go build -o buildd/SyncAgent/SyncAgent SyncAgent/main.go
 $ go build -o buildd/tracer/tracer tracer/main.go
 ```
 
