@@ -1,9 +1,3 @@
-[submodule "API-WAS1/docker-mailbox-front/mailbox-front"]
-	path = API-WAS1/docker-mailbox-front/mailbox-front
-	url = https://github.com/bsquarelab/upost-front.git
-[submodule "API-WAS1/docker-mailbox-front-user/mailbox-front-user"]
-	path = API-WAS1/docker-mailbox-front-user/mailbox-front-user
-	url = https://github.com/bsquarelab/upost-front-user.git
 [submodule "GoEnv/go/common"]
 	path = GoEnv/go/common
 	url = https://github.com/posaitsupport/common.git
@@ -34,6 +28,3 @@
 [submodule "GoEnv/go/SyncAgent"]
 	path = GoEnv/go/SyncAgent
 	url = https://github.com/posaitsupport/SyncAgent.git
-[submodule "API-WAS1/docker-mailbox/mailbox-service"]
-	path = API-WAS1/docker-mailbox/mailbox-service
-	url = https://github.com/posaitsupport/mailbox-service.git
